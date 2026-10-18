@@ -1882,6 +1882,63 @@ html:not(.js) .cv-close {
   }
 }
 
+/* Mobile homepage reveal: retire the scroll cue before the logo settles in. */
+@media (max-width: 800px) {
+  .site-header:has(.header-scroll) .header-inner {
+    transition:
+      opacity 240ms ease 80ms,
+      visibility 0s linear;
+  }
+
+  .site-header:has(.header-scroll).is-hero-hidden .header-inner {
+    transition:
+      opacity 140ms ease,
+      visibility 0s linear 140ms;
+  }
+
+  .site-header:has(.header-scroll) .wordmark {
+    transform: translateY(0);
+    transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1) 60ms;
+  }
+
+  .site-header:has(.header-scroll).is-hero-hidden .wordmark {
+    transform: translateY(8px);
+    transition-delay: 0s;
+  }
+
+  .site-header .header-scroll {
+    display: inline-flex;
+    gap: 0.3em;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      opacity 140ms ease,
+      visibility 0s linear 140ms;
+  }
+
+  .site-header.is-hero-hidden .header-scroll {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition:
+      opacity 180ms ease 120ms,
+      visibility 0s linear 120ms;
+  }
+}
+
+@media (max-width: 800px) and (prefers-reduced-motion: reduce) {
+  .site-header:has(.header-scroll) .header-inner,
+  .site-header:has(.header-scroll).is-hero-hidden .header-inner,
+  .site-header:has(.header-scroll) .wordmark,
+  .site-header:has(.header-scroll).is-hero-hidden .wordmark,
+  .site-header .header-scroll,
+  .site-header.is-hero-hidden .header-scroll {
+    transition: none;
+    transform: none;
+  }
+}
+
 /* PHONES — 580px and narrower */
 @media (max-width: 580px) {
   .aside-details,

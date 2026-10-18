@@ -107,6 +107,8 @@ const headerInner = stickyHeader?.querySelector(".header-inner");
 const headerScroll = stickyHeader?.querySelector(".header-scroll");
 if (heroName && wordmark && stickyHeader && "IntersectionObserver" in window) {
   let logoObserver;
+  let observedWidth;
+  let observedHeaderHeight;
   function setLogoHidden(hidden) {
     // An expanded mobile menu must stay usable even if it moves the hero into view.
     if (hidden && menuButton?.getAttribute("aria-expanded") === "true") return;
@@ -116,6 +118,17 @@ if (heroName && wordmark && stickyHeader && "IntersectionObserver" in window) {
   }
   function observeHeroName() {
     const headerHeight = stickyHeader.getBoundingClientRect().height;
+    // Mobile toolbars change viewport height while scrolling. The existing
+    // observer already follows that; rebuilding it can interrupt the reveal.
+    if (
+      window.matchMedia("(max-width: 800px)").matches &&
+      logoObserver &&
+      observedWidth === window.innerWidth &&
+      observedHeaderHeight === headerHeight
+    )
+      return;
+    observedWidth = window.innerWidth;
+    observedHeaderHeight = headerHeight;
     const rect = heroName.getBoundingClientRect();
     setLogoHidden(rect.bottom > headerHeight && rect.top < window.innerHeight);
     logoObserver?.disconnect();
