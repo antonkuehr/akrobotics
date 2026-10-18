@@ -98,28 +98,112 @@ if ("ResizeObserver" in window) {
   if (skinDate) layoutObserver.observe(skinDate.parentElement);
 }
 
+// On the homepage, reserve the header logo's space while the hero name is visible.
+// Without IntersectionObserver, or on secondary pages, the home link stays visible.
+const heroName = document.getElementById("hero-name");
+const wordmark = document.querySelector(".wordmark");
+const stickyHeader = document.querySelector(".site-header");
+if (heroName && wordmark && stickyHeader && "IntersectionObserver" in window) {
+  let logoObserver;
+  function setLogoHidden(hidden) {
+    wordmark.classList.toggle("is-hidden", hidden);
+    wordmark.inert = hidden;
+    if (hidden) {
+      wordmark.setAttribute("aria-hidden", "true");
+      wordmark.setAttribute("tabindex", "-1");
+    } else {
+      wordmark.removeAttribute("aria-hidden");
+      wordmark.removeAttribute("tabindex");
+    }
+  }
+  function observeHeroName() {
+    const headerHeight = stickyHeader.getBoundingClientRect().height;
+    const rect = heroName.getBoundingClientRect();
+    setLogoHidden(rect.bottom > headerHeight && rect.top < window.innerHeight);
+    logoObserver?.disconnect();
+    logoObserver = new IntersectionObserver(
+      ([entry]) =>
+        setLogoHidden(
+          entry.isIntersecting && entry.intersectionRect.height > 0,
+        ),
+      { rootMargin: `-${headerHeight}px 0px 0px 0px`, threshold: 0 },
+    );
+    logoObserver.observe(heroName);
+  }
+  observeHeroName();
+  window.addEventListener("resize", observeHeroName);
+  if ("ResizeObserver" in window) {
+    new ResizeObserver(observeHeroName).observe(stickyHeader);
+  }
+}
+
 const sectionLinks = Array.from(
   document.querySelectorAll('#site-nav a[href^="#"]'),
 );
 if ("IntersectionObserver" in window && sectionLinks.length) {
-  const observer = new IntersectionObserver(
+  const sections = sectionLinks
+    .map((link) => document.getElementById(link.hash.slice(1)))
+    .filter(Boolean);
+  const pageEnd = document.createElement("div");
+  pageEnd.style.height = "1px";
+  pageEnd.setAttribute("aria-hidden", "true");
+  document.body.append(pageEnd);
+  let sectionObserver;
+  let activationLine = window.innerHeight / 2;
+  let atBottom = false;
+
+  function setActive(id) {
+    sectionLinks.forEach((link) => {
+      const active = link.hash === "#" + id;
+      link.classList.toggle("active", active);
+      if (active) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
+    });
+  }
+
+  function updateActiveSection() {
+    const current = atBottom
+      ? sections.at(-1)
+      : sections.findLast(
+          (section) =>
+            section.getBoundingClientRect().top <= activationLine + 1,
+        );
+    setActive(current?.id);
+  }
+
+  function observeSections() {
+    // Track the section at the viewport centre, below the sticky header.
+    // This also follows intermediate sections during native fragment scrolling.
+    const stickyHeader = document.querySelector(".site-header");
+    activationLine = Math.min(
+      window.innerHeight - 2,
+      Math.max(
+        window.innerHeight / 2,
+        (stickyHeader?.getBoundingClientRect().height || 0) + 1,
+      ),
+    );
+    sectionObserver?.disconnect();
+    sectionObserver = new IntersectionObserver(updateActiveSection, {
+      rootMargin: `-${activationLine}px 0px -${window.innerHeight - activationLine - 1}px 0px`,
+      threshold: 0,
+    });
+    sections.forEach((section) => sectionObserver.observe(section));
+    updateActiveSection();
+  }
+  const bottomObserver = new IntersectionObserver(
     (entries) => {
-      for (const entry of entries) {
-        if (entry.isIntersecting)
-          sectionLinks.forEach((link) => {
-            const active = link.hash === "#" + entry.target.id;
-            link.classList.toggle("active", active);
-            if (active) link.setAttribute("aria-current", "location");
-            else link.removeAttribute("aria-current");
-          });
-      }
+      atBottom = entries[0].isIntersecting;
+      updateActiveSection();
     },
-    { rootMargin: "-15% 0px -65% 0px", threshold: 0 },
+    { threshold: 1 },
   );
-  sectionLinks.forEach((link) => {
-    const section = document.querySelector(link.hash);
-    if (section) observer.observe(section);
-  });
+  bottomObserver.observe(pageEnd);
+  observeSections();
+  window.addEventListener("resize", observeSections);
+  if ("ResizeObserver" in window) {
+    const sectionLayoutObserver = new ResizeObserver(observeSections);
+    sectionLayoutObserver.observe(document.querySelector(".site-header"));
+  }
 }
 
 // Native disclosures remain functional without JavaScript. Animate height in Safari

@@ -4,6 +4,12 @@
 
 The visual system was adapted from [Denis Tolkovets’ portfolio](https://github.com/dtolkovets/dtolkovets.github.io), revision `c4e6ec8`. Layout, content and responsive behaviour were customised for this portfolio. The attribution is also retained in the stylesheet.
 
+## Personal logo and favicon
+
+The final artwork was supplied in `website-logo-final.zip` on 18 October 2026. `assets/site/wordmark.svg` is the outlined white wordmark, used unchanged in the navbar and homepage heading. Its proportions and internal spacing are part of the artwork, independent of the website’s text fonts.
+
+`assets/site/favicon.svg`, `assets/site/favicon-32.png`, `assets/site/apple-touch-icon.png` and the root `favicon.ico` are also copied unchanged from that ZIP. The ICO contains 16, 32 and 48 pixel versions. `assets/site/favicon-192.png` is rendered directly from the supplied favicon SVG; no glyphs or shapes were redrawn.
+
 ## Organisation logos
 
 The following sources were recorded when these marks were added on 7 October 2026. Other existing organisation marks were retained from the portfolio assets. Filenames are relative to `assets/organizations/`.
