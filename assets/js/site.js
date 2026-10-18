@@ -98,23 +98,21 @@ if ("ResizeObserver" in window) {
   if (skinDate) layoutObserver.observe(skinDate.parentElement);
 }
 
-// On the homepage, reserve the header logo's space while the hero name is visible.
+// Hide the homepage navbar while the hero name is visible; preserve its space.
 // Without IntersectionObserver, or on secondary pages, the home link stays visible.
 const heroName = document.getElementById("hero-name");
 const wordmark = document.querySelector(".wordmark");
 const stickyHeader = document.querySelector(".site-header");
+const headerInner = stickyHeader?.querySelector(".header-inner");
+const headerScroll = stickyHeader?.querySelector(".header-scroll");
 if (heroName && wordmark && stickyHeader && "IntersectionObserver" in window) {
   let logoObserver;
   function setLogoHidden(hidden) {
-    wordmark.classList.toggle("is-hidden", hidden);
-    wordmark.inert = hidden;
-    if (hidden) {
-      wordmark.setAttribute("aria-hidden", "true");
-      wordmark.setAttribute("tabindex", "-1");
-    } else {
-      wordmark.removeAttribute("aria-hidden");
-      wordmark.removeAttribute("tabindex");
-    }
+    // An expanded mobile menu must stay usable even if it moves the hero into view.
+    if (hidden && menuButton?.getAttribute("aria-expanded") === "true") return;
+    stickyHeader.classList.toggle("is-hero-hidden", hidden);
+    headerInner.inert = hidden;
+    if (headerScroll) headerScroll.inert = !hidden;
   }
   function observeHeroName() {
     const headerHeight = stickyHeader.getBoundingClientRect().height;
@@ -175,16 +173,17 @@ if ("IntersectionObserver" in window && sectionLinks.length) {
     // Track the section at the viewport centre, below the sticky header.
     // This also follows intermediate sections during native fragment scrolling.
     const stickyHeader = document.querySelector(".site-header");
+    const viewportHeight = Math.max(2, window.innerHeight);
     activationLine = Math.min(
-      window.innerHeight - 2,
+      viewportHeight - 1,
       Math.max(
-        window.innerHeight / 2,
+        viewportHeight / 2,
         (stickyHeader?.getBoundingClientRect().height || 0) + 1,
       ),
     );
     sectionObserver?.disconnect();
     sectionObserver = new IntersectionObserver(updateActiveSection, {
-      rootMargin: `-${activationLine}px 0px -${window.innerHeight - activationLine - 1}px 0px`,
+      rootMargin: `${-activationLine}px 0px ${-(viewportHeight - activationLine - 1)}px 0px`,
       threshold: 0,
     });
     sections.forEach((section) => sectionObserver.observe(section));

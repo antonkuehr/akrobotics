@@ -1,0 +1,188 @@
+AK ROBOTICS — EDITABLE NAVBAR WORDMARK MOTION
+Prepared 19 October 2026
+
+1. SCOPE AND CURRENT SITE
+
+The user approved the revised white-on-dark-green wordmark and favicon from
+“Final Logo and favicon.pdf”, then supplied “wideü.pdf” as a third animation pose.
+The latest request is slower motion with varying speeds and physical-looking
+balls, prepared for a VS Code implementation chat. Keep everything editable.
+
+This package does not modify the website. The working folder is:
+/Users/antonkuhr/Documents/Unterlagen/Antons-Website
+The read-only synced project Sources are historical references, not working code.
+
+Live checkout inspected during preparation:
+- Navbar uses <a class="wordmark"> containing <img class="wordmark-logo">.
+- The image is assets/site/wordmark.svg?v=1 and is also used in the hero.
+- .wordmark-logo has width:5.3687em. The original navbar font size is 20 px.
+- assets/js/site.js measures the .wordmark wrapper for responsive navigation.
+- On the homepage it makes this wrapper .is-hidden, inert and aria-hidden while
+  #hero-name is visible. The new animation must wait until the navbar is visible.
+- Shared assets/css/styles.css and index.html already had uncommitted changes.
+  Preserve those changes and recheck all current files before integrating.
+- Shared CSS and JS have version query strings. Advance references consistently.
+- Current favicon references include ICO, SVG, PNG 32/192 and Apple touch 180.
+These facts are a preparation-time snapshot, not a guarantee of later file state.
+
+2. FILES AND INTEGRATION
+
+wordmark-inline.html is the animated SVG markup. Replace only the navbar's img
+with this inline SVG on each shared-navbar page. Keep its enclosing home link,
+existing accessible name, href and minimum 44 px hit area. The SVG is decorative
+(aria-hidden) because the link already names Anton Kühr. It needs no new title IDs.
+Do not animate the hero logo: retain its existing static image and alt text.
+
+Inline SVG is necessary so the runtime can edit the three path parts. An img
+pointing to an SVG will display correctly but its inner paths cannot be animated
+by the parent page's script. Preserve the data-ak-wordmark and data-ak-part markers.
+
+Suggested destination mapping:
+  assets/wordmark-shapes.js   -> website assets/js/wordmark-shapes.js
+  assets/wordmark-settings.js -> website assets/js/wordmark-settings.js
+  assets/wordmark-motion.js   -> website assets/js/wordmark-motion.js
+  assets/wordmark-init.js     -> website assets/js/wordmark-init.js
+  assets/wordmark-motion.css  -> merge into the existing wordmark CSS section,
+                                 or load once after the shared stylesheet.
+
+Load the four JS files with defer, in that order, after the existing site.js.
+wordmark-init.js handles both deferred and ordinary loads and initAll is idempotent.
+Preserve the current CSS width and aspect ratio. Do not replace the .wordmark
+wrapper, its hide/show classes or the existing responsive measurement logic.
+The animation changes only internal SVG coordinates; its outer box never resizes.
+
+Suggested script references (advance version queries when changing files):
+<script defer src="assets/js/wordmark-shapes.js?v=1"></script>
+<script defer src="assets/js/wordmark-settings.js?v=1"></script>
+<script defer src="assets/js/wordmark-motion.js?v=1"></script>
+<script defer src="assets/js/wordmark-init.js?v=1"></script>
+
+Static site assets, if replacement is needed:
+  assets/wordmark.svg -> website assets/site/wordmark.svg
+  assets/favicon.svg -> website assets/site/favicon.svg
+  assets/favicon-32.png -> website assets/site/favicon-32.png
+  assets/favicon-192.png -> website assets/site/favicon-192.png
+  assets/apple-touch-icon.png -> website assets/site/apple-touch-icon.png
+  assets/favicon.ico -> website favicon.ico
+The static favicon remains the smaller white smiley on #091b17. The wordmark is
+white and transparent. Do not add the abandoned mint or black-on-white variants.
+Do not change the page background just to install the animation; it inherits
+its existing navbar surface. The white SVG colour can be changed with the
+--ak-wordmark-foreground custom property if desired.
+
+3. DEFAULT MOTION AND SCHEDULING
+
+The canonical state order is original -> smiley -> wide -> smiley. All other
+letters stay fixed. Original uses the real font glyph. Smiley and wide use the
+actual dot curves and placements extracted from the user's PDFs. Wide changes
+the dot spacing while keeping the smiley's lower outline unchanged.
+
+The body uses a monotonic smooth ease. Each dot uses a damped spring response,
+a slight independent start delay and a small vertical arc. Different transitions
+have different durations. No circle is stretched as an animation effect.
+The original/font dot outline changes subtly into the PDF's actual circle outline.
+
+Default body transitions: 900–1200 ms; dot flights:1450–1800 ms plus 70/155 ms delay.
+This is deliberately slower than the earlier 380 ms preview. Holds give each
+pose time to read. Two complete intro cycles take approximately 21 seconds at
+normal speed, including the holds. The logo then rests on the smiley.
+
+Automatic introduction waits for the SVG and its wrapper to be visible. Completed
+intro cycles are remembered in sessionStorage. If a cycle is interrupted by
+hiding the logo, it is not counted as completed. It resumes as a fresh cycle on
+visibility. The engine never plays out of sight behind the homepage hero.
+After the intro, an idle cycle is scheduled at a random interval of 60–90 seconds.
+Timers are cancelled and the smiley restored when the tab or logo is hidden.
+The idle countdown starts afresh when visible, so there is no catch-up burst.
+Reduced-motion preference changes cancel motion immediately and keep a static
+smiley. A manual pose selection in the editor changes instantly in reduced mode.
+There is no permanent requestAnimationFrame loop while resting.
+
+4. EDITING THE MOTION AFTER IMPLEMENTATION
+
+Edit assets/js/wordmark-settings.js directly on the website, then advance its
+version query. Settings are plain readable JavaScript:
+- tempo: higher is faster; 0.75 is slower than 1.
+- dots.damping: lower gives more overshoot; keep 0.55–1. Default 0.7 is gentle.
+- dots.frequency: controls acceleration/settling within the allotted dot duration.
+- dots.lagMs: independent left/right start delay.
+- dots.arcUnits: small upward travel arc in font units (20 units is 0.4 px at
+  20 px font-equivalent navbar size; magnified previews show it more clearly).
+- sequence[].bodyMs / dotsMs / holdMs: edit each phase independently.
+- intro.cycles / oncePerSession / storageKey and idle.enabled / minMs / maxMs:
+  control repetition. Change the storage key when deliberately resetting the intro.
+
+motion-preview.html opens locally in a browser with no server or internet needed.
+It loads the same engine, shapes and settings used on the site. Its controls
+change both a magnified wordmark and a real navbar-size sample. “Download revised
+settings” writes a replacement wordmark-settings.js with the edited motion while
+preserving the production intro/idle settings. The preview controls are not part
+of the public site's integration.
+
+Retain this preview as a local development tool in the repository, e.g. under
+tools/wordmark-motion-preview/. Keep its relative paths correct, or adjust its
+script and CSS references to the installed website files so it previews those
+exact files rather than a stale copy. Do not add a public navigation link to it.
+No special editor, subscription or animation library is needed.
+
+5. EDITING THE ARTWORK AFTER IMPLEMENTATION
+
+assets/js/wordmark-shapes.js is the runtime geometry. Each pose has three named
+path command lists: body, leftDot and rightDot. Coordinates are in a 1000-unit
+font space, with y upwards. Lower outline and original wordmark spacing are fixed.
+
+editable-shapes/original.svg, smiley.svg and wide.svg are editable source artwork.
+Keep the font-space group and the three path IDs. Move points or individual dot
+paths. Do not alter the display transform on font-space. To import an edit:
+  python3 tools/import-shape.py wide editable-shapes/wide.svg
+The tool writes both editable-shapes/shapes.json and assets/wordmark-shapes.js.
+It supports individual path transforms and ordinary line/quadratic/cubic paths,
+but rejects incompatible command counts or arc paths with an explanation. Keep
+the existing path points when editing; do not simplify or replace dots with new
+ellipse primitives unless the implementing AI normalises all three poses again.
+
+Editing an SVG alone does not update the site automatically. Run the importer,
+copy/synchronise the generated JS into the installed assets/js location, advance
+its cache version and reload. If editing the resting smiley, update the static
+wordmark.svg, the inline SVG's initial paths and favicon variants too; animation source edits do not regenerate
+those static assets automatically. Keep that distinction explicit.
+
+For edits during a browser session:
+  const svg = document.querySelector('.site-header svg[data-ak-wordmark]');
+  const logo = AKWordmark.get(svg);
+  logo.setOptions({ tempo: 0.8, dots: { damping: 0.72 } });
+  logo.setShape('wide');       // manual selection pauses automatic scheduling
+  logo.playCycle();            // one sequence
+  logo.playIntro();            // two cycles, independent of stored intro count
+  logo.pause();                // cancel current motion, return to smiley
+  logo.resume();               // resume visibility-aware production scheduling
+  logo.setShapeData('wide', newCompatiblePose);
+  logo.getState();
+  logo.destroy();              // disconnect all observers, listeners and timers
+Manual pose/play commands pause automatic scheduling until logo.resume() is called.
+These calls are optional development tools, not a visitor-facing UI.
+
+6. REQUIRED INTEGRATION CHECKS
+
+Run the repository checks documented in docs/DEVELOPMENT.md:
+  python3 scripts/check_site.py
+  npm run check:js
+  npm run format:check
+Also syntax-check the four added JS files; the current check:js script only checks
+site.js. Run the project's formatter over added source files as appropriate.
+
+Inspect desktop and narrow phone widths. Confirm no letter/nav movement, clipping,
+horizontal overflow or menu wrapping. Check that the hero logo stays static,
+nav intro waits until visible, completed intro cycles are not repeated on the
+next page, idle cycles wait 60–90 seconds, hidden tabs/hidden navbar stop animation,
+reduced motion is static, and disabling JS leaves a readable static smiley logo.
+Confirm the home link's name and keyboard hit area survive the img-to-SVG change.
+Reload the editor and ensure the installed settings/shape files remain editable.
+No performance or cross-browser claim should replace these live integration checks.
+
+7. IMPLEMENTATION STATUS
+
+This package and the separate conversation preview were tested in temporary
+Chrome sessions. The website checkout has not been edited by this task. Actual
+site integration, site-specific checks and Safari/Firefox review remain for the
+VS Code chat. Do not present the handoff's demo tests as completed site integration.

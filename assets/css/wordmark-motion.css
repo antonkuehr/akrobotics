@@ -1,0 +1,10 @@
+/* Keep the existing .wordmark wrapper, accessible name and 44 px hit area.
+   Its current responsive width is preserved; none of the motion changes layout. */
+svg:is(.wordmark-logo, .hero-logo)[data-ak-wordmark] {
+  display: block;
+  width: 5.3687em;
+  height: auto;
+  flex: none;
+  overflow: visible;
+  color: var(--ak-wordmark-foreground, #ffffff);
+}

@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>AK Robotics — editable wordmark motion</title>
+    <link rel="stylesheet" href="../../assets/css/wordmark-motion.css?v=2" />
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: "Space Grotesk", system-ui, sans-serif;
+        color: #fff;
+        background: #091b17;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        max-width: 920px;
+        margin: auto;
+        padding: 28px 22px 48px;
+      }
+      h1 {
+        font-size: 24px;
+        font-weight: 500;
+        margin: 0 0 8px;
+      }
+      p {
+        color: #bce8d2;
+        line-height: 1.5;
+      }
+      .big {
+        padding: 28px 0;
+      }
+      .big svg.wordmark-logo {
+        width: 100%;
+        max-width: 760px;
+        height: auto;
+      }
+      .native {
+        font-size: 20px;
+        display: inline-flex;
+        min-height: 44px;
+        align-items: center;
+      }
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+        margin: 14px 0;
+      }
+      .small {
+        font-size: 13px;
+        color: #bce8d2;
+      }
+      button {
+        border: 1px solid #4f9275;
+        border-radius: 7px;
+        padding: 10px 14px;
+        font: inherit;
+        color: #fff;
+        background: transparent;
+        min-height: 44px;
+        cursor: pointer;
+      }
+      button[aria-pressed="true"],
+      button.primary {
+        background: #bce8d2;
+        color: #091b17;
+      }
+      .controls {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 22px;
+        margin: 28px 0;
+      }
+      label {
+        display: grid;
+        gap: 12px;
+      }
+      input {
+        width: 100%;
+        accent-color: #bce8d2;
+        min-height: 32px;
+      }
+      output {
+        float: right;
+      }
+      :focus-visible {
+        outline: 2px solid #bce8d2;
+        outline-offset: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Wordmark motion</h1>
+    <p>
+      This preview stays editable after integration. Save revised settings with
+      the button below, then replace the website’s settings file.
+    </p>
+    <div class="big" id="large">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="wordmark-logo"
+        data-ak-wordmark
+        viewBox="0 0 5368.700000000001 754"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <g fill="currentColor" transform="translate(-1 720) scale(1 -1)">
+          <path
+            d="M21 0 221 700H411L610 0H499L453 165H179L133 0ZM206 265H426L324 633H308Z"
+            transform="translate(0 0)"
+          />
+          <path
+            d="M76 0V493H177V419H193Q207 449 243.0 475.0Q279 501 350 501Q406 501 449.5 476.0Q493 451 518.0 405.5Q543 360 543 296V0H440V288Q440 352 408.0 382.5Q376 413 320 413Q256 413 217.5 371.0Q179 329 179 249V0Z"
+            transform="translate(632.0 0)"
+          />
+          <path
+            d="M261 0Q216 0 189.5 27.0Q163 54 163 99V406H27V493H163V656H266V493H413V406H266V117Q266 87 294 87H397V0Z"
+            transform="translate(1232.9 0)"
+          />
+          <path
+            d="M307 -14Q233 -14 175.5 16.5Q118 47 85.0 104.0Q52 161 52 239V254Q52 332 85.0 388.5Q118 445 175.5 476.0Q233 507 307 507Q381 507 439.0 476.0Q497 445 530.0 388.5Q563 332 563 254V239Q563 161 530.0 104.0Q497 47 439.0 16.5Q381 -14 307 -14ZM307 78Q375 78 417.5 121.5Q460 165 460 242V251Q460 328 418.0 371.5Q376 415 307 415Q240 415 197.5 371.5Q155 328 155 251V242Q155 165 197.5 121.5Q240 78 307 78Z"
+            transform="translate(1673.1000000000001 0)"
+          />
+          <path
+            d="M76 0V493H177V419H193Q207 449 243.0 475.0Q279 501 350 501Q406 501 449.5 476.0Q493 451 518.0 405.5Q543 360 543 296V0H440V288Q440 352 408.0 382.5Q376 413 320 413Q256 413 217.5 371.0Q179 329 179 249V0Z"
+            transform="translate(2288.0000000000005 0)"
+          />
+          <path
+            d="M73 0V700H181V409H197L458 700H599L283 355L610 0H465L197 297H181V0Z"
+            transform="translate(3157.6000000000004 0)"
+          />
+          <g transform="translate(3764.7000000000003 0)">
+            <path
+              data-ak-part="body"
+              d="M265 -9 C227.666666667 -9 194.333333333 -0.666666667 165 16 C135.666666667 32.666666667 112.666666667 56.333333333 96 87 C79.333333333 117.666666667 71 154.333333333 71 197 L71 316.354052987 L174 316.354052987 L174 204 C174 161.333333333 184.666666667 129.833333333 206 109.5 C227.333333333 89.166666667 257 79 295 79 C337 79 370.833333333 93.166666667 396.5 121.5 C422.166666667 149.833333333 435 190.666666667 435 244 L435 316.354052987 L538 316.354052987 L538 0 L437 0 L437 74 L421 74 C411.666666667 54 395 35.166666667 371 17.5 C347 -0.166666667 311.666666667 -9 265 -9 Z"
+            />
+            <path
+              data-ak-part="leftDot"
+              d="M177.071251765 402.793808834 C157.623424712 402.793808834 140.016902098 410.676573201 127.272336247 423.421216692 C114.527770396 436.165860182 106.645161309 453.772382796 106.645161309 473.21989929 C106.645161309 492.667726344 114.527770396 510.274248958 127.272336247 523.018814808 C140.016902098 535.763380659 157.623424712 543.645989746 177.071251765 543.645989746 C196.518768259 543.645989746 214.125290873 535.763380659 226.869934364 523.018814808 C239.614577854 510.274248958 247.497342221 492.667726344 247.497342221 473.21989929 C247.497342221 453.772382796 239.614577854 436.165860182 226.869934364 423.421216692 C214.125290873 410.676573201 196.518768259 402.793808834 177.071251765 402.793808834 Z"
+            />
+            <path
+              data-ak-part="rightDot"
+              d="M381.330889244 402.793808834 C361.88306219 402.793808834 344.276539576 410.676573201 331.531973726 423.421216692 C318.787407875 436.165860182 310.904798788 453.772382796 310.904798788 473.21989929 C310.904798788 492.667726344 318.787407875 510.274248958 331.531973726 523.018814808 C344.276539576 535.763380659 361.88306219 543.645989746 381.330889244 543.645989746 C400.778405738 543.645989746 418.384928352 535.763380659 431.129571842 523.018814808 C443.874215333 510.274248958 451.7569797 492.667726344 451.7569797 473.21989929 C451.7569797 453.772382796 443.874215333 436.165860182 431.129571842 423.421216692 C418.384928352 410.676573201 400.778405738 402.793808834 381.330889244 402.793808834 Z"
+            />
+          </g>
+          <path
+            d="M76 0V700H179V423H195Q205 442 223.5 460.0Q242 478 272.5 489.5Q303 501 350 501Q406 501 449.5 476.0Q493 451 518.0 405.5Q543 360 543 296V0H440V288Q440 352 408.0 382.5Q376 413 320 413Q256 413 217.5 371.0Q179 329 179 249V0Z"
+            transform="translate(4378.800000000001 0)"
+          />
+          <path
+            d="M76 0V493H177V435H193Q205 466 231.5 480.5Q258 495 297 495H356V402H293Q243 402 211.0 374.5Q179 347 179 290V0Z"
+            transform="translate(4993.700000000001 0)"
+          />
+        </g>
+      </svg>
+    </div>
+    <div class="row">
+      <span class="small">Navbar size</span>
+      <div class="native" id="small">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="wordmark-logo"
+          data-ak-wordmark
+          viewBox="0 0 5368.700000000001 754"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <g fill="currentColor" transform="translate(-1 720) scale(1 -1)">
+            <path
+              d="M21 0 221 700H411L610 0H499L453 165H179L133 0ZM206 265H426L324 633H308Z"
+              transform="translate(0 0)"
+            />
+            <path
+              d="M76 0V493H177V419H193Q207 449 243.0 475.0Q279 501 350 501Q406 501 449.5 476.0Q493 451 518.0 405.5Q543 360 543 296V0H440V288Q440 352 408.0 382.5Q376 413 320 413Q256 413 217.5 371.0Q179 329 179 249V0Z"
+              transform="translate(632.0 0)"
+            />
+            <path
+              d="M261 0Q216 0 189.5 27.0Q163 54 163 99V406H27V493H163V656H266V493H413V406H266V117Q266 87 294 87H397V0Z"
+              transform="translate(1232.9 0)"
+            />
+            <path
+              d="M307 -14Q233 -14 175.5 16.5Q118 47 85.0 104.0Q52 161 52 239V254Q52 332 85.0 388.5Q118 445 175.5 476.0Q233 507 307 507Q381 507 439.0 476.0Q497 445 530.0 388.5Q563 332 563 254V239Q563 161 530.0 104.0Q497 47 439.0 16.5Q381 -14 307 -14ZM307 78Q375 78 417.5 121.5Q460 165 460 242V251Q460 328 418.0 371.5Q376 415 307 415Q240 415 197.5 371.5Q155 328 155 251V242Q155 165 197.5 121.5Q240 78 307 78Z"
+              transform="translate(1673.1000000000001 0)"
+            />
+            <path
+              d="M76 0V493H177V419H193Q207 449 243.0 475.0Q279 501 350 501Q406 501 449.5 476.0Q493 451 518.0 405.5Q543 360 543 296V0H440V288Q440 352 408.0 382.5Q376 413 320 413Q256 413 217.5 371.0Q179 329 179 249V0Z"
+              transform="translate(2288.0000000000005 0)"
+            />
+            <path
+              d="M73 0V700H181V409H197L458 700H599L283 355L610 0H465L197 297H181V0Z"
+              transform="translate(3157.6000000000004 0)"
+            />
+            <g transform="translate(3764.7000000000003 0)">
+              <path
+                data-ak-part="body"
+                d="M265 -9 C227.666666667 -9 194.333333333 -0.666666667 165 16 C135.666666667 32.666666667 112.666666667 56.333333333 96 87 C79.333333333 117.666666667 71 154.333333333 71 197 L71 316.354052987 L174 316.354052987 L174 204 C174 161.333333333 184.666666667 129.833333333 206 109.5 C227.333333333 89.166666667 257 79 295 79 C337 79 370.833333333 93.166666667 396.5 121.5 C422.166666667 149.833333333 435 190.666666667 435 244 L435 316.354052987 L538 316.354052987 L538 0 L437 0 L437 74 L421 74 C411.666666667 54 395 35.166666667 371 17.5 C347 -0.166666667 311.666666667 -9 265 -9 Z"
+              />
+              <path
+                data-ak-part="leftDot"
+                d="M177.071251765 402.793808834 C157.623424712 402.793808834 140.016902098 410.676573201 127.272336247 423.421216692 C114.527770396 436.165860182 106.645161309 453.772382796 106.645161309 473.21989929 C106.645161309 492.667726344 114.527770396 510.274248958 127.272336247 523.018814808 C140.016902098 535.763380659 157.623424712 543.645989746 177.071251765 543.645989746 C196.518768259 543.645989746 214.125290873 535.763380659 226.869934364 523.018814808 C239.614577854 510.274248958 247.497342221 492.667726344 247.497342221 473.21989929 C247.497342221 453.772382796 239.614577854 436.165860182 226.869934364 423.421216692 C214.125290873 410.676573201 196.518768259 402.793808834 177.071251765 402.793808834 Z"
+              />
+              <path
+                data-ak-part="rightDot"
+                d="M381.330889244 402.793808834 C361.88306219 402.793808834 344.276539576 410.676573201 331.531973726 423.421216692 C318.787407875 436.165860182 310.904798788 453.772382796 310.904798788 473.21989929 C310.904798788 492.667726344 318.787407875 510.274248958 331.531973726 523.018814808 C344.276539576 535.763380659 361.88306219 543.645989746 381.330889244 543.645989746 C400.778405738 543.645989746 418.384928352 535.763380659 431.129571842 523.018814808 C443.874215333 510.274248958 451.7569797 492.667726344 451.7569797 473.21989929 C451.7569797 453.772382796 443.874215333 436.165860182 431.129571842 423.421216692 C418.384928352 410.676573201 400.778405738 402.793808834 381.330889244 402.793808834 Z"
+              />
+            </g>
+            <path
+              d="M76 0V700H179V423H195Q205 442 223.5 460.0Q242 478 272.5 489.5Q303 501 350 501Q406 501 449.5 476.0Q493 451 518.0 405.5Q543 360 543 296V0H440V288Q440 352 408.0 382.5Q376 413 320 413Q256 413 217.5 371.0Q179 329 179 249V0Z"
+              transform="translate(4378.800000000001 0)"
+            />
+            <path
+              d="M76 0V493H177V435H193Q205 466 231.5 480.5Q258 495 297 495H356V402H293Q243 402 211.0 374.5Q179 347 179 290V0Z"
+              transform="translate(4993.700000000001 0)"
+            />
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div class="row" id="poses">
+      <button data-shape="original" aria-pressed="false">Original ü</button>
+      <button data-shape="smiley" aria-pressed="true">Smiley</button>
+      <button data-shape="wide" aria-pressed="false">Wide / handshake</button>
+      <button class="primary" id="play">Play slow sequence</button>
+      <button id="intro">Play intro twice</button>
+      <button id="pause">Stop</button>
+    </div>
+    <div class="controls">
+      <label for="speed"
+        >Speed <output id="speed-value">1×</output
+        ><input id="speed" type="range" min="0.5" max="2" step="0.05" value="1"
+      /></label>
+      <label for="bounce"
+        >Bounce <output id="bounce-value">63%</output
+        ><input id="bounce" type="range" min="0" max="100" step="1" value="63"
+      /></label>
+      <label for="lag"
+        >Dot delay <output id="lag-value">70 ms</output
+        ><input id="lag" type="range" min="0" max="250" step="5" value="70"
+      /></label>
+    </div>
+    <div class="row">
+      <button id="save">Download revised settings</button
+      ><span class="small" aria-live="polite" id="status">Smiley</span>
+    </div>
+    <p class="small">
+      Edit the three SVGs in editable-shapes/ to revise the artwork. HANDOFF.txt
+      explains how to import them and how to tune every motion setting.
+      Reduced-motion preferences are respected here too.
+    </p>
+    <script src="../../assets/js/wordmark-shapes.js?v=1"></script>
+    <script src="../../assets/js/wordmark-settings.js?v=1"></script>
+    <script src="../../assets/js/wordmark-motion.js?v=1"></script>
+    <script>
+      (() => {
+        const names = {
+          original: "Original ü",
+          smiley: "Smiley",
+          wide: "Wide / handshake",
+        };
+        const elements = [
+          ...document.querySelectorAll("svg[data-ak-wordmark]"),
+        ];
+        const controllers = elements.map((svg) =>
+          AKWordmark.create(svg, { autoStart: false }),
+        );
+        const speed = document.getElementById("speed"),
+          bounce = document.getElementById("bounce"),
+          lag = document.getElementById("lag");
+        speed.value = AK_WORDMARK_SETTINGS.tempo;
+        bounce.value = Math.round(
+          ((0.95 - AK_WORDMARK_SETTINGS.dots.damping) / 0.4) * 100,
+        );
+        lag.value = AK_WORDMARK_SETTINGS.dots.lagMs[0];
+        function settings() {
+          return {
+            ...AK_WORDMARK_SETTINGS,
+            tempo: +speed.value,
+            dots: {
+              ...AK_WORDMARK_SETTINGS.dots,
+              damping: +(0.95 - (0.4 * bounce.value) / 100).toFixed(4),
+              lagMs: [+lag.value, +lag.value + 85],
+            },
+          };
+        }
+        function labels() {
+          document.getElementById("speed-value").textContent =
+            +speed.value + "×";
+          document.getElementById("bounce-value").textContent =
+            bounce.value + "%";
+          document.getElementById("lag-value").textContent = lag.value + " ms";
+        }
+        function apply() {
+          labels();
+          controllers.forEach((c) => c.setOptions(settings()));
+        }
+        [speed, bounce, lag].forEach((input) =>
+          input.addEventListener("input", apply),
+        );
+        labels();
+        document
+          .querySelectorAll("[data-shape]")
+          .forEach((b) =>
+            b.addEventListener("click", () =>
+              controllers.forEach((c) => c.setShape(b.dataset.shape)),
+            ),
+          );
+        document
+          .getElementById("play")
+          .addEventListener("click", () =>
+            controllers.forEach((c) => c.playCycle()),
+          );
+        document
+          .getElementById("intro")
+          .addEventListener("click", () =>
+            controllers.forEach((c) => c.playIntro()),
+          );
+        document
+          .getElementById("pause")
+          .addEventListener("click", () =>
+            controllers.forEach((c) => c.pause()),
+          );
+        elements[0].addEventListener("akwordmarkchange", (e) => {
+          const s = e.detail;
+          document.getElementById("status").textContent =
+            (s.busy ? "Moving to " : "") +
+            names[s.busy ? s.target : s.shape] +
+            (s.reducedMotion ? " · reduced motion" : "");
+          document
+            .querySelectorAll("[data-shape]")
+            .forEach((b) =>
+              b.setAttribute(
+                "aria-pressed",
+                String(b.dataset.shape === (s.busy ? s.target : s.shape)),
+              ),
+            );
+        });
+        document.getElementById("save").addEventListener("click", () => {
+          const file =
+            "/* Editable AK Robotics wordmark motion settings. */\nwindow.AK_WORDMARK_SETTINGS = " +
+            JSON.stringify(settings(), null, 2) +
+            ";\n";
+          const url = URL.createObjectURL(
+              new Blob([file], { type: "text/javascript" }),
+            ),
+            a = document.createElement("a");
+          a.href = url;
+          a.download = "wordmark-settings.js";
+          a.click();
+          setTimeout(() => URL.revokeObjectURL(url), 1000);
+        });
+        window.motionPreview = { controllers, elements, settings };
+      })();
+    </script>
+  </body>
+</html>

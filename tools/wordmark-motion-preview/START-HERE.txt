@@ -1,0 +1,30 @@
+Please implement the editable navbar wordmark animation from this package in:
+/Users/antonkuhr/Documents/Unterlagen/Antons-Website
+
+Read HANDOFF.txt first and inspect the current working files before editing.
+Preserve unrelated changes already present in the checkout.
+
+Use the supplied original, smiley and wide/handshake vector states exactly.
+Only the ü should animate; keep the rest of “Anton Kühr” and the navbar width fixed.
+Use the slower, non-uniform motion from wordmark-settings.js: a smooth letter
+body and gently springing dots with slight stagger and curved travel. The dots
+should accelerate and settle like small physical objects, without exaggerated
+squashing or constant bouncing.
+
+Play two introduction cycles once per browser session, waiting until the navbar
+logo actually becomes visible. Then rest on the smiley and play one occasional
+cycle every 60–90 seconds while visible. Respect reduced motion, hidden tabs and
+the homepage's existing hidden-navbar-logo behaviour. Keep the hero logo static.
+
+Keep all shapes and motion settings separately editable as ordinary SVG/JS files.
+Retain the local motion-preview.html editor and the SVG import tool so I can
+change speed, bounce, delay or geometry after implementation. Its controls must
+not appear in the public navbar. Do not replace the animation with a video/GIF
+or compile the source into an opaque asset. Use the supplied static logo and
+favicon fallbacks; no further colour variants are wanted.
+
+Integrate across the shared navbar pages, preserve accessible home-link labels
+and responsive navigation, advance the appropriate cache-version queries, run
+the repository's checks and inspect desktop/mobile rendering. Work on the actual
+current files, not the dated project source snapshots. Report the changes and
+any remaining issues. This package is a handoff; its creator did not edit the site.
