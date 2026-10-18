@@ -4,3 +4,12 @@ __pycache__/
 .akrobotics-qa.html
 node_modules/
 .local-notes/
+
+# Local design uploads and handoff records; runtime/editor sources stay tracked.
+/*.zip
+/assets/site/*.pptx
+/tools/wordmark-motion-preview/HANDOFF.txt
+/tools/wordmark-motion-preview/START-HERE.txt
+/tools/wordmark-motion-preview/SOURCES.txt
+/tools/wordmark-motion-preview/TEST-RESULTS.txt
+/tools/wordmark-motion-preview/wordmark-inline.html

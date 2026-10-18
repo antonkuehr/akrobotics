@@ -172,7 +172,6 @@ if ("IntersectionObserver" in window && sectionLinks.length) {
   function observeSections() {
     // Track the section at the viewport centre, below the sticky header.
     // This also follows intermediate sections during native fragment scrolling.
-    const stickyHeader = document.querySelector(".site-header");
     const viewportHeight = Math.max(2, window.innerHeight);
     activationLine = Math.min(
       viewportHeight - 1,
@@ -201,7 +200,7 @@ if ("IntersectionObserver" in window && sectionLinks.length) {
   window.addEventListener("resize", observeSections);
   if ("ResizeObserver" in window) {
     const sectionLayoutObserver = new ResizeObserver(observeSections);
-    sectionLayoutObserver.observe(document.querySelector(".site-header"));
+    sectionLayoutObserver.observe(stickyHeader);
   }
 }
 

@@ -6,7 +6,6 @@
   const PARTS = ["body", "leftDot", "rightDot"];
   const clone = (value) => JSON.parse(JSON.stringify(value));
   const controllers = new WeakMap();
-  const active = new Set();
   const clamp = (value, lo, hi) => Math.min(hi, Math.max(lo, value));
   const mix = (a, b, t) => a + (b - a) * t;
   const smooth = (t) => t * t * (3 - 2 * t);
@@ -176,7 +175,6 @@
         this.intersection.observe(svg);
       }
       controllers.set(svg, this);
-      active.add(this);
       this._sync();
     }
     _readIntro() {
@@ -223,12 +221,8 @@
         )
           return false;
       }
-      const style = getComputedStyle(this.owner);
       const box = this.svg.getBoundingClientRect();
       return (
-        style.display !== "none" &&
-        style.visibility !== "hidden" &&
-        +style.opacity > 0.01 &&
         box.width > 0 &&
         box.height > 0 &&
         box.bottom > 0 &&
@@ -472,7 +466,6 @@
       this.observer.disconnect();
       this.intersection?.disconnect();
       controllers.delete(this.svg);
-      active.delete(this);
     }
   }
   window.AKWordmark = {

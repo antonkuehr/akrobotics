@@ -6,9 +6,11 @@ The visual system was adapted from [Denis Tolkovets’ portfolio](https://github
 
 ## Personal logo and favicon
 
-The final artwork was supplied in `website-logo-final.zip` on 18 October 2026. `assets/site/wordmark.svg` is the outlined white wordmark, used unchanged in the navbar and homepage heading. Its proportions and internal spacing are part of the artwork, independent of the website’s text fonts.
+The original designs came from the supplied `website-logo-final.zip` and `navbar-motion-vscode-handoff.zip` packages. Original uploads and handoff notes are kept locally in the ignored `.local-notes/` archive, outside the published assets.
 
-`assets/site/favicon.svg`, `assets/site/favicon-32.png`, `assets/site/apple-touch-icon.png` and the root `favicon.ico` are also copied unchanged from that ZIP. The ICO contains 16, 32 and 48 pixel versions. `assets/site/favicon-192.png` is rendered directly from the supplied favicon SVG; no glyphs or shapes were redrawn.
+The hero and navbar use inline SVG artwork with editable ü animation geometry. The static outlined white wordmark remains in `assets/site/wordmark.svg`. Editable SVG states, motion settings, the preview and the importer are documented in [the wordmark editor guide](../tools/wordmark-motion-preview/README.md).
+
+The current favicon preserves the supplied white ü artwork on a circular dark-green background with transparent corners. `assets/site/favicon.svg` is the vector source; PNG variants are 32, 192 and 512 pixels, with a 180-pixel Apple Touch Icon. The root `favicon.ico` includes 16, 32, 48, 64, 128 and 256 pixel versions.
 
 ## Organisation logos
 
@@ -27,6 +29,6 @@ The following sources were recorded when these marks were added on 7 October 202
 
 ## Project media
 
-Project photos, CAD views and technical figures are grouped under `assets/projects/`. Original supporting figures are retained alongside browser-friendly redraws where they document the same work. Prototype stages and team contributions are described on the corresponding project page; see [Content sources](CONTENT.md) for their evidence and limits.
+Project photos, CAD views and technical figures are grouped under `assets/projects/`. Assets referenced by the current pages remain here. Unreferenced original figures, superseded icons and source-only files are retained in the ignored local cleanup archive, with their original paths and checksums recorded for recovery. Prototype stages and team contributions are described on the corresponding project page; see [Content sources](CONTENT.md) for their evidence and limits.
 
 Public personal documents live under `assets/site/certificates/` and use descriptive filenames. Source-only files and private editorial notes are not part of the published assets.
