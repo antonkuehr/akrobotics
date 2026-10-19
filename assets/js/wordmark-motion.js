@@ -1,6 +1,6 @@
 /* AK Robotics editable SVG wordmark. Plain JavaScript, no build or dependencies.
    Load shapes.js and settings.js before this file. It never modifies site navigation.
-   The SVG remains a static smiley if JavaScript is unavailable. */
+   The SVG remains a static normal ü if JavaScript is unavailable. */
 (() => {
   "use strict";
   const PARTS = ["body", "leftDot", "rightDot"];
@@ -9,6 +9,7 @@
   const clamp = (value, lo, hi) => Math.min(hi, Math.max(lo, value));
   const mix = (a, b, t) => a + (b - a) * t;
   const smooth = (t) => t * t * (3 - 2 * t);
+  const smoother = (t) => t * t * t * (t * (t * 6 - 15) + 10);
 
   function merge(base, patch) {
     const out = clone(base);
@@ -62,6 +63,11 @@
     if (!shapes[s.restShape]) throw new Error("Unknown resting shape");
     if (!(Number.isInteger(s.intro.cycles) && s.intro.cycles >= 0))
       throw new Error("intro.cycles must be a non-negative integer");
+    if (
+      s.intro.delayMs !== undefined &&
+      !(Number.isFinite(s.intro.delayMs) && s.intro.delayMs >= 0)
+    )
+      throw new Error("intro.delayMs must be non-negative");
     for (const [name, value] of [
       ["intro.revealCycles", s.intro.revealCycles],
       ["idle.cycles", s.idle.cycles],
@@ -73,13 +79,49 @@
       throw new Error("dots.damping must be between 0.55 and 1");
     if (!(Number.isFinite(s.dots.frequency) && s.dots.frequency > 0))
       throw new Error("dots.frequency must be positive");
-    for (const key of ["lagMs", "arcUnits"]) {
+    for (const key of ["lagMs", "arcUnits", "returnInwardUnits"]) {
+      if (key === "returnInwardUnits" && s.dots[key] === undefined) continue;
       if (!(
         Array.isArray(s.dots[key]) &&
         s.dots[key].length === 2 &&
         s.dots[key].every((v) => Number.isFinite(v) && v >= 0)
       ))
         throw new Error("Invalid dots." + key);
+    }
+    const effects = s.experiments;
+    if (effects?.enabled) {
+      const wink = effects.wink;
+      if (
+        wink?.enabled &&
+        !(
+          ["leftDot", "rightDot"].includes(wink.eye) &&
+          Number.isFinite(wink.durationMs) &&
+          wink.durationMs > 0 &&
+          Number.isFinite(wink.closedScale) &&
+          wink.closedScale > 0 &&
+          wink.closedScale < 1 &&
+          [wink.beforeMs, wink.afterMs].every(
+            (value) =>
+              value === undefined || (Number.isFinite(value) && value >= 0),
+          )
+        )
+      )
+        throw new Error("Invalid wink experiment");
+      const shake = effects.handshake;
+      if (
+        shake?.enabled &&
+        !(
+          Number.isFinite(shake.durationMs) &&
+          shake.durationMs > 0 &&
+          Number.isFinite(shake.amplitudeUnits) &&
+          shake.amplitudeUnits >= 0 &&
+          (shake.downwardScale === undefined ||
+            (Number.isFinite(shake.downwardScale) &&
+              shake.downwardScale >= 0 &&
+              shake.downwardScale <= 1))
+        )
+      )
+        throw new Error("Invalid handshake experiment");
     }
     if (!(
       Number.isFinite(s.idle.minMs) &&
@@ -93,7 +135,11 @@
       if (
         !shapes[step.shape] ||
         ![step.bodyMs, step.dotsMs].every((n) => Number.isFinite(n) && n > 0) ||
-        !(Number.isFinite(step.holdMs) && step.holdMs >= 0)
+        !(Number.isFinite(step.holdMs) && step.holdMs >= 0) ||
+        (step.synchronized !== undefined &&
+          typeof step.synchronized !== "boolean") ||
+        (step.easing !== undefined &&
+          !["smooth", "smoother"].includes(step.easing))
       )
         throw new Error("Invalid animation step");
     }
@@ -332,11 +378,18 @@
       }
       const startValue = clone(this.current),
         target = this.shapes[name];
+      const returningToNormal =
+        name === "original" &&
+        (this.shape !== "original" ||
+          (this.target && this.target !== "original"));
       const tempo = this.settings.tempo,
         dots = clone(this.settings.dots);
+      // Synchronized steps share duration, easing and start time for every part.
+      const synchronized = step.synchronized === true;
+      const easing = step.easing === "smoother" ? smoother : smooth;
       const bodyMs = step.bodyMs / tempo,
-        dotsMs = step.dotsMs / tempo;
-      const lags = dots.lagMs.map((v) => v / tempo);
+        dotsMs = synchronized ? bodyMs : step.dotsMs / tempo;
+      const lags = synchronized ? [0, 0] : dots.lagMs.map((v) => v / tempo);
       const total = Math.max(bodyMs, dotsMs + Math.max(...lags));
       const start = performance.now();
       this.target = name;
@@ -361,17 +414,28 @@
               0,
               1,
             );
-            const progress = i
-              ? spring(t, dots.damping, dots.frequency)
-              : smooth(t);
-            // Add a small curved flight, never a scaling/squashing of the balls.
-            const arc = i ? Math.sin(Math.PI * t) * dots.arcUnits[i - 1] : 0;
+            const progress =
+              i && !synchronized
+                ? spring(t, dots.damping, dots.frequency)
+                : easing(t);
+            const returning = i && returningToNormal;
+            // On the return, bow each dot towards the centre and then back out.
+            // The envelope has zero slope at both ends, avoiding a sharp join.
+            const inward = returning
+              ? (i === 1 ? 1 : -1) *
+                Math.sin(Math.PI * clamp(progress, 0, 1)) ** 2 *
+                (dots.returnInwardUnits?.[i - 1] || 0)
+              : 0;
+            const arc =
+              i && !returning && !synchronized
+                ? Math.sin(Math.PI * t) * dots.arcUnits[i - 1]
+                : 0;
             value[part] = startValue[part].map((op, j) =>
               op.map((v, k) => {
                 if (k === 0) return v;
                 return (
                   mix(v, target[part][j][k], progress) +
-                  (i && k % 2 === 0 ? arc : 0)
+                  (i ? (k % 2 === 0 ? arc : inward) : 0)
                 );
               }),
             );
@@ -388,6 +452,107 @@
         raf = requestAnimationFrame(frame);
       });
     }
+    async _hold(step, signal) {
+      const effects = this.settings.experiments;
+      const effect =
+        effects?.enabled &&
+        (step.shape === "smiley"
+          ? effects.wink
+          : step.shape === "wide"
+            ? effects.handshake
+            : null);
+      // Preserve both blink pauses even if the pose hold is shortened in settings.
+      const winkMs =
+        step.shape === "smiley" && effect?.enabled
+          ? (effect.beforeMs || 0) + effect.durationMs + (effect.afterMs || 0)
+          : 0;
+      const total = Math.max(step.holdMs, winkMs) / this.settings.tempo;
+      if (!effect?.enabled || total <= 0 || this.reduced.matches)
+        return wait(total, signal);
+      // Begin the handshake as soon as the outward transition has finished.
+      const delay =
+        step.shape === "wide"
+          ? 0
+          : Math.min(total, (effect.beforeMs ?? 120) / this.settings.tempo);
+      const duration = Math.min(
+        effect.durationMs / this.settings.tempo,
+        total - delay,
+      );
+      if (delay > 0 && !(await wait(delay, signal))) return false;
+      const base = clone(this.shapes[step.shape]);
+      const eyeY =
+        step.shape === "smiley"
+          ? base[effect.eye].flatMap((op) =>
+              op.slice(2).filter((_, i) => i % 2 === 0),
+            )
+          : [];
+      const eyeCentre = eyeY.length
+        ? (Math.min(...eyeY) + Math.max(...eyeY)) / 2
+        : 0;
+      const start = performance.now();
+      const played = await new Promise((resolve) => {
+        let raf;
+        const finish = (ok) => {
+          cancelAnimationFrame(raf);
+          signal.removeEventListener("abort", abort);
+          resolve(ok);
+        };
+        const abort = () => finish(false);
+        if (signal.aborted) return finish(false);
+        signal.addEventListener("abort", abort, { once: true });
+        const frame = (now) => {
+          if (signal.aborted) return finish(false);
+          const t = clamp((now - start) / duration, 0, 1);
+          const value = clone(base);
+          if (step.shape === "smiley") {
+            // Quick close, a short closed beat, then a softer opening.
+            const close =
+              t < 0.35
+                ? smooth(t / 0.35)
+                : t < 0.5
+                  ? 1
+                  : 1 - smooth((t - 0.5) / 0.5);
+            const scaleY = 1 - close * (1 - effect.closedScale);
+            value[effect.eye] = base[effect.eye].map((op) =>
+              op.map((v, k) =>
+                k > 0 && k % 2 === 0 ? eyeCentre + (v - eyeCentre) * scaleY : v,
+              ),
+            );
+          } else {
+            // Shake only the central lower connector. Stems and both heads stay put.
+            // Keep the upward stroke and timing; reduce only the downward reach.
+            // Every stroke still eases smoothly into its next turnaround.
+            const down = effect.downwardScale ?? 1;
+            const gesture =
+              t < 0.25
+                ? smoother(t * 4)
+                : t < 0.75
+                  ? 1 - (1 + down) * smoother((t - 0.25) * 2)
+                  : -down + down * smoother((t - 0.75) * 4);
+            const shake = gesture * effect.amplitudeUnits;
+            value.body = base.body.map((op) =>
+              op.map((v, k) => {
+                if (!k || k % 2 !== 0) return v;
+                const x = op[k - 1];
+                const centreWeight =
+                  Math.sin(Math.PI * clamp((x - 174) / (435 - 174), 0, 1)) ** 2;
+                const lowerWeight = 1 - smooth(clamp((v - 120) / 160, 0, 1));
+                return v + shake * centreWeight * lowerWeight;
+              }),
+            );
+          }
+          this._draw(value);
+          if (t < 1) raf = requestAnimationFrame(frame);
+          else {
+            this._draw(base);
+            finish(true);
+          }
+        };
+        raf = requestAnimationFrame(frame);
+      });
+      if (!played) return false;
+      return wait(Math.max(0, total - delay - duration), signal);
+    }
     async _sequence(cycles, automaticIntro) {
       if (this.destroyed || this.reduced.matches || !this._visible()) {
         this._rest();
@@ -397,11 +562,17 @@
         signal = command.signal;
       this.lastCycleStartedAt = automaticIntro ? null : performance.now();
       this._emit();
+      // A reveal delay is cancellable and runs once before the first cycle.
+      // Manual preview playback remains immediate.
+      if (
+        automaticIntro &&
+        !(await wait(this.settings.intro.delayMs || 0, signal))
+      )
+        return false;
       for (let round = 0; round < cycles; round++) {
         for (const step of this.settings.sequence) {
           if (!(await this._move(step.shape, step, signal))) return false;
-          if (!(await wait(step.holdMs / this.settings.tempo, signal)))
-            return false;
+          if (!(await this._hold(step, signal))) return false;
         }
         if (automaticIntro) {
           this.completed++;
