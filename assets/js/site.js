@@ -146,7 +146,7 @@ if (heroCopy && exploreButton && heroButtons.length) {
   } else window.addEventListener("resize", updateHeroTextWidth);
 }
 
-// Hide the homepage navbar while the hero name is visible; preserve its space.
+// On mobile, carry the hero name into the navbar; desktop keeps its reveal.
 // Without IntersectionObserver, or on secondary pages, the home link stays visible.
 const heroName = document.getElementById("hero-name");
 const wordmark = document.querySelector(".wordmark");
@@ -157,6 +157,11 @@ if (heroName && wordmark && stickyHeader && "IntersectionObserver" in window) {
   let logoObserver;
   let observedWidth;
   let observedHeaderHeight;
+  const mobileHeader = window.matchMedia("(max-width: 800px)");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const heroLogo = heroName.querySelector(".hero-logo");
+  const navLogo = wordmark.querySelector(".wordmark-logo");
+  let mobileFrame;
   function setLogoHidden(hidden) {
     // An expanded mobile menu must stay usable even if it moves the hero into view.
     if (hidden && menuButton?.getAttribute("aria-expanded") === "true") return;
@@ -164,12 +169,58 @@ if (heroName && wordmark && stickyHeader && "IntersectionObserver" in window) {
     headerInner.inert = hidden;
     if (headerScroll) headerScroll.inert = !hidden;
   }
+  function updateMobileName() {
+    mobileFrame = null;
+    if (!mobileHeader.matches) return;
+    const rect = heroName.getBoundingClientRect();
+    const target = navLogo.getBoundingClientRect();
+    const naturalWidth = Math.min(
+      rect.width,
+      parseFloat(getComputedStyle(heroName).fontSize) * 5.3687,
+    );
+    const naturalHeight = (naturalWidth * 754) / 5368.7;
+    const naturalTop = rect.top + (rect.height - naturalHeight) / 2;
+    const distance = target.top - naturalTop;
+    const progress = Math.max(0, Math.min(1, distance / 150));
+    const docked = distance >= 0;
+    const travelling = docked && progress < 1 && !reducedMotion.matches;
+    // Keep the original heading's height so fixing the SVG never shifts the page.
+    heroName.style.height = `${naturalHeight}px`;
+    heroName.classList.toggle("is-name-travelling", travelling);
+    heroName.classList.toggle("is-name-docked", docked && !travelling);
+    stickyHeader.classList.toggle("is-name-travelling", travelling);
+    if (travelling) {
+      const width = naturalWidth + (target.width - naturalWidth) * progress;
+      heroLogo.style.width = `${width}px`;
+      heroLogo.style.top = `${target.top}px`;
+      heroLogo.style.left = `${rect.left + (target.left - rect.left) * progress}px`;
+    } else {
+      heroLogo.style.removeProperty("width");
+      heroLogo.style.removeProperty("top");
+      heroLogo.style.removeProperty("left");
+    }
+    setLogoHidden(!docked);
+  }
+  function scheduleMobileName() {
+    if (mobileHeader.matches && mobileFrame == null)
+      mobileFrame = requestAnimationFrame(updateMobileName);
+  }
   function observeHeroName() {
+    if (mobileHeader.matches) {
+      logoObserver?.disconnect();
+      logoObserver = null;
+      updateMobileName();
+      return;
+    }
+    heroName.classList.remove("is-name-travelling", "is-name-docked");
+    stickyHeader.classList.remove("is-name-travelling");
+    heroName.style.removeProperty("height");
+    for (const property of ["width", "top", "left"])
+      heroLogo.style.removeProperty(property);
     const headerHeight = stickyHeader.getBoundingClientRect().height;
     // Mobile toolbars change viewport height while scrolling. The existing
     // observer already follows that; rebuilding it can interrupt the reveal.
     if (
-      window.matchMedia("(max-width: 800px)").matches &&
       logoObserver &&
       observedWidth === window.innerWidth &&
       observedHeaderHeight === headerHeight
@@ -190,7 +241,10 @@ if (heroName && wordmark && stickyHeader && "IntersectionObserver" in window) {
     logoObserver.observe(heroName);
   }
   observeHeroName();
+  window.addEventListener("scroll", scheduleMobileName, { passive: true });
   window.addEventListener("resize", observeHeroName);
+  reducedMotion.addEventListener("change", observeHeroName);
+  document.fonts?.ready.then(observeHeroName);
   if ("ResizeObserver" in window) {
     new ResizeObserver(observeHeroName).observe(stickyHeader);
   }

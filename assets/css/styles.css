@@ -551,6 +551,11 @@ a {
   margin-top: 18px;
 }
 
+.about-copy .project-inline {
+  color: var(--accent);
+  --link-hover-color: var(--fg);
+}
+
 .about-copy .prose {
   margin-top: 0;
   max-width: none;
@@ -1898,60 +1903,47 @@ html:not(.js) .cv-close {
   }
 }
 
-/* Mobile homepage reveal: retire the scroll cue before the logo settles in. */
-@media (max-width: 800px) {
-  .site-header:has(.header-scroll) .header-inner {
-    transition:
-      opacity 240ms ease 80ms,
-      visibility 0s linear;
+/* The mobile hero name docks into the fixed header as the page scrolls. */
+@media screen and (max-width: 800px) {
+  .js .site-header:has(.header-scroll) {
+    position: fixed;
+    inset: 0 0 auto;
   }
 
-  .site-header:has(.header-scroll).is-hero-hidden .header-inner {
-    transition:
-      opacity 140ms ease,
-      visibility 0s linear 140ms;
+  .js .site-header:has(.header-scroll).is-hero-hidden {
+    background: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
   }
 
-  .site-header:has(.header-scroll) .wordmark {
-    transform: translateY(0);
-    transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1) 60ms;
+  .js .site-header:has(.header-scroll) .header-inner,
+  .js .site-header:has(.header-scroll) .wordmark {
+    transition: none;
   }
 
-  .site-header:has(.header-scroll).is-hero-hidden .wordmark {
-    transform: translateY(8px);
-    transition-delay: 0s;
-  }
-
-  .site-header .header-scroll {
-    display: inline-flex;
-    gap: 0.3em;
-    opacity: 0;
+  .site-header.is-name-travelling .wordmark {
     visibility: hidden;
-    pointer-events: none;
-    transition:
-      opacity 140ms ease,
-      visibility 0s linear 140ms;
   }
 
-  .site-header.is-hero-hidden .header-scroll {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transition:
-      opacity 180ms ease 120ms,
-      visibility 0s linear 120ms;
+  .hero-name.is-name-travelling .hero-logo {
+    position: fixed;
+    z-index: 101;
+    max-width: none;
+    pointer-events: none;
+  }
+
+  .hero-name.is-name-docked .hero-logo {
+    visibility: hidden;
+  }
+
+  .js .site-header:has(.header-scroll) + main .hero {
+    padding-top: 32px;
   }
 }
 
-@media (max-width: 800px) and (prefers-reduced-motion: reduce) {
-  .site-header:has(.header-scroll) .header-inner,
-  .site-header:has(.header-scroll).is-hero-hidden .header-inner,
-  .site-header:has(.header-scroll) .wordmark,
-  .site-header:has(.header-scroll).is-hero-hidden .wordmark,
-  .site-header .header-scroll,
-  .site-header.is-hero-hidden .header-scroll {
-    transition: none;
-    transform: none;
+@media screen and (max-width: 580px) {
+  .js .site-header:has(.header-scroll) + main .hero {
+    padding-top: 18px;
   }
 }
 
