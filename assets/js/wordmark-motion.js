@@ -62,6 +62,16 @@
     if (!shapes[s.restShape]) throw new Error("Unknown resting shape");
     if (!(Number.isInteger(s.intro.cycles) && s.intro.cycles >= 0))
       throw new Error("intro.cycles must be a non-negative integer");
+    if (
+      s.intro.maxCycles !== undefined &&
+      !(
+        Number.isInteger(s.intro.maxCycles) &&
+        s.intro.maxCycles >= s.intro.cycles
+      )
+    )
+      throw new Error(
+        "intro.maxCycles must be an integer at least intro.cycles",
+      );
     if (!(s.dots.damping >= 0.55 && s.dots.damping <= 1))
       throw new Error("dots.damping must be between 0.55 and 1");
     if (!(Number.isFinite(s.dots.frequency) && s.dots.frequency > 0))
@@ -148,6 +158,9 @@
       this.destroyed = false;
       this.busy = false;
       this.completed = 0;
+      this.introCycles = this.settings.intro.cycles;
+      this.wasVisible = false;
+      this.lastCycleStartedAt = null;
       this.reduced = matchMedia("(prefers-reduced-motion: reduce)");
       this.shape = this.settings.restShape;
       this.current = clone(this.shapes[this.shape]);
@@ -262,10 +275,22 @@
     }
     _visibilityChanged() {
       if (this.destroyed) return;
-      if (this.reduced.matches || !this._visible()) {
+      const visible = !this.reduced.matches && this._visible();
+      const revealed = visible && !this.wasVisible;
+      this.wasVisible = visible;
+      if (!visible) {
         this._cancel();
+        this.lastCycleStartedAt = null;
         this._rest();
-      } else if (this.auto && !this.manualPause && !this.busy) this._schedule();
+      } else {
+        if (revealed && this.settings.intro.onReveal) {
+          this.completed = 0;
+          const { cycles, maxCycles = cycles } = this.settings.intro;
+          this.introCycles =
+            cycles + Math.floor(Math.random() * (maxCycles - cycles + 1));
+        }
+        if (this.auto && !this.manualPause && !this.busy) this._schedule();
+      }
     }
     _schedule() {
       if (
@@ -278,19 +303,26 @@
         this.idleTimer
       )
         return;
-      if (this.completed < this.settings.intro.cycles) {
-        this._sequence(this.settings.intro.cycles - this.completed, true);
+      if (this.completed < this.introCycles) {
+        this._sequence(this.introCycles - this.completed, true);
       } else if (this.settings.idle.enabled) {
         const { minMs, maxMs } = this.settings.idle;
-        this.idleTimer = setTimeout(
-          () => {
-            this.idleTimer = null;
-            if (this._visible() && !this.reduced.matches)
-              this._sequence(1, false);
-            else this._sync();
-          },
-          minMs + Math.random() * (maxMs - minMs),
-        );
+        const interval = minMs + Math.random() * (maxMs - minMs);
+        // Recurring intervals run from cycle start, rather than adding the
+        // animation duration to the requested interval.
+        const delay =
+          this.lastCycleStartedAt === null
+            ? interval
+            : Math.max(
+                0,
+                interval - (performance.now() - this.lastCycleStartedAt),
+              );
+        this.idleTimer = setTimeout(() => {
+          this.idleTimer = null;
+          if (this._visible() && !this.reduced.matches)
+            this._sequence(1, false);
+          else this._sync();
+        }, delay);
       }
     }
     _move(name, step, signal) {
@@ -365,6 +397,7 @@
       }
       const command = this._begin(),
         signal = command.signal;
+      this.lastCycleStartedAt = automaticIntro ? null : performance.now();
       this._emit();
       for (let round = 0; round < cycles; round++) {
         for (const step of this.settings.sequence) {
@@ -424,11 +457,23 @@
       this.auto = true;
       this._sync();
     }
+    restartIntro() {
+      if (this.destroyed) return;
+      this._cancel();
+      this.completed = 0;
+      this.wasVisible = false;
+      this.lastCycleStartedAt = null;
+      this.manualPause = false;
+      this.auto = true;
+      this._rest();
+      this._sync();
+    }
     setOptions(patch) {
       const next = merge(this.settings, patch);
       validateSettings(next, this.shapes);
       this._cancel();
       this.settings = next;
+      this.introCycles = next.intro.cycles;
       this._rest();
       this._sync();
       return this.getState();

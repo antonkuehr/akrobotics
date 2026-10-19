@@ -6,11 +6,12 @@ window.AK_WORDMARK_SETTINGS = {
   tempo: 1,
   restShape: "smiley",
   intro: {
-    cycles: 2,
-    oncePerSession: true,
+    cycles: 1,
+    onReveal: true,
+    oncePerSession: false,
     storageKey: "ak-wordmark-intro-v1",
   },
-  idle: { enabled: true, minMs: 60000, maxMs: 90000 },
+  idle: { enabled: true, minMs: 15000, maxMs: 15000 },
   dots: {
     damping: 0.7,
     frequency: 10,
@@ -24,4 +25,10 @@ window.AK_WORDMARK_SETTINGS = {
     { shape: "wide", bodyMs: 900, dotsMs: 1450, holdMs: 900 },
     { shape: "smiley", bodyMs: 1050, dotsMs: 1650, holdMs: 1100 },
   ],
+};
+
+// The large homepage logo has a longer introduction and a quieter idle rhythm.
+window.AK_WORDMARK_HERO_SETTINGS = {
+  intro: { cycles: 2, maxCycles: 3 },
+  idle: { minMs: 30000, maxMs: 45000 },
 };

@@ -263,7 +263,7 @@ a {
   justify-content: space-between;
   align-items: end;
   gap: 32px;
-  margin-bottom: 36px;
+  margin-bottom: 32px;
 }
 
 .button:hover {
@@ -524,8 +524,8 @@ a {
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
   grid-template-areas: "title title" "copy photo" "aside aside";
-  gap: 28px 48px;
-  align-items: center;
+  gap: 32px 48px;
+  align-items: start;
 }
 
 .about-title {
@@ -1807,7 +1807,7 @@ html:not(.js) .cv-close {
     gap: 40px;
   }
   .about-grid {
-    gap: 36px 40px;
+    column-gap: 40px;
   }
 }
 
@@ -1867,7 +1867,6 @@ html:not(.js) .cv-close {
   .about-grid {
     grid-template-columns: 1fr;
     grid-template-areas: "title" "copy" "photo" "aside";
-    gap: 28px;
   }
   .about-photo {
     max-width: 460px;
