@@ -16,9 +16,9 @@ Metadata is delivered in HTML and does not depend on JavaScript.
 
 Keep this description consistent in the homepage meta description, Open Graph and Twitter descriptions, and the existing `ProfilePage` and `Person` descriptions:
 
-> Anton Kühr is an MSc Robotics student at TU Delft with a background in mechanical engineering. Explore his projects in humanoid robotics, robot perception and tactile sensing.
+> Anton Kühr is an MSc Robotics student at TU Delft with a background in mechanical engineering. Hands-on project experience spanning computer vision, auditory perception and tactile sensing for humanoid robots.
 
-The hero’s short credential paragraph reflects the same subjects. The About Me copy remains unchanged. Google chooses snippets for each query and may still select visible page text rather than the meta description; do not add snippet or indexing restrictions to force the wording.
+The hero’s credential paragraph names the same focus: computer vision, auditory perception and tactile sensing for humanoid robots. The homepage sitemap `lastmod` is 19 October 2026 for this copy and metadata update. Google chooses snippets for each query and may still select visible page text rather than the meta description; do not add snippet or indexing restrictions to force the wording.
 
 The preferred portrait is `assets/site/anton-kuehr-profile-portrait.jpeg?v=46` (2479 × 2475 pixels). Its absolute URL is shared by `og:image`, `twitter:image`, `Person.image` and `ProfilePage.primaryImageOfPage`. Open Graph also records the image dimensions and JPEG type. Descriptive alt text identifies the professional portrait. The Furhat workbench photograph remains in its existing place. These are preference signals, not a guarantee of Google’s thumbnail selection.
 
