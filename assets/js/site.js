@@ -98,6 +98,54 @@ if ("ResizeObserver" in window) {
   if (skinDate) layoutObserver.observe(skinDate.parentElement);
 }
 
+// Follow the actual button row, including font loading and responsive wrapping.
+const heroCopy = document.querySelector(".hero-copy");
+const heroGrid = heroCopy?.closest(".hero-grid");
+const heroActions = heroCopy?.querySelector(".actions");
+const heroButtons = heroActions
+  ? [...heroActions.querySelectorAll(".button")]
+  : [];
+const exploreButton = heroActions?.querySelector('a[href="#portfolio"]');
+if (heroCopy && exploreButton && heroButtons.length) {
+  function updateHeroTextWidth() {
+    // Centre the visible group, without leaving an empty strip beside the buttons.
+    if (heroGrid) {
+      const gap = parseFloat(getComputedStyle(heroActions).columnGap) || 0;
+      const rowWidth = `${Math.ceil(
+        heroButtons.reduce(
+          (sum, button) => sum + button.getBoundingClientRect().width,
+          0,
+        ) +
+          gap * (heroButtons.length - 1),
+      )}px`;
+      if (heroGrid.style.getPropertyValue("--hero-copy-width") !== rowWidth)
+        heroGrid.style.setProperty("--hero-copy-width", rowWidth);
+    }
+    const first = heroButtons[0].getBoundingClientRect();
+    const explore = exploreButton.getBoundingClientRect();
+    const sameRow = explore.top < first.bottom && explore.bottom > first.top;
+    const width = sameRow
+      ? `${Math.min(heroCopy.clientWidth, explore.right - heroCopy.getBoundingClientRect().left)}px`
+      : "100%";
+    if (heroCopy.style.getPropertyValue("--hero-text-width") !== width)
+      heroCopy.style.setProperty("--hero-text-width", width);
+    // Match the desktop circle to the text block; mobile keeps its CSS size.
+    if (heroGrid) {
+      const size = `${Math.min(340, heroCopy.getBoundingClientRect().height)}px`;
+      if (heroGrid.style.getPropertyValue("--hero-portrait-size") !== size)
+        heroGrid.style.setProperty("--hero-portrait-size", size);
+    }
+  }
+  updateHeroTextWidth();
+  document.fonts?.ready.then(updateHeroTextWidth);
+  if ("ResizeObserver" in window) {
+    const heroTextObserver = new ResizeObserver(updateHeroTextWidth);
+    heroTextObserver.observe(heroCopy);
+    heroTextObserver.observe(heroActions);
+    heroButtons.forEach((button) => heroTextObserver.observe(button));
+  } else window.addEventListener("resize", updateHeroTextWidth);
+}
+
 // Hide the homepage navbar while the hero name is visible; preserve its space.
 // Without IntersectionObserver, or on secondary pages, the home link stays visible.
 const heroName = document.getElementById("hero-name");

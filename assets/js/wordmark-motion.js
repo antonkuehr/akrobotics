@@ -62,16 +62,13 @@
     if (!shapes[s.restShape]) throw new Error("Unknown resting shape");
     if (!(Number.isInteger(s.intro.cycles) && s.intro.cycles >= 0))
       throw new Error("intro.cycles must be a non-negative integer");
-    if (
-      s.intro.maxCycles !== undefined &&
-      !(
-        Number.isInteger(s.intro.maxCycles) &&
-        s.intro.maxCycles >= s.intro.cycles
-      )
-    )
-      throw new Error(
-        "intro.maxCycles must be an integer at least intro.cycles",
-      );
+    for (const [name, value] of [
+      ["intro.revealCycles", s.intro.revealCycles],
+      ["idle.cycles", s.idle.cycles],
+    ]) {
+      if (value !== undefined && !(Number.isInteger(value) && value >= 1))
+        throw new Error(name + " must be a positive integer");
+    }
     if (!(s.dots.damping >= 0.55 && s.dots.damping <= 1))
       throw new Error("dots.damping must be between 0.55 and 1");
     if (!(Number.isFinite(s.dots.frequency) && s.dots.frequency > 0))
@@ -160,6 +157,7 @@
       this.completed = 0;
       this.introCycles = this.settings.intro.cycles;
       this.wasVisible = false;
+      this.hasAppeared = false;
       this.lastCycleStartedAt = null;
       this.reduced = matchMedia("(prefers-reduced-motion: reduce)");
       this.shape = this.settings.restShape;
@@ -285,9 +283,9 @@
       } else {
         if (revealed && this.settings.intro.onReveal) {
           this.completed = 0;
-          const { cycles, maxCycles = cycles } = this.settings.intro;
-          this.introCycles =
-            cycles + Math.floor(Math.random() * (maxCycles - cycles + 1));
+          const { cycles, revealCycles = cycles } = this.settings.intro;
+          this.introCycles = this.hasAppeared ? revealCycles : cycles;
+          this.hasAppeared = true;
         }
         if (this.auto && !this.manualPause && !this.busy) this._schedule();
       }
@@ -320,7 +318,7 @@
         this.idleTimer = setTimeout(() => {
           this.idleTimer = null;
           if (this._visible() && !this.reduced.matches)
-            this._sequence(1, false);
+            this._sequence(this.settings.idle.cycles || 1, false);
           else this._sync();
         }, delay);
       }
@@ -462,6 +460,7 @@
       this._cancel();
       this.completed = 0;
       this.wasVisible = false;
+      this.hasAppeared = false;
       this.lastCycleStartedAt = null;
       this.manualPause = false;
       this.auto = true;

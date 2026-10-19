@@ -3,7 +3,8 @@
    Higher tempo = faster. Lower damping = more spring overshoot.
    Keep dots.damping >= 0.55 to retain gentle, readable motion. */
 window.AK_WORDMARK_SETTINGS = {
-  tempo: 1,
+  // Keep a full navbar cycle within its ten-second interval.
+  tempo: 1.1,
   restShape: "smiley",
   intro: {
     cycles: 1,
@@ -11,7 +12,7 @@ window.AK_WORDMARK_SETTINGS = {
     oncePerSession: false,
     storageKey: "ak-wordmark-intro-v1",
   },
-  idle: { enabled: true, minMs: 15000, maxMs: 15000 },
+  idle: { enabled: true, minMs: 10000, maxMs: 10000 },
   dots: {
     damping: 0.7,
     frequency: 10,
@@ -29,6 +30,7 @@ window.AK_WORDMARK_SETTINGS = {
 
 // The large homepage logo has a longer introduction and a quieter idle rhythm.
 window.AK_WORDMARK_HERO_SETTINGS = {
-  intro: { cycles: 2, maxCycles: 3 },
-  idle: { minMs: 30000, maxMs: 45000 },
+  tempo: 1,
+  intro: { cycles: 2, revealCycles: 1 },
+  idle: { cycles: 2, minMs: 30000, maxMs: 45000 },
 };

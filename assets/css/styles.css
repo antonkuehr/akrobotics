@@ -20,6 +20,7 @@
   --radius-sm: 8px;
   --radius: 12px;
   --radius-lg: 16px;
+  --section-heading-gap: 36px;
 
   --fg: #f1f8f4;
   --fg-2: #c9ddd4;
@@ -263,7 +264,7 @@ a {
   justify-content: space-between;
   align-items: end;
   gap: 32px;
-  margin-bottom: 32px;
+  margin-bottom: var(--section-heading-gap);
 }
 
 .button:hover {
@@ -442,6 +443,8 @@ a {
 /* HERO & PROFILE PICTURE — Introduction, action buttons, portrait size/cropping, and spacing. */
 .hero-copy {
   position: relative;
+  min-width: 0;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -483,20 +486,24 @@ a {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.3fr);
-  gap: 64px;
-  align-items: stretch;
+  grid-template-columns: minmax(0, var(--hero-portrait-size, 340px)) minmax(
+      0,
+      var(--hero-copy-width, 560px)
+    );
+  gap: 56px;
+  justify-content: center;
+  align-items: center;
   min-height: 0;
 }
 
 .portrait-wrap {
   position: relative;
   aspect-ratio: 1;
-  align-self: start;
+  align-self: center;
   overflow: hidden;
   border-radius: 50%;
   margin: 0;
-  max-width: 340px;
+  max-width: var(--hero-portrait-size, 340px);
   justify-self: start;
   width: 100%;
 }
@@ -508,23 +515,23 @@ a {
   font-size: var(--text-lead);
   line-height: 1.5;
   letter-spacing: var(--tracking);
-  max-width: 570px;
+  max-width: var(--hero-text-width, 100%);
   color: var(--fg-2);
 }
 
 .hero-status {
   font: var(--text-small)/1.8 var(--sans);
   color: var(--muted);
-  max-width: 500px;
+  max-width: var(--hero-text-width, 100%);
   margin-top: 28px;
 }
 
 /* ABOUT ME — Continuous professional and personal introduction beside the photograph. */
 .about-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
   grid-template-areas: "title title" "copy photo" "aside aside";
-  gap: 32px 48px;
+  gap: var(--section-heading-gap) 40px;
   align-items: start;
 }
 
@@ -534,6 +541,7 @@ a {
 
 .about-copy {
   grid-area: copy;
+  align-self: start;
   min-width: 0;
   text-align: left;
 }
@@ -545,18 +553,27 @@ a {
 .about-copy .prose {
   margin-top: 0;
   max-width: none;
-  text-align: left;
+  text-align: justify;
+  text-align-last: left;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 .about-photo {
   grid-area: photo;
+  position: relative;
+  align-self: stretch;
   width: 100%;
   max-width: 440px;
   margin: 0;
   justify-self: end;
 }
 
+/* Align to the visible last line, above the body font's trailing line space. */
 .about-photo img {
+  position: absolute;
+  right: 0;
+  bottom: 0.5em;
   width: 100%;
   height: auto;
   border-radius: var(--radius);
@@ -616,7 +633,7 @@ a {
 
 .cv-list {
   max-width: none;
-  margin-top: 32px;
+  margin-top: var(--section-heading-gap);
 }
 
 .cv-row {
@@ -803,6 +820,7 @@ html:not(.js) .cv-close {
 
 .project-card .card-meta {
   order: 1;
+  margin-top: 0;
 }
 
 .project-image.contain > img {
@@ -981,12 +999,12 @@ html:not(.js) .cv-close {
   grid-template-columns: repeat(3, max-content);
   justify-content: space-between;
   column-gap: 24px;
-  row-gap: 56px;
+  row-gap: 36px;
   width: 100%;
 }
 
 .skills-grid--primary {
-  margin-top: 44px;
+  margin-top: var(--section-heading-gap);
 }
 
 .skill-group {
@@ -994,7 +1012,7 @@ html:not(.js) .cv-close {
 }
 
 .skill-group h3 {
-  margin: 0 0 22px;
+  margin: 0 0 16px;
 }
 
 .skill-group ul {
@@ -1029,7 +1047,7 @@ html:not(.js) .cv-close {
 .contact-block {
   display: grid;
   gap: 28px;
-  margin-top: 32px;
+  margin-top: var(--section-heading-gap);
 }
 
 .contact-copy {
@@ -1806,9 +1824,6 @@ html:not(.js) .cv-close {
   .hero-grid {
     gap: 40px;
   }
-  .about-grid {
-    column-gap: 40px;
-  }
 }
 
 /* TABLETS — 800px and narrower, including phones */
@@ -1871,6 +1886,9 @@ html:not(.js) .cv-close {
   .about-photo {
     max-width: 460px;
     justify-self: start;
+  }
+  .about-photo img {
+    position: static;
   }
   .project-grid {
     gap: 32px 32px;
@@ -1966,6 +1984,7 @@ html:not(.js) .cv-close {
     gap: 24px;
   }
   .portrait-wrap {
+    align-self: start;
     max-width: 220px;
     justify-self: start;
   }
@@ -1982,7 +2001,7 @@ html:not(.js) .cv-close {
   }
   .skills-grid {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 36px;
   }
 }
 
