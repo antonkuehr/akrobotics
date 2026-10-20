@@ -93,7 +93,14 @@ updateResponsiveLayout();
 window.addEventListener("resize", updateResponsiveLayout);
 document.fonts?.ready.then(updateResponsiveLayout);
 if ("ResizeObserver" in window) {
-  const layoutObserver = new ResizeObserver(updateResponsiveLayout);
+  let layoutFrame;
+  const layoutObserver = new ResizeObserver(() => {
+    if (layoutFrame != null) return;
+    layoutFrame = requestAnimationFrame(() => {
+      layoutFrame = null;
+      updateResponsiveLayout();
+    });
+  });
   if (header) layoutObserver.observe(header);
   if (skinDate) layoutObserver.observe(skinDate.parentElement);
 }
@@ -139,7 +146,14 @@ if (heroCopy && exploreButton && heroButtons.length) {
   updateHeroTextWidth();
   document.fonts?.ready.then(updateHeroTextWidth);
   if ("ResizeObserver" in window) {
-    const heroTextObserver = new ResizeObserver(updateHeroTextWidth);
+    let heroTextFrame;
+    const heroTextObserver = new ResizeObserver(() => {
+      if (heroTextFrame != null) return;
+      heroTextFrame = requestAnimationFrame(() => {
+        heroTextFrame = null;
+        updateHeroTextWidth();
+      });
+    });
     heroTextObserver.observe(heroCopy);
     heroTextObserver.observe(heroActions);
     heroButtons.forEach((button) => heroTextObserver.observe(button));
@@ -162,8 +176,9 @@ if (heroName && wordmark && stickyHeader) {
     // An expanded mobile menu must stay usable even if it moves the hero into view.
     if (hidden && menuButton?.getAttribute("aria-expanded") === "true") return;
     stickyHeader.classList.toggle("is-hero-hidden", hidden);
-    headerInner.inert = hidden;
-    if (headerScroll) headerScroll.inert = !hidden;
+    if (headerInner.inert !== hidden) headerInner.inert = hidden;
+    if (headerScroll && headerScroll.inert !== !hidden)
+      headerScroll.inert = !hidden;
   }
   function measureHeroName() {
     // Measure only on a real layout change, never during scrolling or a toolbar

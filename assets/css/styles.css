@@ -620,6 +620,30 @@ a {
   stroke-linejoin: round;
 }
 
+.aside-copy {
+  container-type: inline-size;
+  min-width: 0;
+}
+
+.aside-copy > span {
+  display: block;
+  white-space: nowrap;
+  font-size: min(1rem, 5.5cqi);
+  line-height: 1.65;
+  letter-spacing: var(--tracking);
+}
+
+@media (min-width: 801px) {
+  .about-sidebar {
+    align-self: stretch;
+    grid-template-rows: auto 1fr;
+  }
+
+  .aside-robots {
+    align-self: end;
+  }
+}
+
 .prose {
   color: var(--fg-2);
   margin-top: 28px;
@@ -1936,9 +1960,23 @@ html:not(.js) .cv-close {
 }
 
 @media screen and (max-width: 800px) {
+  .aside-details {
+    padding-inline-start: 16px;
+  }
+
+  .aside-details .contact-value {
+    gap: 8px;
+  }
+
   .js .site-header:has(.header-scroll) {
     position: fixed;
     inset: 0 0 auto;
+  }
+
+  /* Avoid repainting a blurred backdrop while the mobile logo is moving. */
+  .js .site-header:has(.header-scroll).is-name-sliding {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
   }
 
   .js .site-header:has(.header-scroll) + main .hero {
