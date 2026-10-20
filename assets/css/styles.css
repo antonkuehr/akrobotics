@@ -1921,19 +1921,18 @@ html:not(.js) .cv-close {
     transition: none;
   }
 
-  .site-header.is-name-travelling .wordmark {
+  .site-header.is-name-travelling .wordmark-logo {
     visibility: hidden;
   }
 
   .hero-name.is-name-travelling .hero-logo {
     position: fixed;
+    inset: 0 auto auto 0;
     z-index: 101;
     max-width: none;
+    transform-origin: 0 0;
+    will-change: transform;
     pointer-events: none;
-  }
-
-  .hero-name.is-name-docked .hero-logo {
-    visibility: hidden;
   }
 
   .js .site-header:has(.header-scroll) + main .hero {
@@ -1943,7 +1942,7 @@ html:not(.js) .cv-close {
 
 @media screen and (max-width: 580px) {
   .js .site-header:has(.header-scroll) + main .hero {
-    padding-top: 18px;
+    padding-top: 64px;
   }
 }
 

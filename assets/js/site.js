@@ -162,6 +162,7 @@ if (heroName && wordmark && stickyHeader && "IntersectionObserver" in window) {
   const heroLogo = heroName.querySelector(".hero-logo");
   const navLogo = wordmark.querySelector(".wordmark-logo");
   let mobileFrame;
+  let mobileGeometry;
   function setLogoHidden(hidden) {
     // An expanded mobile menu must stay usable even if it moves the hero into view.
     if (hidden && menuButton?.getAttribute("aria-expanded") === "true") return;
@@ -169,36 +170,49 @@ if (heroName && wordmark && stickyHeader && "IntersectionObserver" in window) {
     headerInner.inert = hidden;
     if (headerScroll) headerScroll.inert = !hidden;
   }
+  function measureMobileName() {
+    // Measure only on a real layout change, never during scrolling or a toolbar
+    // height change. Keep the heading's original space when its SVG becomes fixed.
+    heroName.classList.remove("is-name-travelling");
+    heroName.style.removeProperty("height");
+    for (const property of ["width", "transform"])
+      heroLogo.style.removeProperty(property);
+    const source = heroLogo.getBoundingClientRect();
+    const heading = heroName.getBoundingClientRect();
+    const target = navLogo.getBoundingClientRect();
+    const headerTop = stickyHeader.getBoundingClientRect().top;
+    const rowHeight = parseFloat(getComputedStyle(headerInner).minHeight);
+    mobileGeometry = {
+      viewportWidth: window.innerWidth,
+      sourceTop: source.top + window.scrollY,
+      sourceLeft: source.left,
+      sourceWidth: source.width,
+      targetLeft: target.left,
+      targetTop: headerTop + (rowHeight - target.height) / 2,
+      targetScale: target.width / source.width,
+    };
+    heroName.style.height = `${heading.height}px`;
+    heroLogo.style.width = `${source.width}px`;
+  }
   function updateMobileName() {
     mobileFrame = null;
-    if (!mobileHeader.matches) return;
-    const rect = heroName.getBoundingClientRect();
-    const target = navLogo.getBoundingClientRect();
-    const naturalWidth = Math.min(
-      rect.width,
-      parseFloat(getComputedStyle(heroName).fontSize) * 5.3687,
-    );
-    const naturalHeight = (naturalWidth * 754) / 5368.7;
-    const naturalTop = rect.top + (rect.height - naturalHeight) / 2;
-    const distance = target.top - naturalTop;
-    const progress = Math.max(0, Math.min(1, distance / 150));
+    if (!mobileHeader.matches || !mobileGeometry) return;
+    const g = mobileGeometry;
+    // Negative elastic overscroll must not move the docking threshold.
+    const distance = Math.max(0, window.scrollY) - g.sourceTop + g.targetTop;
+    const progress = reducedMotion.matches
+      ? 1
+      : Math.max(0, Math.min(1, distance / 150));
     const docked = distance >= 0;
-    const travelling = docked && progress < 1 && !reducedMotion.matches;
-    // Keep the original heading's height so fixing the SVG never shifts the page.
-    heroName.style.height = `${naturalHeight}px`;
-    heroName.classList.toggle("is-name-travelling", travelling);
-    heroName.classList.toggle("is-name-docked", docked && !travelling);
-    stickyHeader.classList.toggle("is-name-travelling", travelling);
-    if (travelling) {
-      const width = naturalWidth + (target.width - naturalWidth) * progress;
-      heroLogo.style.width = `${width}px`;
-      heroLogo.style.top = `${target.top}px`;
-      heroLogo.style.left = `${rect.left + (target.left - rect.left) * progress}px`;
-    } else {
-      heroLogo.style.removeProperty("width");
-      heroLogo.style.removeProperty("top");
-      heroLogo.style.removeProperty("left");
-    }
+    heroName.classList.toggle("is-name-travelling", docked);
+    stickyHeader.classList.toggle("is-name-travelling", docked);
+    if (docked) {
+      const x = g.sourceLeft + (g.targetLeft - g.sourceLeft) * progress;
+      const scale = 1 + (g.targetScale - 1) * progress;
+      // A single SVG stays on a fixed compositor layer, including after docking.
+      // Only its transform changes; there is no width reflow or second-logo swap.
+      heroLogo.style.transform = `translate3d(${x}px, ${g.targetTop}px, 0) scale(${scale})`;
+    } else heroLogo.style.removeProperty("transform");
     setLogoHidden(!docked);
   }
   function scheduleMobileName() {
@@ -209,13 +223,16 @@ if (heroName && wordmark && stickyHeader && "IntersectionObserver" in window) {
     if (mobileHeader.matches) {
       logoObserver?.disconnect();
       logoObserver = null;
-      updateMobileName();
+      if (!mobileGeometry || mobileGeometry.viewportWidth !== window.innerWidth)
+        measureMobileName();
+      scheduleMobileName();
       return;
     }
-    heroName.classList.remove("is-name-travelling", "is-name-docked");
+    heroName.classList.remove("is-name-travelling");
     stickyHeader.classList.remove("is-name-travelling");
     heroName.style.removeProperty("height");
-    for (const property of ["width", "top", "left"])
+    mobileGeometry = null;
+    for (const property of ["width", "transform"])
       heroLogo.style.removeProperty(property);
     const headerHeight = stickyHeader.getBoundingClientRect().height;
     // Mobile toolbars change viewport height while scrolling. The existing
@@ -244,7 +261,10 @@ if (heroName && wordmark && stickyHeader && "IntersectionObserver" in window) {
   window.addEventListener("scroll", scheduleMobileName, { passive: true });
   window.addEventListener("resize", observeHeroName);
   reducedMotion.addEventListener("change", observeHeroName);
-  document.fonts?.ready.then(observeHeroName);
+  document.fonts?.ready.then(() => {
+    mobileGeometry = null;
+    observeHeroName();
+  });
   if ("ResizeObserver" in window) {
     new ResizeObserver(observeHeroName).observe(stickyHeader);
   }
