@@ -197,6 +197,7 @@
           "The inline SVG needs body, leftDot and rightDot data-ak-part paths",
         );
       this.auto = options.autoStart !== false;
+      this.preserveCycleOnScroll = options.preserveCycleOnScroll === true;
       this.manualPause = false;
       this.destroyed = false;
       this.busy = false;
@@ -205,6 +206,7 @@
       this.wasVisible = false;
       this.hasAppeared = false;
       this.lastCycleStartedAt = null;
+      this.lastCycleEndedAt = null;
       this.reduced = matchMedia("(prefers-reduced-motion: reduce)");
       this.shape = this.settings.restShape;
       this.current = clone(this.shapes[this.shape]);
@@ -282,10 +284,13 @@
       return (
         box.width > 0 &&
         box.height > 0 &&
-        box.bottom > 0 &&
-        box.top < innerHeight &&
-        box.right > 0 &&
-        box.left < innerWidth
+        // A scroll can move the source offscreen one frame before the docking
+        // transform runs. Preserve an active cycle through that handoff.
+        ((this.preserveCycleOnScroll && this.busy) ||
+          (box.bottom > 0 &&
+            box.top < innerHeight &&
+            box.right > 0 &&
+            box.left < innerWidth))
       );
     }
     _draw(value) {
@@ -307,6 +312,7 @@
     }
     _begin() {
       this._cancel();
+      this.finishAfterRound = false;
       this.abort = new AbortController();
       this.busy = true;
       return this.abort;
@@ -352,15 +358,16 @@
       } else if (this.settings.idle.enabled) {
         const { minMs, maxMs } = this.settings.idle;
         const interval = minMs + Math.random() * (maxMs - minMs);
-        // Recurring intervals run from cycle start, rather than adding the
-        // animation duration to the requested interval.
+        // Navbar playback gets a full pause after completion. The hero retains
+        // its existing interval between cycle starts.
+        const anchor =
+          this.settings.idle.from === "end"
+            ? this.lastCycleEndedAt
+            : this.lastCycleStartedAt;
         const delay =
-          this.lastCycleStartedAt === null
+          anchor === null
             ? interval
-            : Math.max(
-                0,
-                interval - (performance.now() - this.lastCycleStartedAt),
-              );
+            : Math.max(0, interval - (performance.now() - anchor));
         this.idleTimer = setTimeout(() => {
           this.idleTimer = null;
           if (this._visible() && !this.reduced.matches)
@@ -560,7 +567,7 @@
       }
       const command = this._begin(),
         signal = command.signal;
-      this.lastCycleStartedAt = automaticIntro ? null : performance.now();
+      this.lastCycleStartedAt = performance.now();
       this._emit();
       // A reveal delay is cancellable and runs once before the first cycle.
       // Manual preview playback remains immediate.
@@ -570,6 +577,7 @@
       )
         return false;
       for (let round = 0; round < cycles; round++) {
+        this.lastCycleStartedAt = performance.now();
         for (const step of this.settings.sequence) {
           if (!(await this._move(step.shape, step, signal))) return false;
           if (!(await this._hold(step, signal))) return false;
@@ -578,9 +586,11 @@
           this.completed++;
           this._saveIntro();
         }
+        if (this.finishAfterRound) break;
       }
       if (signal.aborted || this.abort !== command) return false;
       this.busy = false;
+      this.lastCycleEndedAt = performance.now();
       this._rest();
       this._schedule();
       return true;
@@ -620,6 +630,13 @@
       this.manualPause = true;
       this._cancel();
       this._rest();
+    }
+    finishCurrentCycle() {
+      // Prevent another automatic cycle without interrupting the one in flight.
+      this.manualPause = true;
+      this.finishAfterRound = true;
+      clearTimeout(this.idleTimer);
+      this.idleTimer = null;
     }
     resume() {
       this.manualPause = false;
@@ -664,6 +681,7 @@
         visible: this._visible(),
         paused: this.manualPause,
         completedIntroCycles: this.completed,
+        lastCycleEndedAt: this.lastCycleEndedAt,
         lastDurationMs: this.lastDurationMs || 0,
         settings: clone(this.settings),
       };

@@ -1903,13 +1903,8 @@ html:not(.js) .cv-close {
   }
 }
 
-/* The mobile hero name docks into the fixed header as the page scrolls. */
-@media screen and (max-width: 800px) {
-  .js .site-header:has(.header-scroll) {
-    position: fixed;
-    inset: 0 0 auto;
-  }
-
+/* The hero name docks into the header as the page scrolls. */
+@media screen {
   .js .site-header:has(.header-scroll).is-hero-hidden {
     background: transparent;
     -webkit-backdrop-filter: none;
@@ -1933,6 +1928,17 @@ html:not(.js) .cv-close {
     transform-origin: 0 0;
     will-change: transform;
     pointer-events: none;
+  }
+
+  .site-header.is-name-sliding .header-inner:not(.nav-mobile) #site-nav {
+    visibility: hidden;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .js .site-header:has(.header-scroll) {
+    position: fixed;
+    inset: 0 0 auto;
   }
 
   .js .site-header:has(.header-scroll) + main .hero {

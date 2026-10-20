@@ -3,7 +3,7 @@
    Higher tempo = faster. Synchronized steps share bodyMs and easing for all parts.
    Dot spring, lag and arc settings apply only to unsynchronized steps. */
 window.AK_WORDMARK_SETTINGS = {
-  // Keep a full navbar cycle within its ten-second interval.
+  // Wait ten seconds after a navbar cycle finishes before repeating it.
   tempo: 1.1,
   restShape: "original",
   intro: {
@@ -13,7 +13,13 @@ window.AK_WORDMARK_SETTINGS = {
     oncePerSession: false,
     storageKey: "ak-wordmark-intro-v1",
   },
-  idle: { enabled: true, minMs: 10000, maxMs: 10000 },
+  idle: {
+    enabled: true,
+    cycles: 1,
+    minMs: 10000,
+    maxMs: 10000,
+    from: "end",
+  },
   dots: {
     damping: 0.7,
     frequency: 10,
@@ -72,9 +78,9 @@ window.AK_WORDMARK_SETTINGS = {
   ],
 };
 
-// The large homepage logo has a longer introduction and a quieter idle rhythm.
+// Play twice after refresh, once on return, then every 20–30 seconds.
 window.AK_WORDMARK_HERO_SETTINGS = {
   tempo: 1,
   intro: { cycles: 2, revealCycles: 1 },
-  idle: { cycles: 2, minMs: 30000, maxMs: 45000 },
+  idle: { cycles: 1, minMs: 20000, maxMs: 30000, from: "start" },
 };

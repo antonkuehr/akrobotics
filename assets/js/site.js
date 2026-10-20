@@ -146,23 +146,18 @@ if (heroCopy && exploreButton && heroButtons.length) {
   } else window.addEventListener("resize", updateHeroTextWidth);
 }
 
-// On mobile, carry the hero name into the navbar; desktop keeps its reveal.
-// Without IntersectionObserver, or on secondary pages, the home link stays visible.
+// Carry the homepage name into the navbar using one SVG at every screen size.
 const heroName = document.getElementById("hero-name");
 const wordmark = document.querySelector(".wordmark");
 const stickyHeader = document.querySelector(".site-header");
 const headerInner = stickyHeader?.querySelector(".header-inner");
 const headerScroll = stickyHeader?.querySelector(".header-scroll");
-if (heroName && wordmark && stickyHeader && "IntersectionObserver" in window) {
-  let logoObserver;
-  let observedWidth;
-  let observedHeaderHeight;
-  const mobileHeader = window.matchMedia("(max-width: 800px)");
+if (heroName && wordmark && stickyHeader) {
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const heroLogo = heroName.querySelector(".hero-logo");
   const navLogo = wordmark.querySelector(".wordmark-logo");
-  let mobileFrame;
-  let mobileGeometry;
+  let logoFrame;
+  let logoGeometry;
   function setLogoHidden(hidden) {
     // An expanded mobile menu must stay usable even if it moves the hero into view.
     if (hidden && menuButton?.getAttribute("aria-expanded") === "true") return;
@@ -170,7 +165,7 @@ if (heroName && wordmark && stickyHeader && "IntersectionObserver" in window) {
     headerInner.inert = hidden;
     if (headerScroll) headerScroll.inert = !hidden;
   }
-  function measureMobileName() {
+  function measureHeroName() {
     // Measure only on a real layout change, never during scrolling or a toolbar
     // height change. Keep the heading's original space when its SVG becomes fixed.
     heroName.classList.remove("is-name-travelling");
@@ -182,30 +177,44 @@ if (heroName && wordmark && stickyHeader && "IntersectionObserver" in window) {
     const target = navLogo.getBoundingClientRect();
     const headerTop = stickyHeader.getBoundingClientRect().top;
     const rowHeight = parseFloat(getComputedStyle(headerInner).minHeight);
-    mobileGeometry = {
+    const targetTop = headerTop + (rowHeight - target.height) / 2;
+    const startScroll = source.top + window.scrollY - targetTop;
+    const aboutTitle = document.querySelector(".about-title");
+    const endScroll = aboutTitle
+      ? aboutTitle.getBoundingClientRect().top + window.scrollY - rowHeight
+      : startScroll + 150;
+    logoGeometry = {
       viewportWidth: window.innerWidth,
       sourceTop: source.top + window.scrollY,
       sourceLeft: source.left,
       sourceWidth: source.width,
       targetLeft: target.left,
-      targetTop: headerTop + (rowHeight - target.height) / 2,
+      targetTop,
       targetScale: target.width / source.width,
+      // On desktop, settle as the About me heading reaches the navbar.
+      scrollDistance:
+        window.innerWidth > 800 ? Math.max(150, endScroll - startScroll) : 150,
     };
     heroName.style.height = `${heading.height}px`;
     heroLogo.style.width = `${source.width}px`;
   }
-  function updateMobileName() {
-    mobileFrame = null;
-    if (!mobileHeader.matches || !mobileGeometry) return;
-    const g = mobileGeometry;
+  function updateHeroName() {
+    logoFrame = null;
+    if (!logoGeometry || logoGeometry.viewportWidth !== window.innerWidth)
+      measureHeroName();
+    const g = logoGeometry;
     // Negative elastic overscroll must not move the docking threshold.
     const distance = Math.max(0, window.scrollY) - g.sourceTop + g.targetTop;
     const progress = reducedMotion.matches
       ? 1
-      : Math.max(0, Math.min(1, distance / 150));
+      : Math.max(0, Math.min(1, distance / g.scrollDistance));
     const docked = distance >= 0;
     heroName.classList.toggle("is-name-travelling", docked);
     stickyHeader.classList.toggle("is-name-travelling", docked);
+    const sliding = docked && progress < 1;
+    stickyHeader.classList.toggle("is-name-sliding", sliding);
+    // Full navigation would overlap the name while it crosses the desktop header.
+    navigation.inert = sliding && !headerInner.classList.contains("nav-mobile");
     if (docked) {
       const x = g.sourceLeft + (g.targetLeft - g.sourceLeft) * progress;
       const scale = 1 + (g.targetScale - 1) * progress;
@@ -214,59 +223,30 @@ if (heroName && wordmark && stickyHeader && "IntersectionObserver" in window) {
       heroLogo.style.transform = `translate3d(${x}px, ${g.targetTop}px, 0) scale(${scale})`;
     } else heroLogo.style.removeProperty("transform");
     setLogoHidden(!docked);
-  }
-  function scheduleMobileName() {
-    if (mobileHeader.matches && mobileFrame == null)
-      mobileFrame = requestAnimationFrame(updateMobileName);
-  }
-  function observeHeroName() {
-    if (mobileHeader.matches) {
-      logoObserver?.disconnect();
-      logoObserver = null;
-      if (!mobileGeometry || mobileGeometry.viewportWidth !== window.innerWidth)
-        measureMobileName();
-      scheduleMobileName();
-      return;
+    const location = !docked ? "hero" : sliding ? "sliding" : "navbar";
+    if (heroLogo.dataset.akLocation !== location) {
+      heroLogo.dataset.akLocation = location;
+      heroLogo.dispatchEvent(
+        new CustomEvent("akwordmarklocationchange", { detail: { location } }),
+      );
     }
-    heroName.classList.remove("is-name-travelling");
-    stickyHeader.classList.remove("is-name-travelling");
-    heroName.style.removeProperty("height");
-    mobileGeometry = null;
-    for (const property of ["width", "transform"])
-      heroLogo.style.removeProperty(property);
-    const headerHeight = stickyHeader.getBoundingClientRect().height;
-    // Mobile toolbars change viewport height while scrolling. The existing
-    // observer already follows that; rebuilding it can interrupt the reveal.
-    if (
-      logoObserver &&
-      observedWidth === window.innerWidth &&
-      observedHeaderHeight === headerHeight
-    )
-      return;
-    observedWidth = window.innerWidth;
-    observedHeaderHeight = headerHeight;
-    const rect = heroName.getBoundingClientRect();
-    setLogoHidden(rect.bottom > headerHeight && rect.top < window.innerHeight);
-    logoObserver?.disconnect();
-    logoObserver = new IntersectionObserver(
-      ([entry]) =>
-        setLogoHidden(
-          entry.isIntersecting && entry.intersectionRect.height > 0,
-        ),
-      { rootMargin: `-${headerHeight}px 0px 0px 0px`, threshold: 0 },
-    );
-    logoObserver.observe(heroName);
   }
-  observeHeroName();
-  window.addEventListener("scroll", scheduleMobileName, { passive: true });
-  window.addEventListener("resize", observeHeroName);
-  reducedMotion.addEventListener("change", observeHeroName);
+  function scheduleHeroName() {
+    if (logoFrame == null) logoFrame = requestAnimationFrame(updateHeroName);
+  }
+  scheduleHeroName();
+  window.addEventListener("scroll", scheduleHeroName, { passive: true });
+  window.addEventListener("resize", scheduleHeroName);
+  reducedMotion.addEventListener("change", scheduleHeroName);
   document.fonts?.ready.then(() => {
-    mobileGeometry = null;
-    observeHeroName();
+    logoGeometry = null;
+    scheduleHeroName();
   });
   if ("ResizeObserver" in window) {
-    new ResizeObserver(observeHeroName).observe(stickyHeader);
+    new ResizeObserver(() => {
+      logoGeometry = null;
+      scheduleHeroName();
+    }).observe(heroGrid);
   }
 }
 
