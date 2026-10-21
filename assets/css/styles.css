@@ -173,7 +173,7 @@ a {
   white-space: nowrap;
 }
 
-.text-link:hover {
+.text-link:is(:hover, :focus-visible) {
   text-decoration: underline;
   text-underline-offset: 5px;
 }
@@ -198,6 +198,12 @@ a {
   white-space: nowrap;
   overflow-wrap: normal;
   word-break: normal;
+}
+
+/* Underlines do not propagate into an inline-block tail. */
+a:is(:hover, :focus-visible) .link-tail {
+  text-decoration: inherit;
+  text-underline-offset: inherit;
 }
 
 .link-tail > .link-icon {
@@ -314,7 +320,7 @@ a {
   display: flex;
   flex-wrap: wrap;
   gap: 10px 20px;
-  margin-top: 16px;
+  margin-top: 8px;
 }
 
 .document-links .text-link {
@@ -771,14 +777,24 @@ details[open] > summary .chevron {
 }
 
 .cv-related,
+.cv-related-preview,
 .cv-phase {
   margin-top: 24px;
 }
 
-.cv-detail h4 {
+.cv-detail h4,
+.cv-related-preview h4 {
   margin: 0 0 8px;
   font: 500 var(--text-body)/1.5 var(--sans);
   color: var(--fg);
+}
+
+details[open] > .cv-heading .cv-related-preview {
+  display: none;
+}
+
+.cv-related-preview .cv-caption {
+  margin-bottom: 0;
 }
 
 .cv-phase h4 > span,
@@ -2060,7 +2076,7 @@ html:not(.js) .cv-close {
   }
   /* Body copy uses the 44px toggle column and its 12px gap; titles stay inset. */
   :is(#education, #jobs, #volunteering) .cv-context,
-  :is(#education, #jobs, #volunteering) .cv-company-link {
+  :is(#education, #jobs, #volunteering) .cv-main > .document-links {
     margin-right: -56px;
   }
   .cv-toggle {
@@ -2583,11 +2599,6 @@ html:not(.js) .cv-close {
   text-transform: none;
   padding-inline: 14px;
   justify-content: center;
-}
-
-/* Keep the Furhat company link beside its introduction in either state. */
-.cv-company-link {
-  margin-top: 0;
 }
 
 .date-duration {
