@@ -2057,6 +2057,15 @@ html:not(.js) .cv-close {
 /* CV AND CASE STUDY RESPONSIVE GRID */
 
 @media (max-width: 580px) {
+  .document-links {
+    row-gap: 8px;
+  }
+  .document-links .text-link {
+    min-height: 0;
+  }
+  .cv-role {
+    display: block;
+  }
   .cv-heading {
     grid-template-columns: minmax(0, 1fr) 44px;
     gap: 8px 12px;
