@@ -1,6 +1,6 @@
 # Anton Kühr — Robotics & Mechanical Engineering
 
-Personal portfolio with education, experience and six engineering case studies: robotic skin, microphone implementation, a robot backpack, a rotating robot base, a voice-controlled cobot and an autonomous harvesting robot.
+Personal portfolio with education, experience and seven engineering case studies: humanoid tactile skin for Project Echo, a BSc textile tactile sensor, microphone implementation, a robot backpack, a rotating robot base, a voice-controlled cobot and an autonomous harvesting robot.
 
 [Visit the portfolio](https://antonkuehr.github.io/akrobotics/)
 

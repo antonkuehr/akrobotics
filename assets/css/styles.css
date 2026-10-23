@@ -2063,7 +2063,8 @@ html:not(.js) .cv-close {
   .document-links .text-link {
     min-height: 0;
   }
-  .cv-role {
+  .cv-role,
+  .cv-location {
     display: block;
   }
   .cv-heading {

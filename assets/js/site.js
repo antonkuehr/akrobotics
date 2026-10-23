@@ -348,11 +348,10 @@ for (const details of document.querySelectorAll("details")) {
     intendedOpen = open;
     const start = details.getBoundingClientRect().height;
     animation?.cancel();
-    // The list opener is hidden while expanded; measure its closed height first.
-    const previousDisplay = summary.style.display;
-    if (listContent) summary.style.display = "inline-flex";
-    const closedHeight = summary.getBoundingClientRect().height;
-    summary.style.display = previousDisplay;
+    // Measure the actual closed row: previews and list openers reappear when
+    // closed, and the row's borders also contribute to its final height.
+    details.open = false;
+    const closedHeight = details.getBoundingClientRect().height;
     details.open = true;
     const end = open ? details.getBoundingClientRect().height : closedHeight;
     if (open && listContent) listContent.focus({ preventScroll: true });
