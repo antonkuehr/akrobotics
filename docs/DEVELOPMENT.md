@@ -10,7 +10,7 @@ The CSS groups the theme, shared layout, homepage components, project components
 
 ## Changing content or media
 
-1. Edit the relevant page and check the factual scope against [Content sources](CONTENT.md).
+1. Edit the relevant page, check the factual scope against [Content sources](CONTENT.md), and apply the [perspective and tense rules](WRITING.md). These rules apply to all future website text and revisions.
 2. Store project media in its project directory and general documents under `assets/site/certificates/`. Use descriptive lowercase filenames separated by hyphens.
 3. Update every reference when an asset is renamed. Preserve the content of technical figures and document downloads.
 4. When replacing a linked PDF, update its `?v=` value using the first 12 characters of its SHA-256 digest. Use the same value wherever that document is linked. Shared CSS and JavaScript references also have version queries; advance them across all pages when the corresponding file changes.

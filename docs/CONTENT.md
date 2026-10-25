@@ -1,6 +1,8 @@
 # Content sources and scope
 
-The portfolio presents completed project work and its observed results. This record keeps the source basis and limitations available without publishing private source directories, internal document links or editing transcripts.
+The portfolio presents completed project work and its observed results alongside explicitly identified ongoing investigations. This record keeps the source basis and limitations available without publishing private source directories, internal document links or editing transcripts.
+
+All future website text and revisions must follow the category-specific [perspective and tense rules](WRITING.md). Distinguish personal and team contributions, completed work, current activity and future objectives.
 
 ## Project evidence
 

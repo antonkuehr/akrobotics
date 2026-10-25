@@ -55,6 +55,7 @@ GitHub Actions runs these checks on pushes and pull requests to `main`. These to
 
 - [Development guide](docs/DEVELOPMENT.md): page structure, asset updates and publishing.
 - [Content sources](docs/CONTENT.md): the basis and limits of project claims.
+- [Writing guide](docs/WRITING.md): perspective and tense rules for all future copy, with the current page audit.
 - [Asset attribution](docs/ASSETS.md): visual inspiration and logo sources.
 - [Search visibility](docs/SEO.md): search exclusion, direct access and verification.
 
