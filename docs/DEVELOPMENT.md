@@ -14,7 +14,7 @@ The CSS groups the theme, shared layout, homepage components, project components
 2. Store project media in its project directory and general documents under `assets/site/certificates/`. Use descriptive lowercase filenames separated by hyphens.
 3. Update every reference when an asset is renamed. Preserve the content of technical figures and document downloads.
 4. When replacing a linked PDF, update its `?v=` value using the first 12 characters of its SHA-256 digest. Use the same value wherever that document is linked. Shared CSS and JavaScript references also have version queries; advance them across all pages when the corresponding file changes.
-5. Update a sitemap `lastmod` date only for a material change to that page's content. Formatting alone does not require a new date.
+5. Keep `noindex, follow, noimageindex` metadata on every content page, including new pages. The site is intended for access through shared links rather than search results; do not recreate a sitemap.
 
 Documents intended for public download should have permanent redactions of private details and reviewed metadata. A visual overlay alone does not remove the underlying text or image data. Review photos for location metadata before adding them.
 
@@ -28,7 +28,7 @@ npm run check:js
 npm run format:check
 ```
 
-The Python check requires Python 3.9 or newer and uses the standard library. It validates local HTML/CSS asset references, IDs and link fragments, JSON-LD syntax, sitemap destinations and documented Markdown links. It does not test remote services, PDF contents or rendered layout. The same checks run in `.github/workflows/site-checks.yml` for pushes and pull requests to `main`.
+The Python check requires Python 3.9 or newer and uses the standard library. It validates local HTML/CSS asset references, IDs and link fragments, JSON-LD syntax, search restrictions and documented Markdown links. It does not test remote services, PDF contents or rendered layout. The same checks run in `.github/workflows/site-checks.yml` for pushes and pull requests to `main`.
 
 Preview changed pages at narrow phone and desktop widths. Check headings, text wrapping, media, disclosure open/close behaviour, keyboard navigation and horizontal overflow. External video playback and third-party destinations need manual review.
 

@@ -1,68 +1,45 @@
-# Search maintenance
+# Search visibility
 
-Canonical website: <https://antonkuehr.github.io/akrobotics/>.
+Website: <https://antonkuehr.github.io/akrobotics/>.
 
-## Files to preserve
+## Policy
 
-- Each content page has its own title, description, absolute canonical URL and social preview metadata.
-- The homepage contains `ProfilePage` and `Person` structured data. Project pages contain `WebPage` and `BreadcrumbList` data.
-- `sitemap.xml` lists the seven public content pages. Update `lastmod` only when the corresponding page materially changes.
-- `404.html` uses `noindex, follow` and is excluded from the sitemap.
-- `googlebdaa3890157682d4.html` is the existing Google ownership-verification file. Keep its filename and contents unchanged.
+From 25 October 2026, the portfolio is intended to be reached through shared links, including applications and LinkedIn, rather than general search results. Keep all existing page and document URLs stable. Visitors do not need an account or password.
 
-Metadata is delivered in HTML and does not depend on JavaScript.
+Every content page, the error page and the wordmark preview contain this static HTML metadata:
 
-## Homepage description and preferred portrait
+```html
+<meta name="robots" content="noindex, follow, noimageindex" />
+```
 
-Keep this description consistent in the homepage meta description, Open Graph and Twitter descriptions, and the existing `ProfilePage` and `Person` descriptions:
+`noindex` asks supporting search engines to exclude the page from results. `follow` allows crawlers to discover the other pages and read their exclusion instructions. `noimageindex` additionally asks Google not to index images from these pages; images discovered elsewhere may still appear.
 
-> Anton Kühr is an MSc Robotics student at TU Delft with a background in mechanical engineering. Hands-on project experience spanning computer vision, auditory perception and tactile sensing for humanoid robots.
+Keep crawling allowed: blocking crawlers in `robots.txt` would prevent them from reading `noindex`. Crawlers read robots files at the hostname root; this project’s `/akrobotics/robots.txt` is not a host-wide configuration. Page metadata is the exclusion mechanism.
 
-The hero’s credential paragraph names the same focus: computer vision, auditory perception and tactile sensing for humanoid robots. The homepage sitemap `lastmod` is 19 October 2026 for this copy and metadata update. Google chooses snippets for each query and may still select visible page text rather than the meta description; do not add snippet or indexing restrictions to force the wording.
+The previous sitemap and its robots-file advertisement have been removed. Do not submit new sitemaps or request indexing. Canonical URLs, descriptions, structured data and social preview metadata remain so links and shared previews still describe the portfolio correctly.
 
-The preferred portrait is `assets/site/anton-kuehr-profile-portrait.jpeg?v=46` (2479 × 2475 pixels). Its absolute URL is shared by `og:image`, `twitter:image`, `Person.image` and `ProfilePage.primaryImageOfPage`. Open Graph also records the image dimensions and JPEG type. Descriptive alt text identifies the professional portrait. The Furhat workbench photograph remains in its existing place. These are preference signals, not a guarantee of Google’s thumbnail selection.
+Keep `googlebdaa3890157682d4.html` unchanged. It verifies ownership for Google Search Console and contains no portfolio content.
 
-## Search Console
+## Publishing and removal
 
-Use the URL-prefix property `https://antonkuehr.github.io/akrobotics/` in [Google Search Console](https://search.google.com/search-console). Submit `sitemap.xml` under that property, then use URL inspection to check live page accessibility and indexing status.
+Local changes do not affect the published site until deployed. After publication:
 
-The existing verification file and sitemap submission do not guarantee indexing or ranking. Keep the canonical URL consistent across the site, GitHub repository website field and public profiles.
+1. Verify that the homepage and every project URL still return HTTP 200 and include the exclusion metadata in the delivered HTML.
+2. In the [Google Search Console](https://search.google.com/search-console) property for `https://antonkuehr.github.io/akrobotics/`, use URL inspection to test the live page and confirm that `noindex` is detected. Exclusion from indexing is now expected.
+3. For faster removal of existing Google results, use **Removals → New request → Temporarily remove URL**, enter `https://antonkuehr.github.io/akrobotics/`, and select **Remove all URLs with this prefix**. This affects Google results, not visitor access. The temporary request lasts about six months; the deployed `noindex` tags provide the ongoing page exclusion.
+4. Remove any old sitemap submission from Search Console. Monitor exclusion status separately from the submission status; a submitted request does not prove that results have disappeared.
 
-### Public check on 18 October 2026
+Search engines must revisit and process the pages before existing results disappear. Timing varies and immediate removal is not guaranteed. This configuration does not control how LinkedIn ranks.
 
-The published sitemap returned HTTP 200 with `Content-Type: application/xml`, valid XML and seven URLs. All seven pages returned HTTP 200 with matching canonical URLs and no `noindex` directives or `X-Robots-Tag` restrictions. The professional portrait returned HTTP 200 as `image/jpeg`. A separate Googlebot user-agent probe also fetched the sitemap successfully; this does not reproduce a request from Google’s actual crawler network.
+## Limits
 
-No current technical sitemap fault was found. Only the homepage `lastmod` is advanced to 18 October for its content and structured-data updates; project dates are retained because shared branding changes do not justify resetting every content date. Recheck that date when publishing if the content changes further before release.
+The site remains public: anyone who obtains its URL can visit, share or copy it. Search exclusion is not access control, and crawlers that ignore these instructions can still index it.
 
-For the reported “Couldn’t fetch” status:
-
-1. Select the exact URL-prefix property `https://antonkuehr.github.io/akrobotics/`.
-2. Open the failed sitemap entry and check its full submitted URL, last attempt and detailed error. The URL should be `https://antonkuehr.github.io/akrobotics/sitemap.xml`.
-3. Inspect that exact sitemap URL with **Test live URL**. Under Page availability, check that crawling is allowed and fetching succeeds. A sitemap itself does not need to be indexed as a search result.
-4. Resubmit `sitemap.xml` under that property if the failed submission remains stale after the successful live test. Do not invent alternate URLs or query-string workarounds.
-5. After the approved site update is published, inspect the homepage and request indexing. Inspect the reported non-indexed page separately to see its actual exclusion reason; do not assume every exclusion is an error. Check Manual actions if Google still cannot read the sitemap.
-
-The report reflects Google’s last fetch attempt. A historical transient fetch error, an incorrect submitted URL/property or low crawl demand are possible explanations, but the public checks cannot establish which one applies to the account.
-
-## robots.txt scope
-
-Crawlers read `robots.txt` at the host root. This repository serves a project site under `/akrobotics/`, so its `robots.txt` is not the host-wide crawler configuration. Preserve its sitemap reference, and submit the sitemap directly through Search Console. Changes to the host-root file belong in the separate `antonkuehr.github.io` repository.
-
-The host-root `https://antonkuehr.github.io/robots.txt` returned 404 during the public check. Google treats that response as no crawl restrictions; it does not explain a blocked sitemap by itself. The project-local robots file returned 200 and permits crawling.
-
-## Search-result favicon scope
-
-All portfolio pages reference the supplied final favicon consistently, including SVG, PNG, ICO and Apple Touch Icon versions. Browser favicon behaviour is separate from Google’s search-result favicon selection. Google supports one search favicon per hostname, not a separate favicon for each subdirectory. The hostname root currently returns a GitHub Pages 404 page, so any host-root homepage/favicon setup would be separate work in the root repository. Do not move or rename `/akrobotics/` to address this.
+HTML metadata does not apply to linked PDFs or other files served independently. Permanent search exclusion of those resources requires an `X-Robots-Tag: noindex` HTTP response header or another hosting/access arrangement. GitHub Pages does not provide per-file custom response-header configuration in this repository. This change preserves all document downloads and does not claim to deindex them. The prefix removal request can temporarily hide matching file URLs from Google, but does not provide permanent file exclusion.
 
 ## References
 
-- [Google SEO Starter Guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide)
-- [ProfilePage structured data](https://developers.google.com/search/docs/appearance/structured-data/profile-page)
-- [Build and submit a sitemap](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap)
-- [robots.txt scope](https://developers.google.com/search/docs/crawling-indexing/robots/robots_txt)
-- [Verify site ownership](https://support.google.com/webmasters/answer/9008080)
-- [URL inspection](https://support.google.com/webmasters/answer/9012289)
-- [Search snippets](https://developers.google.com/search/docs/appearance/snippet)
-- [Preferred images and image SEO](https://developers.google.com/search/docs/appearance/google-images)
-- [Search-result favicons](https://developers.google.com/search/docs/appearance/favicon-in-search)
-- [Sitemap fetch troubleshooting](https://support.google.com/webmasters/answer/7451001)
+- [Google: block indexing with noindex](https://developers.google.com/search/docs/crawling-indexing/block-indexing)
+- [Google: robots metadata, including noimageindex](https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag)
+- [Google: temporary removals](https://support.google.com/webmasters/answer/9689846)
+- [Bing: noindex and indexing](https://www.bing.com/webmasters/help/why-is-my-site-not-in-the-index-2141dfab)

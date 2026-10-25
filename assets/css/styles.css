@@ -709,6 +709,19 @@ a:is(:hover, :focus-visible) .link-tail {
   margin-top: 4px;
 }
 
+.location-icon {
+  display: inline-block;
+  width: 0.9em;
+  height: 0.9em;
+  margin-inline: 0.25em 0.1em;
+  vertical-align: -0.1em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .cv-context {
   margin-top: 8px;
   max-width: none;
@@ -2617,6 +2630,18 @@ html:not(.js) .cv-close {
   text-transform: none;
 }
 
+.date-duration::before {
+  content: "";
+  display: inline-block;
+  width: 0.9em;
+  height: 0.9em;
+  margin-inline: 0.25em 0.2em;
+  vertical-align: -0.1em;
+  background-color: currentColor;
+  -webkit-mask: url("../site/duration.svg") center / contain no-repeat;
+  mask: url("../site/duration.svg") center / contain no-repeat;
+}
+
 .cv-date > .date-duration {
   display: block;
 }
@@ -2624,10 +2649,6 @@ html:not(.js) .cv-close {
 @media (max-width: 580px) {
   .cv-date > .date-duration {
     display: inline;
-  }
-
-  .cv-date > .date-duration::before {
-    content: "· ";
   }
 }
 

@@ -19,7 +19,7 @@ assets/
   site/                    Portraits, icons and public documents
 docs/                      Maintenance, content sources and asset attribution
 scripts/check_site.py      Local link, fragment and metadata checks
-robots.txt, sitemap.xml    Search discovery
+robots.txt                Crawl guidance; pages carry noindex metadata
 ```
 
 ## Local preview
@@ -34,7 +34,7 @@ Open [localhost:8765](http://127.0.0.1:8765/). The preview uses the same static 
 
 ## Checks and formatting
 
-Check local links, section IDs, structured data and sitemap entries without installing dependencies:
+Check local links, section IDs, structured data and search restrictions without installing dependencies:
 
 ```sh
 python3 scripts/check_site.py
@@ -56,6 +56,6 @@ GitHub Actions runs these checks on pushes and pull requests to `main`. These to
 - [Development guide](docs/DEVELOPMENT.md): page structure, asset updates and publishing.
 - [Content sources](docs/CONTENT.md): the basis and limits of project claims.
 - [Asset attribution](docs/ASSETS.md): visual inspiration and logo sources.
-- [Search maintenance](docs/SEO.md): canonical URLs, sitemap and verification files.
+- [Search visibility](docs/SEO.md): search exclusion, direct access and verification.
 
 Project media and documents retain their original ownership. Organisation names and logos identify the relevant institutions, employers and technologies.

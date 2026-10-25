@@ -19,14 +19,12 @@ for (const label of document.querySelectorAll("[data-duration-start]")) {
   const years = Math.floor(total / 12);
   const months = total % 12;
   label.textContent =
-    (label.dataset.durationPrefix ?? "· ") +
     [
       years ? `${years} ${years === 1 ? "yr" : "yrs"}` : "",
       months ? `${months} ${months === 1 ? "mo" : "mos"}` : "",
     ]
       .filter(Boolean)
-      .join(" ") +
-    (label.dataset.durationCompletedMonths ? " total" : "");
+      .join(" ") + (label.dataset.durationCompletedMonths ? " total" : "");
 }
 
 const menuButton = document.querySelector(".menu-button");

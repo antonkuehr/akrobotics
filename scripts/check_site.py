@@ -4,7 +4,6 @@
 import json
 import re
 import sys
-import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
@@ -22,11 +21,16 @@ class Page(HTMLParser):
         self.ids = set()
         self.references = []
         self.errors = []
+        self.robots = set()
         self.capture = None
         self.buffer = []
 
     def handle_starttag(self, tag, attributes):
         attrs = dict(attributes)
+        if tag == "meta" and attrs.get("name", "").lower() == "robots":
+            self.robots.update(
+                rule.strip().lower() for rule in attrs.get("content", "").split(",")
+            )
         identifier = attrs.get("id")
         if identifier:
             if identifier in self.ids:
@@ -97,6 +101,11 @@ def main():
     for path in sorted(ROOT.glob("*.html")):
         page = Page(path)
         page.feed(path.read_text())
+        if path.name != "googlebdaa3890157682d4.html":
+            if not {"noindex", "noimageindex"}.issubset(page.robots):
+                page.errors.append("missing noindex or noimageindex search restriction")
+            if "index" in page.robots:
+                page.errors.append("unexpected index directive")
         pages[path] = page
         errors.extend(f"{path.name}: {error}" for error in page.errors)
         references.extend((path, ref) for ref in page.references)
@@ -112,28 +121,13 @@ def main():
         if error:
             errors.append(f"{source.relative_to(ROOT)}: {error}")
 
-    try:
-        sitemap = ET.parse(ROOT / "sitemap.xml")
-        locations = [element.text for element in sitemap.findall(".//{*}loc")]
-        if len(locations) != len(set(locations)):
-            errors.append("sitemap.xml: duplicate URLs")
-        for location in locations:
-            if not location or not location.startswith(SITE):
-                errors.append(f"sitemap.xml: unexpected site URL: {location}")
-                continue
-            error = check_reference(ROOT / "index.html", location, pages)
-            if error:
-                errors.append(f"sitemap.xml: {error}")
-    except (OSError, ET.ParseError) as error:
-        errors.append(f"sitemap.xml: {error}")
-
     if errors:
         for error in sorted(set(errors)):
             print(f"ERROR {error}", file=sys.stderr)
         return 1
     print(
         f"Checked {len(pages)} HTML files, {len(references)} references, "
-        "section IDs, JSON-LD and sitemap destinations."
+        "section IDs, JSON-LD and search restrictions."
     )
     return 0
 
