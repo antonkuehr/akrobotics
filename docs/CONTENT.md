@@ -18,6 +18,8 @@ All future website text and revisions must follow the category-specific [perspec
 
 Technical diagrams and heatmaps summarise source material. They do not constitute new experimental results. Team credit and individual contributions should remain consistent with documented responsibilities.
 
+The harvesting page centres the ToF-scanning and camera-detection methods, followed by their role in target collection and the recorded retrieval results. Its mobile and desktop diagrams preserve the documented sensing, control and supply relationships, with distinct arrow ports and solid labelled connections. Explanations precede the figures; the heatmaps share a light-to-dark scale for increasing retrieval time. Source-audit notes about unavailable trial-level data belong in maintenance records, rather than the public project narrative. The indoor test conditions and observed failure counts remain explicit.
+
 ## Education and employer descriptions
 
 - [TU Delft MSc Robotics](https://www.tudelft.nl/en/education/programmes/masters/robotics/msc-robotics) and [programme structure](https://www.tudelft.nl/en/education/programmes/masters/robotics/msc-robotics/programme) support the programme overview. Programme options do not imply that the student has already completed them.

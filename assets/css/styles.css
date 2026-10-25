@@ -958,7 +958,7 @@ html:not(.js) .cv-close {
   font-weight: 400;
   line-height: 1.7;
   letter-spacing: 0.07em;
-  text-transform: uppercase;
+  text-transform: none;
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
@@ -1406,6 +1406,12 @@ html:not(.js) .cv-close {
   font-size: var(--text-small);
 }
 
+.results-table--harvesting caption {
+  caption-side: bottom;
+  margin: 0;
+  padding-top: 12px;
+}
+
 .results-table th,
 .results-table td {
   text-align: left;
@@ -1736,6 +1742,18 @@ html:not(.js) .cv-close {
   width: 200px;
   height: 10px;
   background: linear-gradient(to right, var(--fg), var(--accent), var(--line));
+}
+
+.harvesting-visual-intro {
+  margin-top: 20px;
+}
+
+.harvesting-heatmap-intro {
+  margin-bottom: 20px;
+}
+
+.harvesting-project .heatmap-scale {
+  background: linear-gradient(to right, #f1fbf4, #8fb79c, #285f4c);
 }
 
 @media (max-width: 900px) {

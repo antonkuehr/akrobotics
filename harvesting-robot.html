@@ -50,7 +50,7 @@
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/styles.css?v=144" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=146" />
     <link rel="stylesheet" href="assets/css/wordmark-motion.css?v=2" />
     <script src="assets/js/site.js?v=31" defer></script>
     <script src="assets/js/wordmark-shapes.js?v=1" defer></script>
@@ -152,7 +152,7 @@
       }
     </script>
   </head>
-  <body class="project-page">
+  <body class="project-page harvesting-project">
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header">
@@ -410,16 +410,14 @@
               <p>
                 Denis Tolkovets and I developed a rover, robotic arm and gripper
                 to locate, approach and collect plastic-ball “apples” indoors.
-                The later comparison changed the perception stage on the same
-                robot so we could examine how target detection affected
-                retrieval.
+                We compared two ways of finding these targets: scanning with a
+                time-of-flight sensor and detecting them in camera images.
               </p>
               <p>
                 My responsibilities covered software and hardware architecture
-                and computer vision performance optimisation. I trained the
-                object detector on 2,445 self-collected images and deployed the
-                camera pipeline on a Raspberry Pi 5. The core platform and
-                comparison are joint work.
+                and computer vision performance optimisation. I developed and
+                deployed the camera pipeline on a Raspberry Pi 5. The core
+                platform and comparison are joint work.
               </p>
             </div>
           </section>
@@ -428,45 +426,50 @@
             class="case-section case-section--figure"
           >
             <div class="case-copy">
-              <h2>Camera detection on the same robot platform</h2>
+              <h2>Object detection with ToF and camera images</h2>
               <p>
-                The first version detected targets with a servo-swept
-                time-of-flight (ToF) scanner. The second used camera-based
-                detection on a Raspberry Pi 5, while the rover, arm and gripper
-                remained largely unchanged. The camera screenshot above shows
-                the targets identified in the image.
+                The first version swept a VL53L1X time-of-flight (ToF) sensor
+                with a servo to locate targets from range measurements. The
+                camera version used YOLOv8n to detect the balls in images and
+                identify their centres. I trained the detector on 2,445
+                self-collected images and ran it on a Raspberry Pi 5.
+              </p>
+              <p>
+                The diagram follows both sensing paths from the target to the
+                controller. Camera detections supplied target data including
+                class, confidence, image coordinates and colour; the ToF path
+                supplied range measurements. In both versions, the rover, arm
+                and gripper then approached and collected the target.
               </p>
             </div>
             <figure class="technical-figure">
-              <h3 class="figure-title">
-                Two sensing systems on the same robot platform
-              </h3>
+              <h3 class="figure-title">From target detection to collection</h3>
               <div class="technical-graphic diagram-frame">
                 <picture
                   ><source
                     media="(max-width: 700px)"
                     srcset="
-                      assets/projects/harvesting-robot/harvesting-robot-sensing-system-comparison-mobile.svg?v=47
-                    " />
+                      assets/projects/harvesting-robot/harvesting-robot-sensing-system-comparison-mobile.svg?v=49
+                    "
+                    width="400"
+                    height="900" />
                   <img
-                    src="assets/projects/harvesting-robot/harvesting-robot-sensing-system-comparison.svg?v=47"
-                    alt="Comparative sensing schematic: camera and ToF paths converge on the same Arduino and rover, with servo-sweep control and encoder feedback."
+                    src="assets/projects/harvesting-robot/harvesting-robot-sensing-system-comparison.svg?v=49"
+                    alt="Camera images pass through YOLOv8n on a Raspberry Pi; a servo-swept ToF sensor supplies range measurements. Both paths guide target collection through the Arduino controller."
                     width="1040"
-                    height="485"
+                    height="750"
                     loading="lazy"
                     decoding="async"
                 /></picture>
               </div>
               <figcaption>
-                Both sensing methods feed the same controller, rover, arm and
-                gripper. Camera target data contains class, confidence, image
-                size, x/y coordinates and colour; front-wheel encoders provide
-                feedback.
+                Camera-based object detection and ToF scanning, followed by
+                target approach, grasping and collection.
               </figcaption>
               <p class="figure-download">
                 <a
                   class="figure-full"
-                  href="assets/projects/harvesting-robot/harvesting-robot-sensing-system-comparison.svg?v=47"
+                  href="assets/projects/harvesting-robot/harvesting-robot-sensing-system-comparison.svg?v=49"
                   target="_blank"
                   rel="noopener"
                   >Full
@@ -484,35 +487,37 @@
           </section>
           <section id="architecture" class="case-section case-section--figure">
             <div class="case-copy">
-              <h2>Separation of perception and actuator control</h2>
+              <h2>From camera detections to harvesting</h2>
               <p>
-                The camera pipeline provided target detections for the
-                harvesting behaviour. An Arduino Mega 2560 handled heading,
-                distance and actuator control. Keeping downstream behaviour
-                comparable helped focus the experiment on the perception change.
+                Camera images reached the Raspberry Pi through a ribbon cable.
+                After object detection, the Pi sent target data over a serial
+                connection to an Arduino Mega 2560, which handled target
+                heading, distance and the commands for driving and grasping.
               </p>
               <p>
-                The camera connects to the Raspberry Pi through a ribbon cable.
-                The diagram separates information flow from the 12 V and 5 V
-                power supplies.
+                The diagram traces this path from image capture to the wheel
+                motors and arm. Front-wheel encoders returned motion feedback;
+                the Arduino also controlled the cooling fans.
               </p>
             </div>
             <figure class="technical-figure">
               <h3 class="figure-title">
-                Hardware and information architecture
+                Camera detection and harvesting control
               </h3>
               <div class="technical-graphic diagram-frame">
                 <picture
                   ><source
                     media="(max-width: 700px)"
                     srcset="
-                      assets/projects/harvesting-robot/harvesting-robot-signal-architecture-mobile.svg?v=47
-                    " />
+                      assets/projects/harvesting-robot/harvesting-robot-signal-architecture-mobile.svg?v=49
+                    "
+                    width="400"
+                    height="1010" />
                   <img
-                    src="assets/projects/harvesting-robot/harvesting-robot-signal-architecture.svg?v=47"
-                    alt="Hardware and information architecture: original component relationships retained with compact hardware pictograms."
+                    src="assets/projects/harvesting-robot/harvesting-robot-signal-architecture.svg?v=49"
+                    alt="Camera images reach the Raspberry Pi, which sends object data to the Arduino. The Arduino commands wheel motors, arm and fans, and receives wheel-encoder feedback."
                     width="1100"
-                    height="610"
+                    height="680"
                     loading="lazy"
                     decoding="async"
                 /></picture>
@@ -523,7 +528,7 @@
               </figcaption>
               <p class="figure-download">
                 <a
-                  href="assets/projects/harvesting-robot/harvesting-robot-signal-architecture.svg?v=47"
+                  href="assets/projects/harvesting-robot/harvesting-robot-signal-architecture.svg?v=49"
                   target="_blank"
                   rel="noopener"
                   >Full
@@ -538,6 +543,18 @@
                 ></a>
               </p>
             </figure>
+          </section>
+          <section id="power" class="case-section case-section--figure">
+            <div class="case-copy">
+              <h2>Power supply for the rover and vision hardware</h2>
+              <p>
+                A 4000 mAh battery supplied the 12 V motor path through the
+                Sabertooth controller. A converter provided 5 V for the
+                Raspberry Pi, camera, Arduino and downstream hardware. The
+                low-battery warning threshold was 11.4 V. The diagram follows
+                each supply path, with its voltage written beside the arrow.
+              </p>
+            </div>
             <figure class="technical-figure">
               <h3 class="figure-title">Power distribution</h3>
               <div class="technical-graphic diagram-frame">
@@ -545,25 +562,25 @@
                   ><source
                     media="(max-width: 700px)"
                     srcset="
-                      assets/projects/harvesting-robot/harvesting-robot-power-distribution-mobile.svg?v=47
-                    " />
+                      assets/projects/harvesting-robot/harvesting-robot-power-distribution-mobile.svg?v=49
+                    "
+                    width="400"
+                    height="1010" />
                   <img
-                    src="assets/projects/harvesting-robot/harvesting-robot-power-distribution.svg?v=47"
-                    alt="Power distribution: original component relationships retained with compact hardware pictograms."
+                    src="assets/projects/harvesting-robot/harvesting-robot-power-distribution.svg?v=49"
+                    alt="The battery supplies the motor controller at 12 V and a converter at 12 V. The converter supplies the camera, processing and control hardware through the labelled 5 V paths."
                     width="1100"
-                    height="420"
+                    height="750"
                     loading="lazy"
                     decoding="async"
                 /></picture>
               </div>
               <figcaption>
-                The 4000 mAh battery supplies the 12 V motor path and 5 V
-                converter. Each physical supply and load is shown; the LiPo
-                warning threshold is 11.4 V.
+                Battery, voltage conversion and the supply paths to each load.
               </figcaption>
               <p class="figure-download">
                 <a
-                  href="assets/projects/harvesting-robot/harvesting-robot-power-distribution.svg?v=47"
+                  href="assets/projects/harvesting-robot/harvesting-robot-power-distribution.svg?v=49"
                   target="_blank"
                   rel="noopener"
                   >Full
@@ -583,14 +600,15 @@
             <div class="case-copy">
               <h2>Results and limitations</h2>
               <p>
-                We compared the two implementations across 18 target positions
-                on the same indoor track. The timing metric is retrieval time
-                per metre (s/m), rather than the rover’s physical driving speed.
-                The mean times were 50.9 s/m for the ToF implementation and 2.8
-                s/m for vision, a ratio of approximately 18.
+                We compared ToF scanning and camera detection across 18 target
+                positions on the same indoor track. The mean retrieval times
+                were 50.9 s/m for ToF and 2.8 s/m for vision: the camera version
+                completed retrieval in approximately one eighteenth of the time
+                per metre. This metric includes finding, approaching and
+                collecting the target.
               </p>
               <div class="results-table-wrap">
-                <table class="results-table">
+                <table class="results-table results-table--harvesting">
                   <caption>
                     Results for the indoor comparison across 18 target
                     positions.
@@ -617,17 +635,25 @@
                 </table>
               </div>
               <p>
-                The vision version had no observed task failures in that test
-                setup. This comparison does not establish a universal advantage
-                over ToF or a zero failure rate in other environments. We
-                observed 12 failures in 30 ToF attempts and none in 18 camera
-                attempts.
+                We observed 12 failures in 30 ToF attempts and none in 18 camera
+                attempts. These results describe the indoor setup with plastic
+                balls; performance in other environments was not evaluated.
               </p>
             </div>
             <figure class="technical-figure">
               <h3 class="figure-title">
                 Retrieval-time comparison at 18 target positions
               </h3>
+              <p class="harvesting-heatmap-intro">
+                Each heatmap shows how retrieval time varied with target
+                position. Rows give the distance from the rover; the three
+                coloured columns give targets to the left, on the centre line
+                and to the right. Each cell contains the retrieval time in
+                seconds. Both maps use the same colour scale: darker green means
+                a longer retrieval time. The final column gives the mean for
+                that distance, divided by the distance to express it in seconds
+                per metre (s/m).
+              </p>
               <p class="figure-key">
                 Cell values in seconds · side positions ±0.5 m from the centre
                 line
@@ -970,9 +996,10 @@
             <div class="case-copy">
               <h2>Side-by-side demonstration</h2>
               <p>
-                The video shows the two harvesting implementations in operation.
-                It complements the indoor comparison without establishing
-                performance outside that setup.
+                The video shows how each sensing method guided the rover through
+                finding and collecting a target. It pairs the ToF-scanning and
+                camera-based harvesting runs for a direct view of the two
+                behaviours.
               </p>
             </div>
             <figure class="case-video">
