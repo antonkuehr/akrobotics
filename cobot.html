@@ -225,7 +225,21 @@
         </button>
 
         <nav id="site-nav" aria-label="Main navigation">
-          <a class="project-nav-back" href="robotic-skin.html" aria-label="Previous project: Robotic Tactile Skin"><span class="link-tail link-tail--leading"><svg class="link-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M13.5 8h-11m4-4-4 4 4 4" /></svg>Back</span></a>
+          <a
+            class="project-nav-back"
+            href="robotic-skin.html"
+            aria-label="Previous project: Robotic Tactile Skin"
+            ><span class="link-tail link-tail--leading"
+              ><svg
+                class="link-icon"
+                viewBox="0 0 16 16"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M13.5 8h-11m4-4-4 4 4 4" /></svg
+              >Back</span
+            ></a
+          >
           <details class="project-menu">
             <summary>Projects <span aria-hidden="true">▾</span></summary>
             <ul class="project-menu-list">
@@ -239,13 +253,27 @@
                   >Voice-controlled cobot system</a
                 >
               </li>
-              <li><a href="harvesting-robot.html">Autonomous harvesting robot</a></li>
+              <li>
+                <a href="harvesting-robot.html">Autonomous harvesting robot</a>
+              </li>
               <li class="project-menu-all">
                 <a href="index.html#portfolio">View all projects</a>
               </li>
             </ul>
           </details>
-          <a class="project-nav-next" href="harvesting-robot.html" aria-label="Next project: Autonomous harvesting robot"><span class="link-tail">Next<svg class="link-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 8h11m-4-4 4 4-4 4" /></svg></span></a>
+          <a
+            class="project-nav-next"
+            href="harvesting-robot.html"
+            aria-label="Next project: Autonomous harvesting robot"
+            ><span class="link-tail"
+              >Next<svg
+                class="link-icon"
+                viewBox="0 0 16 16"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M2.5 8h11m-4-4 4 4-4 4" /></svg></span
+          ></a>
           <a href="index.html#contact">Contact</a>
         </nav>
       </div>
@@ -485,2202 +513,2208 @@
               </p>
             </figure>
             <details class="technical-notes" id="ros2-service-diagrams">
-            <summary>
-              ROS 2 service diagrams<span
-                class="chevron"
-                aria-hidden="true"
-              ></span>
-            </summary>
-            <div class="technical-content">
-              <p>The manager routes requests among Speech, Vision and Arm.</p>
-              <figure class="technical-figure ros-figure">
-                <h3 class="figure-title">Manager client</h3>
-                <svg
-                  class="ros-flow ros-flow--desktop"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 1000 690"
-                  role="img"
-                  aria-labelledby="ros-manager-desktop-title ros-manager-desktop-desc"
-                >
-                  <title id="ros-manager-desktop-title">
-                    Manager client — ROS 2 service dispatch
-                  </title>
-                  <desc id="ros-manager-desktop-desc">
-                    English translation of the existing ROS 2 implementation
-                    flowchart. All processes, decisions, branch conditions,
-                    variable updates, joins and loops are retained.
-                  </desc>
-                  <defs>
-                    <marker
-                      id="ros-manager-desktop-arrow"
-                      viewBox="0 0 10 10"
-                      refX="9"
-                      refY="5"
-                      markerWidth="6"
-                      markerHeight="6"
-                      orient="auto-start-reverse"
-                    >
-                      <path d="M0 0 L10 5 L0 10 Z" fill="var(--bg)" />
-                    </marker>
-                  </defs>
-                  <circle class="ros-terminal" cx="30" cy="65" r="8" />
-                  <rect
-                    class="ros-process"
-                    x="70.0"
-                    y="30.0"
-                    width="280"
-                    height="70"
-                    rx="9"
-                  />
-                  <text x="210" y="57.85" font-size="18">
-                    <tspan x="210" dy="0">Initialise client–service</tspan>
-                    <tspan x="210" dy="24.3">communication</tspan>
-                  </text>
-                  <rect
-                    class="ros-process"
-                    x="415.0"
-                    y="30.0"
-                    width="280"
-                    height="70"
-                    rx="9"
-                  />
-                  <text x="555" y="57.85" font-size="18">
-                    <tspan x="555" dy="0">Set</tspan>
-                    <tspan x="555" dy="24.3">next_srv == Speech</tspan>
-                  </text>
-                  <path
-                    class="ros-merge"
-                    d="M865 56 L874 65 L865 74 L856 65 Z"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M38 65 H70"
-                    marker-end="url(#ros-manager-desktop-arrow)"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M350 65 H415"
-                    marker-end="url(#ros-manager-desktop-arrow)"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M695 65 H856"
-                    marker-end="url(#ros-manager-desktop-arrow)"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M865 74 V135"
-                    marker-end="url(#ros-manager-desktop-arrow)"
-                  />
-                  <path
-                    class="ros-decision"
-                    d="M865 135.0 L980.0 225 L865 315.0 L750.0 225 Z"
-                  />
-                  <text x="865" y="208.4" font-size="16">
-                    <tspan x="865" dy="0">next_srv</tspan>
-                    <tspan x="865" dy="21.6">==</tspan>
-                    <tspan x="865" dy="21.6">Speech</tspan>
-                  </text>
-                  <rect
-                    class="ros-process"
-                    x="750.0"
-                    y="355.0"
-                    width="230"
-                    height="70"
-                    rx="9"
-                  />
-                  <text x="865" y="395.0" font-size="18">
-                    <tspan x="865" dy="0">Speech service</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M865 315 V355"
-                    marker-end="url(#ros-manager-desktop-arrow)"
-                  />
-                  <text x="890" y="335.0" font-size="16">
-                    <tspan x="890" dy="0">[yes]</tspan>
-                  </text>
-                  <path
-                    class="ros-decision"
-                    d="M535 135.0 L650.0 225 L535 315.0 L420.0 225 Z"
-                  />
-                  <text x="535" y="208.4" font-size="16">
-                    <tspan x="535" dy="0">next_srv</tspan>
-                    <tspan x="535" dy="21.6">==</tspan>
-                    <tspan x="535" dy="21.6">Vision</tspan>
-                  </text>
-                  <rect
-                    class="ros-process"
-                    x="420.0"
-                    y="355.0"
-                    width="230"
-                    height="70"
-                    rx="9"
-                  />
-                  <text x="535" y="395.0" font-size="18">
-                    <tspan x="535" dy="0">Vision service</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M535 315 V355"
-                    marker-end="url(#ros-manager-desktop-arrow)"
-                  />
-                  <text x="560" y="335.0" font-size="16">
-                    <tspan x="560" dy="0">[yes]</tspan>
-                  </text>
-                  <path
-                    class="ros-decision"
-                    d="M205 135.0 L320.0 225 L205 315.0 L90.0 225 Z"
-                  />
-                  <text x="205" y="208.4" font-size="16">
-                    <tspan x="205" dy="0">next_srv</tspan>
-                    <tspan x="205" dy="21.6">==</tspan>
-                    <tspan x="205" dy="21.6">Arm</tspan>
-                  </text>
-                  <rect
-                    class="ros-process"
-                    x="90.0"
-                    y="355.0"
-                    width="230"
-                    height="70"
-                    rx="9"
-                  />
-                  <text x="205" y="395.0" font-size="18">
-                    <tspan x="205" dy="0">Arm service</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M205 315 V355"
-                    marker-end="url(#ros-manager-desktop-arrow)"
-                  />
-                  <text x="230" y="335.0" font-size="16">
-                    <tspan x="230" dy="0">[yes]</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M750 225 H650"
-                    marker-end="url(#ros-manager-desktop-arrow)"
-                  />
-                  <text x="700" y="207.0" font-size="16">
-                    <tspan x="700" dy="0">[no]</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M420 225 H320"
-                    marker-end="url(#ros-manager-desktop-arrow)"
-                  />
-                  <text x="365" y="207.0" font-size="16">
-                    <tspan x="365" dy="0">[no]</tspan>
-                  </text>
-                  <rect
-                    class="ros-process"
-                    x="750.0"
-                    y="475.0"
-                    width="230"
-                    height="70"
-                    rx="9"
-                  />
-                  <text x="865" y="515.0" font-size="18">
-                    <tspan x="865" dy="0">Update target</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M865 425 V475"
-                    marker-end="url(#ros-manager-desktop-arrow)"
-                  />
-                  <path
-                    class="ros-merge"
-                    d="M535 501 L544 510 L535 519 L526 510 Z"
-                  />
-                  <path
-                    class="ros-merge"
-                    d="M205 501 L214 510 L205 519 L196 510 Z"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M205 425 V501"
-                    marker-end="url(#ros-manager-desktop-arrow)"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M90 225 H30 V510 H196"
-                    marker-end="url(#ros-manager-desktop-arrow)"
-                  />
-                  <text x="55" y="207.0" font-size="16">
-                    <tspan x="55" dy="0">[no]</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M214 510 H526"
-                    marker-end="url(#ros-manager-desktop-arrow)"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M535 425 V501"
-                    marker-end="url(#ros-manager-desktop-arrow)"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M750 510 H544"
-                    marker-end="url(#ros-manager-desktop-arrow)"
-                  />
-                  <rect
-                    class="ros-process"
-                    x="420.0"
-                    y="590.0"
-                    width="230"
-                    height="70"
-                    rx="9"
-                  />
-                  <text x="535" y="630.0" font-size="18">
-                    <tspan x="535" dy="0">Update next_srv</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M535 519 V590"
-                    marker-end="url(#ros-manager-desktop-arrow)"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M650 625 H985 V65 H874"
-                    marker-end="url(#ros-manager-desktop-arrow)"
-                  /></svg
-                ><svg
-                  class="ros-flow ros-flow--mobile"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 320 1370"
-                  role="img"
-                  aria-labelledby="ros-manager-mobile-title ros-manager-mobile-desc"
-                >
-                  <title id="ros-manager-mobile-title">
-                    Manager client — ROS 2 service dispatch
-                  </title>
-                  <desc id="ros-manager-mobile-desc">
-                    English translation of the existing ROS 2 implementation
-                    flowchart. All processes, decisions, branch conditions,
-                    variable updates, joins and loops are retained.
-                  </desc>
-                  <defs>
-                    <marker
-                      id="ros-manager-mobile-arrow"
-                      viewBox="0 0 10 10"
-                      refX="9"
-                      refY="5"
-                      markerWidth="6"
-                      markerHeight="6"
-                      orient="auto-start-reverse"
-                    >
-                      <path d="M0 0 L10 5 L0 10 Z" fill="var(--bg)" />
-                    </marker>
-                  </defs>
-                  <circle class="ros-terminal" cx="160" cy="20" r="8" />
-                  <rect
-                    class="ros-process"
-                    x="40.0"
-                    y="55.0"
-                    width="240"
-                    height="70"
-                    rx="9"
-                  />
-                  <text x="160" y="83.525" font-size="17">
-                    <tspan x="160" dy="0">Initialise client–service</tspan>
-                    <tspan x="160" dy="22.950000000000003">communication</tspan>
-                  </text>
-                  <rect
-                    class="ros-process"
-                    x="50.0"
-                    y="160.0"
-                    width="220"
-                    height="60"
-                    rx="9"
-                  />
-                  <text x="160" y="183.525" font-size="17">
-                    <tspan x="160" dy="0">Set</tspan>
-                    <tspan x="160" dy="22.950000000000003">
-                      next_srv == Speech
-                    </tspan>
-                  </text>
-                  <path
-                    class="ros-merge"
-                    d="M160 261 L169 270 L160 279 L151 270 Z"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M160 28 V55"
-                    marker-end="url(#ros-manager-mobile-arrow)"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M160 125 V160"
-                    marker-end="url(#ros-manager-mobile-arrow)"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M160 220 V261"
-                    marker-end="url(#ros-manager-mobile-arrow)"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M160 279 V300 H100 V327"
-                    marker-end="url(#ros-manager-mobile-arrow)"
-                  />
-                  <path
-                    class="ros-decision"
-                    d="M100 327.0 L173.0 390 L100 453.0 L27.0 390 Z"
-                  />
-                  <text x="100" y="376.1" font-size="14">
-                    <tspan x="100" dy="0">next_srv</tspan>
-                    <tspan x="100" dy="18.900000000000002">==</tspan>
-                    <tspan x="100" dy="18.900000000000002">Speech</tspan>
-                  </text>
-                  <rect
-                    class="ros-process"
-                    x="187.0"
-                    y="358.0"
-                    width="118"
-                    height="64"
-                    rx="9"
-                  />
-                  <text x="246" y="383.525" font-size="17">
-                    <tspan x="246" dy="0">Speech</tspan>
-                    <tspan x="246" dy="22.950000000000003">service</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M173 390 H187"
-                    marker-end="url(#ros-manager-mobile-arrow)"
-                  />
-                  <text x="184" y="375.0" font-size="14">
-                    <tspan x="184" dy="0">[yes]</tspan>
-                  </text>
-                  <path
-                    class="ros-decision"
-                    d="M100 587.0 L173.0 650 L100 713.0 L27.0 650 Z"
-                  />
-                  <text x="100" y="636.1" font-size="14">
-                    <tspan x="100" dy="0">next_srv</tspan>
-                    <tspan x="100" dy="18.900000000000002">==</tspan>
-                    <tspan x="100" dy="18.900000000000002">Vision</tspan>
-                  </text>
-                  <rect
-                    class="ros-process"
-                    x="187.0"
-                    y="618.0"
-                    width="118"
-                    height="64"
-                    rx="9"
-                  />
-                  <text x="246" y="643.525" font-size="17">
-                    <tspan x="246" dy="0">Vision</tspan>
-                    <tspan x="246" dy="22.950000000000003">service</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M173 650 H187"
-                    marker-end="url(#ros-manager-mobile-arrow)"
-                  />
-                  <text x="184" y="635.0" font-size="14">
-                    <tspan x="184" dy="0">[yes]</tspan>
-                  </text>
-                  <path
-                    class="ros-decision"
-                    d="M100 847.0 L173.0 910 L100 973.0 L27.0 910 Z"
-                  />
-                  <text x="100" y="896.1" font-size="14">
-                    <tspan x="100" dy="0">next_srv</tspan>
-                    <tspan x="100" dy="18.900000000000002">==</tspan>
-                    <tspan x="100" dy="18.900000000000002">Arm</tspan>
-                  </text>
-                  <rect
-                    class="ros-process"
-                    x="187.0"
-                    y="878.0"
-                    width="118"
-                    height="64"
-                    rx="9"
-                  />
-                  <text x="246" y="903.525" font-size="17">
-                    <tspan x="246" dy="0">Arm</tspan>
-                    <tspan x="246" dy="22.950000000000003">service</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M173 910 H187"
-                    marker-end="url(#ros-manager-mobile-arrow)"
-                  />
-                  <text x="184" y="895.0" font-size="14">
-                    <tspan x="184" dy="0">[yes]</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M100 453 V587"
-                    marker-end="url(#ros-manager-mobile-arrow)"
-                  />
-                  <text x="120" y="485.0" font-size="14">
-                    <tspan x="120" dy="0">[no]</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M100 713 V847"
-                    marker-end="url(#ros-manager-mobile-arrow)"
-                  />
-                  <text x="120" y="745.0" font-size="14">
-                    <tspan x="120" dy="0">[no]</tspan>
-                  </text>
-                  <rect
-                    class="ros-process"
-                    x="187.0"
-                    y="470.0"
-                    width="118"
-                    height="60"
-                    rx="9"
-                  />
-                  <text x="246" y="493.525" font-size="17">
-                    <tspan x="246" dy="0">Update</tspan>
-                    <tspan x="246" dy="22.950000000000003">target</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M246 422 V470"
-                    marker-end="url(#ros-manager-mobile-arrow)"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M246 530 V555 H311 V1170 H169"
-                    marker-end="url(#ros-manager-mobile-arrow)"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M246 682 V715 H311 V1170 H169"
-                    marker-end="url(#ros-manager-mobile-arrow)"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M246 942 V975 H311 V1170 H169"
-                    marker-end="url(#ros-manager-mobile-arrow)"
-                  />
-                  <path
-                    class="ros-merge"
-                    d="M100 1051 L109 1060 L100 1069 L91 1060 Z"
-                  />
-                  <path
-                    class="ros-merge"
-                    d="M160 1161 L169 1170 L160 1179 L151 1170 Z"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M100 973 V1051"
-                    marker-end="url(#ros-manager-mobile-arrow)"
-                  />
-                  <text x="121" y="1009.0" font-size="14">
-                    <tspan x="121" dy="0">[no]</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M109 1060 H160 V1161"
-                    marker-end="url(#ros-manager-mobile-arrow)"
-                  />
-                  <rect
-                    class="ros-process"
-                    x="50.0"
-                    y="1230.0"
-                    width="220"
-                    height="60"
-                    rx="9"
-                  />
-                  <text x="160" y="1265.0" font-size="17">
-                    <tspan x="160" dy="0">Update next_srv</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M160 1179 V1230"
-                    marker-end="url(#ros-manager-mobile-arrow)"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M160 1290 V1335 H12 V270 H151"
-                    marker-end="url(#ros-manager-mobile-arrow)"
-                  />
-                </svg>
-                <figcaption>
-                  Service dispatch, target update and the next_srv loop.
-                </figcaption>
-              </figure>
-              <figure class="technical-figure ros-figure">
-                <h3 class="figure-title">Speech service</h3>
-                <svg
-                  class="ros-flow ros-flow--desktop"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 1100 1140"
-                  role="img"
-                  aria-labelledby="ros-speech-desktop-title ros-speech-desktop-desc"
-                >
-                  <title id="ros-speech-desktop-title">
-                    Speech service — command recording and routing
-                  </title>
-                  <desc id="ros-speech-desktop-desc">
-                    English translation of the existing ROS 2 implementation
-                    flowchart. All processes, decisions, branch conditions,
-                    variable updates, joins and loops are retained.
-                  </desc>
-                  <defs>
-                    <marker
-                      id="ros-speech-desktop-arrow"
-                      viewBox="0 0 10 10"
-                      refX="9"
-                      refY="5"
-                      markerWidth="6"
-                      markerHeight="6"
-                      orient="auto-start-reverse"
-                    >
-                      <path d="M0 0 L10 5 L0 10 Z" fill="var(--bg)" />
-                    </marker>
-                  </defs>
-                  <circle class="ros-terminal" cx="285" cy="65" r="8" />
-                  <rect
-                    class="ros-process"
-                    x="20.0"
-                    y="30.0"
-                    width="220"
-                    height="70"
-                    rx="9"
-                  />
-                  <text x="130" y="57.85" font-size="18">
-                    <tspan x="130" dy="0">Audio feedback:</tspan>
-                    <tspan x="130" dy="24.3">Ready for command</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M277 65 H240"
-                    marker-end="url(#ros-speech-desktop-arrow)"
-                  />
-                  <path
-                    class="ros-decision"
-                    d="M130 170.0 L220.0 240 L130 310.0 L40.0 240 Z"
-                  />
-                  <text x="130" y="234.2" font-size="16">
-                    <tspan x="130" dy="0">Button</tspan>
-                    <tspan x="130" dy="21.6">pressed?</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M130 100 V170"
-                    marker-end="url(#ros-speech-desktop-arrow)"
-                  />
-                  <rect
-                    class="ros-process"
-                    x="280.0"
-                    y="205.0"
-                    width="220"
-                    height="70"
-                    rx="9"
-                  />
-                  <text x="390" y="232.85" font-size="18">
-                    <tspan x="390" dy="0">Start recording</tspan>
-                    <tspan x="390" dy="24.3">the command</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M220 240 H280"
-                    marker-end="url(#ros-speech-desktop-arrow)"
-                  />
-                  <text x="250" y="220.0" font-size="16">
-                    <tspan x="250" dy="0">[yes]</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M130 310 V340 H20 V240 H40"
-                    marker-end="url(#ros-speech-desktop-arrow)"
-                  />
-                  <text x="160" y="332.0" font-size="16">
-                    <tspan x="160" dy="0">[no]</tspan>
-                  </text>
-                  <path
-                    class="ros-decision"
-                    d="M650 170.0 L740.0 240 L650 310.0 L560.0 240 Z"
-                  />
-                  <text x="650" y="234.2" font-size="16">
-                    <tspan x="650" dy="0">Button pressed</tspan>
-                    <tspan x="650" dy="21.6">again?</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M500 240 H560"
-                    marker-end="url(#ros-speech-desktop-arrow)"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M740 240 H780 V340 H650 V310"
-                    marker-end="url(#ros-speech-desktop-arrow)"
-                  />
-                  <text x="757" y="219.0" font-size="16">
-                    <tspan x="757" dy="0">[no]</tspan>
-                  </text>
-                  <rect
-                    class="ros-process"
-                    x="850.0"
-                    y="30.0"
-                    width="220"
-                    height="70"
-                    rx="9"
-                  />
-                  <text x="960" y="57.85" font-size="18">
-                    <tspan x="960" dy="0">Stop recording</tspan>
-                    <tspan x="960" dy="24.3">the command</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M650 170 V65 H850"
-                    marker-end="url(#ros-speech-desktop-arrow)"
-                  />
-                  <text x="675" y="145.0" font-size="16">
-                    <tspan x="675" dy="0">[yes]</tspan>
-                  </text>
-                  <rect
-                    class="ros-process"
-                    x="850.0"
-                    y="160.0"
-                    width="220"
-                    height="100"
-                    rx="9"
-                  />
-                  <text x="960" y="202.85" font-size="18">
-                    <tspan x="960" dy="0">Convert recording to</tspan>
-                    <tspan x="960" dy="24.3">text with Whisper API</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M960 100 V160"
-                    marker-end="url(#ros-speech-desktop-arrow)"
-                  />
-                  <rect
-                    class="ros-process"
-                    x="850.0"
-                    y="330.0"
-                    width="220"
-                    height="80"
-                    rx="9"
-                  />
-                  <text x="960" y="362.85" font-size="18">
-                    <tspan x="960" dy="0">Analyse command</tspan>
-                    <tspan x="960" dy="24.3">with GPT-4o API</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M960 260 V330"
-                    marker-end="url(#ros-speech-desktop-arrow)"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M960 410 V465"
-                    marker-end="url(#ros-speech-desktop-arrow)"
-                  />
-                  <path
-                    class="ros-decision"
-                    d="M960 465.0 L1050.0 540 L960 615.0 L870.0 540 Z"
-                  />
-                  <text x="960" y="523.4" font-size="16">
-                    <tspan x="960" dy="0">command ==</tspan>
-                    <tspan x="960" dy="21.6">Put away</tspan>
-                    <tspan x="960" dy="21.6">hammer</tspan>
-                  </text>
-                  <rect
-                    class="ros-process"
-                    x="860.0"
-                    y="715.0"
-                    width="200"
-                    height="110"
-                    rx="9"
-                  />
-                  <text x="960" y="750.7" font-size="18">
-                    <tspan x="960" dy="0">Set</tspan>
-                    <tspan x="960" dy="24.3">next_srv == Vision</tspan>
-                    <tspan x="960" dy="24.3">target == Hammer</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M960 615 V715"
-                    marker-end="url(#ros-speech-desktop-arrow)"
-                  />
-                  <text x="984" y="653.0" font-size="16">
-                    <tspan x="984" dy="0">[yes]</tspan>
-                  </text>
-                  <path
-                    class="ros-merge"
-                    d="M960 891 L969 900 L960 909 L951 900 Z"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M960 825 V891"
-                    marker-end="url(#ros-speech-desktop-arrow)"
-                  />
-                  <path
-                    class="ros-decision"
-                    d="M740 465.0 L830.0 540 L740 615.0 L650.0 540 Z"
-                  />
-                  <text x="740" y="523.4" font-size="16">
-                    <tspan x="740" dy="0">command ==</tspan>
-                    <tspan x="740" dy="21.6">Put away</tspan>
-                    <tspan x="740" dy="21.6">screwdriver</tspan>
-                  </text>
-                  <rect
-                    class="ros-process"
-                    x="640.0"
-                    y="715.0"
-                    width="200"
-                    height="110"
-                    rx="9"
-                  />
-                  <text x="740" y="750.7" font-size="18">
-                    <tspan x="740" dy="0">Set</tspan>
-                    <tspan x="740" dy="24.3">next_srv == Vision</tspan>
-                    <tspan x="740" dy="24.3">target == Screwdriver</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M740 615 V715"
-                    marker-end="url(#ros-speech-desktop-arrow)"
-                  />
-                  <text x="764" y="653.0" font-size="16">
-                    <tspan x="764" dy="0">[yes]</tspan>
-                  </text>
-                  <path
-                    class="ros-merge"
-                    d="M740 891 L749 900 L740 909 L731 900 Z"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M740 825 V891"
-                    marker-end="url(#ros-speech-desktop-arrow)"
-                  />
-                  <path
-                    class="ros-decision"
-                    d="M520 465.0 L610.0 540 L520 615.0 L430.0 540 Z"
-                  />
-                  <text x="520" y="523.4" font-size="16">
-                    <tspan x="520" dy="0">command ==</tspan>
-                    <tspan x="520" dy="21.6">Retrieve</tspan>
-                    <tspan x="520" dy="21.6">hammer</tspan>
-                  </text>
-                  <rect
-                    class="ros-process"
-                    x="420.0"
-                    y="715.0"
-                    width="200"
-                    height="110"
-                    rx="9"
-                  />
-                  <text x="520" y="750.7" font-size="18">
-                    <tspan x="520" dy="0">Set</tspan>
-                    <tspan x="520" dy="24.3">next_srv == Arm</tspan>
-                    <tspan x="520" dy="24.3">target == Hammer</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M520 615 V715"
-                    marker-end="url(#ros-speech-desktop-arrow)"
-                  />
-                  <text x="544" y="653.0" font-size="16">
-                    <tspan x="544" dy="0">[yes]</tspan>
-                  </text>
-                  <path
-                    class="ros-merge"
-                    d="M520 891 L529 900 L520 909 L511 900 Z"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M520 825 V891"
-                    marker-end="url(#ros-speech-desktop-arrow)"
-                  />
-                  <path
-                    class="ros-decision"
-                    d="M300 465.0 L390.0 540 L300 615.0 L210.0 540 Z"
-                  />
-                  <text x="300" y="523.4" font-size="16">
-                    <tspan x="300" dy="0">command ==</tspan>
-                    <tspan x="300" dy="21.6">Retrieve</tspan>
-                    <tspan x="300" dy="21.6">screwdriver</tspan>
-                  </text>
-                  <rect
-                    class="ros-process"
-                    x="200.0"
-                    y="715.0"
-                    width="200"
-                    height="110"
-                    rx="9"
-                  />
-                  <text x="300" y="750.7" font-size="18">
-                    <tspan x="300" dy="0">Set</tspan>
-                    <tspan x="300" dy="24.3">next_srv == Arm</tspan>
-                    <tspan x="300" dy="24.3">target == Screwdriver</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M300 615 V715"
-                    marker-end="url(#ros-speech-desktop-arrow)"
-                  />
-                  <text x="324" y="653.0" font-size="16">
-                    <tspan x="324" dy="0">[yes]</tspan>
-                  </text>
-                  <path
-                    class="ros-merge"
-                    d="M300 891 L309 900 L300 909 L291 900 Z"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M300 825 V891"
-                    marker-end="url(#ros-speech-desktop-arrow)"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M870 540 H830"
-                    marker-end="url(#ros-speech-desktop-arrow)"
-                  />
-                  <text x="850" y="520.0" font-size="16">
-                    <tspan x="850" dy="0">[no]</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M650 540 H610"
-                    marker-end="url(#ros-speech-desktop-arrow)"
-                  />
-                  <text x="630" y="520.0" font-size="16">
-                    <tspan x="630" dy="0">[no]</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M430 540 H390"
-                    marker-end="url(#ros-speech-desktop-arrow)"
-                  />
-                  <text x="410" y="520.0" font-size="16">
-                    <tspan x="410" dy="0">[no]</tspan>
-                  </text>
-                  <rect
-                    class="ros-process"
-                    x="10.0"
-                    y="715.0"
-                    width="140"
-                    height="110"
-                    rx="9"
-                  />
-                  <text x="80" y="750.7" font-size="18">
-                    <tspan x="80" dy="0">Set</tspan>
-                    <tspan x="80" dy="24.3">next_srv ==</tspan>
-                    <tspan x="80" dy="24.3">Speech</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M210 540 H80 V715"
-                    marker-end="url(#ros-speech-desktop-arrow)"
-                  />
-                  <text x="125" y="513.0" font-size="16">
-                    <tspan x="125" dy="0">[no matching action]</tspan>
-                  </text>
-                  <path
-                    class="ros-merge"
-                    d="M80 891 L89 900 L80 909 L71 900 Z"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M80 825 V891"
-                    marker-end="url(#ros-speech-desktop-arrow)"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M951 900 H749"
-                    marker-end="url(#ros-speech-desktop-arrow)"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M731 900 H529"
-                    marker-end="url(#ros-speech-desktop-arrow)"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M511 900 H309"
-                    marker-end="url(#ros-speech-desktop-arrow)"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M291 900 H89"
-                    marker-end="url(#ros-speech-desktop-arrow)"
-                  />
-                  <rect
-                    class="ros-process"
-                    x="280.0"
-                    y="1020.0"
-                    width="260"
-                    height="80"
-                    rx="9"
-                  />
-                  <text x="410" y="1052.85" font-size="18">
-                    <tspan x="410" dy="0">Audio feedback</tspan>
-                    <tspan x="410" dy="24.3">for the next action</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M80 909 V1060 H280"
-                    marker-end="url(#ros-speech-desktop-arrow)"
-                  />
-                  <circle class="ros-end" cx="620" cy="1060" r="13" />
-                  <circle class="ros-terminal" cx="620" cy="1060" r="8" />
-                  <path
-                    class="ros-connector"
-                    d="M540 1060 H607"
-                    marker-end="url(#ros-speech-desktop-arrow)"
-                  /></svg
-                ><svg
-                  class="ros-flow ros-flow--mobile"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 320 2110"
-                  role="img"
-                  aria-labelledby="ros-speech-mobile-title ros-speech-mobile-desc"
-                >
-                  <title id="ros-speech-mobile-title">
-                    Speech service — command recording and routing
-                  </title>
-                  <desc id="ros-speech-mobile-desc">
-                    English translation of the existing ROS 2 implementation
-                    flowchart. All processes, decisions, branch conditions,
-                    variable updates, joins and loops are retained.
-                  </desc>
-                  <defs>
-                    <marker
-                      id="ros-speech-mobile-arrow"
-                      viewBox="0 0 10 10"
-                      refX="9"
-                      refY="5"
-                      markerWidth="6"
-                      markerHeight="6"
-                      orient="auto-start-reverse"
-                    >
-                      <path d="M0 0 L10 5 L0 10 Z" fill="var(--bg)" />
-                    </marker>
-                  </defs>
-                  <circle class="ros-terminal" cx="160" cy="20" r="8" />
-                  <rect
-                    class="ros-process"
-                    x="40.0"
-                    y="55.0"
-                    width="240"
-                    height="70"
-                    rx="9"
-                  />
-                  <text x="160" y="83.525" font-size="17">
-                    <tspan x="160" dy="0">Audio feedback:</tspan>
-                    <tspan x="160" dy="22.950000000000003">
-                      Ready for command
-                    </tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M160 28 V55"
-                    marker-end="url(#ros-speech-mobile-arrow)"
-                  />
-                  <path
-                    class="ros-decision"
-                    d="M160 155.0 L250.0 220 L160 285.0 L70.0 220 Z"
-                  />
-                  <text x="160" y="215.55" font-size="14">
-                    <tspan x="160" dy="0">Button</tspan>
-                    <tspan x="160" dy="18.900000000000002">pressed?</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M160 125 V155"
-                    marker-end="url(#ros-speech-mobile-arrow)"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M70 220 H20 V145 H160 V155"
-                    marker-end="url(#ros-speech-mobile-arrow)"
-                  />
-                  <text x="41" y="205.0" font-size="14">
-                    <tspan x="41" dy="0">[no]</tspan>
-                  </text>
-                  <rect
-                    class="ros-process"
-                    x="45.0"
-                    y="312.5"
-                    width="230"
-                    height="65"
-                    rx="9"
-                  />
-                  <text x="160" y="338.525" font-size="17">
-                    <tspan x="160" dy="0">Start recording</tspan>
-                    <tspan x="160" dy="22.950000000000003">the command</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M160 285 V312"
-                    marker-end="url(#ros-speech-mobile-arrow)"
-                  />
-                  <text x="183" y="304.0" font-size="14">
-                    <tspan x="183" dy="0">[yes]</tspan>
-                  </text>
-                  <path
-                    class="ros-decision"
-                    d="M160 405.0 L250.0 470 L160 535.0 L70.0 470 Z"
-                  />
-                  <text x="160" y="465.55" font-size="14">
-                    <tspan x="160" dy="0">Button pressed</tspan>
-                    <tspan x="160" dy="18.900000000000002">again?</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M160 378 V405"
-                    marker-end="url(#ros-speech-mobile-arrow)"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M250 470 H300 V390 H160 V405"
-                    marker-end="url(#ros-speech-mobile-arrow)"
-                  />
-                  <text x="279" y="454.0" font-size="14">
-                    <tspan x="279" dy="0">[no]</tspan>
-                  </text>
-                  <rect
-                    class="ros-process"
-                    x="45.0"
-                    y="572.5"
-                    width="230"
-                    height="65"
-                    rx="9"
-                  />
-                  <text x="160" y="598.525" font-size="17">
-                    <tspan x="160" dy="0">Stop recording</tspan>
-                    <tspan x="160" dy="22.950000000000003">the command</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M160 535 V572"
-                    marker-end="url(#ros-speech-mobile-arrow)"
-                  />
-                  <text x="183" y="558.0" font-size="14">
-                    <tspan x="183" dy="0">[yes]</tspan>
-                  </text>
-                  <rect
-                    class="ros-process"
-                    x="30.0"
-                    y="675.0"
-                    width="260"
-                    height="80"
-                    rx="9"
-                  />
-                  <text x="160" y="708.525" font-size="17">
-                    <tspan x="160" dy="0">Convert recording to text</tspan>
-                    <tspan x="160" dy="22.950000000000003">
-                      with Whisper API
-                    </tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M160 638 V675"
-                    marker-end="url(#ros-speech-mobile-arrow)"
-                  />
-                  <rect
-                    class="ros-process"
-                    x="35.0"
-                    y="800.0"
-                    width="250"
-                    height="70"
-                    rx="9"
-                  />
-                  <text x="160" y="828.525" font-size="17">
-                    <tspan x="160" dy="0">Analyse command</tspan>
-                    <tspan x="160" dy="22.950000000000003">
-                      with GPT-4o API
-                    </tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M160 755 V800"
-                    marker-end="url(#ros-speech-mobile-arrow)"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M160 870 V902 H100 V925"
-                    marker-end="url(#ros-speech-mobile-arrow)"
-                  />
-                  <path
-                    class="ros-decision"
-                    d="M100 925.0 L175.0 990 L100 1055.0 L25.0 990 Z"
-                  />
-                  <text x="100" y="976.1" font-size="14">
-                    <tspan x="100" dy="0">command ==</tspan>
-                    <tspan x="100" dy="18.900000000000002">Put away</tspan>
-                    <tspan x="100" dy="18.900000000000002">hammer</tspan>
-                  </text>
-                  <rect
-                    class="ros-process"
-                    x="187.0"
-                    y="928.0"
-                    width="118"
-                    height="124"
-                    rx="9"
-                  />
-                  <text x="246" y="949.1" font-size="17">
-                    <tspan x="246" dy="0">Set</tspan>
-                    <tspan x="246" dy="22.950000000000003">next_srv ==</tspan>
-                    <tspan x="246" dy="22.950000000000003">Vision</tspan>
-                    <tspan x="246" dy="22.950000000000003">target ==</tspan>
-                    <tspan x="246" dy="22.950000000000003">Hammer</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M175 990 H187"
-                    marker-end="url(#ros-speech-mobile-arrow)"
-                  />
-                  <text x="185" y="972.0" font-size="14">
-                    <tspan x="185" dy="0">[yes]</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M246 1052 V1068 H311 V1930 H169"
-                    marker-end="url(#ros-speech-mobile-arrow)"
-                  />
-                  <path
-                    class="ros-decision"
-                    d="M100 1145.0 L175.0 1210 L100 1275.0 L25.0 1210 Z"
-                  />
-                  <text x="100" y="1196.1" font-size="14">
-                    <tspan x="100" dy="0">command ==</tspan>
-                    <tspan x="100" dy="18.900000000000002">Put away</tspan>
-                    <tspan x="100" dy="18.900000000000002">screwdriver</tspan>
-                  </text>
-                  <rect
-                    class="ros-process"
-                    x="187.0"
-                    y="1148.0"
-                    width="118"
-                    height="124"
-                    rx="9"
-                  />
-                  <text x="246" y="1169.1" font-size="17">
-                    <tspan x="246" dy="0">Set</tspan>
-                    <tspan x="246" dy="22.950000000000003">next_srv ==</tspan>
-                    <tspan x="246" dy="22.950000000000003">Vision</tspan>
-                    <tspan x="246" dy="22.950000000000003">target ==</tspan>
-                    <tspan x="246" dy="22.950000000000003">Screwdriver</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M175 1210 H187"
-                    marker-end="url(#ros-speech-mobile-arrow)"
-                  />
-                  <text x="185" y="1192.0" font-size="14">
-                    <tspan x="185" dy="0">[yes]</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M246 1272 V1288 H311 V1930 H169"
-                    marker-end="url(#ros-speech-mobile-arrow)"
-                  />
-                  <path
-                    class="ros-decision"
-                    d="M100 1365.0 L175.0 1430 L100 1495.0 L25.0 1430 Z"
-                  />
-                  <text x="100" y="1416.1" font-size="14">
-                    <tspan x="100" dy="0">command ==</tspan>
-                    <tspan x="100" dy="18.900000000000002">Retrieve</tspan>
-                    <tspan x="100" dy="18.900000000000002">hammer</tspan>
-                  </text>
-                  <rect
-                    class="ros-process"
-                    x="187.0"
-                    y="1368.0"
-                    width="118"
-                    height="124"
-                    rx="9"
-                  />
-                  <text x="246" y="1389.1" font-size="17">
-                    <tspan x="246" dy="0">Set</tspan>
-                    <tspan x="246" dy="22.950000000000003">next_srv ==</tspan>
-                    <tspan x="246" dy="22.950000000000003">Arm</tspan>
-                    <tspan x="246" dy="22.950000000000003">target ==</tspan>
-                    <tspan x="246" dy="22.950000000000003">Hammer</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M175 1430 H187"
-                    marker-end="url(#ros-speech-mobile-arrow)"
-                  />
-                  <text x="185" y="1412.0" font-size="14">
-                    <tspan x="185" dy="0">[yes]</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M246 1492 V1508 H311 V1930 H169"
-                    marker-end="url(#ros-speech-mobile-arrow)"
-                  />
-                  <path
-                    class="ros-decision"
-                    d="M100 1585.0 L175.0 1650 L100 1715.0 L25.0 1650 Z"
-                  />
-                  <text x="100" y="1636.1" font-size="14">
-                    <tspan x="100" dy="0">command ==</tspan>
-                    <tspan x="100" dy="18.900000000000002">Retrieve</tspan>
-                    <tspan x="100" dy="18.900000000000002">screwdriver</tspan>
-                  </text>
-                  <rect
-                    class="ros-process"
-                    x="187.0"
-                    y="1588.0"
-                    width="118"
-                    height="124"
-                    rx="9"
-                  />
-                  <text x="246" y="1609.1" font-size="17">
-                    <tspan x="246" dy="0">Set</tspan>
-                    <tspan x="246" dy="22.950000000000003">next_srv ==</tspan>
-                    <tspan x="246" dy="22.950000000000003">Arm</tspan>
-                    <tspan x="246" dy="22.950000000000003">target ==</tspan>
-                    <tspan x="246" dy="22.950000000000003">Screwdriver</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M175 1650 H187"
-                    marker-end="url(#ros-speech-mobile-arrow)"
-                  />
-                  <text x="185" y="1632.0" font-size="14">
-                    <tspan x="185" dy="0">[yes]</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M246 1712 V1728 H311 V1930 H169"
-                    marker-end="url(#ros-speech-mobile-arrow)"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M100 1055 V1145"
-                    marker-end="url(#ros-speech-mobile-arrow)"
-                  />
-                  <text x="120" y="1084.0" font-size="14">
-                    <tspan x="120" dy="0">[no]</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M100 1275 V1365"
-                    marker-end="url(#ros-speech-mobile-arrow)"
-                  />
-                  <text x="120" y="1304.0" font-size="14">
-                    <tspan x="120" dy="0">[no]</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M100 1495 V1585"
-                    marker-end="url(#ros-speech-mobile-arrow)"
-                  />
-                  <text x="120" y="1524.0" font-size="14">
-                    <tspan x="120" dy="0">[no]</tspan>
-                  </text>
-                  <rect
-                    class="ros-process"
-                    x="15.0"
-                    y="1785.0"
-                    width="190"
-                    height="70"
-                    rx="9"
-                  />
-                  <text x="110" y="1813.525" font-size="17">
-                    <tspan x="110" dy="0">Set</tspan>
-                    <tspan x="110" dy="22.950000000000003">
-                      next_srv == Speech
-                    </tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M100 1715 V1785"
-                    marker-end="url(#ros-speech-mobile-arrow)"
-                  />
-                  <text x="97" y="1755.0" font-size="14">
-                    <tspan x="97" dy="0">[no matching action]</tspan>
-                  </text>
-                  <path
-                    class="ros-merge"
-                    d="M311 1059 L320 1068 L311 1077 L302 1068 Z"
-                  />
-                  <path
-                    class="ros-merge"
-                    d="M311 1279 L320 1288 L311 1297 L302 1288 Z"
-                  />
-                  <path
-                    class="ros-merge"
-                    d="M311 1499 L320 1508 L311 1517 L302 1508 Z"
-                  />
-                  <path
-                    class="ros-merge"
-                    d="M311 1719 L320 1728 L311 1737 L302 1728 Z"
-                  />
-                  <path
-                    class="ros-merge"
-                    d="M160 1921 L169 1930 L160 1939 L151 1930 Z"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M110 1855 V1930 H151"
-                    marker-end="url(#ros-speech-mobile-arrow)"
-                  />
-                  <rect
-                    class="ros-process"
-                    x="35.0"
-                    y="1975.0"
-                    width="250"
-                    height="70"
-                    rx="9"
-                  />
-                  <text x="160" y="2003.525" font-size="17">
-                    <tspan x="160" dy="0">Audio feedback</tspan>
-                    <tspan x="160" dy="22.950000000000003">
-                      for the next action
-                    </tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M160 1939 V1975"
-                    marker-end="url(#ros-speech-mobile-arrow)"
-                  />
-                  <circle class="ros-end" cx="160" cy="2085" r="13" />
-                  <circle class="ros-terminal" cx="160" cy="2085" r="8" />
-                  <path
-                    class="ros-connector"
-                    d="M160 2045 V2072"
-                    marker-end="url(#ros-speech-mobile-arrow)"
-                  />
-                </svg>
-                <figcaption>
-                  Button-controlled recording, command classification and
-                  service selection.
-                </figcaption>
-              </figure>
-              <figure class="technical-figure ros-figure">
-                <h3 class="figure-title">Vision service</h3>
-                <svg
-                  class="ros-flow ros-flow--desktop"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 1000 640"
-                  role="img"
-                  aria-labelledby="ros-vision-desktop-title ros-vision-desktop-desc"
-                >
-                  <title id="ros-vision-desktop-title">
-                    Vision service — detection and target coordinates
-                  </title>
-                  <desc id="ros-vision-desktop-desc">
-                    English translation of the existing ROS 2 implementation
-                    flowchart. All processes, decisions, branch conditions,
-                    variable updates, joins and loops are retained.
-                  </desc>
-                  <defs>
-                    <marker
-                      id="ros-vision-desktop-arrow"
-                      viewBox="0 0 10 10"
-                      refX="9"
-                      refY="5"
-                      markerWidth="6"
-                      markerHeight="6"
-                      orient="auto-start-reverse"
-                    >
-                      <path d="M0 0 L10 5 L0 10 Z" fill="var(--bg)" />
-                    </marker>
-                  </defs>
-                  <circle class="ros-terminal" cx="25" cy="100" r="8" />
-                  <rect
-                    class="ros-process"
-                    x="65.0"
-                    y="60.0"
-                    width="230"
-                    height="80"
-                    rx="9"
-                  />
-                  <text x="180" y="92.85" font-size="18">
-                    <tspan x="180" dy="0">Object detection</tspan>
-                    <tspan x="180" dy="24.3">with YOLO-OBB</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M33 100 H65"
-                    marker-end="url(#ros-vision-desktop-arrow)"
-                  />
-                  <path
-                    class="ros-decision"
-                    d="M470 20.0 L565.0 100 L470 180.0 L375.0 100 Z"
-                  />
-                  <text x="470" y="94.2" font-size="16">
-                    <tspan x="470" dy="0">Object</tspan>
-                    <tspan x="470" dy="21.6">detected?</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M295 100 H375"
-                    marker-end="url(#ros-vision-desktop-arrow)"
-                  />
-                  <rect
-                    class="ros-process"
-                    x="675.0"
-                    y="60.0"
-                    width="260"
-                    height="80"
-                    rx="9"
-                  />
-                  <text x="805" y="92.85" font-size="18">
-                    <tspan x="805" dy="0">Read object class</tspan>
-                    <tspan x="805" dy="24.3">and pixel coordinates</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M565 100 H675"
-                    marker-end="url(#ros-vision-desktop-arrow)"
-                  />
-                  <text x="615" y="79.0" font-size="16">
-                    <tspan x="615" dy="0">[yes]</tspan>
-                  </text>
-                  <path
-                    class="ros-decision"
-                    d="M805 230.0 L900.0 310 L805 390.0 L710.0 310 Z"
-                  />
-                  <text x="805" y="293.4" font-size="16">
-                    <tspan x="805" dy="0">class</tspan>
-                    <tspan x="805" dy="21.6">==</tspan>
-                    <tspan x="805" dy="21.6">target</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M805 140 V230"
-                    marker-end="url(#ros-vision-desktop-arrow)"
-                  />
-                  <path
-                    class="ros-merge"
-                    d="M470 301 L479 310 L470 319 L461 310 Z"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M470 180 V301"
-                    marker-end="url(#ros-vision-desktop-arrow)"
-                  />
-                  <text x="494" y="219.0" font-size="16">
-                    <tspan x="494" dy="0">[no]</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M710 310 H479"
-                    marker-end="url(#ros-vision-desktop-arrow)"
-                  />
-                  <text x="595" y="289.0" font-size="16">
-                    <tspan x="595" dy="0">[no]</tspan>
-                  </text>
-                  <rect
-                    class="ros-process"
-                    x="165.0"
-                    y="265.0"
-                    width="240"
-                    height="90"
-                    rx="9"
-                  />
-                  <text x="285" y="302.85" font-size="18">
-                    <tspan x="285" dy="0">Feedback:</tspan>
-                    <tspan x="285" dy="24.3">Object not found</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M461 310 H405"
-                    marker-end="url(#ros-vision-desktop-arrow)"
-                  />
-                  <rect
-                    class="ros-process"
-                    x="10.0"
-                    y="380.0"
-                    width="140"
-                    height="80"
-                    rx="9"
-                  />
-                  <text x="80" y="400.7" font-size="18">
-                    <tspan x="80" dy="0">Set</tspan>
-                    <tspan x="80" dy="24.3">next_srv ==</tspan>
-                    <tspan x="80" dy="24.3">Speech</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M165 310 H80 V380"
-                    marker-end="url(#ros-vision-desktop-arrow)"
-                  />
-                  <rect
-                    class="ros-process"
-                    x="675.0"
-                    y="475.0"
-                    width="260"
-                    height="90"
-                    rx="9"
-                  />
-                  <text x="805" y="512.85" font-size="18">
-                    <tspan x="805" dy="0">Measure depth</tspan>
-                    <tspan x="805" dy="24.3">at the object centre</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M805 390 V475"
-                    marker-end="url(#ros-vision-desktop-arrow)"
-                  />
-                  <text x="830" y="425.0" font-size="16">
-                    <tspan x="830" dy="0">[yes]</tspan>
-                  </text>
-                  <rect
-                    class="ros-process"
-                    x="350.0"
-                    y="475.0"
-                    width="290"
-                    height="90"
-                    rx="9"
-                  />
-                  <text x="495" y="500.7" font-size="18">
-                    <tspan x="495" dy="0">Convert pixel to spatial</tspan>
-                    <tspan x="495" dy="24.3">coordinates &amp; store</tspan>
-                    <tspan x="495" dy="24.3">(depth as reference)</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M675 520 H640"
-                    marker-end="url(#ros-vision-desktop-arrow)"
-                  />
-                  <rect
-                    class="ros-process"
-                    x="110.0"
-                    y="475.0"
-                    width="210"
-                    height="90"
-                    rx="9"
-                  />
-                  <text x="215" y="512.85" font-size="18">
-                    <tspan x="215" dy="0">Set</tspan>
-                    <tspan x="215" dy="24.3">next_srv == Arm</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M350 520 H320"
-                    marker-end="url(#ros-vision-desktop-arrow)"
-                  />
-                  <path
-                    class="ros-merge"
-                    d="M80 571 L89 580 L80 589 L71 580 Z"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M110 520 H80 V571"
-                    marker-end="url(#ros-vision-desktop-arrow)"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M80 460 V571"
-                    marker-end="url(#ros-vision-desktop-arrow)"
-                  />
-                  <circle class="ros-end" cx="25" cy="580" r="13" />
-                  <circle class="ros-terminal" cx="25" cy="580" r="8" />
-                  <path
-                    class="ros-connector"
-                    d="M71 580 H38"
-                    marker-end="url(#ros-vision-desktop-arrow)"
-                  /></svg
-                ><svg
-                  class="ros-flow ros-flow--mobile"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 320 1370"
-                  role="img"
-                  aria-labelledby="ros-vision-mobile-title ros-vision-mobile-desc"
-                >
-                  <title id="ros-vision-mobile-title">
-                    Vision service — detection and target coordinates
-                  </title>
-                  <desc id="ros-vision-mobile-desc">
-                    English translation of the existing ROS 2 implementation
-                    flowchart. All processes, decisions, branch conditions,
-                    variable updates, joins and loops are retained.
-                  </desc>
-                  <defs>
-                    <marker
-                      id="ros-vision-mobile-arrow"
-                      viewBox="0 0 10 10"
-                      refX="9"
-                      refY="5"
-                      markerWidth="6"
-                      markerHeight="6"
-                      orient="auto-start-reverse"
-                    >
-                      <path d="M0 0 L10 5 L0 10 Z" fill="var(--bg)" />
-                    </marker>
-                  </defs>
-                  <circle class="ros-terminal" cx="160" cy="20" r="8" />
-                  <rect
-                    class="ros-process"
-                    x="45.0"
-                    y="55.0"
-                    width="230"
-                    height="80"
-                    rx="9"
-                  />
-                  <text x="160" y="88.525" font-size="17">
-                    <tspan x="160" dy="0">Object detection</tspan>
-                    <tspan x="160" dy="22.950000000000003">with YOLO-OBB</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M160 28 V55"
-                    marker-end="url(#ros-vision-mobile-arrow)"
-                  />
-                  <path
-                    class="ros-decision"
-                    d="M160 165.0 L260.0 240 L160 315.0 L60.0 240 Z"
-                  />
-                  <text x="160" y="235.55" font-size="14">
-                    <tspan x="160" dy="0">Object</tspan>
-                    <tspan x="160" dy="18.900000000000002">detected?</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M160 135 V165"
-                    marker-end="url(#ros-vision-mobile-arrow)"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M60 240 H15 V1080 H45"
-                    marker-end="url(#ros-vision-mobile-arrow)"
-                  />
-                  <text x="36" y="219.0" font-size="14">
-                    <tspan x="36" dy="0">[no]</tspan>
-                  </text>
-                  <rect
-                    class="ros-process"
-                    x="35.0"
-                    y="360.0"
-                    width="250"
-                    height="80"
-                    rx="9"
-                  />
-                  <text x="160" y="393.525" font-size="17">
-                    <tspan x="160" dy="0">Read object class</tspan>
-                    <tspan x="160" dy="22.950000000000003">
-                      and pixel coordinates
-                    </tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M160 315 V360"
-                    marker-end="url(#ros-vision-mobile-arrow)"
-                  />
-                  <text x="184" y="339.0" font-size="14">
-                    <tspan x="184" dy="0">[yes]</tspan>
-                  </text>
-                  <path
-                    class="ros-decision"
-                    d="M160 460.0 L250.0 535 L160 610.0 L70.0 535 Z"
-                  />
-                  <text x="160" y="521.1" font-size="14">
-                    <tspan x="160" dy="0">class</tspan>
-                    <tspan x="160" dy="18.900000000000002">==</tspan>
-                    <tspan x="160" dy="18.900000000000002">target</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M160 440 V460"
-                    marker-end="url(#ros-vision-mobile-arrow)"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M70 535 H15 V1080 H45"
-                    marker-end="url(#ros-vision-mobile-arrow)"
-                  />
-                  <text x="41" y="514.0" font-size="14">
-                    <tspan x="41" dy="0">[no]</tspan>
-                  </text>
-                  <path
-                    class="ros-merge"
-                    d="M15 1011 L24 1020 L15 1029 L6 1020 Z"
-                  />
-                  <rect
-                    class="ros-process"
-                    x="35.0"
-                    y="670.0"
-                    width="250"
-                    height="80"
-                    rx="9"
-                  />
-                  <text x="160" y="703.525" font-size="17">
-                    <tspan x="160" dy="0">Measure depth</tspan>
-                    <tspan x="160" dy="22.950000000000003">
-                      at the object centre
-                    </tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M160 610 V670"
-                    marker-end="url(#ros-vision-mobile-arrow)"
-                  />
-                  <text x="184" y="638.0" font-size="14">
-                    <tspan x="184" dy="0">[yes]</tspan>
-                  </text>
-                  <rect
-                    class="ros-process"
-                    x="30.0"
-                    y="800.0"
-                    width="260"
-                    height="100"
-                    rx="9"
-                  />
-                  <text x="160" y="832.05" font-size="17">
-                    <tspan x="160" dy="0">Convert pixel to spatial</tspan>
-                    <tspan x="160" dy="22.950000000000003">
-                      coordinates &amp; store
-                    </tspan>
-                    <tspan x="160" dy="22.950000000000003">
-                      (depth as reference)
-                    </tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M160 750 V800"
-                    marker-end="url(#ros-vision-mobile-arrow)"
-                  />
-                  <rect
-                    class="ros-process"
-                    x="45.0"
-                    y="935.0"
-                    width="230"
-                    height="60"
-                    rx="9"
-                  />
-                  <text x="160" y="958.525" font-size="17">
-                    <tspan x="160" dy="0">Set</tspan>
-                    <tspan x="160" dy="22.950000000000003">
-                      next_srv == Arm
-                    </tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M160 900 V935"
-                    marker-end="url(#ros-vision-mobile-arrow)"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M275 965 H305 V1295 H169"
-                    marker-end="url(#ros-vision-mobile-arrow)"
-                  />
-                  <rect
-                    class="ros-process"
-                    x="45.0"
-                    y="1045.0"
-                    width="230"
-                    height="70"
-                    rx="9"
-                  />
-                  <text x="160" y="1073.525" font-size="17">
-                    <tspan x="160" dy="0">Feedback:</tspan>
-                    <tspan x="160" dy="22.950000000000003">
-                      Object not found
-                    </tspan>
-                  </text>
-                  <rect
-                    class="ros-process"
-                    x="45.0"
-                    y="1160.0"
-                    width="230"
-                    height="60"
-                    rx="9"
-                  />
-                  <text x="160" y="1183.525" font-size="17">
-                    <tspan x="160" dy="0">Set</tspan>
-                    <tspan x="160" dy="22.950000000000003">
-                      next_srv == Speech
-                    </tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M160 1115 V1160"
-                    marker-end="url(#ros-vision-mobile-arrow)"
-                  />
-                  <path
-                    class="ros-merge"
-                    d="M160 1286 L169 1295 L160 1304 L151 1295 Z"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M160 1220 V1286"
-                    marker-end="url(#ros-vision-mobile-arrow)"
-                  />
-                  <circle class="ros-end" cx="160" cy="1350" r="13" />
-                  <circle class="ros-terminal" cx="160" cy="1350" r="8" />
-                  <path
-                    class="ros-connector"
-                    d="M160 1304 V1337"
-                    marker-end="url(#ros-vision-mobile-arrow)"
-                  />
-                </svg>
-                <figcaption>
-                  Object detection, target matching and conversion from pixel to
-                  spatial coordinates.
-                </figcaption>
-              </figure>
-              <figure class="technical-figure ros-figure">
-                <h3 class="figure-title">Arm service</h3>
-                <svg
-                  class="ros-flow ros-flow--desktop"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 1000 470"
-                  role="img"
-                  aria-labelledby="ros-arm-desktop-title ros-arm-desktop-desc"
-                >
-                  <title id="ros-arm-desktop-title">
-                    Arm service — retrieve and put-away sequences
-                  </title>
-                  <desc id="ros-arm-desktop-desc">
-                    English translation of the existing ROS 2 implementation
-                    flowchart. All processes, decisions, branch conditions,
-                    variable updates, joins and loops are retained.
-                  </desc>
-                  <defs>
-                    <marker
-                      id="ros-arm-desktop-arrow"
-                      viewBox="0 0 10 10"
-                      refX="9"
-                      refY="5"
-                      markerWidth="6"
-                      markerHeight="6"
-                      orient="auto-start-reverse"
-                    >
-                      <path d="M0 0 L10 5 L0 10 Z" fill="var(--bg)" />
-                    </marker>
-                  </defs>
-                  <circle class="ros-terminal" cx="25" cy="230" r="8" />
-                  <path
-                    class="ros-decision"
-                    d="M150 150.0 L240.0 230 L150 310.0 L60.0 230 Z"
-                  />
-                  <text x="150" y="213.4" font-size="16">
-                    <tspan x="150" dy="0">Retrieve or</tspan>
-                    <tspan x="150" dy="21.6">put away</tspan>
-                    <tspan x="150" dy="21.6">the object?</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M33 230 H60"
-                    marker-end="url(#ros-arm-desktop-arrow)"
-                  />
-                  <rect
-                    class="ros-process"
-                    x="280.0"
-                    y="55.0"
-                    width="220"
-                    height="90"
-                    rx="9"
-                  />
-                  <text x="390" y="92.85" font-size="18">
-                    <tspan x="390" dy="0">Grasp at the detected</tspan>
-                    <tspan x="390" dy="24.3">spatial coordinates</tspan>
-                  </text>
-                  <rect
-                    class="ros-process"
-                    x="545.0"
-                    y="55.0"
-                    width="220"
-                    height="90"
-                    rx="9"
-                  />
-                  <text x="655" y="92.85" font-size="18">
-                    <tspan x="655" dy="0">Place at the object’s</tspan>
-                    <tspan x="655" dy="24.3">storage location</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M150 150 V100 H280"
-                    marker-end="url(#ros-arm-desktop-arrow)"
-                  />
-                  <text x="212" y="80.0" font-size="16">
-                    <tspan x="212" dy="0">[put away]</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M500 100 H545"
-                    marker-end="url(#ros-arm-desktop-arrow)"
-                  />
-                  <rect
-                    class="ros-process"
-                    x="280.0"
-                    y="320.0"
-                    width="220"
-                    height="90"
-                    rx="9"
-                  />
-                  <text x="390" y="357.85" font-size="18">
-                    <tspan x="390" dy="0">Grasp at the object’s</tspan>
-                    <tspan x="390" dy="24.3">storage location</tspan>
-                  </text>
-                  <rect
-                    class="ros-process"
-                    x="545.0"
-                    y="320.0"
-                    width="220"
-                    height="90"
-                    rx="9"
-                  />
-                  <text x="655" y="357.85" font-size="18">
-                    <tspan x="655" dy="0">Place in the</tspan>
-                    <tspan x="655" dy="24.3">collaboration area</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M150 310 V365 H280"
-                    marker-end="url(#ros-arm-desktop-arrow)"
-                  />
-                  <text x="212" y="345.0" font-size="16">
-                    <tspan x="212" dy="0">[retrieve]</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M500 365 H545"
-                    marker-end="url(#ros-arm-desktop-arrow)"
-                  />
-                  <path
-                    class="ros-merge"
-                    d="M795 91 L804 100 L795 109 L786 100 Z"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M765 100 H786"
-                    marker-end="url(#ros-arm-desktop-arrow)"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M765 365 H795 V109"
-                    marker-end="url(#ros-arm-desktop-arrow)"
-                  />
-                  <rect
-                    class="ros-process"
-                    x="810.0"
-                    y="185.0"
-                    width="180"
-                    height="80"
-                    rx="9"
-                  />
-                  <text x="900" y="217.85" font-size="18">
-                    <tspan x="900" dy="0">Set arm to</tspan>
-                    <tspan x="900" dy="24.3">rest position</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M804 100 H900 V185"
-                    marker-end="url(#ros-arm-desktop-arrow)"
-                  />
-                  <rect
-                    class="ros-process"
-                    x="810.0"
-                    y="320.0"
-                    width="180"
-                    height="90"
-                    rx="9"
-                  />
-                  <text x="900" y="357.85" font-size="18">
-                    <tspan x="900" dy="0">Set</tspan>
-                    <tspan x="900" dy="24.3">next_srv == Speech</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M900 265 V320"
-                    marker-end="url(#ros-arm-desktop-arrow)"
-                  />
-                  <circle class="ros-end" cx="970" cy="445" r="13" />
-                  <circle class="ros-terminal" cx="970" cy="445" r="8" />
-                  <path
-                    class="ros-connector"
-                    d="M900 410 V445 H957"
-                    marker-end="url(#ros-arm-desktop-arrow)"
-                  /></svg
-                ><svg
-                  class="ros-flow ros-flow--mobile"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 320 1180"
-                  role="img"
-                  aria-labelledby="ros-arm-mobile-title ros-arm-mobile-desc"
-                >
-                  <title id="ros-arm-mobile-title">
-                    Arm service — retrieve and put-away sequences
-                  </title>
-                  <desc id="ros-arm-mobile-desc">
-                    English translation of the existing ROS 2 implementation
-                    flowchart. All processes, decisions, branch conditions,
-                    variable updates, joins and loops are retained.
-                  </desc>
-                  <defs>
-                    <marker
-                      id="ros-arm-mobile-arrow"
-                      viewBox="0 0 10 10"
-                      refX="9"
-                      refY="5"
-                      markerWidth="6"
-                      markerHeight="6"
-                      orient="auto-start-reverse"
-                    >
-                      <path d="M0 0 L10 5 L0 10 Z" fill="var(--bg)" />
-                    </marker>
-                  </defs>
-                  <circle class="ros-terminal" cx="160" cy="20" r="8" />
-                  <path
-                    class="ros-decision"
-                    d="M160 55.0 L260.0 135 L160 215.0 L60.0 135 Z"
-                  />
-                  <text x="160" y="121.1" font-size="14">
-                    <tspan x="160" dy="0">Retrieve or</tspan>
-                    <tspan x="160" dy="18.900000000000002">put away</tspan>
-                    <tspan x="160" dy="18.900000000000002">the object?</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M160 28 V55"
-                    marker-end="url(#ros-arm-mobile-arrow)"
-                  />
-                  <rect
-                    class="ros-process"
-                    x="45.0"
-                    y="260.0"
-                    width="230"
-                    height="80"
-                    rx="9"
-                  />
-                  <text x="160" y="293.525" font-size="17">
-                    <tspan x="160" dy="0">Grasp at the detected</tspan>
-                    <tspan x="160" dy="22.950000000000003">
-                      spatial coordinates
-                    </tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M60 135 H22 V300 H45"
-                    marker-end="url(#ros-arm-mobile-arrow)"
-                  />
-                  <text x="63" y="257.0" font-size="14">
-                    <tspan x="63" dy="0">[put away]</tspan>
-                  </text>
-                  <rect
-                    class="ros-process"
-                    x="45.0"
-                    y="385.0"
-                    width="230"
-                    height="80"
-                    rx="9"
-                  />
-                  <text x="160" y="418.525" font-size="17">
-                    <tspan x="160" dy="0">Place at the object’s</tspan>
-                    <tspan x="160" dy="22.950000000000003">
-                      storage location
-                    </tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M160 340 V385"
-                    marker-end="url(#ros-arm-mobile-arrow)"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M45 425 H15 V835 H151"
-                    marker-end="url(#ros-arm-mobile-arrow)"
-                  />
-                  <rect
-                    class="ros-process"
-                    x="45.0"
-                    y="550.0"
-                    width="230"
-                    height="80"
-                    rx="9"
-                  />
-                  <text x="160" y="583.525" font-size="17">
-                    <tspan x="160" dy="0">Grasp at the object’s</tspan>
-                    <tspan x="160" dy="22.950000000000003">
-                      storage location
-                    </tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M260 135 H300 V590 H275"
-                    marker-end="url(#ros-arm-mobile-arrow)"
-                  />
-                  <text x="253" y="535.0" font-size="14">
-                    <tspan x="253" dy="0">[retrieve]</tspan>
-                  </text>
-                  <rect
-                    class="ros-process"
-                    x="45.0"
-                    y="675.0"
-                    width="230"
-                    height="80"
-                    rx="9"
-                  />
-                  <text x="160" y="708.525" font-size="17">
-                    <tspan x="160" dy="0">Place in the</tspan>
-                    <tspan x="160" dy="22.950000000000003">
-                      collaboration area
-                    </tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M160 630 V675"
-                    marker-end="url(#ros-arm-mobile-arrow)"
-                  />
-                  <path
-                    class="ros-merge"
-                    d="M160 826 L169 835 L160 844 L151 835 Z"
-                  />
-                  <path
-                    class="ros-connector"
-                    d="M160 755 V826"
-                    marker-end="url(#ros-arm-mobile-arrow)"
-                  />
-                  <rect
-                    class="ros-process"
-                    x="45.0"
-                    y="895.0"
-                    width="230"
-                    height="80"
-                    rx="9"
-                  />
-                  <text x="160" y="928.525" font-size="17">
-                    <tspan x="160" dy="0">Set arm to</tspan>
-                    <tspan x="160" dy="22.950000000000003">rest position</tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M160 844 V895"
-                    marker-end="url(#ros-arm-mobile-arrow)"
-                  />
-                  <rect
-                    class="ros-process"
-                    x="45.0"
-                    y="1020.0"
-                    width="230"
-                    height="70"
-                    rx="9"
-                  />
-                  <text x="160" y="1048.525" font-size="17">
-                    <tspan x="160" dy="0">Set</tspan>
-                    <tspan x="160" dy="22.950000000000003">
-                      next_srv == Speech
-                    </tspan>
-                  </text>
-                  <path
-                    class="ros-connector"
-                    d="M160 975 V1020"
-                    marker-end="url(#ros-arm-mobile-arrow)"
-                  />
-                  <circle class="ros-end" cx="160" cy="1150" r="13" />
-                  <circle class="ros-terminal" cx="160" cy="1150" r="8" />
-                  <path
-                    class="ros-connector"
-                    d="M160 1090 V1137"
-                    marker-end="url(#ros-arm-mobile-arrow)"
-                  />
-                </svg>
-                <figcaption>
-                  Separate retrieve and put-away paths, followed by the rest
-                  position.
-                </figcaption>
-              </figure>
-            </div>
-          </details>
+              <summary>
+                ROS 2 service diagrams<span
+                  class="chevron"
+                  aria-hidden="true"
+                ></span>
+              </summary>
+              <div class="technical-content">
+                <p>The manager routes requests among Speech, Vision and Arm.</p>
+                <figure class="technical-figure ros-figure">
+                  <h3 class="figure-title">Manager client</h3>
+                  <svg
+                    class="ros-flow ros-flow--desktop"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 1000 690"
+                    role="img"
+                    aria-labelledby="ros-manager-desktop-title ros-manager-desktop-desc"
+                  >
+                    <title id="ros-manager-desktop-title">
+                      Manager client — ROS 2 service dispatch
+                    </title>
+                    <desc id="ros-manager-desktop-desc">
+                      English translation of the existing ROS 2 implementation
+                      flowchart. All processes, decisions, branch conditions,
+                      variable updates, joins and loops are retained.
+                    </desc>
+                    <defs>
+                      <marker
+                        id="ros-manager-desktop-arrow"
+                        viewBox="0 0 10 10"
+                        refX="9"
+                        refY="5"
+                        markerWidth="6"
+                        markerHeight="6"
+                        orient="auto-start-reverse"
+                      >
+                        <path d="M0 0 L10 5 L0 10 Z" fill="var(--bg)" />
+                      </marker>
+                    </defs>
+                    <circle class="ros-terminal" cx="30" cy="65" r="8" />
+                    <rect
+                      class="ros-process"
+                      x="70.0"
+                      y="30.0"
+                      width="280"
+                      height="70"
+                      rx="9"
+                    />
+                    <text x="210" y="57.85" font-size="18">
+                      <tspan x="210" dy="0">Initialise client–service</tspan>
+                      <tspan x="210" dy="24.3">communication</tspan>
+                    </text>
+                    <rect
+                      class="ros-process"
+                      x="415.0"
+                      y="30.0"
+                      width="280"
+                      height="70"
+                      rx="9"
+                    />
+                    <text x="555" y="57.85" font-size="18">
+                      <tspan x="555" dy="0">Set</tspan>
+                      <tspan x="555" dy="24.3">next_srv == Speech</tspan>
+                    </text>
+                    <path
+                      class="ros-merge"
+                      d="M865 56 L874 65 L865 74 L856 65 Z"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M38 65 H70"
+                      marker-end="url(#ros-manager-desktop-arrow)"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M350 65 H415"
+                      marker-end="url(#ros-manager-desktop-arrow)"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M695 65 H856"
+                      marker-end="url(#ros-manager-desktop-arrow)"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M865 74 V135"
+                      marker-end="url(#ros-manager-desktop-arrow)"
+                    />
+                    <path
+                      class="ros-decision"
+                      d="M865 135.0 L980.0 225 L865 315.0 L750.0 225 Z"
+                    />
+                    <text x="865" y="208.4" font-size="16">
+                      <tspan x="865" dy="0">next_srv</tspan>
+                      <tspan x="865" dy="21.6">==</tspan>
+                      <tspan x="865" dy="21.6">Speech</tspan>
+                    </text>
+                    <rect
+                      class="ros-process"
+                      x="750.0"
+                      y="355.0"
+                      width="230"
+                      height="70"
+                      rx="9"
+                    />
+                    <text x="865" y="395.0" font-size="18">
+                      <tspan x="865" dy="0">Speech service</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M865 315 V355"
+                      marker-end="url(#ros-manager-desktop-arrow)"
+                    />
+                    <text x="890" y="335.0" font-size="16">
+                      <tspan x="890" dy="0">[yes]</tspan>
+                    </text>
+                    <path
+                      class="ros-decision"
+                      d="M535 135.0 L650.0 225 L535 315.0 L420.0 225 Z"
+                    />
+                    <text x="535" y="208.4" font-size="16">
+                      <tspan x="535" dy="0">next_srv</tspan>
+                      <tspan x="535" dy="21.6">==</tspan>
+                      <tspan x="535" dy="21.6">Vision</tspan>
+                    </text>
+                    <rect
+                      class="ros-process"
+                      x="420.0"
+                      y="355.0"
+                      width="230"
+                      height="70"
+                      rx="9"
+                    />
+                    <text x="535" y="395.0" font-size="18">
+                      <tspan x="535" dy="0">Vision service</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M535 315 V355"
+                      marker-end="url(#ros-manager-desktop-arrow)"
+                    />
+                    <text x="560" y="335.0" font-size="16">
+                      <tspan x="560" dy="0">[yes]</tspan>
+                    </text>
+                    <path
+                      class="ros-decision"
+                      d="M205 135.0 L320.0 225 L205 315.0 L90.0 225 Z"
+                    />
+                    <text x="205" y="208.4" font-size="16">
+                      <tspan x="205" dy="0">next_srv</tspan>
+                      <tspan x="205" dy="21.6">==</tspan>
+                      <tspan x="205" dy="21.6">Arm</tspan>
+                    </text>
+                    <rect
+                      class="ros-process"
+                      x="90.0"
+                      y="355.0"
+                      width="230"
+                      height="70"
+                      rx="9"
+                    />
+                    <text x="205" y="395.0" font-size="18">
+                      <tspan x="205" dy="0">Arm service</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M205 315 V355"
+                      marker-end="url(#ros-manager-desktop-arrow)"
+                    />
+                    <text x="230" y="335.0" font-size="16">
+                      <tspan x="230" dy="0">[yes]</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M750 225 H650"
+                      marker-end="url(#ros-manager-desktop-arrow)"
+                    />
+                    <text x="700" y="207.0" font-size="16">
+                      <tspan x="700" dy="0">[no]</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M420 225 H320"
+                      marker-end="url(#ros-manager-desktop-arrow)"
+                    />
+                    <text x="365" y="207.0" font-size="16">
+                      <tspan x="365" dy="0">[no]</tspan>
+                    </text>
+                    <rect
+                      class="ros-process"
+                      x="750.0"
+                      y="475.0"
+                      width="230"
+                      height="70"
+                      rx="9"
+                    />
+                    <text x="865" y="515.0" font-size="18">
+                      <tspan x="865" dy="0">Update target</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M865 425 V475"
+                      marker-end="url(#ros-manager-desktop-arrow)"
+                    />
+                    <path
+                      class="ros-merge"
+                      d="M535 501 L544 510 L535 519 L526 510 Z"
+                    />
+                    <path
+                      class="ros-merge"
+                      d="M205 501 L214 510 L205 519 L196 510 Z"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M205 425 V501"
+                      marker-end="url(#ros-manager-desktop-arrow)"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M90 225 H30 V510 H196"
+                      marker-end="url(#ros-manager-desktop-arrow)"
+                    />
+                    <text x="55" y="207.0" font-size="16">
+                      <tspan x="55" dy="0">[no]</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M214 510 H526"
+                      marker-end="url(#ros-manager-desktop-arrow)"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M535 425 V501"
+                      marker-end="url(#ros-manager-desktop-arrow)"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M750 510 H544"
+                      marker-end="url(#ros-manager-desktop-arrow)"
+                    />
+                    <rect
+                      class="ros-process"
+                      x="420.0"
+                      y="590.0"
+                      width="230"
+                      height="70"
+                      rx="9"
+                    />
+                    <text x="535" y="630.0" font-size="18">
+                      <tspan x="535" dy="0">Update next_srv</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M535 519 V590"
+                      marker-end="url(#ros-manager-desktop-arrow)"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M650 625 H985 V65 H874"
+                      marker-end="url(#ros-manager-desktop-arrow)"
+                    /></svg
+                  ><svg
+                    class="ros-flow ros-flow--mobile"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 320 1370"
+                    role="img"
+                    aria-labelledby="ros-manager-mobile-title ros-manager-mobile-desc"
+                  >
+                    <title id="ros-manager-mobile-title">
+                      Manager client — ROS 2 service dispatch
+                    </title>
+                    <desc id="ros-manager-mobile-desc">
+                      English translation of the existing ROS 2 implementation
+                      flowchart. All processes, decisions, branch conditions,
+                      variable updates, joins and loops are retained.
+                    </desc>
+                    <defs>
+                      <marker
+                        id="ros-manager-mobile-arrow"
+                        viewBox="0 0 10 10"
+                        refX="9"
+                        refY="5"
+                        markerWidth="6"
+                        markerHeight="6"
+                        orient="auto-start-reverse"
+                      >
+                        <path d="M0 0 L10 5 L0 10 Z" fill="var(--bg)" />
+                      </marker>
+                    </defs>
+                    <circle class="ros-terminal" cx="160" cy="20" r="8" />
+                    <rect
+                      class="ros-process"
+                      x="40.0"
+                      y="55.0"
+                      width="240"
+                      height="70"
+                      rx="9"
+                    />
+                    <text x="160" y="83.525" font-size="17">
+                      <tspan x="160" dy="0">Initialise client–service</tspan>
+                      <tspan x="160" dy="22.950000000000003">
+                        communication
+                      </tspan>
+                    </text>
+                    <rect
+                      class="ros-process"
+                      x="50.0"
+                      y="160.0"
+                      width="220"
+                      height="60"
+                      rx="9"
+                    />
+                    <text x="160" y="183.525" font-size="17">
+                      <tspan x="160" dy="0">Set</tspan>
+                      <tspan x="160" dy="22.950000000000003">
+                        next_srv == Speech
+                      </tspan>
+                    </text>
+                    <path
+                      class="ros-merge"
+                      d="M160 261 L169 270 L160 279 L151 270 Z"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M160 28 V55"
+                      marker-end="url(#ros-manager-mobile-arrow)"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M160 125 V160"
+                      marker-end="url(#ros-manager-mobile-arrow)"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M160 220 V261"
+                      marker-end="url(#ros-manager-mobile-arrow)"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M160 279 V300 H100 V327"
+                      marker-end="url(#ros-manager-mobile-arrow)"
+                    />
+                    <path
+                      class="ros-decision"
+                      d="M100 327.0 L173.0 390 L100 453.0 L27.0 390 Z"
+                    />
+                    <text x="100" y="376.1" font-size="14">
+                      <tspan x="100" dy="0">next_srv</tspan>
+                      <tspan x="100" dy="18.900000000000002">==</tspan>
+                      <tspan x="100" dy="18.900000000000002">Speech</tspan>
+                    </text>
+                    <rect
+                      class="ros-process"
+                      x="187.0"
+                      y="358.0"
+                      width="118"
+                      height="64"
+                      rx="9"
+                    />
+                    <text x="246" y="383.525" font-size="17">
+                      <tspan x="246" dy="0">Speech</tspan>
+                      <tspan x="246" dy="22.950000000000003">service</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M173 390 H187"
+                      marker-end="url(#ros-manager-mobile-arrow)"
+                    />
+                    <text x="184" y="375.0" font-size="14">
+                      <tspan x="184" dy="0">[yes]</tspan>
+                    </text>
+                    <path
+                      class="ros-decision"
+                      d="M100 587.0 L173.0 650 L100 713.0 L27.0 650 Z"
+                    />
+                    <text x="100" y="636.1" font-size="14">
+                      <tspan x="100" dy="0">next_srv</tspan>
+                      <tspan x="100" dy="18.900000000000002">==</tspan>
+                      <tspan x="100" dy="18.900000000000002">Vision</tspan>
+                    </text>
+                    <rect
+                      class="ros-process"
+                      x="187.0"
+                      y="618.0"
+                      width="118"
+                      height="64"
+                      rx="9"
+                    />
+                    <text x="246" y="643.525" font-size="17">
+                      <tspan x="246" dy="0">Vision</tspan>
+                      <tspan x="246" dy="22.950000000000003">service</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M173 650 H187"
+                      marker-end="url(#ros-manager-mobile-arrow)"
+                    />
+                    <text x="184" y="635.0" font-size="14">
+                      <tspan x="184" dy="0">[yes]</tspan>
+                    </text>
+                    <path
+                      class="ros-decision"
+                      d="M100 847.0 L173.0 910 L100 973.0 L27.0 910 Z"
+                    />
+                    <text x="100" y="896.1" font-size="14">
+                      <tspan x="100" dy="0">next_srv</tspan>
+                      <tspan x="100" dy="18.900000000000002">==</tspan>
+                      <tspan x="100" dy="18.900000000000002">Arm</tspan>
+                    </text>
+                    <rect
+                      class="ros-process"
+                      x="187.0"
+                      y="878.0"
+                      width="118"
+                      height="64"
+                      rx="9"
+                    />
+                    <text x="246" y="903.525" font-size="17">
+                      <tspan x="246" dy="0">Arm</tspan>
+                      <tspan x="246" dy="22.950000000000003">service</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M173 910 H187"
+                      marker-end="url(#ros-manager-mobile-arrow)"
+                    />
+                    <text x="184" y="895.0" font-size="14">
+                      <tspan x="184" dy="0">[yes]</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M100 453 V587"
+                      marker-end="url(#ros-manager-mobile-arrow)"
+                    />
+                    <text x="120" y="485.0" font-size="14">
+                      <tspan x="120" dy="0">[no]</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M100 713 V847"
+                      marker-end="url(#ros-manager-mobile-arrow)"
+                    />
+                    <text x="120" y="745.0" font-size="14">
+                      <tspan x="120" dy="0">[no]</tspan>
+                    </text>
+                    <rect
+                      class="ros-process"
+                      x="187.0"
+                      y="470.0"
+                      width="118"
+                      height="60"
+                      rx="9"
+                    />
+                    <text x="246" y="493.525" font-size="17">
+                      <tspan x="246" dy="0">Update</tspan>
+                      <tspan x="246" dy="22.950000000000003">target</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M246 422 V470"
+                      marker-end="url(#ros-manager-mobile-arrow)"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M246 530 V555 H311 V1170 H169"
+                      marker-end="url(#ros-manager-mobile-arrow)"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M246 682 V715 H311 V1170 H169"
+                      marker-end="url(#ros-manager-mobile-arrow)"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M246 942 V975 H311 V1170 H169"
+                      marker-end="url(#ros-manager-mobile-arrow)"
+                    />
+                    <path
+                      class="ros-merge"
+                      d="M100 1051 L109 1060 L100 1069 L91 1060 Z"
+                    />
+                    <path
+                      class="ros-merge"
+                      d="M160 1161 L169 1170 L160 1179 L151 1170 Z"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M100 973 V1051"
+                      marker-end="url(#ros-manager-mobile-arrow)"
+                    />
+                    <text x="121" y="1009.0" font-size="14">
+                      <tspan x="121" dy="0">[no]</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M109 1060 H160 V1161"
+                      marker-end="url(#ros-manager-mobile-arrow)"
+                    />
+                    <rect
+                      class="ros-process"
+                      x="50.0"
+                      y="1230.0"
+                      width="220"
+                      height="60"
+                      rx="9"
+                    />
+                    <text x="160" y="1265.0" font-size="17">
+                      <tspan x="160" dy="0">Update next_srv</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M160 1179 V1230"
+                      marker-end="url(#ros-manager-mobile-arrow)"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M160 1290 V1335 H12 V270 H151"
+                      marker-end="url(#ros-manager-mobile-arrow)"
+                    />
+                  </svg>
+                  <figcaption>
+                    Service dispatch, target update and the next_srv loop.
+                  </figcaption>
+                </figure>
+                <figure class="technical-figure ros-figure">
+                  <h3 class="figure-title">Speech service</h3>
+                  <svg
+                    class="ros-flow ros-flow--desktop"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 1100 1140"
+                    role="img"
+                    aria-labelledby="ros-speech-desktop-title ros-speech-desktop-desc"
+                  >
+                    <title id="ros-speech-desktop-title">
+                      Speech service — command recording and routing
+                    </title>
+                    <desc id="ros-speech-desktop-desc">
+                      English translation of the existing ROS 2 implementation
+                      flowchart. All processes, decisions, branch conditions,
+                      variable updates, joins and loops are retained.
+                    </desc>
+                    <defs>
+                      <marker
+                        id="ros-speech-desktop-arrow"
+                        viewBox="0 0 10 10"
+                        refX="9"
+                        refY="5"
+                        markerWidth="6"
+                        markerHeight="6"
+                        orient="auto-start-reverse"
+                      >
+                        <path d="M0 0 L10 5 L0 10 Z" fill="var(--bg)" />
+                      </marker>
+                    </defs>
+                    <circle class="ros-terminal" cx="285" cy="65" r="8" />
+                    <rect
+                      class="ros-process"
+                      x="20.0"
+                      y="30.0"
+                      width="220"
+                      height="70"
+                      rx="9"
+                    />
+                    <text x="130" y="57.85" font-size="18">
+                      <tspan x="130" dy="0">Audio feedback:</tspan>
+                      <tspan x="130" dy="24.3">Ready for command</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M277 65 H240"
+                      marker-end="url(#ros-speech-desktop-arrow)"
+                    />
+                    <path
+                      class="ros-decision"
+                      d="M130 170.0 L220.0 240 L130 310.0 L40.0 240 Z"
+                    />
+                    <text x="130" y="234.2" font-size="16">
+                      <tspan x="130" dy="0">Button</tspan>
+                      <tspan x="130" dy="21.6">pressed?</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M130 100 V170"
+                      marker-end="url(#ros-speech-desktop-arrow)"
+                    />
+                    <rect
+                      class="ros-process"
+                      x="280.0"
+                      y="205.0"
+                      width="220"
+                      height="70"
+                      rx="9"
+                    />
+                    <text x="390" y="232.85" font-size="18">
+                      <tspan x="390" dy="0">Start recording</tspan>
+                      <tspan x="390" dy="24.3">the command</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M220 240 H280"
+                      marker-end="url(#ros-speech-desktop-arrow)"
+                    />
+                    <text x="250" y="220.0" font-size="16">
+                      <tspan x="250" dy="0">[yes]</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M130 310 V340 H20 V240 H40"
+                      marker-end="url(#ros-speech-desktop-arrow)"
+                    />
+                    <text x="160" y="332.0" font-size="16">
+                      <tspan x="160" dy="0">[no]</tspan>
+                    </text>
+                    <path
+                      class="ros-decision"
+                      d="M650 170.0 L740.0 240 L650 310.0 L560.0 240 Z"
+                    />
+                    <text x="650" y="234.2" font-size="16">
+                      <tspan x="650" dy="0">Button pressed</tspan>
+                      <tspan x="650" dy="21.6">again?</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M500 240 H560"
+                      marker-end="url(#ros-speech-desktop-arrow)"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M740 240 H780 V340 H650 V310"
+                      marker-end="url(#ros-speech-desktop-arrow)"
+                    />
+                    <text x="757" y="219.0" font-size="16">
+                      <tspan x="757" dy="0">[no]</tspan>
+                    </text>
+                    <rect
+                      class="ros-process"
+                      x="850.0"
+                      y="30.0"
+                      width="220"
+                      height="70"
+                      rx="9"
+                    />
+                    <text x="960" y="57.85" font-size="18">
+                      <tspan x="960" dy="0">Stop recording</tspan>
+                      <tspan x="960" dy="24.3">the command</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M650 170 V65 H850"
+                      marker-end="url(#ros-speech-desktop-arrow)"
+                    />
+                    <text x="675" y="145.0" font-size="16">
+                      <tspan x="675" dy="0">[yes]</tspan>
+                    </text>
+                    <rect
+                      class="ros-process"
+                      x="850.0"
+                      y="160.0"
+                      width="220"
+                      height="100"
+                      rx="9"
+                    />
+                    <text x="960" y="202.85" font-size="18">
+                      <tspan x="960" dy="0">Convert recording to</tspan>
+                      <tspan x="960" dy="24.3">text with Whisper API</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M960 100 V160"
+                      marker-end="url(#ros-speech-desktop-arrow)"
+                    />
+                    <rect
+                      class="ros-process"
+                      x="850.0"
+                      y="330.0"
+                      width="220"
+                      height="80"
+                      rx="9"
+                    />
+                    <text x="960" y="362.85" font-size="18">
+                      <tspan x="960" dy="0">Analyse command</tspan>
+                      <tspan x="960" dy="24.3">with GPT-4o API</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M960 260 V330"
+                      marker-end="url(#ros-speech-desktop-arrow)"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M960 410 V465"
+                      marker-end="url(#ros-speech-desktop-arrow)"
+                    />
+                    <path
+                      class="ros-decision"
+                      d="M960 465.0 L1050.0 540 L960 615.0 L870.0 540 Z"
+                    />
+                    <text x="960" y="523.4" font-size="16">
+                      <tspan x="960" dy="0">command ==</tspan>
+                      <tspan x="960" dy="21.6">Put away</tspan>
+                      <tspan x="960" dy="21.6">hammer</tspan>
+                    </text>
+                    <rect
+                      class="ros-process"
+                      x="860.0"
+                      y="715.0"
+                      width="200"
+                      height="110"
+                      rx="9"
+                    />
+                    <text x="960" y="750.7" font-size="18">
+                      <tspan x="960" dy="0">Set</tspan>
+                      <tspan x="960" dy="24.3">next_srv == Vision</tspan>
+                      <tspan x="960" dy="24.3">target == Hammer</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M960 615 V715"
+                      marker-end="url(#ros-speech-desktop-arrow)"
+                    />
+                    <text x="984" y="653.0" font-size="16">
+                      <tspan x="984" dy="0">[yes]</tspan>
+                    </text>
+                    <path
+                      class="ros-merge"
+                      d="M960 891 L969 900 L960 909 L951 900 Z"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M960 825 V891"
+                      marker-end="url(#ros-speech-desktop-arrow)"
+                    />
+                    <path
+                      class="ros-decision"
+                      d="M740 465.0 L830.0 540 L740 615.0 L650.0 540 Z"
+                    />
+                    <text x="740" y="523.4" font-size="16">
+                      <tspan x="740" dy="0">command ==</tspan>
+                      <tspan x="740" dy="21.6">Put away</tspan>
+                      <tspan x="740" dy="21.6">screwdriver</tspan>
+                    </text>
+                    <rect
+                      class="ros-process"
+                      x="640.0"
+                      y="715.0"
+                      width="200"
+                      height="110"
+                      rx="9"
+                    />
+                    <text x="740" y="750.7" font-size="18">
+                      <tspan x="740" dy="0">Set</tspan>
+                      <tspan x="740" dy="24.3">next_srv == Vision</tspan>
+                      <tspan x="740" dy="24.3">target == Screwdriver</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M740 615 V715"
+                      marker-end="url(#ros-speech-desktop-arrow)"
+                    />
+                    <text x="764" y="653.0" font-size="16">
+                      <tspan x="764" dy="0">[yes]</tspan>
+                    </text>
+                    <path
+                      class="ros-merge"
+                      d="M740 891 L749 900 L740 909 L731 900 Z"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M740 825 V891"
+                      marker-end="url(#ros-speech-desktop-arrow)"
+                    />
+                    <path
+                      class="ros-decision"
+                      d="M520 465.0 L610.0 540 L520 615.0 L430.0 540 Z"
+                    />
+                    <text x="520" y="523.4" font-size="16">
+                      <tspan x="520" dy="0">command ==</tspan>
+                      <tspan x="520" dy="21.6">Retrieve</tspan>
+                      <tspan x="520" dy="21.6">hammer</tspan>
+                    </text>
+                    <rect
+                      class="ros-process"
+                      x="420.0"
+                      y="715.0"
+                      width="200"
+                      height="110"
+                      rx="9"
+                    />
+                    <text x="520" y="750.7" font-size="18">
+                      <tspan x="520" dy="0">Set</tspan>
+                      <tspan x="520" dy="24.3">next_srv == Arm</tspan>
+                      <tspan x="520" dy="24.3">target == Hammer</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M520 615 V715"
+                      marker-end="url(#ros-speech-desktop-arrow)"
+                    />
+                    <text x="544" y="653.0" font-size="16">
+                      <tspan x="544" dy="0">[yes]</tspan>
+                    </text>
+                    <path
+                      class="ros-merge"
+                      d="M520 891 L529 900 L520 909 L511 900 Z"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M520 825 V891"
+                      marker-end="url(#ros-speech-desktop-arrow)"
+                    />
+                    <path
+                      class="ros-decision"
+                      d="M300 465.0 L390.0 540 L300 615.0 L210.0 540 Z"
+                    />
+                    <text x="300" y="523.4" font-size="16">
+                      <tspan x="300" dy="0">command ==</tspan>
+                      <tspan x="300" dy="21.6">Retrieve</tspan>
+                      <tspan x="300" dy="21.6">screwdriver</tspan>
+                    </text>
+                    <rect
+                      class="ros-process"
+                      x="200.0"
+                      y="715.0"
+                      width="200"
+                      height="110"
+                      rx="9"
+                    />
+                    <text x="300" y="750.7" font-size="18">
+                      <tspan x="300" dy="0">Set</tspan>
+                      <tspan x="300" dy="24.3">next_srv == Arm</tspan>
+                      <tspan x="300" dy="24.3">target == Screwdriver</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M300 615 V715"
+                      marker-end="url(#ros-speech-desktop-arrow)"
+                    />
+                    <text x="324" y="653.0" font-size="16">
+                      <tspan x="324" dy="0">[yes]</tspan>
+                    </text>
+                    <path
+                      class="ros-merge"
+                      d="M300 891 L309 900 L300 909 L291 900 Z"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M300 825 V891"
+                      marker-end="url(#ros-speech-desktop-arrow)"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M870 540 H830"
+                      marker-end="url(#ros-speech-desktop-arrow)"
+                    />
+                    <text x="850" y="520.0" font-size="16">
+                      <tspan x="850" dy="0">[no]</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M650 540 H610"
+                      marker-end="url(#ros-speech-desktop-arrow)"
+                    />
+                    <text x="630" y="520.0" font-size="16">
+                      <tspan x="630" dy="0">[no]</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M430 540 H390"
+                      marker-end="url(#ros-speech-desktop-arrow)"
+                    />
+                    <text x="410" y="520.0" font-size="16">
+                      <tspan x="410" dy="0">[no]</tspan>
+                    </text>
+                    <rect
+                      class="ros-process"
+                      x="10.0"
+                      y="715.0"
+                      width="140"
+                      height="110"
+                      rx="9"
+                    />
+                    <text x="80" y="750.7" font-size="18">
+                      <tspan x="80" dy="0">Set</tspan>
+                      <tspan x="80" dy="24.3">next_srv ==</tspan>
+                      <tspan x="80" dy="24.3">Speech</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M210 540 H80 V715"
+                      marker-end="url(#ros-speech-desktop-arrow)"
+                    />
+                    <text x="125" y="513.0" font-size="16">
+                      <tspan x="125" dy="0">[no matching action]</tspan>
+                    </text>
+                    <path
+                      class="ros-merge"
+                      d="M80 891 L89 900 L80 909 L71 900 Z"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M80 825 V891"
+                      marker-end="url(#ros-speech-desktop-arrow)"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M951 900 H749"
+                      marker-end="url(#ros-speech-desktop-arrow)"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M731 900 H529"
+                      marker-end="url(#ros-speech-desktop-arrow)"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M511 900 H309"
+                      marker-end="url(#ros-speech-desktop-arrow)"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M291 900 H89"
+                      marker-end="url(#ros-speech-desktop-arrow)"
+                    />
+                    <rect
+                      class="ros-process"
+                      x="280.0"
+                      y="1020.0"
+                      width="260"
+                      height="80"
+                      rx="9"
+                    />
+                    <text x="410" y="1052.85" font-size="18">
+                      <tspan x="410" dy="0">Audio feedback</tspan>
+                      <tspan x="410" dy="24.3">for the next action</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M80 909 V1060 H280"
+                      marker-end="url(#ros-speech-desktop-arrow)"
+                    />
+                    <circle class="ros-end" cx="620" cy="1060" r="13" />
+                    <circle class="ros-terminal" cx="620" cy="1060" r="8" />
+                    <path
+                      class="ros-connector"
+                      d="M540 1060 H607"
+                      marker-end="url(#ros-speech-desktop-arrow)"
+                    /></svg
+                  ><svg
+                    class="ros-flow ros-flow--mobile"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 320 2110"
+                    role="img"
+                    aria-labelledby="ros-speech-mobile-title ros-speech-mobile-desc"
+                  >
+                    <title id="ros-speech-mobile-title">
+                      Speech service — command recording and routing
+                    </title>
+                    <desc id="ros-speech-mobile-desc">
+                      English translation of the existing ROS 2 implementation
+                      flowchart. All processes, decisions, branch conditions,
+                      variable updates, joins and loops are retained.
+                    </desc>
+                    <defs>
+                      <marker
+                        id="ros-speech-mobile-arrow"
+                        viewBox="0 0 10 10"
+                        refX="9"
+                        refY="5"
+                        markerWidth="6"
+                        markerHeight="6"
+                        orient="auto-start-reverse"
+                      >
+                        <path d="M0 0 L10 5 L0 10 Z" fill="var(--bg)" />
+                      </marker>
+                    </defs>
+                    <circle class="ros-terminal" cx="160" cy="20" r="8" />
+                    <rect
+                      class="ros-process"
+                      x="40.0"
+                      y="55.0"
+                      width="240"
+                      height="70"
+                      rx="9"
+                    />
+                    <text x="160" y="83.525" font-size="17">
+                      <tspan x="160" dy="0">Audio feedback:</tspan>
+                      <tspan x="160" dy="22.950000000000003">
+                        Ready for command
+                      </tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M160 28 V55"
+                      marker-end="url(#ros-speech-mobile-arrow)"
+                    />
+                    <path
+                      class="ros-decision"
+                      d="M160 155.0 L250.0 220 L160 285.0 L70.0 220 Z"
+                    />
+                    <text x="160" y="215.55" font-size="14">
+                      <tspan x="160" dy="0">Button</tspan>
+                      <tspan x="160" dy="18.900000000000002">pressed?</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M160 125 V155"
+                      marker-end="url(#ros-speech-mobile-arrow)"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M70 220 H20 V145 H160 V155"
+                      marker-end="url(#ros-speech-mobile-arrow)"
+                    />
+                    <text x="41" y="205.0" font-size="14">
+                      <tspan x="41" dy="0">[no]</tspan>
+                    </text>
+                    <rect
+                      class="ros-process"
+                      x="45.0"
+                      y="312.5"
+                      width="230"
+                      height="65"
+                      rx="9"
+                    />
+                    <text x="160" y="338.525" font-size="17">
+                      <tspan x="160" dy="0">Start recording</tspan>
+                      <tspan x="160" dy="22.950000000000003">the command</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M160 285 V312"
+                      marker-end="url(#ros-speech-mobile-arrow)"
+                    />
+                    <text x="183" y="304.0" font-size="14">
+                      <tspan x="183" dy="0">[yes]</tspan>
+                    </text>
+                    <path
+                      class="ros-decision"
+                      d="M160 405.0 L250.0 470 L160 535.0 L70.0 470 Z"
+                    />
+                    <text x="160" y="465.55" font-size="14">
+                      <tspan x="160" dy="0">Button pressed</tspan>
+                      <tspan x="160" dy="18.900000000000002">again?</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M160 378 V405"
+                      marker-end="url(#ros-speech-mobile-arrow)"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M250 470 H300 V390 H160 V405"
+                      marker-end="url(#ros-speech-mobile-arrow)"
+                    />
+                    <text x="279" y="454.0" font-size="14">
+                      <tspan x="279" dy="0">[no]</tspan>
+                    </text>
+                    <rect
+                      class="ros-process"
+                      x="45.0"
+                      y="572.5"
+                      width="230"
+                      height="65"
+                      rx="9"
+                    />
+                    <text x="160" y="598.525" font-size="17">
+                      <tspan x="160" dy="0">Stop recording</tspan>
+                      <tspan x="160" dy="22.950000000000003">the command</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M160 535 V572"
+                      marker-end="url(#ros-speech-mobile-arrow)"
+                    />
+                    <text x="183" y="558.0" font-size="14">
+                      <tspan x="183" dy="0">[yes]</tspan>
+                    </text>
+                    <rect
+                      class="ros-process"
+                      x="30.0"
+                      y="675.0"
+                      width="260"
+                      height="80"
+                      rx="9"
+                    />
+                    <text x="160" y="708.525" font-size="17">
+                      <tspan x="160" dy="0">Convert recording to text</tspan>
+                      <tspan x="160" dy="22.950000000000003">
+                        with Whisper API
+                      </tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M160 638 V675"
+                      marker-end="url(#ros-speech-mobile-arrow)"
+                    />
+                    <rect
+                      class="ros-process"
+                      x="35.0"
+                      y="800.0"
+                      width="250"
+                      height="70"
+                      rx="9"
+                    />
+                    <text x="160" y="828.525" font-size="17">
+                      <tspan x="160" dy="0">Analyse command</tspan>
+                      <tspan x="160" dy="22.950000000000003">
+                        with GPT-4o API
+                      </tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M160 755 V800"
+                      marker-end="url(#ros-speech-mobile-arrow)"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M160 870 V902 H100 V925"
+                      marker-end="url(#ros-speech-mobile-arrow)"
+                    />
+                    <path
+                      class="ros-decision"
+                      d="M100 925.0 L175.0 990 L100 1055.0 L25.0 990 Z"
+                    />
+                    <text x="100" y="976.1" font-size="14">
+                      <tspan x="100" dy="0">command ==</tspan>
+                      <tspan x="100" dy="18.900000000000002">Put away</tspan>
+                      <tspan x="100" dy="18.900000000000002">hammer</tspan>
+                    </text>
+                    <rect
+                      class="ros-process"
+                      x="187.0"
+                      y="928.0"
+                      width="118"
+                      height="124"
+                      rx="9"
+                    />
+                    <text x="246" y="949.1" font-size="17">
+                      <tspan x="246" dy="0">Set</tspan>
+                      <tspan x="246" dy="22.950000000000003">next_srv ==</tspan>
+                      <tspan x="246" dy="22.950000000000003">Vision</tspan>
+                      <tspan x="246" dy="22.950000000000003">target ==</tspan>
+                      <tspan x="246" dy="22.950000000000003">Hammer</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M175 990 H187"
+                      marker-end="url(#ros-speech-mobile-arrow)"
+                    />
+                    <text x="185" y="972.0" font-size="14">
+                      <tspan x="185" dy="0">[yes]</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M246 1052 V1068 H311 V1930 H169"
+                      marker-end="url(#ros-speech-mobile-arrow)"
+                    />
+                    <path
+                      class="ros-decision"
+                      d="M100 1145.0 L175.0 1210 L100 1275.0 L25.0 1210 Z"
+                    />
+                    <text x="100" y="1196.1" font-size="14">
+                      <tspan x="100" dy="0">command ==</tspan>
+                      <tspan x="100" dy="18.900000000000002">Put away</tspan>
+                      <tspan x="100" dy="18.900000000000002">screwdriver</tspan>
+                    </text>
+                    <rect
+                      class="ros-process"
+                      x="187.0"
+                      y="1148.0"
+                      width="118"
+                      height="124"
+                      rx="9"
+                    />
+                    <text x="246" y="1169.1" font-size="17">
+                      <tspan x="246" dy="0">Set</tspan>
+                      <tspan x="246" dy="22.950000000000003">next_srv ==</tspan>
+                      <tspan x="246" dy="22.950000000000003">Vision</tspan>
+                      <tspan x="246" dy="22.950000000000003">target ==</tspan>
+                      <tspan x="246" dy="22.950000000000003">Screwdriver</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M175 1210 H187"
+                      marker-end="url(#ros-speech-mobile-arrow)"
+                    />
+                    <text x="185" y="1192.0" font-size="14">
+                      <tspan x="185" dy="0">[yes]</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M246 1272 V1288 H311 V1930 H169"
+                      marker-end="url(#ros-speech-mobile-arrow)"
+                    />
+                    <path
+                      class="ros-decision"
+                      d="M100 1365.0 L175.0 1430 L100 1495.0 L25.0 1430 Z"
+                    />
+                    <text x="100" y="1416.1" font-size="14">
+                      <tspan x="100" dy="0">command ==</tspan>
+                      <tspan x="100" dy="18.900000000000002">Retrieve</tspan>
+                      <tspan x="100" dy="18.900000000000002">hammer</tspan>
+                    </text>
+                    <rect
+                      class="ros-process"
+                      x="187.0"
+                      y="1368.0"
+                      width="118"
+                      height="124"
+                      rx="9"
+                    />
+                    <text x="246" y="1389.1" font-size="17">
+                      <tspan x="246" dy="0">Set</tspan>
+                      <tspan x="246" dy="22.950000000000003">next_srv ==</tspan>
+                      <tspan x="246" dy="22.950000000000003">Arm</tspan>
+                      <tspan x="246" dy="22.950000000000003">target ==</tspan>
+                      <tspan x="246" dy="22.950000000000003">Hammer</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M175 1430 H187"
+                      marker-end="url(#ros-speech-mobile-arrow)"
+                    />
+                    <text x="185" y="1412.0" font-size="14">
+                      <tspan x="185" dy="0">[yes]</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M246 1492 V1508 H311 V1930 H169"
+                      marker-end="url(#ros-speech-mobile-arrow)"
+                    />
+                    <path
+                      class="ros-decision"
+                      d="M100 1585.0 L175.0 1650 L100 1715.0 L25.0 1650 Z"
+                    />
+                    <text x="100" y="1636.1" font-size="14">
+                      <tspan x="100" dy="0">command ==</tspan>
+                      <tspan x="100" dy="18.900000000000002">Retrieve</tspan>
+                      <tspan x="100" dy="18.900000000000002">screwdriver</tspan>
+                    </text>
+                    <rect
+                      class="ros-process"
+                      x="187.0"
+                      y="1588.0"
+                      width="118"
+                      height="124"
+                      rx="9"
+                    />
+                    <text x="246" y="1609.1" font-size="17">
+                      <tspan x="246" dy="0">Set</tspan>
+                      <tspan x="246" dy="22.950000000000003">next_srv ==</tspan>
+                      <tspan x="246" dy="22.950000000000003">Arm</tspan>
+                      <tspan x="246" dy="22.950000000000003">target ==</tspan>
+                      <tspan x="246" dy="22.950000000000003">Screwdriver</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M175 1650 H187"
+                      marker-end="url(#ros-speech-mobile-arrow)"
+                    />
+                    <text x="185" y="1632.0" font-size="14">
+                      <tspan x="185" dy="0">[yes]</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M246 1712 V1728 H311 V1930 H169"
+                      marker-end="url(#ros-speech-mobile-arrow)"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M100 1055 V1145"
+                      marker-end="url(#ros-speech-mobile-arrow)"
+                    />
+                    <text x="120" y="1084.0" font-size="14">
+                      <tspan x="120" dy="0">[no]</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M100 1275 V1365"
+                      marker-end="url(#ros-speech-mobile-arrow)"
+                    />
+                    <text x="120" y="1304.0" font-size="14">
+                      <tspan x="120" dy="0">[no]</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M100 1495 V1585"
+                      marker-end="url(#ros-speech-mobile-arrow)"
+                    />
+                    <text x="120" y="1524.0" font-size="14">
+                      <tspan x="120" dy="0">[no]</tspan>
+                    </text>
+                    <rect
+                      class="ros-process"
+                      x="15.0"
+                      y="1785.0"
+                      width="190"
+                      height="70"
+                      rx="9"
+                    />
+                    <text x="110" y="1813.525" font-size="17">
+                      <tspan x="110" dy="0">Set</tspan>
+                      <tspan x="110" dy="22.950000000000003">
+                        next_srv == Speech
+                      </tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M100 1715 V1785"
+                      marker-end="url(#ros-speech-mobile-arrow)"
+                    />
+                    <text x="97" y="1755.0" font-size="14">
+                      <tspan x="97" dy="0">[no matching action]</tspan>
+                    </text>
+                    <path
+                      class="ros-merge"
+                      d="M311 1059 L320 1068 L311 1077 L302 1068 Z"
+                    />
+                    <path
+                      class="ros-merge"
+                      d="M311 1279 L320 1288 L311 1297 L302 1288 Z"
+                    />
+                    <path
+                      class="ros-merge"
+                      d="M311 1499 L320 1508 L311 1517 L302 1508 Z"
+                    />
+                    <path
+                      class="ros-merge"
+                      d="M311 1719 L320 1728 L311 1737 L302 1728 Z"
+                    />
+                    <path
+                      class="ros-merge"
+                      d="M160 1921 L169 1930 L160 1939 L151 1930 Z"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M110 1855 V1930 H151"
+                      marker-end="url(#ros-speech-mobile-arrow)"
+                    />
+                    <rect
+                      class="ros-process"
+                      x="35.0"
+                      y="1975.0"
+                      width="250"
+                      height="70"
+                      rx="9"
+                    />
+                    <text x="160" y="2003.525" font-size="17">
+                      <tspan x="160" dy="0">Audio feedback</tspan>
+                      <tspan x="160" dy="22.950000000000003">
+                        for the next action
+                      </tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M160 1939 V1975"
+                      marker-end="url(#ros-speech-mobile-arrow)"
+                    />
+                    <circle class="ros-end" cx="160" cy="2085" r="13" />
+                    <circle class="ros-terminal" cx="160" cy="2085" r="8" />
+                    <path
+                      class="ros-connector"
+                      d="M160 2045 V2072"
+                      marker-end="url(#ros-speech-mobile-arrow)"
+                    />
+                  </svg>
+                  <figcaption>
+                    Button-controlled recording, command classification and
+                    service selection.
+                  </figcaption>
+                </figure>
+                <figure class="technical-figure ros-figure">
+                  <h3 class="figure-title">Vision service</h3>
+                  <svg
+                    class="ros-flow ros-flow--desktop"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 1000 640"
+                    role="img"
+                    aria-labelledby="ros-vision-desktop-title ros-vision-desktop-desc"
+                  >
+                    <title id="ros-vision-desktop-title">
+                      Vision service — detection and target coordinates
+                    </title>
+                    <desc id="ros-vision-desktop-desc">
+                      English translation of the existing ROS 2 implementation
+                      flowchart. All processes, decisions, branch conditions,
+                      variable updates, joins and loops are retained.
+                    </desc>
+                    <defs>
+                      <marker
+                        id="ros-vision-desktop-arrow"
+                        viewBox="0 0 10 10"
+                        refX="9"
+                        refY="5"
+                        markerWidth="6"
+                        markerHeight="6"
+                        orient="auto-start-reverse"
+                      >
+                        <path d="M0 0 L10 5 L0 10 Z" fill="var(--bg)" />
+                      </marker>
+                    </defs>
+                    <circle class="ros-terminal" cx="25" cy="100" r="8" />
+                    <rect
+                      class="ros-process"
+                      x="65.0"
+                      y="60.0"
+                      width="230"
+                      height="80"
+                      rx="9"
+                    />
+                    <text x="180" y="92.85" font-size="18">
+                      <tspan x="180" dy="0">Object detection</tspan>
+                      <tspan x="180" dy="24.3">with YOLO-OBB</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M33 100 H65"
+                      marker-end="url(#ros-vision-desktop-arrow)"
+                    />
+                    <path
+                      class="ros-decision"
+                      d="M470 20.0 L565.0 100 L470 180.0 L375.0 100 Z"
+                    />
+                    <text x="470" y="94.2" font-size="16">
+                      <tspan x="470" dy="0">Object</tspan>
+                      <tspan x="470" dy="21.6">detected?</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M295 100 H375"
+                      marker-end="url(#ros-vision-desktop-arrow)"
+                    />
+                    <rect
+                      class="ros-process"
+                      x="675.0"
+                      y="60.0"
+                      width="260"
+                      height="80"
+                      rx="9"
+                    />
+                    <text x="805" y="92.85" font-size="18">
+                      <tspan x="805" dy="0">Read object class</tspan>
+                      <tspan x="805" dy="24.3">and pixel coordinates</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M565 100 H675"
+                      marker-end="url(#ros-vision-desktop-arrow)"
+                    />
+                    <text x="615" y="79.0" font-size="16">
+                      <tspan x="615" dy="0">[yes]</tspan>
+                    </text>
+                    <path
+                      class="ros-decision"
+                      d="M805 230.0 L900.0 310 L805 390.0 L710.0 310 Z"
+                    />
+                    <text x="805" y="293.4" font-size="16">
+                      <tspan x="805" dy="0">class</tspan>
+                      <tspan x="805" dy="21.6">==</tspan>
+                      <tspan x="805" dy="21.6">target</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M805 140 V230"
+                      marker-end="url(#ros-vision-desktop-arrow)"
+                    />
+                    <path
+                      class="ros-merge"
+                      d="M470 301 L479 310 L470 319 L461 310 Z"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M470 180 V301"
+                      marker-end="url(#ros-vision-desktop-arrow)"
+                    />
+                    <text x="494" y="219.0" font-size="16">
+                      <tspan x="494" dy="0">[no]</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M710 310 H479"
+                      marker-end="url(#ros-vision-desktop-arrow)"
+                    />
+                    <text x="595" y="289.0" font-size="16">
+                      <tspan x="595" dy="0">[no]</tspan>
+                    </text>
+                    <rect
+                      class="ros-process"
+                      x="165.0"
+                      y="265.0"
+                      width="240"
+                      height="90"
+                      rx="9"
+                    />
+                    <text x="285" y="302.85" font-size="18">
+                      <tspan x="285" dy="0">Feedback:</tspan>
+                      <tspan x="285" dy="24.3">Object not found</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M461 310 H405"
+                      marker-end="url(#ros-vision-desktop-arrow)"
+                    />
+                    <rect
+                      class="ros-process"
+                      x="10.0"
+                      y="380.0"
+                      width="140"
+                      height="80"
+                      rx="9"
+                    />
+                    <text x="80" y="400.7" font-size="18">
+                      <tspan x="80" dy="0">Set</tspan>
+                      <tspan x="80" dy="24.3">next_srv ==</tspan>
+                      <tspan x="80" dy="24.3">Speech</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M165 310 H80 V380"
+                      marker-end="url(#ros-vision-desktop-arrow)"
+                    />
+                    <rect
+                      class="ros-process"
+                      x="675.0"
+                      y="475.0"
+                      width="260"
+                      height="90"
+                      rx="9"
+                    />
+                    <text x="805" y="512.85" font-size="18">
+                      <tspan x="805" dy="0">Measure depth</tspan>
+                      <tspan x="805" dy="24.3">at the object centre</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M805 390 V475"
+                      marker-end="url(#ros-vision-desktop-arrow)"
+                    />
+                    <text x="830" y="425.0" font-size="16">
+                      <tspan x="830" dy="0">[yes]</tspan>
+                    </text>
+                    <rect
+                      class="ros-process"
+                      x="350.0"
+                      y="475.0"
+                      width="290"
+                      height="90"
+                      rx="9"
+                    />
+                    <text x="495" y="500.7" font-size="18">
+                      <tspan x="495" dy="0">Convert pixel to spatial</tspan>
+                      <tspan x="495" dy="24.3">coordinates &amp; store</tspan>
+                      <tspan x="495" dy="24.3">(depth as reference)</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M675 520 H640"
+                      marker-end="url(#ros-vision-desktop-arrow)"
+                    />
+                    <rect
+                      class="ros-process"
+                      x="110.0"
+                      y="475.0"
+                      width="210"
+                      height="90"
+                      rx="9"
+                    />
+                    <text x="215" y="512.85" font-size="18">
+                      <tspan x="215" dy="0">Set</tspan>
+                      <tspan x="215" dy="24.3">next_srv == Arm</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M350 520 H320"
+                      marker-end="url(#ros-vision-desktop-arrow)"
+                    />
+                    <path
+                      class="ros-merge"
+                      d="M80 571 L89 580 L80 589 L71 580 Z"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M110 520 H80 V571"
+                      marker-end="url(#ros-vision-desktop-arrow)"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M80 460 V571"
+                      marker-end="url(#ros-vision-desktop-arrow)"
+                    />
+                    <circle class="ros-end" cx="25" cy="580" r="13" />
+                    <circle class="ros-terminal" cx="25" cy="580" r="8" />
+                    <path
+                      class="ros-connector"
+                      d="M71 580 H38"
+                      marker-end="url(#ros-vision-desktop-arrow)"
+                    /></svg
+                  ><svg
+                    class="ros-flow ros-flow--mobile"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 320 1370"
+                    role="img"
+                    aria-labelledby="ros-vision-mobile-title ros-vision-mobile-desc"
+                  >
+                    <title id="ros-vision-mobile-title">
+                      Vision service — detection and target coordinates
+                    </title>
+                    <desc id="ros-vision-mobile-desc">
+                      English translation of the existing ROS 2 implementation
+                      flowchart. All processes, decisions, branch conditions,
+                      variable updates, joins and loops are retained.
+                    </desc>
+                    <defs>
+                      <marker
+                        id="ros-vision-mobile-arrow"
+                        viewBox="0 0 10 10"
+                        refX="9"
+                        refY="5"
+                        markerWidth="6"
+                        markerHeight="6"
+                        orient="auto-start-reverse"
+                      >
+                        <path d="M0 0 L10 5 L0 10 Z" fill="var(--bg)" />
+                      </marker>
+                    </defs>
+                    <circle class="ros-terminal" cx="160" cy="20" r="8" />
+                    <rect
+                      class="ros-process"
+                      x="45.0"
+                      y="55.0"
+                      width="230"
+                      height="80"
+                      rx="9"
+                    />
+                    <text x="160" y="88.525" font-size="17">
+                      <tspan x="160" dy="0">Object detection</tspan>
+                      <tspan x="160" dy="22.950000000000003">
+                        with YOLO-OBB
+                      </tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M160 28 V55"
+                      marker-end="url(#ros-vision-mobile-arrow)"
+                    />
+                    <path
+                      class="ros-decision"
+                      d="M160 165.0 L260.0 240 L160 315.0 L60.0 240 Z"
+                    />
+                    <text x="160" y="235.55" font-size="14">
+                      <tspan x="160" dy="0">Object</tspan>
+                      <tspan x="160" dy="18.900000000000002">detected?</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M160 135 V165"
+                      marker-end="url(#ros-vision-mobile-arrow)"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M60 240 H15 V1080 H45"
+                      marker-end="url(#ros-vision-mobile-arrow)"
+                    />
+                    <text x="36" y="219.0" font-size="14">
+                      <tspan x="36" dy="0">[no]</tspan>
+                    </text>
+                    <rect
+                      class="ros-process"
+                      x="35.0"
+                      y="360.0"
+                      width="250"
+                      height="80"
+                      rx="9"
+                    />
+                    <text x="160" y="393.525" font-size="17">
+                      <tspan x="160" dy="0">Read object class</tspan>
+                      <tspan x="160" dy="22.950000000000003">
+                        and pixel coordinates
+                      </tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M160 315 V360"
+                      marker-end="url(#ros-vision-mobile-arrow)"
+                    />
+                    <text x="184" y="339.0" font-size="14">
+                      <tspan x="184" dy="0">[yes]</tspan>
+                    </text>
+                    <path
+                      class="ros-decision"
+                      d="M160 460.0 L250.0 535 L160 610.0 L70.0 535 Z"
+                    />
+                    <text x="160" y="521.1" font-size="14">
+                      <tspan x="160" dy="0">class</tspan>
+                      <tspan x="160" dy="18.900000000000002">==</tspan>
+                      <tspan x="160" dy="18.900000000000002">target</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M160 440 V460"
+                      marker-end="url(#ros-vision-mobile-arrow)"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M70 535 H15 V1080 H45"
+                      marker-end="url(#ros-vision-mobile-arrow)"
+                    />
+                    <text x="41" y="514.0" font-size="14">
+                      <tspan x="41" dy="0">[no]</tspan>
+                    </text>
+                    <path
+                      class="ros-merge"
+                      d="M15 1011 L24 1020 L15 1029 L6 1020 Z"
+                    />
+                    <rect
+                      class="ros-process"
+                      x="35.0"
+                      y="670.0"
+                      width="250"
+                      height="80"
+                      rx="9"
+                    />
+                    <text x="160" y="703.525" font-size="17">
+                      <tspan x="160" dy="0">Measure depth</tspan>
+                      <tspan x="160" dy="22.950000000000003">
+                        at the object centre
+                      </tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M160 610 V670"
+                      marker-end="url(#ros-vision-mobile-arrow)"
+                    />
+                    <text x="184" y="638.0" font-size="14">
+                      <tspan x="184" dy="0">[yes]</tspan>
+                    </text>
+                    <rect
+                      class="ros-process"
+                      x="30.0"
+                      y="800.0"
+                      width="260"
+                      height="100"
+                      rx="9"
+                    />
+                    <text x="160" y="832.05" font-size="17">
+                      <tspan x="160" dy="0">Convert pixel to spatial</tspan>
+                      <tspan x="160" dy="22.950000000000003">
+                        coordinates &amp; store
+                      </tspan>
+                      <tspan x="160" dy="22.950000000000003">
+                        (depth as reference)
+                      </tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M160 750 V800"
+                      marker-end="url(#ros-vision-mobile-arrow)"
+                    />
+                    <rect
+                      class="ros-process"
+                      x="45.0"
+                      y="935.0"
+                      width="230"
+                      height="60"
+                      rx="9"
+                    />
+                    <text x="160" y="958.525" font-size="17">
+                      <tspan x="160" dy="0">Set</tspan>
+                      <tspan x="160" dy="22.950000000000003">
+                        next_srv == Arm
+                      </tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M160 900 V935"
+                      marker-end="url(#ros-vision-mobile-arrow)"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M275 965 H305 V1295 H169"
+                      marker-end="url(#ros-vision-mobile-arrow)"
+                    />
+                    <rect
+                      class="ros-process"
+                      x="45.0"
+                      y="1045.0"
+                      width="230"
+                      height="70"
+                      rx="9"
+                    />
+                    <text x="160" y="1073.525" font-size="17">
+                      <tspan x="160" dy="0">Feedback:</tspan>
+                      <tspan x="160" dy="22.950000000000003">
+                        Object not found
+                      </tspan>
+                    </text>
+                    <rect
+                      class="ros-process"
+                      x="45.0"
+                      y="1160.0"
+                      width="230"
+                      height="60"
+                      rx="9"
+                    />
+                    <text x="160" y="1183.525" font-size="17">
+                      <tspan x="160" dy="0">Set</tspan>
+                      <tspan x="160" dy="22.950000000000003">
+                        next_srv == Speech
+                      </tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M160 1115 V1160"
+                      marker-end="url(#ros-vision-mobile-arrow)"
+                    />
+                    <path
+                      class="ros-merge"
+                      d="M160 1286 L169 1295 L160 1304 L151 1295 Z"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M160 1220 V1286"
+                      marker-end="url(#ros-vision-mobile-arrow)"
+                    />
+                    <circle class="ros-end" cx="160" cy="1350" r="13" />
+                    <circle class="ros-terminal" cx="160" cy="1350" r="8" />
+                    <path
+                      class="ros-connector"
+                      d="M160 1304 V1337"
+                      marker-end="url(#ros-vision-mobile-arrow)"
+                    />
+                  </svg>
+                  <figcaption>
+                    Object detection, target matching and conversion from pixel
+                    to spatial coordinates.
+                  </figcaption>
+                </figure>
+                <figure class="technical-figure ros-figure">
+                  <h3 class="figure-title">Arm service</h3>
+                  <svg
+                    class="ros-flow ros-flow--desktop"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 1000 470"
+                    role="img"
+                    aria-labelledby="ros-arm-desktop-title ros-arm-desktop-desc"
+                  >
+                    <title id="ros-arm-desktop-title">
+                      Arm service — retrieve and put-away sequences
+                    </title>
+                    <desc id="ros-arm-desktop-desc">
+                      English translation of the existing ROS 2 implementation
+                      flowchart. All processes, decisions, branch conditions,
+                      variable updates, joins and loops are retained.
+                    </desc>
+                    <defs>
+                      <marker
+                        id="ros-arm-desktop-arrow"
+                        viewBox="0 0 10 10"
+                        refX="9"
+                        refY="5"
+                        markerWidth="6"
+                        markerHeight="6"
+                        orient="auto-start-reverse"
+                      >
+                        <path d="M0 0 L10 5 L0 10 Z" fill="var(--bg)" />
+                      </marker>
+                    </defs>
+                    <circle class="ros-terminal" cx="25" cy="230" r="8" />
+                    <path
+                      class="ros-decision"
+                      d="M150 150.0 L240.0 230 L150 310.0 L60.0 230 Z"
+                    />
+                    <text x="150" y="213.4" font-size="16">
+                      <tspan x="150" dy="0">Retrieve or</tspan>
+                      <tspan x="150" dy="21.6">put away</tspan>
+                      <tspan x="150" dy="21.6">the object?</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M33 230 H60"
+                      marker-end="url(#ros-arm-desktop-arrow)"
+                    />
+                    <rect
+                      class="ros-process"
+                      x="280.0"
+                      y="55.0"
+                      width="220"
+                      height="90"
+                      rx="9"
+                    />
+                    <text x="390" y="92.85" font-size="18">
+                      <tspan x="390" dy="0">Grasp at the detected</tspan>
+                      <tspan x="390" dy="24.3">spatial coordinates</tspan>
+                    </text>
+                    <rect
+                      class="ros-process"
+                      x="545.0"
+                      y="55.0"
+                      width="220"
+                      height="90"
+                      rx="9"
+                    />
+                    <text x="655" y="92.85" font-size="18">
+                      <tspan x="655" dy="0">Place at the object’s</tspan>
+                      <tspan x="655" dy="24.3">storage location</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M150 150 V100 H280"
+                      marker-end="url(#ros-arm-desktop-arrow)"
+                    />
+                    <text x="212" y="80.0" font-size="16">
+                      <tspan x="212" dy="0">[put away]</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M500 100 H545"
+                      marker-end="url(#ros-arm-desktop-arrow)"
+                    />
+                    <rect
+                      class="ros-process"
+                      x="280.0"
+                      y="320.0"
+                      width="220"
+                      height="90"
+                      rx="9"
+                    />
+                    <text x="390" y="357.85" font-size="18">
+                      <tspan x="390" dy="0">Grasp at the object’s</tspan>
+                      <tspan x="390" dy="24.3">storage location</tspan>
+                    </text>
+                    <rect
+                      class="ros-process"
+                      x="545.0"
+                      y="320.0"
+                      width="220"
+                      height="90"
+                      rx="9"
+                    />
+                    <text x="655" y="357.85" font-size="18">
+                      <tspan x="655" dy="0">Place in the</tspan>
+                      <tspan x="655" dy="24.3">collaboration area</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M150 310 V365 H280"
+                      marker-end="url(#ros-arm-desktop-arrow)"
+                    />
+                    <text x="212" y="345.0" font-size="16">
+                      <tspan x="212" dy="0">[retrieve]</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M500 365 H545"
+                      marker-end="url(#ros-arm-desktop-arrow)"
+                    />
+                    <path
+                      class="ros-merge"
+                      d="M795 91 L804 100 L795 109 L786 100 Z"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M765 100 H786"
+                      marker-end="url(#ros-arm-desktop-arrow)"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M765 365 H795 V109"
+                      marker-end="url(#ros-arm-desktop-arrow)"
+                    />
+                    <rect
+                      class="ros-process"
+                      x="810.0"
+                      y="185.0"
+                      width="180"
+                      height="80"
+                      rx="9"
+                    />
+                    <text x="900" y="217.85" font-size="18">
+                      <tspan x="900" dy="0">Set arm to</tspan>
+                      <tspan x="900" dy="24.3">rest position</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M804 100 H900 V185"
+                      marker-end="url(#ros-arm-desktop-arrow)"
+                    />
+                    <rect
+                      class="ros-process"
+                      x="810.0"
+                      y="320.0"
+                      width="180"
+                      height="90"
+                      rx="9"
+                    />
+                    <text x="900" y="357.85" font-size="18">
+                      <tspan x="900" dy="0">Set</tspan>
+                      <tspan x="900" dy="24.3">next_srv == Speech</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M900 265 V320"
+                      marker-end="url(#ros-arm-desktop-arrow)"
+                    />
+                    <circle class="ros-end" cx="970" cy="445" r="13" />
+                    <circle class="ros-terminal" cx="970" cy="445" r="8" />
+                    <path
+                      class="ros-connector"
+                      d="M900 410 V445 H957"
+                      marker-end="url(#ros-arm-desktop-arrow)"
+                    /></svg
+                  ><svg
+                    class="ros-flow ros-flow--mobile"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 320 1180"
+                    role="img"
+                    aria-labelledby="ros-arm-mobile-title ros-arm-mobile-desc"
+                  >
+                    <title id="ros-arm-mobile-title">
+                      Arm service — retrieve and put-away sequences
+                    </title>
+                    <desc id="ros-arm-mobile-desc">
+                      English translation of the existing ROS 2 implementation
+                      flowchart. All processes, decisions, branch conditions,
+                      variable updates, joins and loops are retained.
+                    </desc>
+                    <defs>
+                      <marker
+                        id="ros-arm-mobile-arrow"
+                        viewBox="0 0 10 10"
+                        refX="9"
+                        refY="5"
+                        markerWidth="6"
+                        markerHeight="6"
+                        orient="auto-start-reverse"
+                      >
+                        <path d="M0 0 L10 5 L0 10 Z" fill="var(--bg)" />
+                      </marker>
+                    </defs>
+                    <circle class="ros-terminal" cx="160" cy="20" r="8" />
+                    <path
+                      class="ros-decision"
+                      d="M160 55.0 L260.0 135 L160 215.0 L60.0 135 Z"
+                    />
+                    <text x="160" y="121.1" font-size="14">
+                      <tspan x="160" dy="0">Retrieve or</tspan>
+                      <tspan x="160" dy="18.900000000000002">put away</tspan>
+                      <tspan x="160" dy="18.900000000000002">the object?</tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M160 28 V55"
+                      marker-end="url(#ros-arm-mobile-arrow)"
+                    />
+                    <rect
+                      class="ros-process"
+                      x="45.0"
+                      y="260.0"
+                      width="230"
+                      height="80"
+                      rx="9"
+                    />
+                    <text x="160" y="293.525" font-size="17">
+                      <tspan x="160" dy="0">Grasp at the detected</tspan>
+                      <tspan x="160" dy="22.950000000000003">
+                        spatial coordinates
+                      </tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M60 135 H22 V300 H45"
+                      marker-end="url(#ros-arm-mobile-arrow)"
+                    />
+                    <text x="63" y="257.0" font-size="14">
+                      <tspan x="63" dy="0">[put away]</tspan>
+                    </text>
+                    <rect
+                      class="ros-process"
+                      x="45.0"
+                      y="385.0"
+                      width="230"
+                      height="80"
+                      rx="9"
+                    />
+                    <text x="160" y="418.525" font-size="17">
+                      <tspan x="160" dy="0">Place at the object’s</tspan>
+                      <tspan x="160" dy="22.950000000000003">
+                        storage location
+                      </tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M160 340 V385"
+                      marker-end="url(#ros-arm-mobile-arrow)"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M45 425 H15 V835 H151"
+                      marker-end="url(#ros-arm-mobile-arrow)"
+                    />
+                    <rect
+                      class="ros-process"
+                      x="45.0"
+                      y="550.0"
+                      width="230"
+                      height="80"
+                      rx="9"
+                    />
+                    <text x="160" y="583.525" font-size="17">
+                      <tspan x="160" dy="0">Grasp at the object’s</tspan>
+                      <tspan x="160" dy="22.950000000000003">
+                        storage location
+                      </tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M260 135 H300 V590 H275"
+                      marker-end="url(#ros-arm-mobile-arrow)"
+                    />
+                    <text x="253" y="535.0" font-size="14">
+                      <tspan x="253" dy="0">[retrieve]</tspan>
+                    </text>
+                    <rect
+                      class="ros-process"
+                      x="45.0"
+                      y="675.0"
+                      width="230"
+                      height="80"
+                      rx="9"
+                    />
+                    <text x="160" y="708.525" font-size="17">
+                      <tspan x="160" dy="0">Place in the</tspan>
+                      <tspan x="160" dy="22.950000000000003">
+                        collaboration area
+                      </tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M160 630 V675"
+                      marker-end="url(#ros-arm-mobile-arrow)"
+                    />
+                    <path
+                      class="ros-merge"
+                      d="M160 826 L169 835 L160 844 L151 835 Z"
+                    />
+                    <path
+                      class="ros-connector"
+                      d="M160 755 V826"
+                      marker-end="url(#ros-arm-mobile-arrow)"
+                    />
+                    <rect
+                      class="ros-process"
+                      x="45.0"
+                      y="895.0"
+                      width="230"
+                      height="80"
+                      rx="9"
+                    />
+                    <text x="160" y="928.525" font-size="17">
+                      <tspan x="160" dy="0">Set arm to</tspan>
+                      <tspan x="160" dy="22.950000000000003">
+                        rest position
+                      </tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M160 844 V895"
+                      marker-end="url(#ros-arm-mobile-arrow)"
+                    />
+                    <rect
+                      class="ros-process"
+                      x="45.0"
+                      y="1020.0"
+                      width="230"
+                      height="70"
+                      rx="9"
+                    />
+                    <text x="160" y="1048.525" font-size="17">
+                      <tspan x="160" dy="0">Set</tspan>
+                      <tspan x="160" dy="22.950000000000003">
+                        next_srv == Speech
+                      </tspan>
+                    </text>
+                    <path
+                      class="ros-connector"
+                      d="M160 975 V1020"
+                      marker-end="url(#ros-arm-mobile-arrow)"
+                    />
+                    <circle class="ros-end" cx="160" cy="1150" r="13" />
+                    <circle class="ros-terminal" cx="160" cy="1150" r="8" />
+                    <path
+                      class="ros-connector"
+                      d="M160 1090 V1137"
+                      marker-end="url(#ros-arm-mobile-arrow)"
+                    />
+                  </svg>
+                  <figcaption>
+                    Separate retrieve and put-away paths, followed by the rest
+                    position.
+                  </figcaption>
+                </figure>
+              </div>
+            </details>
           </section>
           <section id="perception" class="case-section case-section--text">
             <div class="case-copy">
@@ -3061,9 +3095,11 @@
           </section>
           <nav class="project-pagination" aria-label="Continue exploring">
             <a class="project-next" href="harvesting-robot.html"
-              ><span>Next project <span aria-hidden="true">→</span></span> Autonomous
-              harvesting robot</a
-            ><a class="project-all" href="index.html#portfolio">View all projects</a>
+              ><span>Next project <span aria-hidden="true">→</span></span>
+              Autonomous harvesting robot</a
+            ><a class="project-all" href="index.html#portfolio"
+              >View all projects</a
+            >
           </nav>
         </div>
       </div>

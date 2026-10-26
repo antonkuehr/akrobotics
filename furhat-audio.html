@@ -219,7 +219,21 @@
         </button>
 
         <nav id="site-nav" aria-label="Main navigation">
-          <a class="project-nav-back" href="project-echo.html" aria-label="Previous project: Skin for Humanoid Echo"><span class="link-tail link-tail--leading"><svg class="link-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M13.5 8h-11m4-4-4 4 4 4" /></svg>Back</span></a>
+          <a
+            class="project-nav-back"
+            href="project-echo.html"
+            aria-label="Previous project: Skin for Humanoid Echo"
+            ><span class="link-tail link-tail--leading"
+              ><svg
+                class="link-icon"
+                viewBox="0 0 16 16"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M13.5 8h-11m4-4-4 4 4 4" /></svg
+              >Back</span
+            ></a
+          >
           <details class="project-menu">
             <summary>Projects <span aria-hidden="true">▾</span></summary>
             <ul class="project-menu-list">
@@ -233,13 +247,27 @@
               <li><a href="furhat-360.html">360° Furhat</a></li>
               <li><a href="robotic-skin.html">Robotic Tactile Skin</a></li>
               <li><a href="cobot.html">Voice-controlled cobot system</a></li>
-              <li><a href="harvesting-robot.html">Autonomous harvesting robot</a></li>
+              <li>
+                <a href="harvesting-robot.html">Autonomous harvesting robot</a>
+              </li>
               <li class="project-menu-all">
                 <a href="index.html#portfolio">View all projects</a>
               </li>
             </ul>
           </details>
-          <a class="project-nav-next" href="furpack.html" aria-label="Next project: The Furpack"><span class="link-tail">Next<svg class="link-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 8h11m-4-4 4 4-4 4" /></svg></span></a>
+          <a
+            class="project-nav-next"
+            href="furpack.html"
+            aria-label="Next project: The Furpack"
+            ><span class="link-tail"
+              >Next<svg
+                class="link-icon"
+                viewBox="0 0 16 16"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M2.5 8h11m-4-4 4 4-4 4" /></svg></span
+          ></a>
           <a href="index.html#contact">Contact</a>
         </nav>
       </div>
@@ -346,40 +374,46 @@
             <div class="case-copy">
               <h2>Context and starting point</h2>
               <p>
-                Furhat is a social robot designed to interact with people through
-                conversation. For that interaction to work, its microphones need to
-                capture speech clearly enough for the recognition software to understand
-                it. The way a microphone is installed inside the robot is part of that
-                process: sound has to travel through an opening in the shell before
-                reaching the sensor.
+                Furhat is a social robot designed to interact with people
+                through conversation. For that interaction to work, its
+                microphones need to capture speech clearly enough for the
+                recognition software to understand it. The way a microphone is
+                installed inside the robot is part of that process: sound has to
+                travel through an opening in the shell before reaching the
+                sensor.
               </p>
               <p>
-                For my bachelor’s thesis at Furhat Robotics and TH Köln, I investigated
-                whether changing that mechanical integration could improve speech
-                recognition. The existing microphone circuit board, connection to the
-                robot and outer shell had to remain unchanged. Within those constraints, I
-                carried out the research, developed the mount, built the prototype and
-                evaluated its performance.
+                For my bachelor’s thesis at Furhat Robotics and TH Köln, I
+                investigated whether changing that mechanical integration could
+                improve speech recognition. The existing microphone circuit
+                board, connection to the robot and outer shell had to remain
+                unchanged. Within those constraints, I carried out the research,
+                developed the mount, built the prototype and evaluated its
+                performance.
               </p>
             </div>
           </section>
-          <section id="implementation" class="case-section case-section--figure">
+          <section
+            id="implementation"
+            class="case-section case-section--figure"
+          >
             <div class="case-copy">
               <h2>Rethinking the microphone mount</h2>
               <p>
-                I started by examining how sound reached the microphone in the existing
-                assembly. Foam surrounding the circuit board formed a cavity in front of
-                the sensor and could partly obstruct its inlet. The assembly was also
-                supported by the loudspeaker housing, creating a possible path for
-                unwanted vibration.
+                I started by examining how sound reached the microphone in the
+                existing assembly. Foam surrounding the circuit board formed a
+                cavity in front of the sensor and could partly obstruct its
+                inlet. The assembly was also supported by the loudspeaker
+                housing, creating a possible path for unwanted vibration.
               </p>
               <p>
-                My redesign gave sound a short, aligned channel from the shell opening to
-                the microphone. I attached the assembly to the shell and used a thin
-                silicone seal around the channel entrance. A second part held the circuit
-                board in compressed closed-cell foam, while a plug closed the enclosure
-                and supported the cable routing. The photographs below show the original
-                arrangement and the completed redesign.
+                My redesign gave sound a short, aligned channel from the shell
+                opening to the microphone. I attached the assembly to the shell
+                and used a thin silicone seal around the channel entrance. A
+                second part held the circuit board in compressed closed-cell
+                foam, while a plug closed the enclosure and supported the cable
+                routing. The photographs below show the original arrangement and
+                the completed redesign.
               </p>
             </div>
             <div class="case-media-grid">
@@ -399,8 +433,8 @@
                     decoding="async"
                 /></a>
                 <figcaption>
-                  Original implementation: foam surrounding the PCB formed a cavity and
-                  could obstruct the inlet.
+                  Original implementation: foam surrounding the PCB formed a
+                  cavity and could obstruct the inlet.
                   <a
                     class="figure-full"
                     href="assets/projects/furhat-audio/furhat-audio-original-microphone-pcb-and-foam.png"
@@ -434,8 +468,8 @@
                     decoding="async"
                 /></a>
                 <figcaption>
-                  Redesign: a defined channel and foam-supported enclosure attached to the
-                  shell.
+                  Redesign: a defined channel and foam-supported enclosure
+                  attached to the shell.
                   <a
                     class="figure-full"
                     href="assets/projects/furhat-audio/furhat-audio-redesigned-microphone-assembly.jpg"
@@ -456,10 +490,10 @@
             </div>
             <div class="case-copy">
               <p>
-                The intention was to create a more controlled sound path and reduce
-                unwanted coupling. The finished assembly still contained rigid
-                connections, however, so it did not fully isolate the microphone from the
-                surrounding structure.
+                The intention was to create a more controlled sound path and
+                reduce unwanted coupling. The finished assembly still contained
+                rigid connections, however, so it did not fully isolate the
+                microphone from the surrounding structure.
               </p>
             </div>
           </section>
@@ -467,24 +501,26 @@
             <div class="case-copy">
               <h2>Turning the design into a prototype</h2>
               <p>
-                The small space beside the loudspeaker made fabrication an important part
-                of the design process. Resin printing reproduced the acoustic features
-                more successfully than the available filament printer, but thin walls
-                could break or fail to print. These constraints led to a final channel
-                measuring 1.6 mm in diameter and 3.1 mm in length.
+                The small space beside the loudspeaker made fabrication an
+                important part of the design process. Resin printing reproduced
+                the acoustic features more successfully than the available
+                filament printer, but thin walls could break or fail to print.
+                These constraints led to a final channel measuring 1.6 mm in
+                diameter and 3.1 mm in length.
               </p>
               <p>
-                Printing the part at an angle also distorted the channel’s cross-section.
-                I adjusted the opening in CAD to obtain an approximately circular printed
-                passage and routed the wiring downwards to fit the assembly beside the
-                loudspeaker. I also explored silicone casting, but abandoned it after
-                difficulties with removing the parts from the mould and producing the thin
+                Printing the part at an angle also distorted the channel’s
+                cross-section. I adjusted the opening in CAD to obtain an
+                approximately circular printed passage and routed the wiring
+                downwards to fit the assembly beside the loudspeaker. I also
+                explored silicone casting, but abandoned it after difficulties
+                with removing the parts from the mould and producing the thin
                 walls.
               </p>
               <p>
-                A simplified acoustic model placed the channel’s fundamental resonance
-                above 20 kHz. This was a design estimate; I did not measure the
-                prototype’s frequency response.
+                A simplified acoustic model placed the channel’s fundamental
+                resonance above 20 kHz. This was a design estimate; I did not
+                measure the prototype’s frequency response.
               </p>
             </div>
           </section>
@@ -492,25 +528,26 @@
             <div class="case-copy">
               <h2>Testing speech recognition</h2>
               <p>
-                To find out whether the redesign helped, I compared the original and
-                modified assemblies while they recorded the same speech simultaneously.
-                The robot’s internal recording interface was mono, so I developed and
-                evaluated one microphone side.
+                To find out whether the redesign helped, I compared the original
+                and modified assemblies while they recorded the same speech
+                simultaneously. The robot’s internal recording interface was
+                mono, so I developed and evaluated one microphone side.
               </p>
               <p>
-                I automated speech playback, recognition requests through Furhat’s
-                interface, and collection of the resulting Google Cloud Speech-to-Text
-                transcripts. The test used one male British speaker’s recording of ten
-                Harvard sentences, repeated under four noise conditions. There were 120
-                paired runs per condition, giving 480 paired comparisons of the same
-                speech material.
+                I automated speech playback, recognition requests through
+                Furhat’s interface, and collection of the resulting Google Cloud
+                Speech-to-Text transcripts. The test used one male British
+                speaker’s recording of ten Harvard sentences, repeated under
+                four noise conditions. There were 120 paired runs per condition,
+                giving 480 paired comparisons of the same speech material.
               </p>
               <p>
-                The conditions ranged from 20 to 5 dB signal-to-noise ratio, a measure of
-                speech level relative to background noise. Lower values mean more noise
-                relative to speech. The 20 dB condition used no added noise; the others
-                used a fixed recording of background babble. The photograph below shows
-                the meeting-room setup.
+                The conditions ranged from 20 to 5 dB signal-to-noise ratio, a
+                measure of speech level relative to background noise. Lower
+                values mean more noise relative to speech. The 20 dB condition
+                used no added noise; the others used a fixed recording of
+                background babble. The photograph below shows the meeting-room
+                setup.
               </p>
             </div>
             <div class="case-media-grid">
@@ -530,8 +567,8 @@
                     decoding="async"
                 /></a>
                 <figcaption>
-                  The actual meeting-room test setup; the reference differed in placement
-                  and signal chain.
+                  The actual meeting-room test setup; the reference differed in
+                  placement and signal chain.
                   <a
                     class="figure-full"
                     href="assets/projects/furhat-audio/furhat-audio-speech-and-noise-test-setup.jpg"
@@ -552,9 +589,9 @@
             </div>
             <div class="case-copy">
               <p>
-                I assessed recognition using word error rate, which counts substituted,
-                omitted and extra words relative to the reference transcript. Lower values
-                indicate fewer recognition errors.
+                I assessed recognition using word error rate, which counts
+                substituted, omitted and extra words relative to the reference
+                transcript. Lower values indicate fewer recognition errors.
               </p>
             </div>
           </section>
@@ -562,16 +599,17 @@
             <div class="case-copy">
               <h2>What the tests showed</h2>
               <p>
-                Across all four conditions, mean word error rate fell from 18.3% to 16.6%:
-                a reduction of 1.7 percentage points, or 9.3% relative to the original
-                assembly. The table below shows the results for each condition. One-sided
-                paired t-tests indicated an improvement at p &lt; 0.05 in all four.
+                Across all four conditions, mean word error rate fell from 18.3%
+                to 16.6%: a reduction of 1.7 percentage points, or 9.3% relative
+                to the original assembly. The table below shows the results for
+                each condition. One-sided paired t-tests indicated an
+                improvement at p &lt; 0.05 in all four.
               </p>
               <div class="results-table-wrap">
                 <table class="results-table results-table--audio">
                   <caption>
-                    Mean word error rate (lower is better). 120 paired runs per SNR
-                    condition; 480 overall. Rounded values.
+                    Mean word error rate (lower is better). 120 paired runs per
+                    SNR condition; 480 overall. Rounded values.
                   </caption>
                   <thead>
                     <tr>
@@ -610,24 +648,28 @@
                 </table>
               </div>
               <p>
-                The result supported the redesigned assembly under these test conditions.
-                Because I changed several features together, the experiment did not
-                establish how much each individual change contributed. Evidence for
-                reduced internal-noise coupling remained qualitative.
+                The result supported the redesigned assembly under these test
+                conditions. Because I changed several features together, the
+                experiment did not establish how much each individual change
+                contributed. Evidence for reduced internal-noise coupling
+                remained qualitative.
               </p>
               <p>
-                I also tested an external ReSpeaker microphone as a reference. It achieved
-                9.5% mean word error rate at 5 dB, but only 60 runs were usable. Its
-                position approximately 30 cm closer to the sound source and different
-                signal chain prevented a direct comparison of microphone mounting alone.
+                I also tested an external ReSpeaker microphone as a reference.
+                It achieved 9.5% mean word error rate at 5 dB, but only 60 runs
+                were usable. Its position approximately 30 cm closer to the
+                sound source and different signal chain prevented a direct
+                comparison of microphone mounting alone.
               </p>
               <p>
-                The study was limited to one room and one speech recording, and measured
-                transcription errors rather than conversational success. I also suspected
-                transcript-boundary artefacts in the recording interface. Furhat’s
-                microphones were muted while it spoke, so recognition during robot speech
-                and acoustic echo cancellation were not evaluated. The outcome was a built
-                and evaluated prototype; production adoption was outside the thesis scope.
+                The study was limited to one room and one speech recording, and
+                measured transcription errors rather than conversational
+                success. I also suspected transcript-boundary artefacts in the
+                recording interface. Furhat’s microphones were muted while it
+                spoke, so recognition during robot speech and acoustic echo
+                cancellation were not evaluated. The outcome was a built and
+                evaluated prototype; production adoption was outside the thesis
+                scope.
               </p>
               <div class="document-links">
                 <a
@@ -647,15 +689,19 @@
                 ></a>
               </div>
               <p>
-                The formal thesis lasted nine weeks, with submission in March 2026. The
-                project period shown above also includes preparation before the thesis.
+                The formal thesis lasted nine weeks, with submission in March
+                2026. The project period shown above also includes preparation
+                before the thesis.
               </p>
             </div>
           </section>
           <nav class="project-pagination" aria-label="Continue exploring">
             <a class="project-next" href="furpack.html"
-              ><span>Next project <span aria-hidden="true">→</span></span> The Furpack</a
-            ><a class="project-all" href="index.html#portfolio">View all projects</a>
+              ><span>Next project <span aria-hidden="true">→</span></span> The
+              Furpack</a
+            ><a class="project-all" href="index.html#portfolio"
+              >View all projects</a
+            >
           </nav>
         </div>
       </div>
