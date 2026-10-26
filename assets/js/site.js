@@ -111,11 +111,14 @@ document.addEventListener("keydown", (event) => {
     projectMenu.querySelector("summary").focus();
   }
 });
-navigation?.addEventListener("focusout", (event) => {
+// Safari may blur the summary without focusing a clicked link. Closing on
+// focusout can hide that link before its click fires; only dismiss keyboard exits.
+document.addEventListener("keyup", (event) => {
   if (
+    event.key === "Tab" &&
     projectMenu?.open &&
     !header.classList.contains("nav-mobile") &&
-    !navigation.contains(event.relatedTarget)
+    !navigation.contains(document.activeElement)
   )
     projectMenu.open = false;
 });

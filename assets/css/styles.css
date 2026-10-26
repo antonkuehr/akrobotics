@@ -1206,7 +1206,7 @@ html:not(.js) .cv-close {
 }
 
 .project-hero {
-  padding: 40px 0 0;
+  padding: 72px 0 0;
 }
 
 .project-hero h1 {
@@ -1609,29 +1609,34 @@ html:not(.js) .cv-close {
 }
 .project-pagination {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
-  align-items: baseline;
-  gap: 16px 32px;
+  align-items: start;
+  gap: 24px;
   border-top: 1px solid var(--line);
   padding: 24px 0 40px;
 }
+
 .project-pagination a {
+  max-width: 46%;
   min-height: 44px;
+  overflow-wrap: anywhere;
 }
-.project-next {
-  color: var(--accent);
+
+.project-pagination a:is(:hover, :focus-visible) > span {
+  color: inherit;
 }
-.project-next > span {
+
+.project-pagination a:last-child {
+  text-align: right;
+}
+
+.project-pagination a > span {
   display: block;
-  color: var(--muted);
   font-size: var(--text-small);
+  color: var(--muted);
   margin-bottom: 4px;
 }
-.project-all {
-  color: var(--muted);
-  font-size: var(--text-small);
-}
+
 .nav-mobile .project-menu > summary {
   display: none;
 }
@@ -2236,7 +2241,7 @@ html:not(.js) .cv-close {
     padding: 8px 6px 8px 0;
   }
   .project-hero {
-    padding-top: 24px;
+    padding-top: 48px;
   }
   .project-body {
     padding-top: 32px;
@@ -2792,6 +2797,35 @@ html:not(.js) .cv-close {
   padding: 12px 0;
   border-bottom: 1px solid var(--line);
 }
+/* Keep project stepping together and use dividers only between menu groups. */
+.js .project-page .nav-mobile #site-nav.open {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+.project-page .nav-mobile #site-nav .project-nav-back {
+  grid-area: 1 / 1;
+  justify-self: start;
+}
+.project-page .nav-mobile #site-nav .project-nav-next {
+  grid-area: 1 / 2;
+  justify-self: end;
+}
+.project-page .nav-mobile #site-nav .project-menu {
+  grid-area: 2 / 1 / auto / -1;
+  border-top: 1px solid var(--line);
+}
+.project-page .nav-mobile #site-nav .project-nav-next + a {
+  grid-area: 3 / 1 / auto / -1;
+  border-top: 1px solid var(--line);
+}
+.project-page .nav-mobile #site-nav a {
+  border-bottom: 0;
+}
+.project-page .nav-mobile .project-menu-all {
+  margin-top: 0;
+  border-top: 0;
+}
+
 .nav-fit-probe,
 .date-fit-probe {
   position: absolute;
