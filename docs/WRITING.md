@@ -18,6 +18,7 @@ All future website text and revisions must follow these rules. Apply them by the
 
 ## Applying the rules
 
+- Prefer developed paragraphs that express a complete thought. Combine closely related short paragraphs rather than stacking very small or single-sentence paragraphs. Keep concise functional text, such as leads, captions, labels and link descriptions, where it serves the layout.
 - Always write “present” in lowercase in date ranges. Date styling must preserve that casing rather than display it as “PRESENT”.
 - Introduce every figure with an explanation before the image or diagram: what it shows, how to read it and why it matters to the project. Captions can identify details afterwards. Explain heatmap positions, values, units and colour scales before the maps. Mobile diagrams must use distinct connection points for incoming arrows and clearly labelled lines.
 - Switching tense within a paragraph is correct when the time reference or subject changes. “I initiated the team and am recruiting members” distinguishes an earlier milestone from current work. “We tested the prototype. The diagram shows the setup” distinguishes an experiment from the page's explanation.

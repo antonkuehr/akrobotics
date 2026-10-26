@@ -6,6 +6,8 @@ Each project has a standalone root HTML page. Keep those filenames and the homep
 
 HTML contains the content, search metadata, inline diagrams and structured data. JavaScript enhances native disclosures and navigation, and updates ongoing duration labels. Keep essential content available when JavaScript is disabled.
 
+Previous/Next project links belong in the top and bottom project navigation, not the navbar. Preserve the first/last project endpoints. LinkedIn belongs in the homepage content and contact area, rather than the navbar; project navbars omit About me.
+
 The CSS groups the theme, shared layout, homepage components, project components and responsive rules. Keep comments that explain constraints or browser behaviour. Avoid appending repeated overrides when the existing component rule can be updated safely.
 
 ## Changing content or media

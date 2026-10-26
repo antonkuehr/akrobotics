@@ -379,12 +379,6 @@ a:is(:hover, :focus-visible) .link-tail {
   border-bottom: 1px solid transparent;
 }
 
-:is(#site-nav, .nav-fit-probe) .nav-social {
-  border: 1px solid var(--line);
-  padding: 8px 14px;
-  border-radius: var(--radius-sm);
-}
-
 .site-header {
   position: sticky;
   top: 0;
@@ -557,7 +551,8 @@ a:is(:hover, :focus-visible) .link-tail {
   margin-top: 18px;
 }
 
-.about-copy .project-inline {
+.about-copy .project-inline,
+.case-copy .project-inline {
   color: var(--accent);
   --link-hover-color: var(--fg);
 }
@@ -1394,6 +1389,10 @@ html:not(.js) .cv-close {
   grid-column: 1 / -1;
 }
 
+.case-section > .case-media-grid + .case-copy {
+  margin-top: 24px;
+}
+
 .media-embed {
   position: relative;
   aspect-ratio: 16 / 9;
@@ -1980,10 +1979,6 @@ html:not(.js) .cv-close {
   #site-nav a {
     padding: 12px 0;
     border-bottom: 1px solid var(--line);
-  }
-  #site-nav .nav-social {
-    margin-top: 10px;
-    text-align: center;
   }
 
   .hero {
@@ -2661,9 +2656,6 @@ html:not(.js) .cv-close {
   :is(#site-nav, .nav-fit-probe) {
     gap: 14px;
   }
-  :is(#site-nav, .nav-fit-probe) .nav-social {
-    padding-inline: 8px;
-  }
 }
 
 /* Hero actions share a row, wrapping naturally on smaller screens. */
@@ -2735,10 +2727,6 @@ html:not(.js) .cv-close {
 .nav-mobile #site-nav a {
   padding: 12px 0;
   border-bottom: 1px solid var(--line);
-}
-.nav-mobile #site-nav .nav-social {
-  margin-top: 10px;
-  text-align: center;
 }
 .nav-fit-probe,
 .date-fit-probe {
