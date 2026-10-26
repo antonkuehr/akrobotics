@@ -50,9 +50,9 @@
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/styles.css?v=164" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=168" />
     <link rel="stylesheet" href="assets/css/wordmark-motion.css?v=2" />
-    <script src="assets/js/site.js?v=34" defer></script>
+    <script src="assets/js/site.js?v=35" defer></script>
     <script src="assets/js/wordmark-shapes.js?v=1" defer></script>
     <script src="assets/js/wordmark-settings.js?v=15" defer></script>
     <script src="assets/js/wordmark-motion.js?v=12" defer></script>
@@ -219,48 +219,32 @@
         </button>
 
         <nav id="site-nav" aria-label="Main navigation">
-          <a href="index.html#portfolio">Portfolio homepage</a
-          ><a href="index.html#contact">Contact</a>
+          <a class="project-nav-back" href="furhat-360.html" aria-label="Previous project: 360° Furhat"><span class="link-tail link-tail--leading"><svg class="link-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M13.5 8h-11m4-4-4 4 4 4" /></svg>Back</span></a>
+          <details class="project-menu">
+            <summary>Projects <span aria-hidden="true">▾</span></summary>
+            <ul class="project-menu-list">
+              <li><a href="project-echo.html">Skin for Humanoid Echo</a></li>
+              <li><a href="furhat-audio.html">Furhat’s audio system</a></li>
+              <li><a href="furpack.html">The Furpack</a></li>
+              <li><a href="furhat-360.html">360° Furhat</a></li>
+              <li>
+                <a href="robotic-skin.html" aria-current="page">Robotic Tactile Skin</a>
+              </li>
+              <li><a href="cobot.html">Voice-controlled cobot system</a></li>
+              <li><a href="harvesting-robot.html">Autonomous harvesting robot</a></li>
+              <li class="project-menu-all">
+                <a href="index.html#portfolio">View all projects</a>
+              </li>
+            </ul>
+          </details>
+          <a class="project-nav-next" href="cobot.html" aria-label="Next project: Voice-controlled cobot system"><span class="link-tail">Next<svg class="link-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 8h11m-4-4 4 4-4 4" /></svg></span></a>
+          <a href="index.html#contact">Contact</a>
         </nav>
       </div>
     </header>
     <main id="main" class="case-study">
       <header class="project-hero">
         <div class="container project-container">
-          <nav
-            class="project-pagination project-pagination--top"
-            aria-label="Other projects at top"
-          >
-            <a href="furhat-360.html"
-              ><span
-                ><span class="link-tail link-tail--leading"
-                  ><svg
-                    class="link-icon"
-                    viewBox="0 0 16 16"
-                    aria-hidden="true"
-                    focusable="false"
-                  >
-                    <path d="M13.5 8h-11m4-4-4 4 4 4" />
-                  </svg>
-                  Previous</span
-                >
-                project</span
-              >360° Furhat</a
-            ><a href="cobot.html"
-              ><span
-                >Next
-                <span class="link-tail"
-                  >project<svg
-                    class="link-icon"
-                    viewBox="0 0 16 16"
-                    aria-hidden="true"
-                    focusable="false"
-                  >
-                    <path d="M2.5 8h11m-4-4 4 4-4 4" /></svg></span></span
-              >Voice-controlled cobot system</a
-            >
-          </nav>
-
           <h1>Robotic Tactile Skin</h1>
           <p class="project-lead">
             A completed feasibility study of an experimentally evaluated 8 × 8
@@ -286,27 +270,29 @@
               <dt>My contribution</dt>
               <dd>Collaborative sensor development and evaluation</dd>
             </div>
+            <div class="project-collaborators">
+              <dt>In collaboration with</dt>
+              <dd>
+                <a
+                  href="https://www.linkedin.com/in/fabio-jain-947705179/"
+                  target="_blank"
+                  rel="noopener"
+                  >Fabio
+                  <span class="link-tail"
+                    >Jain<svg
+                      class="link-icon"
+                      viewBox="0 0 16 16"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path
+                        d="M2.5 8h11m-4-4 4 4-4 4"
+                        transform="rotate(-45 8 8)"
+                      /></svg></span
+                ></a>
+              </dd>
+            </div>
           </dl>
-          <p class="project-collaborators">
-            <span>In collaboration with:</span>
-            <a
-              href="https://www.linkedin.com/in/fabio-jain-947705179/"
-              target="_blank"
-              rel="noopener"
-              >Fabio
-              <span class="link-tail"
-                >Jain<svg
-                  class="link-icon"
-                  viewBox="0 0 16 16"
-                  aria-hidden="true"
-                  focusable="false"
-                >
-                  <path
-                    d="M2.5 8h11m-4-4 4 4-4 4"
-                    transform="rotate(-45 8 8)"
-                  /></svg></span
-            ></a>
-          </p>
 
           <div class="project-overview">
             <p class="project-result">
@@ -359,35 +345,49 @@
         <div class="container project-container">
           <section id="context" class="case-section case-section--text">
             <div class="case-copy">
-              <h2>Context and my role</h2>
+              <h2>Giving a surface a sense of touch</h2>
               <p>
-                Fabio Jain and I developed a tactile-sensor feasibility
-                prototype for Product Engineering II at TH Köln. We wanted to
-                detect contact position and distinguish lighter from stronger
-                contact using materials and fabrication available in a
-                university workshop. The completed BSc study and my later
-                Project Echo role are separate projects.
+                A tactile surface can help a robot detect where it is being
+                touched. For this project, we also wanted to distinguish lighter
+                from stronger contact, using materials and fabrication methods
+                available in a university workshop.
+              </p>
+              <p>
+                Fabio Jain and I developed the prototype for Product Engineering
+                II during my bachelor’s degree at TH Köln. We investigated a
+                flexible textile sensor that could be placed on a forearm, with
+                the aim of demonstrating the sensing principle and evaluating
+                its behaviour.
               </p>
             </div>
           </section>
           <section
             id="implementation"
-            class="case-section case-section--support"
+            class="case-section case-section--figure"
           >
             <div class="case-copy">
-              <h2>A contact matrix with two triggering thresholds</h2>
+              <h2>Detecting contact through layered fabric</h2>
               <p>
-                Perpendicular conductive tracks form an 8 × 8 matrix. At rest,
-                perforated elastic separators hold the sender and receiver
-                tracks apart. A press compresses a separator until tracks touch
-                through its openings. An Arduino activates each sender track in
-                turn and reads the receivers; the connected pair identifies a
-                sensing location.
+                Our approach used conductive tracks arranged across several
+                layers. One set of tracks runs perpendicular to the others,
+                forming an 8 × 8 matrix with 64 sensing locations. Elastic
+                separators keep the tracks apart until pressure compresses the
+                material enough for them to touch through openings in the
+                separator.
               </p>
               <p>
-                One sender layer, two receiver layers and two separators provide
-                two discrete activation thresholds, plus a no-contact state. The
-                prototype does not continuously measure force.
+                An Arduino activates the sender tracks one at a time and checks
+                which receiver tracks are connected. The combination of an
+                active sender and receiver identifies the contact location.
+              </p>
+              <p>
+                We used one sender layer and two receiver layers, separated by
+                materials with different triggering thresholds. This provided
+                two discrete contact levels in addition to the untouched state.
+                It could distinguish between those levels, but did not
+                continuously measure force. The diagram below shows the
+                arrangement of conductive layers, separators and protective
+                covers.
               </p>
             </div>
             <div class="case-media-grid">
@@ -430,18 +430,13 @@
           </section>
           <section id="fabrication" class="case-section case-section--support">
             <div class="case-copy">
-              <h2>Sewn conductors and perforated foam</h2>
+              <h2>Making the sensing layers</h2>
               <p>
                 We sewed Madeira HC-12 conductive thread onto denim in zigzag
-                tracks, avoiding specialised conductive printing and plating.
-                Denim could be sewn and resisted tearing. Laser-perforated EVA
-                foam supplied the elastic separation; its thickness and fill
-                density set the triggering threshold.
-              </p>
-              <p>
-                The tracks were 5 mm wide with 8 mm centre-to-centre spacing.
-                Shift registers reduced the microcontroller connections needed
-                to address and read the matrix.
+                tracks. Denim provided a fabric that could be sewn and resisted
+                tearing, while the conductive thread allowed us to build the
+                electrical pattern without specialised printing or plating. The
+                photograph below shows these sewn tracks.
               </p>
             </div>
             <div class="case-media-grid">
@@ -480,98 +475,114 @@
                 </figcaption>
               </figure>
             </div>
-          </section>
-          <section id="results" class="case-section case-section--results">
             <div class="case-copy">
-              <h2>Results and limitations</h2>
               <p>
-                The prototype detected contact locations across 64 sensing
-                cells, with several cells responding under a larger contact
-                area. In five threshold tests per configuration, averaged using
-                a 16 mm test cube with rounded edges, increasing separator fill
-                density and thickness from 2 to 3 mm raised the activation
-                pressure. It remained functional when wrapped around a 100
-                mm-diameter cylinder, with no measurable change in activation
+                Each track was 5 mm wide, with 8 mm between track centres. We
+                used laser-perforated EVA foam between the sensing layers.
+                Changing its thickness and fill density changed how much
+                pressure was needed to bring the conductors into contact.
+              </p>
+              <p>
+                The prototype’s material costs were below €10. This was a
+                material-cost figure for the prototype, excluding labour and the
+                cost of an installed system.
+              </p>
+            </div>
+          </section>
+          <section id="readout" class="case-section case-section--text">
+            <div class="case-copy">
+              <h2>Reading the contact matrix</h2>
+              <p>
+                Reading all of the tracks directly would require many
+                microcontroller connections. We used shift registers to activate
+                the sender tracks and read the receiver states through fewer
+                connections. SN74HC595 output registers selected the senders,
+                while SN74HC165 input registers collected the receiver states.
+                Pull-down resistors and protection diodes supported the circuit.
+              </p>
+              <p>
+                The matrix was scanned sequentially. This reduced the
+                connections needed at the microcontroller, but scanning and
+                physical wiring still presented challenges for larger sensing
+                areas. We did not measure the frame rate or establish whether
+                multiple simultaneous contacts could always be read without
+                false detections.
+              </p>
+            </div>
+          </section>
+          <section id="evaluation" class="case-section case-section--text">
+            <div class="case-copy">
+              <h2>Testing contact and flexibility</h2>
+              <p>
+                The prototype detected contact across its 64 sensing cells, with
+                several cells responding when a larger area was pressed. To
+                investigate the triggering thresholds, we used a 16 mm test cube
+                with rounded edges and averaged five tests for each
+                configuration.
+              </p>
+              <p>
+                Increasing the separator’s fill density and increasing its
+                thickness from 2 to 3 mm raised the pressure needed for
+                activation. The investigated activation-pressure range was
+                approximately 10–100 Pa, with rounded threshold values
+                reflecting measurement uncertainty. The communication protocol
+                reserved a third active level for possible future extension, but
+                the prototype implemented two.
+              </p>
+              <p>
+                We also wrapped the sensor around a 100 mm-diameter cylinder. It
+                remained functional, with no measurable change in activation
                 behaviour in that test.
               </p>
+            </div>
+          </section>
+          <section id="results" class="case-section case-section--text">
+            <div class="case-copy">
+              <h2>What the prototype established</h2>
               <p>
-                The 8 mm value is track pitch, rather than a validated
-                localisation error. Precise triggering accuracy was not
-                established. The stack was more than 1 cm thick, wiring became
-                burdensome at larger scales, and material deformation produced
-                measurement errors up to 10%. Maximum bending, long-term
-                durability and whole-body coverage remained untested.
+                The study demonstrated that sewn conductive tracks and elastic
+                separators could form a flexible sensor for locating contact and
+                distinguishing two activation levels. It also exposed
+                limitations that would matter when developing the concept
+                further.
+              </p>
+              <p>
+                The 8 mm track spacing describes the sensor layout; it is not a
+                validated localisation accuracy. Precise triggering accuracy was
+                not established, and material deformation produced measurement
+                errors of up to 10%. The complete stack was more than 1 cm
+                thick, and the wiring became burdensome as the sensing area
+                increased.
+              </p>
+              <p>
+                Maximum bending, long-term durability and whole-body coverage
+                remained untested. This was a completed feasibility study rather
+                than a fully developed robotic skin.
               </p>
             </div>
           </section>
-          <details class="technical-notes">
-            <summary>
-              Sensor construction and evaluation<span
-                class="chevron"
-                aria-hidden="true"
-              ></span>
-            </summary>
-            <div class="technical-content">
-              <div class="case-copy">
-                <p>
-                  SN74HC595 output registers activate one sender track at a
-                  time; SN74HC165 input registers serialise receiver states.
-                  Pull-down resistors and output-protection diodes support the
-                  readout. Serial scanning limits scaling. We did not measure
-                  frame rate or establish ghost-free multi-touch performance.
-                </p>
-                <p>
-                  Our prototype material costs were below €10. This excludes an
-                  installed-system price or labour estimate. The investigated
-                  activation-pressure range was approximately 10–100 Pa, with
-                  threshold measurements rounded because of measurement
-                  uncertainty. A third active pressure level was reserved in the
-                  communication protocol for future extension.
-                </p>
-              </div>
-            </div>
-          </details>
           <section id="project-echo" class="case-section case-section--text">
             <div class="case-copy">
-              <h2>Continuing with Project Echo</h2>
+              <h2>Later work with Project Echo</h2>
               <p>
-                My later work as Skin Team Lead for RSA Project Echo is a
-                separate, ongoing investigation.
+                My later role as Skin Team Lead for RSA Project Echo is a
+                separate, ongoing investigation into tactile sensing and
+                protective skin for a humanoid robot.
+              </p>
+            </div>
+            <div class="case-copy">
+              <p>
                 <a class="text-link" href="project-echo.html"
                   >Explore the humanoid tactile skin project →</a
                 >
               </p>
             </div>
           </section>
-          <nav class="project-pagination" aria-label="Other projects">
-            <a href="furhat-360.html"
-              ><span
-                ><span class="link-tail link-tail--leading"
-                  ><svg
-                    class="link-icon"
-                    viewBox="0 0 16 16"
-                    aria-hidden="true"
-                    focusable="false"
-                  >
-                    <path d="M13.5 8h-11m4-4-4 4 4 4" />
-                  </svg>
-                  Previous</span
-                >
-                project</span
-              >360° Furhat</a
-            ><a href="cobot.html"
-              ><span
-                >Next
-                <span class="link-tail"
-                  >project<svg
-                    class="link-icon"
-                    viewBox="0 0 16 16"
-                    aria-hidden="true"
-                    focusable="false"
-                  >
-                    <path d="M2.5 8h11m-4-4 4 4-4 4" /></svg></span></span
-              >Voice-controlled cobot system</a
-            >
+          <nav class="project-pagination" aria-label="Continue exploring">
+            <a class="project-next" href="cobot.html"
+              ><span>Next project <span aria-hidden="true">→</span></span>
+              Voice-controlled cobot system</a
+            ><a class="project-all" href="index.html#portfolio">View all projects</a>
           </nav>
         </div>
       </div>

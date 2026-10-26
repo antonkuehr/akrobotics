@@ -50,9 +50,9 @@
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/styles.css?v=164" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=168" />
     <link rel="stylesheet" href="assets/css/wordmark-motion.css?v=2" />
-    <script src="assets/js/site.js?v=34" defer></script>
+    <script src="assets/js/site.js?v=35" defer></script>
     <script src="assets/js/wordmark-shapes.js?v=1" defer></script>
     <script src="assets/js/wordmark-settings.js?v=15" defer></script>
     <script src="assets/js/wordmark-motion.js?v=12" defer></script>
@@ -219,48 +219,30 @@
         </button>
 
         <nav id="site-nav" aria-label="Main navigation">
-          <a href="index.html#portfolio">Portfolio homepage</a
-          ><a href="index.html#contact">Contact</a>
+          <a class="project-nav-back" href="furpack.html" aria-label="Previous project: The Furpack"><span class="link-tail link-tail--leading"><svg class="link-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M13.5 8h-11m4-4-4 4 4 4" /></svg>Back</span></a>
+          <details class="project-menu">
+            <summary>Projects <span aria-hidden="true">▾</span></summary>
+            <ul class="project-menu-list">
+              <li><a href="project-echo.html">Skin for Humanoid Echo</a></li>
+              <li><a href="furhat-audio.html">Furhat’s audio system</a></li>
+              <li><a href="furpack.html">The Furpack</a></li>
+              <li><a href="furhat-360.html" aria-current="page">360° Furhat</a></li>
+              <li><a href="robotic-skin.html">Robotic Tactile Skin</a></li>
+              <li><a href="cobot.html">Voice-controlled cobot system</a></li>
+              <li><a href="harvesting-robot.html">Autonomous harvesting robot</a></li>
+              <li class="project-menu-all">
+                <a href="index.html#portfolio">View all projects</a>
+              </li>
+            </ul>
+          </details>
+          <a class="project-nav-next" href="robotic-skin.html" aria-label="Next project: Robotic Tactile Skin"><span class="link-tail">Next<svg class="link-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 8h11m-4-4 4 4-4 4" /></svg></span></a>
+          <a href="index.html#contact">Contact</a>
         </nav>
       </div>
     </header>
     <main id="main" class="case-study">
       <header class="project-hero">
         <div class="container project-container">
-          <nav
-            class="project-pagination project-pagination--top"
-            aria-label="Other projects at top"
-          >
-            <a href="furpack.html"
-              ><span
-                ><span class="link-tail link-tail--leading"
-                  ><svg
-                    class="link-icon"
-                    viewBox="0 0 16 16"
-                    aria-hidden="true"
-                    focusable="false"
-                  >
-                    <path d="M13.5 8h-11m4-4-4 4 4 4" />
-                  </svg>
-                  Previous</span
-                >
-                project</span
-              >The Furpack</a
-            ><a href="robotic-skin.html"
-              ><span
-                >Next
-                <span class="link-tail"
-                  >project<svg
-                    class="link-icon"
-                    viewBox="0 0 16 16"
-                    aria-hidden="true"
-                    focusable="false"
-                  >
-                    <path d="M2.5 8h11m-4-4 4 4-4 4" /></svg></span></span
-              >Robotic Tactile Skin</a
-            >
-          </nav>
-
           <h1>360° Furhat</h1>
           <p class="project-lead">
             A belt-driven rotating-base prototype using Furhat’s existing visual
@@ -284,61 +266,63 @@
               <dt>My contribution</dt>
               <dd>Collaborative rotating-base design and prototyping</dd>
             </div>
+            <div class="project-collaborators">
+              <dt>In collaboration with</dt>
+              <dd>
+                <a
+                  href="https://www.linkedin.com/in/jonathan-majberger-lutz/"
+                  target="_blank"
+                  rel="noopener"
+                  >Jonathan Majberger
+                  <span class="link-tail"
+                    >Lutz<svg
+                      class="link-icon"
+                      viewBox="0 0 16 16"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path
+                        d="M2.5 8h11m-4-4 4 4-4 4"
+                        transform="rotate(-45 8 8)"
+                      /></svg></span
+                ></a>
+                <a
+                  href="https://www.linkedin.com/in/benjaminawheeler/"
+                  target="_blank"
+                  rel="noopener"
+                  >Ben
+                  <span class="link-tail"
+                    >Wheeler<svg
+                      class="link-icon"
+                      viewBox="0 0 16 16"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path
+                        d="M2.5 8h11m-4-4 4 4-4 4"
+                        transform="rotate(-45 8 8)"
+                      /></svg></span
+                ></a>
+                <a
+                  href="https://www.linkedin.com/in/qing-gu-072167322/"
+                  target="_blank"
+                  rel="noopener"
+                  >Qing
+                  <span class="link-tail"
+                    >Gu<svg
+                      class="link-icon"
+                      viewBox="0 0 16 16"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path
+                        d="M2.5 8h11m-4-4 4 4-4 4"
+                        transform="rotate(-45 8 8)"
+                      /></svg></span
+                ></a>
+              </dd>
+            </div>
           </dl>
-          <p class="project-collaborators">
-            <span>In collaboration with:</span>
-            <a
-              href="https://www.linkedin.com/in/jonathan-majberger-lutz/"
-              target="_blank"
-              rel="noopener"
-              >Jonathan Majberger
-              <span class="link-tail"
-                >Lutz<svg
-                  class="link-icon"
-                  viewBox="0 0 16 16"
-                  aria-hidden="true"
-                  focusable="false"
-                >
-                  <path
-                    d="M2.5 8h11m-4-4 4 4-4 4"
-                    transform="rotate(-45 8 8)"
-                  /></svg></span
-            ></a>
-            <a
-              href="https://www.linkedin.com/in/benjaminawheeler/"
-              target="_blank"
-              rel="noopener"
-              >Ben
-              <span class="link-tail"
-                >Wheeler<svg
-                  class="link-icon"
-                  viewBox="0 0 16 16"
-                  aria-hidden="true"
-                  focusable="false"
-                >
-                  <path
-                    d="M2.5 8h11m-4-4 4 4-4 4"
-                    transform="rotate(-45 8 8)"
-                  /></svg></span
-            ></a>
-            <a
-              href="https://www.linkedin.com/in/qing-gu-072167322/"
-              target="_blank"
-              rel="noopener"
-              >Qing
-              <span class="link-tail"
-                >Gu<svg
-                  class="link-icon"
-                  viewBox="0 0 16 16"
-                  aria-hidden="true"
-                  focusable="false"
-                >
-                  <path
-                    d="M2.5 8h11m-4-4 4 4-4 4"
-                    transform="rotate(-45 8 8)"
-                  /></svg></span
-            ></a>
-          </p>
 
           <div class="project-overview">
             <p class="project-result">
@@ -390,19 +374,20 @@
         <div class="container project-container">
           <section id="context" class="case-section case-section--text">
             <div class="case-copy">
-              <h2>Context and my role</h2>
+              <h2>Extending Furhat’s movement</h2>
               <p>
-                I worked with Furhat’s Prototyping &amp; Concepting team on a
-                rotating-base demonstrator. The documented prototype build took
-                two weeks in 05/2025, covering design, prototyping and assembly.
-                We aimed to let the entire robot turn towards users,
-                complementing its existing eye and head movements.
+                Furhat uses eye and head movements to direct its attention
+                towards people. This project explored adding another movement:
+                turning the whole robot towards a detected user. A rotating base
+                could extend that interaction beyond the movement available from
+                the neck alone.
               </p>
               <p>
-                The existing platform supplied visual tracking, the onboard
-                computer and neck control. Our demonstrator added a base drive
-                and a separate body-control loop; fully coordinated motion
-                remained an integration goal.
+                I worked with Furhat’s Prototyping &amp; Concepting team on a
+                demonstrator, with the documented design, prototyping and
+                assembly taking two weeks in May 2025. We used the robot’s
+                existing visual tracking and onboard computer, adding a
+                mechanical drive and a separate controller for body rotation.
               </p>
             </div>
           </section>
@@ -411,20 +396,22 @@
             class="case-section case-section--figure"
           >
             <div class="case-copy">
-              <h2>An offset belt drive within the robot body</h2>
+              <h2>Choosing a drive that fitted inside the robot</h2>
               <p>
-                We built early belt-driven and vertical friction-wheel
-                prototypes and tried them with additional weight in the robot
-                base. We continued with the belt concept, carrying over useful
-                servo-mount and baseplate ideas from the wheel prototype. We did
-                not benchmark comparative torque, slip or efficiency.
+                The first challenge was fitting a rotation mechanism around the
+                hardware already inside Furhat. The computer occupied the space
+                above the central axis, leaving insufficient room for a motor
+                mounted directly underneath it. The crowded front region also
+                constrained airflow.
               </p>
               <p>
-                The computer left insufficient room for a motor directly on the
-                central axis. The crowded front region also constrained airflow.
-                A belt allowed the servo to sit on the left, driving a pulley on
-                the stationary central support while the robot rotated around a
-                bearing. A split mount simplified assembly and belt tensioning.
+                We explored two arrangements: a belt drive and a vertical
+                friction wheel acting on a baseplate. We built and tried both
+                concepts with additional weight in the robot base, then
+                continued with the belt drive while carrying over useful
+                motor-mount and baseplate ideas from the wheel prototype. The
+                sketches below show the two approaches. We did not make a
+                measured comparison of their torque, slip or efficiency.
               </p>
             </div>
             <div class="case-media-grid">
@@ -498,22 +485,33 @@
                 </figcaption>
               </figure>
             </div>
+            <div class="case-copy">
+              <p>
+                The belt allowed us to position the motor on the left side of
+                the robot. It drove against a pulley on the stationary central
+                support, turning the robot body around a bearing. A split motor
+                mount made assembly and belt tensioning easier.
+              </p>
+            </div>
           </section>
           <section id="mechanism" class="case-section case-section--figure">
             <div class="case-copy">
-              <h2>Pulley and bearing placement beneath the computer</h2>
+              <h2>Building the central support</h2>
               <p>
-                A thin stationary baseplate and printed central axis supported
-                the robot through a repurposed neck bearing. The height
-                available beneath the computer ruled out standard pulleys and
-                their fasteners. A printed pulley fitted the D-shaped shaft
-                within that envelope.
+                The available height beneath the computer also constrained the
+                pulley and bearing arrangement. Standard pulleys and their
+                fasteners did not fit, so we printed a pulley that fitted the
+                D-shaped shaft within the available space. A printed central
+                axis and thin stationary baseplate supported the robot through a
+                repurposed neck bearing.
               </p>
               <p>
-                The bearing had internal play and was not primarily designed for
-                the axial load from the robot’s weight. It supported this
-                prototype, while a more suitable support arrangement remained
-                unresolved.
+                The prototype used a 160 mm-diameter, 5 mm-thick baseplate with
+                approximately 3 mm clearance underneath. A 200 mm-long, 6
+                mm-wide GT2 belt connected the motor to the central pulley
+                across an offset of roughly 80 mm. The bearing and pulley
+                occupied approximately 18 mm in height. The exploded view and
+                assembly photograph below show how these parts fitted together.
               </p>
             </div>
             <div class="case-media-grid">
@@ -587,22 +585,39 @@
                 </figcaption>
               </figure>
             </div>
+            <div class="case-copy">
+              <p>
+                The reused bearing supported the prototype, but had internal
+                play and was not primarily designed to carry the robot’s weight
+                in this direction. A more suitable support arrangement remained
+                part of the further development work.
+              </p>
+            </div>
           </section>
           <section id="control" class="case-section case-section--figure">
             <div class="case-copy">
-              <h2>Body velocity control from CamCore positions</h2>
+              <h2>Turning towards a detected user</h2>
               <p>
-                Furhat’s existing CamCore published User0’s detected
-                three-dimensional position over ZeroMQ. The body controller
-                converted that position to yaw, then used a PID controller to
-                turn angular error into a requested motor velocity. The PID
-                controlled motion; it did not detect people.
+                Furhat’s existing visual-tracking system, CamCore, supplied the
+                detected user’s three-dimensional position. Our body controller
+                converted that position into a horizontal turning angle. A PID
+                controller then used the angular error to request a motor
+                velocity, allowing the body to turn towards the user.
               </p>
               <p>
-                For rapid testing, an additional motor controller connected to
-                the computer over USB and shared the existing head-tilt system’s
-                12 V supply. Head and body ran as separate devices and scripts.
-                The demonstrator tracked only the first detected user (User0).
+                The demonstrator followed only the first detected user,
+                identified as User0. Position data arrived over ZeroMQ, while an
+                additional motor controller connected to the computer through
+                USB and shared the head-tilt system’s existing 12 V supply. Head
+                and body control ran as separate devices and scripts.
+              </p>
+              <p>
+                The control sequence below shows the path from receiving a
+                position to commanding the motor. It also includes a return to
+                the remembered starting position, although the trigger for that
+                return was not specified in the documentation. The accompanying
+                electronics diagram shows the separate USB connections and
+                shared power supply.
               </p>
             </div>
             <figure
@@ -650,25 +665,62 @@
                 <path d="M 875 2 V 40 H 375 V 2 M 367 12 L 375 2 L 383 12" />
               </svg>
             </figure>
+            <details class="technical-notes">
+              <summary>
+                Electronics and power connections<span
+                  class="chevron"
+                  aria-hidden="true"
+                ></span>
+              </summary>
+              <div class="technical-content">
+                <div class="case-media-grid">
+                  <figure class="case-figure">
+                    <a
+                      class="figure-media"
+                      href="assets/projects/furhat-360/furhat-360-electronics.png"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="Open full-size image: Electronics diagram with two USB controllers, neck servos and the new rotation servo"
+                      ><img
+                        src="assets/projects/furhat-360/furhat-360-electronics.png"
+                        alt="Electronics diagram with two USB controllers, neck servos and the new rotation servo"
+                        width="1000"
+                        height="492"
+                        loading="lazy"
+                        decoding="async"
+                    /></a>
+                    <figcaption>
+                      Electronics layout: separate USB devices, with the new
+                      base motor sharing the 12 V supply.
+                      <a
+                        class="figure-full"
+                        href="assets/projects/furhat-360/furhat-360-electronics.png"
+                        target="_blank"
+                        rel="noopener"
+                        >Full
+                        <span class="link-tail"
+                          >size<svg
+                            class="link-icon"
+                            viewBox="0 0 16 16"
+                            aria-hidden="true"
+                            focusable="false"
+                          >
+                            <path d="M2.5 8h11m-4-4 4 4-4 4" /></svg></span
+                      ></a>
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+            </details>
           </section>
           <section id="results" class="case-section case-section--video">
             <div class="case-copy">
-              <h2>Results and limitations</h2>
+              <h2>What the demonstrator showed</h2>
               <p>
-                The assembled prototype demonstrated body rotation towards a
-                detected user. Repeated turns twisted or wrapped connected
-                power, Ethernet and peripheral cables. Unlimited continuous
-                rotation and unrestricted unattended use were not established,
-                and the base added no omnidirectional vision.
-              </p>
-              <p>
-                We observed wobble during larger head and body movements.
-                Printed-axis fit and bearing play were suspected contributors,
-                without an isolated cause. Head overshoot and simple body
-                movement showed the need for shared planning. ServoCore
-                integration, multi-user attention, cooling checks, belt-tension
-                retention and long-term durability remained open; we did not
-                measure tracking error or latency.
+                The assembled prototype turned the robot body towards a detected
+                user, demonstrating the basic mechanical and control approach.
+                The video below shows the resulting movement. Coordinating that
+                movement with the head remained an integration task.
               </p>
             </div>
             <figure class="case-video case-video--portrait">
@@ -703,103 +755,36 @@
                 ></a>
               </figcaption>
             </figure>
-          </section>
-          <details class="technical-notes">
-            <summary>
-              Prototype dimensions and control notes<span
-                class="chevron"
-                aria-hidden="true"
-              ></span>
-            </summary>
-            <div class="technical-content">
-              <div class="case-copy">
-                <p>
-                  We built the prototype with a 160 mm-diameter, 5 mm-thick
-                  printed baseplate, approximately 3 mm underside clearance, a
-                  200 mm-long and 6 mm-wide GT2 belt, an approximately 18 mm
-                  bearing-and-pulley envelope and roughly 80 mm motor-to-axis
-                  offset. These are prototype dimensions.
-                </p>
-                <p>
-                  The control sequence returns to the remembered start position,
-                  but the recentering trigger is unspecified.
-                </p>
-                <p>
-                  The separate body controller was proposed for later
-                  integration into ServoCore. ServoCore integration remained
-                  unfinished. We had not validated a safe rotation range or
-                  cable-management procedure.
-                </p>
-              </div>
-              <div class="case-media-grid">
-                <figure class="case-figure">
-                  <a
-                    class="figure-media"
-                    href="assets/projects/furhat-360/furhat-360-electronics.png"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="Open full-size image: Electronics diagram with two USB controllers, neck servos and the new rotation servo"
-                    ><img
-                      src="assets/projects/furhat-360/furhat-360-electronics.png"
-                      alt="Electronics diagram with two USB controllers, neck servos and the new rotation servo"
-                      width="1000"
-                      height="492"
-                      loading="lazy"
-                      decoding="async"
-                  /></a>
-                  <figcaption>
-                    Electronics layout: separate USB devices, with the new base
-                    motor sharing the 12 V supply.
-                    <a
-                      class="figure-full"
-                      href="assets/projects/furhat-360/furhat-360-electronics.png"
-                      target="_blank"
-                      rel="noopener"
-                      >Full
-                      <span class="link-tail"
-                        >size<svg
-                          class="link-icon"
-                          viewBox="0 0 16 16"
-                          aria-hidden="true"
-                          focusable="false"
-                        >
-                          <path d="M2.5 8h11m-4-4 4 4-4 4" /></svg></span
-                    ></a>
-                  </figcaption>
-                </figure>
-              </div>
+            <div class="case-copy">
+              <p>
+                Repeated turns also revealed a practical limitation: connected
+                power, Ethernet and peripheral cables could twist or wrap around
+                the base. We had not validated a safe rotation range or
+                cable-management procedure. The prototype therefore did not
+                establish unlimited continuous rotation or unrestricted
+                unattended operation, and it did not add vision in every
+                direction.
+              </p>
+              <p>
+                We observed wobble during larger head and body movements. Play
+                in the bearing and the fit of the printed axis were possible
+                contributors, but we did not isolate the cause. Head overshoot
+                and the simple body movement also showed the need for shared
+                motion planning.
+              </p>
+              <p>
+                Integration into Furhat’s ServoCore, multi-user attention,
+                cooling checks, belt-tension retention and long-term durability
+                remained unfinished. Tracking error and latency were not
+                measured.
+              </p>
             </div>
-          </details>
-
-          <nav class="project-pagination" aria-label="Other projects">
-            <a href="furpack.html"
-              ><span
-                ><span class="link-tail link-tail--leading"
-                  ><svg
-                    class="link-icon"
-                    viewBox="0 0 16 16"
-                    aria-hidden="true"
-                    focusable="false"
-                  >
-                    <path d="M13.5 8h-11m4-4-4 4 4 4" />
-                  </svg>
-                  Previous</span
-                >
-                project</span
-              >The Furpack</a
-            ><a href="robotic-skin.html"
-              ><span
-                >Next
-                <span class="link-tail"
-                  >project<svg
-                    class="link-icon"
-                    viewBox="0 0 16 16"
-                    aria-hidden="true"
-                    focusable="false"
-                  >
-                    <path d="M2.5 8h11m-4-4 4 4-4 4" /></svg></span></span
-              >Robotic Tactile Skin</a
-            >
+          </section>
+          <nav class="project-pagination" aria-label="Continue exploring">
+            <a class="project-next" href="robotic-skin.html"
+              ><span>Next project <span aria-hidden="true">→</span></span> Robotic Tactile
+              Skin</a
+            ><a class="project-all" href="index.html#portfolio">View all projects</a>
           </nav>
         </div>
       </div>

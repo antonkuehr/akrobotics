@@ -54,11 +54,13 @@ document.addEventListener("keydown", (event) => {
 });
 // Measure intrinsic desktop widths so font loading and zoom cannot wrap the links.
 const header = navigation?.closest(".header-inner");
+const projectMenu = navigation?.querySelector(".project-menu");
 const skinDate = document.querySelector(".skin-project-date");
 function updateResponsiveLayout() {
   if (header && navigation) {
     const probe = navigation.cloneNode(true);
     probe.removeAttribute("id");
+    probe.querySelector(".project-menu")?.removeAttribute("open");
     probe.className = "nav-fit-probe";
     probe.setAttribute("aria-hidden", "true");
     probe.inert = true;
@@ -72,6 +74,9 @@ function updateResponsiveLayout() {
       window.matchMedia("(max-width: 800px)").matches ||
       requiredWidth > header.clientWidth;
     if (mobile !== header.classList.contains("nav-mobile")) setMenu(false);
+    if (projectMenu && mobile !== header.classList.contains("nav-mobile")) {
+      projectMenu.open = mobile;
+    }
     header.classList.toggle("nav-mobile", mobile);
   }
   if (skinDate) {
@@ -87,6 +92,33 @@ function updateResponsiveLayout() {
     skinDate.classList.toggle("date-compact", compact);
   }
 }
+// Keep the desktop project disclosure dismissible without changing mobile navigation.
+document.addEventListener("click", (event) => {
+  if (
+    projectMenu?.open &&
+    !header.classList.contains("nav-mobile") &&
+    !projectMenu.contains(event.target)
+  )
+    projectMenu.open = false;
+});
+document.addEventListener("keydown", (event) => {
+  if (
+    event.key === "Escape" &&
+    projectMenu?.open &&
+    !header.classList.contains("nav-mobile")
+  ) {
+    projectMenu.open = false;
+    projectMenu.querySelector("summary").focus();
+  }
+});
+navigation?.addEventListener("focusout", (event) => {
+  if (
+    projectMenu?.open &&
+    !header.classList.contains("nav-mobile") &&
+    !navigation.contains(event.relatedTarget)
+  )
+    projectMenu.open = false;
+});
 updateResponsiveLayout();
 window.addEventListener("resize", updateResponsiveLayout);
 document.fonts?.ready.then(updateResponsiveLayout);
@@ -334,7 +366,7 @@ if ("IntersectionObserver" in window && sectionLinks.length) {
 
 // Native disclosures remain functional without JavaScript. Animate height in Safari
 // as well as browsers without support for CSS details-content transitions.
-for (const details of document.querySelectorAll("details")) {
+for (const details of document.querySelectorAll("details:not(.project-menu)")) {
   const summary = details.querySelector(":scope > summary");
   const listContent = details.classList.contains("cv-more")
     ? details.querySelector(".cv-earlier")

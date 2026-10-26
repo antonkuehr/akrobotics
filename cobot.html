@@ -50,9 +50,9 @@
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/styles.css?v=164" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=168" />
     <link rel="stylesheet" href="assets/css/wordmark-motion.css?v=2" />
-    <script src="assets/js/site.js?v=34" defer></script>
+    <script src="assets/js/site.js?v=35" defer></script>
     <script src="assets/js/wordmark-shapes.js?v=1" defer></script>
     <script src="assets/js/wordmark-settings.js?v=15" defer></script>
     <script src="assets/js/wordmark-motion.js?v=12" defer></script>
@@ -225,48 +225,34 @@
         </button>
 
         <nav id="site-nav" aria-label="Main navigation">
-          <a href="index.html#portfolio">Portfolio homepage</a
-          ><a href="index.html#contact">Contact</a>
+          <a class="project-nav-back" href="robotic-skin.html" aria-label="Previous project: Robotic Tactile Skin"><span class="link-tail link-tail--leading"><svg class="link-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M13.5 8h-11m4-4-4 4 4 4" /></svg>Back</span></a>
+          <details class="project-menu">
+            <summary>Projects <span aria-hidden="true">▾</span></summary>
+            <ul class="project-menu-list">
+              <li><a href="project-echo.html">Skin for Humanoid Echo</a></li>
+              <li><a href="furhat-audio.html">Furhat’s audio system</a></li>
+              <li><a href="furpack.html">The Furpack</a></li>
+              <li><a href="furhat-360.html">360° Furhat</a></li>
+              <li><a href="robotic-skin.html">Robotic Tactile Skin</a></li>
+              <li>
+                <a href="cobot.html" aria-current="page"
+                  >Voice-controlled cobot system</a
+                >
+              </li>
+              <li><a href="harvesting-robot.html">Autonomous harvesting robot</a></li>
+              <li class="project-menu-all">
+                <a href="index.html#portfolio">View all projects</a>
+              </li>
+            </ul>
+          </details>
+          <a class="project-nav-next" href="harvesting-robot.html" aria-label="Next project: Autonomous harvesting robot"><span class="link-tail">Next<svg class="link-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 8h11m-4-4 4 4-4 4" /></svg></span></a>
+          <a href="index.html#contact">Contact</a>
         </nav>
       </div>
     </header>
     <main id="main" class="case-study">
       <header class="project-hero">
         <div class="container project-container">
-          <nav
-            class="project-pagination project-pagination--top"
-            aria-label="Other projects at top"
-          >
-            <a href="robotic-skin.html"
-              ><span
-                ><span class="link-tail link-tail--leading"
-                  ><svg
-                    class="link-icon"
-                    viewBox="0 0 16 16"
-                    aria-hidden="true"
-                    focusable="false"
-                  >
-                    <path d="M13.5 8h-11m4-4-4 4 4 4" />
-                  </svg>
-                  Previous</span
-                >
-                project</span
-              >Robotic Tactile Skin</a
-            ><a href="harvesting-robot.html"
-              ><span
-                >Next
-                <span class="link-tail"
-                  >project<svg
-                    class="link-icon"
-                    viewBox="0 0 16 16"
-                    aria-hidden="true"
-                    focusable="false"
-                  >
-                    <path d="M2.5 8h11m-4-4 4 4-4 4" /></svg></span></span
-              >Autonomous harvesting robot</a
-            >
-          </nav>
-
           <h1>Voice-controlled cobot system</h1>
           <p class="project-lead">
             A team-built prototype for retrieving and putting away two tools
@@ -292,78 +278,80 @@
               <dt>My contribution</dt>
               <dd>System architecture and arm-control optimisation</dd>
             </div>
+            <div class="project-collaborators">
+              <dt>In collaboration with</dt>
+              <dd>
+                <a
+                  href="https://www.linkedin.com/in/lukas-sondenheimer-1a76942ba/"
+                  target="_blank"
+                  rel="noopener"
+                  >Lukas
+                  <span class="link-tail"
+                    >Sondenheimer<svg
+                      class="link-icon"
+                      viewBox="0 0 16 16"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path
+                        d="M2.5 8h11m-4-4 4 4-4 4"
+                        transform="rotate(-45 8 8)"
+                      /></svg></span
+                ></a>
+                <a
+                  href="https://www.linkedin.com/in/denis-tolkovets/"
+                  target="_blank"
+                  rel="noopener"
+                  >Denis
+                  <span class="link-tail"
+                    >Tolkovets<svg
+                      class="link-icon"
+                      viewBox="0 0 16 16"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path
+                        d="M2.5 8h11m-4-4 4 4-4 4"
+                        transform="rotate(-45 8 8)"
+                      /></svg></span
+                ></a>
+                <a
+                  href="https://www.linkedin.com/in/timon-l%C3%BCbken-583886330/"
+                  target="_blank"
+                  rel="noopener"
+                  >Timon
+                  <span class="link-tail"
+                    >Lübken<svg
+                      class="link-icon"
+                      viewBox="0 0 16 16"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path
+                        d="M2.5 8h11m-4-4 4 4-4 4"
+                        transform="rotate(-45 8 8)"
+                      /></svg></span
+                ></a>
+                <a
+                  href="https://www.linkedin.com/in/fabio-jain-947705179/"
+                  target="_blank"
+                  rel="noopener"
+                  >Fabio
+                  <span class="link-tail"
+                    >Jain<svg
+                      class="link-icon"
+                      viewBox="0 0 16 16"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path
+                        d="M2.5 8h11m-4-4 4 4-4 4"
+                        transform="rotate(-45 8 8)"
+                      /></svg></span
+                ></a>
+              </dd>
+            </div>
           </dl>
-          <p class="project-collaborators">
-            <span>In collaboration with:</span>
-            <a
-              href="https://www.linkedin.com/in/lukas-sondenheimer-1a76942ba/"
-              target="_blank"
-              rel="noopener"
-              >Lukas
-              <span class="link-tail"
-                >Sondenheimer<svg
-                  class="link-icon"
-                  viewBox="0 0 16 16"
-                  aria-hidden="true"
-                  focusable="false"
-                >
-                  <path
-                    d="M2.5 8h11m-4-4 4 4-4 4"
-                    transform="rotate(-45 8 8)"
-                  /></svg></span
-            ></a>
-            <a
-              href="https://www.linkedin.com/in/denis-tolkovets/"
-              target="_blank"
-              rel="noopener"
-              >Denis
-              <span class="link-tail"
-                >Tolkovets<svg
-                  class="link-icon"
-                  viewBox="0 0 16 16"
-                  aria-hidden="true"
-                  focusable="false"
-                >
-                  <path
-                    d="M2.5 8h11m-4-4 4 4-4 4"
-                    transform="rotate(-45 8 8)"
-                  /></svg></span
-            ></a>
-            <a
-              href="https://www.linkedin.com/in/timon-l%C3%BCbken-583886330/"
-              target="_blank"
-              rel="noopener"
-              >Timon
-              <span class="link-tail"
-                >Lübken<svg
-                  class="link-icon"
-                  viewBox="0 0 16 16"
-                  aria-hidden="true"
-                  focusable="false"
-                >
-                  <path
-                    d="M2.5 8h11m-4-4 4 4-4 4"
-                    transform="rotate(-45 8 8)"
-                  /></svg></span
-            ></a>
-            <a
-              href="https://www.linkedin.com/in/fabio-jain-947705179/"
-              target="_blank"
-              rel="noopener"
-              >Fabio
-              <span class="link-tail"
-                >Jain<svg
-                  class="link-icon"
-                  viewBox="0 0 16 16"
-                  aria-hidden="true"
-                  focusable="false"
-                >
-                  <path
-                    d="M2.5 8h11m-4-4 4 4-4 4"
-                    transform="rotate(-45 8 8)"
-                  /></svg></span
-            ></a>
-          </p>
 
           <div class="project-overview">
             <p class="project-result">
@@ -411,23 +399,27 @@
         <div class="container project-container">
           <section id="context" class="case-section case-section--text">
             <div class="case-copy">
-              <h2>Context and my role</h2>
+              <h2>From a spoken request to a handled tool</h2>
               <p>
-                For the Service and Industry Robotics course during my BSc at TH
-                Köln, I worked on building a tool-handling feasibility prototype
-                with a Lynxmotion SES-V2 four-axis arm and overhead Azure Kinect
-                camera and microphones. We integrated speech, vision and arm
-                services under a ROS 2 manager to retrieve or put away a hammer
-                and screwdriver.
+                Retrieving a tool on request brings several robotics tasks
+                together. The system needs to understand the request, determine
+                where the tool is and move it to the right place. For this
+                project, we explored that complete sequence using a small robot
+                arm, a camera and predefined spoken commands.
               </p>
               <p>
-                My responsibilities were building the architecture and
-                optimising the arm control.
+                I worked on the prototype with a team in the Service and
+                Industry Robotics course during my bachelor’s degree at TH Köln.
+                My responsibilities were the system architecture and
+                optimisation of the arm control. The integrated system and its
+                evaluation were collaborative work.
               </p>
               <p>
-                The physical tests used a lightweight wooden hammer substitute
-                because an ordinary hammer was too heavy. The system-level
-                decisions and results below are the team’s work.
+                We used a Lynxmotion SES-V2 four-axis arm and an overhead Azure
+                Kinect camera and microphones to retrieve or put away a
+                screwdriver and hammer. Because an ordinary hammer was too heavy
+                for the arm, the physical tests used a lightweight wooden
+                substitute.
               </p>
             </div>
           </section>
@@ -436,21 +428,30 @@
             class="case-section case-section--figure"
           >
             <div class="case-copy">
-              <h2>Command routing through ROS 2 services</h2>
+              <h2>Connecting speech, vision and movement</h2>
               <p>
-                A button press recorded the command. Whisper transcribed it, and
-                GPT-4o selected among four predefined tool tasks or no matching
-                action. The language model selected a task rather than
-                generating arbitrary joint motion. Status and error feedback
-                used prerecorded audio.
+                We organised the system into Speech, Vision and Arm services
+                coordinated by a ROS 2 manager. This gave each part a defined
+                responsibility while allowing the manager to route a request
+                through the required steps.
               </p>
               <p>
-                Retrieving a tool used its predefined storage coordinates.
-                Putting one away first required Vision to locate it in the
-                exchange area. A YOLO11m-obb detector supplied image
-                coordinates. Depth at the detected centre pixel was used to
-                convert the image coordinates into a spatial target. Camera and
-                arm were aligned in X to simplify that conversion.
+                A button press started recording. Whisper transcribed the
+                command, and GPT-4o selected one of four predefined tool tasks
+                or reported that no task matched. The language model chose the
+                task; it did not generate joint movements. Prerecorded audio
+                provided status and error feedback.
+              </p>
+              <p>
+                Retrieving a tool used its known storage coordinates. Putting a
+                tool away required the camera to locate it first in the exchange
+                area. The manager then passed the target to the arm service,
+                which performed the movement and returned the arm to its rest
+                position.
+              </p>
+              <p>
+                The overview below follows these two paths. The detailed service
+                diagrams expand the sequence within each part of the system.
               </p>
             </div>
             <figure class="case-workflow">
@@ -483,343 +484,7 @@
                 return to speech input.
               </p>
             </figure>
-          </section>
-          <section id="perception" class="case-section case-section--text">
-            <div class="case-copy">
-              <h2>Dataset correction and detector evaluation</h2>
-              <p>
-                The detector dataset contained 3,372 annotated hammer and
-                screwdriver images assembled from public Roboflow datasets and
-                manually corrected. We tested seven iterations. Adding datasets
-                in the first five did not improve the metric; removing incorrect
-                annotations and correcting labels produced the largest
-                improvement.
-              </p>
-              <p>
-                We obtained 81.4% mAP; the report does not specify the IoU
-                aggregation or whether this value refers to the validation or
-                test split. That detector metric does not describe physical task
-                success.
-              </p>
-            </div>
-          </section>
-          <section id="arm-control" class="case-section case-section--figure">
-            <div class="case-copy">
-              <h2>Geometric joint targets for MoveIt</h2>
-              <p>
-                Initial pose planning struggled with the arm’s missing
-                independent gripper rotation. We calculated the base angle
-                towards the target and the remaining joint angles in the
-                corresponding vertical plane using arm geometry. MoveIt
-                continued planning trajectories between these joint targets.
-              </p>
-              <p>
-                The approach enabled the tested movements but constrained
-                gripper orientation. The complete motion took roughly 40
-                seconds, depending on the trajectory, with each partial sequence
-                taking about six seconds through the existing pipeline.
-              </p>
-            </div>
-            <figure class="technical-figure">
-              <h3 class="figure-title">
-                Analytical inverse kinematics for the 4-DOF arm
-              </h3>
-              <div class="ik-geometry-panels">
-                <div class="technical-graphic diagram-frame">
-                  <picture
-                    ><source
-                      media="(max-width: 700px)"
-                      srcset="
-                        assets/projects/voice-cobot/analytical-inverse-kinematics-top-view-mobile.svg?v=42
-                      " />
-                    <img
-                      src="assets/projects/voice-cobot/analytical-inverse-kinematics-top-view.svg?v=42"
-                      alt="Top-view construction: target (x,y), horizontal distance a and base rotation delta."
-                      width="420"
-                      height="330"
-                      loading="lazy"
-                      decoding="async"
-                  /></picture>
-                </div>
-                <div class="technical-graphic diagram-frame">
-                  <picture
-                    ><source
-                      media="(max-width: 700px)"
-                      srcset="
-                        assets/projects/voice-cobot/analytical-inverse-kinematics-arm-geometry-mobile.svg?v=42
-                      " />
-                    <img
-                      src="assets/projects/voice-cobot/analytical-inverse-kinematics-arm-geometry.svg?v=42"
-                      alt="Articulated arm, joint angles alpha beta gamma, link length l_AG and auxiliary reach/height constructions."
-                      width="710"
-                      height="400"
-                      loading="lazy"
-                      decoding="async"
-                  /></picture>
-                </div>
-              </div>
-              <figcaption>
-                The detected target position is converted analytically into
-                joint-angle targets; MoveIt then plans trajectories between
-                those joint configurations.
-              </figcaption>
-              <details class="technical-notes ik-equations">
-                <summary>
-                  <span>Equations and servo mapping</span
-                  ><span class="chevron" aria-hidden="true"></span>
-                </summary>
-                <div class="ik-equations-content">
-                  <div class="ik-mapping">
-                    <span class="ik-mapping-label"
-                      >Coordinate-to-angle mapping</span
-                    ><math xmlns="http://www.w3.org/1998/Math/MathML"
-                      ><mrow
-                        ><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>c</mi
-                        ><mo>,</mo
-                        ><msub><mi>ℓ</mi><mi mathvariant="normal">AG</mi></msub
-                        ><mo>→</mo><mi>δ</mi><mo>,</mo><mi>α</mi><mo>,</mo
-                        ><mi>β</mi><mo>,</mo><mi>γ</mi></mrow
-                      ></math
-                    >
-                  </div>
-                  <p>
-                    These equations match the arm-service implementation. All
-                    inverse-trigonometric results are converted to degrees.
-                  </p>
-                  <div class="ik-equation-panels">
-                    <section>
-                      <h4>Target geometry</h4>
-                      <dl>
-                        <div class="equation">
-                          <dt>Horizontal target distance</dt>
-                          <dd>
-                            <math xmlns="http://www.w3.org/1998/Math/MathML"
-                              ><mrow
-                                ><mi>a</mi><mo>=</mo
-                                ><msqrt
-                                  ><mrow
-                                    ><msup><mi>x</mi><mn>2</mn></msup
-                                    ><mo>+</mo
-                                    ><msup><mi>y</mi><mn>2</mn></msup></mrow
-                                  ></msqrt
-                                ></mrow
-                              ></math
-                            >
-                          </dd>
-                        </div>
-                        <div class="equation">
-                          <dt>Base–gripper distance</dt>
-                          <dd>
-                            <math xmlns="http://www.w3.org/1998/Math/MathML"
-                              ><mrow
-                                ><mi>b</mi><mo>=</mo
-                                ><msqrt
-                                  ><mrow
-                                    ><msup><mi>a</mi><mn>2</mn></msup
-                                    ><mo>+</mo
-                                    ><msup><mi>c</mi><mn>2</mn></msup></mrow
-                                  ></msqrt
-                                ></mrow
-                              ></math
-                            >
-                          </dd>
-                        </div>
-                      </dl>
-                      <p class="ik-variable-key">
-                        <math xmlns="http://www.w3.org/1998/Math/MathML"
-                          ><mrow
-                            ><msub
-                              ><mi>ℓ</mi><mi mathvariant="normal">AG</mi></msub
-                            ></mrow
-                          ></math
-                        >
-                        arm-link length &nbsp; · &nbsp;
-                        <math xmlns="http://www.w3.org/1998/Math/MathML"
-                          ><mrow><mi>c</mi></mrow></math
-                        >
-                        height above the target
-                      </p>
-                    </section>
-                    <section>
-                      <h4>Required servo angles</h4>
-                      <dl>
-                        <div class="equation">
-                          <dt>Base rotation · Servo 1</dt>
-                          <dd>
-                            <math xmlns="http://www.w3.org/1998/Math/MathML"
-                              ><mrow
-                                ><mi>δ</mi><mo>=</mo
-                                ><mi mathvariant="normal">atan2</mi><mo>(</mo
-                                ><mi>x</mi><mo>,</mo><mi>y</mi><mo>)</mo></mrow
-                              ></math
-                            >
-                          </dd>
-                        </div>
-                        <div class="equation">
-                          <dt>Shoulder · Servo 2</dt>
-                          <dd>
-                            <math xmlns="http://www.w3.org/1998/Math/MathML"
-                              ><mrow
-                                ><mi>α</mi><mo>=</mo><mo>−</mo><mn>90</mn
-                                ><mo>°</mo></mrow
-                              ></math
-                            ><math xmlns="http://www.w3.org/1998/Math/MathML"
-                              ><mrow
-                                ><mo>+</mo><mi mathvariant="normal">atan2</mi
-                                ><mo>(</mo><mi>c</mi><mo>,</mo><mi>a</mi
-                                ><mo>)</mo></mrow
-                              ></math
-                            ><math xmlns="http://www.w3.org/1998/Math/MathML"
-                              ><mrow
-                                ><mo>+</mo><mi mathvariant="normal">acos</mi
-                                ><mo>(</mo
-                                ><mfrac
-                                  ><mi>b</mi
-                                  ><mrow
-                                    ><mn>2</mn
-                                    ><msub
-                                      ><mi>ℓ</mi
-                                      ><mi mathvariant="normal">AG</mi></msub
-                                    ></mrow
-                                  ></mfrac
-                                ><mo>)</mo></mrow
-                              ></math
-                            >
-                          </dd>
-                        </div>
-                        <div class="equation">
-                          <dt>Elbow · Servo 3</dt>
-                          <dd>
-                            <math xmlns="http://www.w3.org/1998/Math/MathML"
-                              ><mrow
-                                ><mi>β</mi><mo>=</mo><mo>−</mo><mn>90</mn
-                                ><mo>°</mo></mrow
-                              ></math
-                            ><math xmlns="http://www.w3.org/1998/Math/MathML"
-                              ><mrow
-                                ><mo>+</mo><mn>2</mn
-                                ><mi mathvariant="normal">asin</mi><mo>(</mo
-                                ><mfrac
-                                  ><mi>b</mi
-                                  ><mrow
-                                    ><mn>2</mn
-                                    ><msub
-                                      ><mi>ℓ</mi
-                                      ><mi mathvariant="normal">AG</mi></msub
-                                    ></mrow
-                                  ></mfrac
-                                ><mo>)</mo></mrow
-                              ></math
-                            >
-                          </dd>
-                        </div>
-                        <div class="equation">
-                          <dt>Wrist · Servo 4</dt>
-                          <dd>
-                            <math xmlns="http://www.w3.org/1998/Math/MathML"
-                              ><mrow
-                                ><mi>γ</mi><mo>=</mo><mo>−</mo><mn>180</mn
-                                ><mo>°</mo></mrow
-                              ></math
-                            ><math xmlns="http://www.w3.org/1998/Math/MathML"
-                              ><mrow
-                                ><mo>+</mo><mi mathvariant="normal">acos</mi
-                                ><mo>(</mo
-                                ><mfrac
-                                  ><mi>b</mi
-                                  ><mrow
-                                    ><mn>2</mn
-                                    ><msub
-                                      ><mi>ℓ</mi
-                                      ><mi mathvariant="normal">AG</mi></msub
-                                    ></mrow
-                                  ></mfrac
-                                ><mo>)</mo></mrow
-                              ></math
-                            ><math xmlns="http://www.w3.org/1998/Math/MathML"
-                              ><mrow
-                                ><mo>+</mo><mi mathvariant="normal">atan2</mi
-                                ><mo>(</mo><mi>a</mi><mo>,</mo><mi>c</mi
-                                ><mo>)</mo></mrow
-                              ></math
-                            >
-                          </dd>
-                        </div>
-                      </dl>
-                    </section>
-                  </div>
-                  <p>
-                    Coordinates are transformed into the arm frame before
-                    evaluation. The implemented base command adds a 5° offset to
-                    δ; the other three commands use α, β and γ directly. Targets
-                    beyond twice the link length return the arm to its idle
-                    configuration.
-                  </p>
-                </div>
-              </details>
-            </figure>
-          </section>
-          <section id="results" class="case-section case-section--results">
-            <div class="case-copy">
-              <h2>Results and limitations</h2>
-              <p>
-                The prototype demonstrated the workflow under controlled
-                conditions. Its separate subsystem evaluations had different
-                inputs and should not be combined into an end-to-end success
-                percentage.
-              </p>
-              <p class="results-caption">
-                Controlled tests with a screwdriver and lightweight wooden
-                hammer substitute.
-              </p>
-              <dl class="results-list">
-                <div>
-                  <dt>Speech</dt>
-                  <dd>10/10 and 7/10 commands correct</dd>
-                  <dd class="result-scope">
-                    Two prerecorded voices; ten commands each.
-                  </dd>
-                </div>
-                <div>
-                  <dt>Localisation</dt>
-                  <dd>Maximum measured deviation: 5 mm</dd>
-                  <dd class="result-scope">
-                    Twenty placements per object; constant lighting and
-                    background.
-                  </dd>
-                </div>
-                <div>
-                  <dt>Grasping</dt>
-                  <dd>20/20 successful grasps per object</dd>
-                  <dd class="result-scope">
-                    Exact coordinates supplied to the arm.
-                  </dd>
-                </div>
-                <div>
-                  <dt>Placement</dt>
-                  <dd>Hammer placement failed with obstruction</dd>
-                  <dd class="result-scope">
-                    Ten trials per object and condition; the stored screwdriver
-                    caused a collision.
-                  </dd>
-                </div>
-              </dl>
-              <p>
-                Screwdriver placement succeeded in our tests, and hammer
-                placement worked when storage was unobstructed. With the
-                screwdriver already stored, the hammer collided with it and
-                placement failed.
-              </p>
-              <p>
-                Obstacle handling and proposed safety measures, including person
-                detection, monitored stopping and an emergency-stop provision,
-                remained unimplemented. Restricted gripper orientation, slow
-                execution and limited test diversity prevented practical
-                assistance in this version.
-              </p>
-            </div>
-          </section>
-          <details class="technical-notes" id="ros2-service-diagrams">
+            <details class="technical-notes" id="ros2-service-diagrams">
             <summary>
               ROS 2 service diagrams<span
                 class="chevron"
@@ -3016,36 +2681,389 @@
               </figure>
             </div>
           </details>
-
-          <nav class="project-pagination" aria-label="Other projects">
-            <a href="robotic-skin.html"
-              ><span
-                ><span class="link-tail link-tail--leading"
-                  ><svg
-                    class="link-icon"
-                    viewBox="0 0 16 16"
-                    aria-hidden="true"
-                    focusable="false"
-                  >
-                    <path d="M13.5 8h-11m4-4-4 4 4 4" />
-                  </svg>
-                  Previous</span
-                >
-                project</span
-              >Robotic Tactile Skin</a
-            ><a href="harvesting-robot.html"
-              ><span
-                >Next
-                <span class="link-tail"
-                  >project<svg
-                    class="link-icon"
-                    viewBox="0 0 16 16"
-                    aria-hidden="true"
-                    focusable="false"
-                  >
-                    <path d="M2.5 8h11m-4-4 4 4-4 4" /></svg></span></span
-              >Autonomous harvesting robot</a
-            >
+          </section>
+          <section id="perception" class="case-section case-section--text">
+            <div class="case-copy">
+              <h2>Finding the tools in the camera image</h2>
+              <p>
+                For the put-away task, we used a YOLO11m-obb detector to locate
+                the requested tool in the image. The depth measured at the
+                detected centre pixel allowed that image position to be
+                converted into a spatial target. Aligning the camera and arm in
+                X simplified the coordinate conversion.
+              </p>
+              <p>
+                The detector dataset contained 3,372 annotated hammer and
+                screwdriver images assembled from public Roboflow datasets and
+                manually corrected. Across seven iterations, adding datasets
+                during the first five did not improve the metric. Removing
+                incorrect annotations and correcting labels produced the largest
+                improvement.
+              </p>
+              <p>
+                The reported detector result was 81.4% mean average precision, a
+                measure of object-detection performance. The report does not
+                specify the overlap-threshold aggregation or whether this value
+                came from the validation or test split, so it should be read
+                with those limits. It does not represent the success rate of the
+                complete tool-handling task.
+              </p>
+            </div>
+          </section>
+          <section id="arm-control" class="case-section case-section--figure">
+            <div class="case-copy">
+              <h2>Moving the four-axis arm</h2>
+              <p>
+                Initial pose planning struggled with the arm’s limited ability
+                to orient the gripper independently. We addressed this by
+                calculating the required joint angles from the target position
+                and the arm’s geometry.
+              </p>
+              <p>
+                The calculation first turns the base towards the target, then
+                solves the remaining joint angles in the corresponding vertical
+                plane. MoveIt plans the trajectories between these joint
+                configurations. The diagrams below show that geometric
+                construction, with the equations and servo mapping available
+                beneath them.
+              </p>
+            </div>
+            <figure class="technical-figure">
+              <h3 class="figure-title">
+                Analytical inverse kinematics for the 4-DOF arm
+              </h3>
+              <div class="ik-geometry-panels">
+                <div class="technical-graphic diagram-frame">
+                  <picture
+                    ><source
+                      media="(max-width: 700px)"
+                      srcset="
+                        assets/projects/voice-cobot/analytical-inverse-kinematics-top-view-mobile.svg?v=42
+                      " />
+                    <img
+                      src="assets/projects/voice-cobot/analytical-inverse-kinematics-top-view.svg?v=42"
+                      alt="Top-view construction: target (x,y), horizontal distance a and base rotation delta."
+                      width="420"
+                      height="330"
+                      loading="lazy"
+                      decoding="async"
+                  /></picture>
+                </div>
+                <div class="technical-graphic diagram-frame">
+                  <picture
+                    ><source
+                      media="(max-width: 700px)"
+                      srcset="
+                        assets/projects/voice-cobot/analytical-inverse-kinematics-arm-geometry-mobile.svg?v=42
+                      " />
+                    <img
+                      src="assets/projects/voice-cobot/analytical-inverse-kinematics-arm-geometry.svg?v=42"
+                      alt="Articulated arm, joint angles alpha beta gamma, link length l_AG and auxiliary reach/height constructions."
+                      width="710"
+                      height="400"
+                      loading="lazy"
+                      decoding="async"
+                  /></picture>
+                </div>
+              </div>
+              <figcaption>
+                The detected target position is converted analytically into
+                joint-angle targets; MoveIt then plans trajectories between
+                those joint configurations.
+              </figcaption>
+              <details class="technical-notes ik-equations">
+                <summary>
+                  <span>Equations and servo mapping</span
+                  ><span class="chevron" aria-hidden="true"></span>
+                </summary>
+                <div class="ik-equations-content">
+                  <div class="ik-mapping">
+                    <span class="ik-mapping-label"
+                      >Coordinate-to-angle mapping</span
+                    ><math xmlns="http://www.w3.org/1998/Math/MathML"
+                      ><mrow
+                        ><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>c</mi
+                        ><mo>,</mo
+                        ><msub><mi>ℓ</mi><mi mathvariant="normal">AG</mi></msub
+                        ><mo>→</mo><mi>δ</mi><mo>,</mo><mi>α</mi><mo>,</mo
+                        ><mi>β</mi><mo>,</mo><mi>γ</mi></mrow
+                      ></math
+                    >
+                  </div>
+                  <p>
+                    These equations match the arm-service implementation. All
+                    inverse-trigonometric results are converted to degrees.
+                  </p>
+                  <div class="ik-equation-panels">
+                    <section>
+                      <h4>Target geometry</h4>
+                      <dl>
+                        <div class="equation">
+                          <dt>Horizontal target distance</dt>
+                          <dd>
+                            <math xmlns="http://www.w3.org/1998/Math/MathML"
+                              ><mrow
+                                ><mi>a</mi><mo>=</mo
+                                ><msqrt
+                                  ><mrow
+                                    ><msup><mi>x</mi><mn>2</mn></msup
+                                    ><mo>+</mo
+                                    ><msup><mi>y</mi><mn>2</mn></msup></mrow
+                                  ></msqrt
+                                ></mrow
+                              ></math
+                            >
+                          </dd>
+                        </div>
+                        <div class="equation">
+                          <dt>Base–gripper distance</dt>
+                          <dd>
+                            <math xmlns="http://www.w3.org/1998/Math/MathML"
+                              ><mrow
+                                ><mi>b</mi><mo>=</mo
+                                ><msqrt
+                                  ><mrow
+                                    ><msup><mi>a</mi><mn>2</mn></msup
+                                    ><mo>+</mo
+                                    ><msup><mi>c</mi><mn>2</mn></msup></mrow
+                                  ></msqrt
+                                ></mrow
+                              ></math
+                            >
+                          </dd>
+                        </div>
+                      </dl>
+                      <p class="ik-variable-key">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML"
+                          ><mrow
+                            ><msub
+                              ><mi>ℓ</mi><mi mathvariant="normal">AG</mi></msub
+                            ></mrow
+                          ></math
+                        >
+                        arm-link length &nbsp; · &nbsp;
+                        <math xmlns="http://www.w3.org/1998/Math/MathML"
+                          ><mrow><mi>c</mi></mrow></math
+                        >
+                        height above the target
+                      </p>
+                    </section>
+                    <section>
+                      <h4>Required servo angles</h4>
+                      <dl>
+                        <div class="equation">
+                          <dt>Base rotation · Servo 1</dt>
+                          <dd>
+                            <math xmlns="http://www.w3.org/1998/Math/MathML"
+                              ><mrow
+                                ><mi>δ</mi><mo>=</mo
+                                ><mi mathvariant="normal">atan2</mi><mo>(</mo
+                                ><mi>x</mi><mo>,</mo><mi>y</mi><mo>)</mo></mrow
+                              ></math
+                            >
+                          </dd>
+                        </div>
+                        <div class="equation">
+                          <dt>Shoulder · Servo 2</dt>
+                          <dd>
+                            <math xmlns="http://www.w3.org/1998/Math/MathML"
+                              ><mrow
+                                ><mi>α</mi><mo>=</mo><mo>−</mo><mn>90</mn
+                                ><mo>°</mo></mrow
+                              ></math
+                            ><math xmlns="http://www.w3.org/1998/Math/MathML"
+                              ><mrow
+                                ><mo>+</mo><mi mathvariant="normal">atan2</mi
+                                ><mo>(</mo><mi>c</mi><mo>,</mo><mi>a</mi
+                                ><mo>)</mo></mrow
+                              ></math
+                            ><math xmlns="http://www.w3.org/1998/Math/MathML"
+                              ><mrow
+                                ><mo>+</mo><mi mathvariant="normal">acos</mi
+                                ><mo>(</mo
+                                ><mfrac
+                                  ><mi>b</mi
+                                  ><mrow
+                                    ><mn>2</mn
+                                    ><msub
+                                      ><mi>ℓ</mi
+                                      ><mi mathvariant="normal">AG</mi></msub
+                                    ></mrow
+                                  ></mfrac
+                                ><mo>)</mo></mrow
+                              ></math
+                            >
+                          </dd>
+                        </div>
+                        <div class="equation">
+                          <dt>Elbow · Servo 3</dt>
+                          <dd>
+                            <math xmlns="http://www.w3.org/1998/Math/MathML"
+                              ><mrow
+                                ><mi>β</mi><mo>=</mo><mo>−</mo><mn>90</mn
+                                ><mo>°</mo></mrow
+                              ></math
+                            ><math xmlns="http://www.w3.org/1998/Math/MathML"
+                              ><mrow
+                                ><mo>+</mo><mn>2</mn
+                                ><mi mathvariant="normal">asin</mi><mo>(</mo
+                                ><mfrac
+                                  ><mi>b</mi
+                                  ><mrow
+                                    ><mn>2</mn
+                                    ><msub
+                                      ><mi>ℓ</mi
+                                      ><mi mathvariant="normal">AG</mi></msub
+                                    ></mrow
+                                  ></mfrac
+                                ><mo>)</mo></mrow
+                              ></math
+                            >
+                          </dd>
+                        </div>
+                        <div class="equation">
+                          <dt>Wrist · Servo 4</dt>
+                          <dd>
+                            <math xmlns="http://www.w3.org/1998/Math/MathML"
+                              ><mrow
+                                ><mi>γ</mi><mo>=</mo><mo>−</mo><mn>180</mn
+                                ><mo>°</mo></mrow
+                              ></math
+                            ><math xmlns="http://www.w3.org/1998/Math/MathML"
+                              ><mrow
+                                ><mo>+</mo><mi mathvariant="normal">acos</mi
+                                ><mo>(</mo
+                                ><mfrac
+                                  ><mi>b</mi
+                                  ><mrow
+                                    ><mn>2</mn
+                                    ><msub
+                                      ><mi>ℓ</mi
+                                      ><mi mathvariant="normal">AG</mi></msub
+                                    ></mrow
+                                  ></mfrac
+                                ><mo>)</mo></mrow
+                              ></math
+                            ><math xmlns="http://www.w3.org/1998/Math/MathML"
+                              ><mrow
+                                ><mo>+</mo><mi mathvariant="normal">atan2</mi
+                                ><mo>(</mo><mi>a</mi><mo>,</mo><mi>c</mi
+                                ><mo>)</mo></mrow
+                              ></math
+                            >
+                          </dd>
+                        </div>
+                      </dl>
+                    </section>
+                  </div>
+                  <p>
+                    Coordinates are transformed into the arm frame before
+                    evaluation. The implemented base command adds a 5° offset to
+                    δ; the other three commands use α, β and γ directly. Targets
+                    beyond twice the link length return the arm to its idle
+                    configuration.
+                  </p>
+                </div>
+              </details>
+            </figure>
+            <div class="case-copy">
+              <p>
+                This approach enabled the tested movements, but the gripper’s
+                orientation remained constrained. A complete motion took roughly
+                40 seconds, depending on the trajectory, with individual partial
+                sequences taking about six seconds through the existing
+                pipeline.
+              </p>
+            </div>
+          </section>
+          <section id="results" class="case-section case-section--results">
+            <div class="case-copy">
+              <h2>Testing the workflow and its components</h2>
+              <p>
+                The prototype demonstrated the complete speech-to-tool workflow
+                under controlled conditions. We also evaluated the individual
+                components separately to investigate where errors occurred.
+                Those tests used different inputs, so their results cannot be
+                combined into a single end-to-end success rate.
+              </p>
+              <p>
+                The results below distinguish command interpretation,
+                localisation, grasping and placement. Speech was tested with two
+                prerecorded voices. Localisation used twenty placements per
+                object under constant lighting and background conditions.
+                Grasping was tested with exact coordinates supplied to the arm,
+                so those results did not include errors from the vision system.
+              </p>
+            </div>
+            <div class="case-copy">
+              <p class="results-caption">
+                Controlled tests with a screwdriver and lightweight wooden
+                hammer substitute.
+              </p>
+              <dl class="results-list">
+                <div>
+                  <dt>Speech</dt>
+                  <dd>10/10 and 7/10 commands correct</dd>
+                  <dd class="result-scope">
+                    Two prerecorded voices; ten commands each.
+                  </dd>
+                </div>
+                <div>
+                  <dt>Localisation</dt>
+                  <dd>Maximum measured deviation: 5 mm</dd>
+                  <dd class="result-scope">
+                    Twenty placements per object; constant lighting and
+                    background.
+                  </dd>
+                </div>
+                <div>
+                  <dt>Grasping</dt>
+                  <dd>20/20 successful grasps per object</dd>
+                  <dd class="result-scope">
+                    Exact coordinates supplied to the arm.
+                  </dd>
+                </div>
+                <div>
+                  <dt>Placement</dt>
+                  <dd>Hammer placement failed with obstruction</dd>
+                  <dd class="result-scope">
+                    Ten trials per object and condition; the stored screwdriver
+                    caused a collision.
+                  </dd>
+                </div>
+              </dl>
+              <p>
+                Placement revealed an important interaction between the tools.
+                The screwdriver was placed successfully in our tests, and hammer
+                placement worked when its storage area was unobstructed. When
+                the screwdriver was already stored, the hammer collided with it
+                and placement failed.
+              </p>
+            </div>
+          </section>
+          <section id="limitations" class="case-section case-section--text">
+            <div class="case-copy">
+              <h2>What remained before practical use</h2>
+              <p>
+                The project demonstrated how speech, vision and arm control
+                could be connected into a working tool-handling prototype. The
+                placement collision also showed why executing a known movement
+                was not enough for reliable operation in a changing workspace.
+              </p>
+              <p>
+                Obstacle handling remained unimplemented, as did proposed safety
+                measures including person detection, monitored stopping and an
+                emergency-stop provision. Together with slow execution,
+                restricted gripper orientation and limited test diversity, these
+                gaps prevented practical assistance in this version.
+              </p>
+            </div>
+          </section>
+          <nav class="project-pagination" aria-label="Continue exploring">
+            <a class="project-next" href="harvesting-robot.html"
+              ><span>Next project <span aria-hidden="true">→</span></span> Autonomous
+              harvesting robot</a
+            ><a class="project-all" href="index.html#portfolio">View all projects</a>
           </nav>
         </div>
       </div>

@@ -334,7 +334,8 @@ a:is(:hover, :focus-visible) .link-tail {
   color: var(--accent);
 }
 
-#site-nav a:is(:hover, :focus-visible) {
+#site-nav a:is(:hover, :focus-visible),
+#site-nav .project-menu > summary:is(:hover, :focus-visible) {
   border-color: var(--accent);
   color: var(--link-hover-color);
 }
@@ -372,7 +373,11 @@ a:is(:hover, :focus-visible) .link-tail {
   text-transform: none;
 }
 
-:is(#site-nav, .nav-fit-probe) a {
+:is(#site-nav, .nav-fit-probe) a,
+:is(#site-nav, .nav-fit-probe) .project-menu > summary {
+  --link-hover-color: var(--accent);
+  font: inherit;
+  letter-spacing: inherit;
   color: #fff;
   white-space: nowrap;
   padding: 10px 0;
@@ -1239,20 +1244,16 @@ html:not(.js) .cv-close {
   color: var(--fg);
 }
 
-.project-collaborators {
+.project-collaborators dd {
   display: flex;
   flex-wrap: wrap;
   gap: 4px 16px;
   align-items: baseline;
-  margin-top: 12px;
-  font-size: var(--text-small);
-  color: var(--muted);
 }
 
 .project-collaborators a {
   --link-hover-color: var(--fg);
   display: inline-block;
-  min-height: 44px;
   color: var(--accent);
   text-underline-offset: 4px;
 }
@@ -1548,41 +1549,104 @@ html:not(.js) .cv-close {
   margin-bottom: 24px;
 }
 
+/* Separate Contact from the project navigation controls. */
+:is(#site-nav, .nav-fit-probe) .project-nav-next + a {
+  margin-inline-start: 24px;
+}
+.nav-mobile #site-nav .project-nav-next + a {
+  margin-inline-start: 0;
+}
+
+/* Align Next with the 750px reading column inside the 1000px header. */
+@media (min-width: 1064px) {
+  .project-page .header-inner:not(.nav-mobile) #site-nav {
+    position: relative;
+    padding-inline-end: 125px;
+  }
+  .project-page .header-inner:not(.nav-mobile) #site-nav .project-nav-next + a {
+    position: absolute;
+    inset-inline-end: 0;
+    margin-inline-start: 0;
+  }
+}
+
+.project-menu {
+  position: relative;
+}
+.project-menu > summary {
+  cursor: pointer;
+  list-style: none;
+}
+.project-menu > summary::-webkit-details-marker {
+  display: none;
+}
+.project-menu-list {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: max-content;
+  max-width: min(400px, calc(100vw - 64px));
+  max-height: calc(100dvh - 100px);
+  overflow-y: auto;
+  margin: 0;
+  padding: 12px 20px;
+  list-style: none;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+}
+#site-nav .project-menu-list a {
+  display: block;
+  white-space: normal;
+}
+#site-nav .project-menu-list a[aria-current="page"] {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+.project-menu-all {
+  margin-top: 8px;
+  border-top: 1px solid var(--line);
+}
 .project-pagination {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  align-items: start;
-  gap: 24px;
+  align-items: baseline;
+  gap: 16px 32px;
   border-top: 1px solid var(--line);
   padding: 24px 0 40px;
 }
-
-.project-pagination--top {
-  margin-bottom: 24px;
-  padding: 0 0 16px;
-  border-top: 0;
-  border-bottom: 1px solid var(--line);
-}
-
 .project-pagination a {
-  max-width: 46%;
   min-height: 44px;
-  overflow-wrap: anywhere;
 }
-
-.project-pagination a:is(:hover, :focus-visible) > span {
-  color: inherit;
+.project-next {
+  color: var(--accent);
 }
-
-.project-pagination a:last-child {
-  text-align: right;
-}
-
-.project-pagination a > span {
+.project-next > span {
   display: block;
-  font-size: var(--text-small);
   color: var(--muted);
+  font-size: var(--text-small);
   margin-bottom: 4px;
+}
+.project-all {
+  color: var(--muted);
+  font-size: var(--text-small);
+}
+.nav-mobile .project-menu > summary {
+  display: none;
+}
+.nav-mobile .project-menu-list {
+  position: static;
+  width: auto;
+  max-width: none;
+  max-height: none;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+.project-page .nav-mobile #site-nav {
+  max-height: calc(100dvh - 80px);
+  overflow-y: auto;
 }
 
 .case-workflow {
