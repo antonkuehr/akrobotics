@@ -1550,10 +1550,10 @@ html:not(.js) .cv-close {
 }
 
 /* Separate Contact from the project navigation controls. */
-:is(#site-nav, .nav-fit-probe) .project-nav-next + a {
+:is(#site-nav, .nav-fit-probe) > a[href="index.html#contact"] {
   margin-inline-start: 24px;
 }
-.nav-mobile #site-nav .project-nav-next + a {
+.nav-mobile #site-nav > a[href="index.html#contact"] {
   margin-inline-start: 0;
 }
 
@@ -1563,7 +1563,10 @@ html:not(.js) .cv-close {
     position: relative;
     padding-inline-end: 125px;
   }
-  .project-page .header-inner:not(.nav-mobile) #site-nav .project-nav-next + a {
+  .project-page
+    .header-inner:not(.nav-mobile)
+    #site-nav
+    > a[href="index.html#contact"] {
     position: absolute;
     inset-inline-end: 0;
     margin-inline-start: 0;
@@ -2814,7 +2817,7 @@ html:not(.js) .cv-close {
   grid-area: 2 / 1 / auto / -1;
   border-top: 1px solid var(--line);
 }
-.project-page .nav-mobile #site-nav .project-nav-next + a {
+.project-page .nav-mobile #site-nav > a[href="index.html#contact"] {
   grid-area: 3 / 1 / auto / -1;
   border-top: 1px solid var(--line);
 }
