@@ -26,6 +26,7 @@ The following sources were recorded when these marks were added on 7 October 202
 - `arduino-logo.png`: https://www.arduino.cc/wiki/icons/icon-512x512.png
 - `ultralytics-logo.png`: https://raw.githubusercontent.com/ultralytics/assets/main/logo/Ultralytics-logomark-color.png
 - `dimension-engineering-logo.jpg`: https://www.dimensionengineering.com/skins/dimension/img/logo.jpg
+- `rsa-logo.png`: original logo mark linked as the icon on [RSA’s official website](https://www.rsadelft.nl/), retrieved on 26 October 2026 from https://static.wixstatic.com/media/00ae9a_c6f67f3540a343cb93da495a0aaf0b31%7Emv2.png. Used with TU Delft on the Echo homepage card. Other project cards reuse the existing Furhat Robotics and TH Köln marks; the thesis card shows both.
 
 ## Project media
 

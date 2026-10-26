@@ -913,12 +913,15 @@ html:not(.js) .cv-close {
 }
 
 .badge {
+  display: inline-flex;
+  align-items: center;
   position: absolute;
   left: 13px;
   top: 13px;
-  padding: 4px 9px;
+  height: var(--project-overlay-size);
+  padding: 0 9px;
   background: var(--bg);
-  border: 1px solid var(--edge);
+  border: 0;
   color: var(--fg);
   font: var(--text-label)/1.6 var(--sans);
   text-transform: uppercase;
@@ -930,15 +933,15 @@ html:not(.js) .cv-close {
   position: absolute;
   right: 12px;
   bottom: 12px;
-  width: 33px;
-  height: 33px;
+  width: var(--project-overlay-size);
+  height: var(--project-overlay-size);
   border-radius: var(--radius-sm);
   display: grid;
   place-items: center;
   background: var(--bg);
   color: var(--fg);
   font-size: 20px;
-  border: 1px solid var(--edge);
+  border: 0;
 }
 
 .project-grid {
@@ -995,6 +998,7 @@ html:not(.js) .cv-close {
 }
 
 .project-image {
+  --project-overlay-size: calc(var(--text-label) * 1.6 + 12px);
   position: relative;
   border: 1px solid var(--edge);
   border-radius: var(--radius-lg);
@@ -1043,15 +1047,48 @@ html:not(.js) .cv-close {
 .project-badges {
   position: absolute;
   left: 13px;
+  right: 12px;
   top: 13px;
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   gap: 6px;
-  max-width: calc(100% - 54px);
 }
 
 .project-badges .badge {
   position: static;
+}
+
+.project-institutions {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-shrink: 0;
+  gap: 4px;
+}
+
+.project-institution {
+  display: grid;
+  place-items: center;
+  width: var(--project-overlay-size);
+  height: var(--project-overlay-size);
+  padding: 3px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: #fff;
+  overflow: hidden;
+}
+
+.project-institution img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.project-institution .furhat-logo {
+  transform: scale(1.15);
 }
 
 .skills-grid {
@@ -2077,6 +2114,7 @@ html:not(.js) .cv-close {
     padding: 18px;
   }
   .project-image {
+    --project-overlay-size: calc(var(--text-label) * 1.6 + 8px);
     height: 230px;
   }
   .skills-grid {
