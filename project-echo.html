@@ -257,7 +257,8 @@
           <h1>Skin for Humanoid Echo</h1>
           <p class="project-lead">
             Investigating scalable whole-body tactile sensing and a compliant
-            protective skin for RSA’s student-led humanoid at TU Delft.
+            (soft and yielding) protective skin for RSA’s student-led humanoid
+            at TU Delft.
           </p>
           <dl class="project-facts">
             <div>
@@ -311,6 +312,7 @@
           <section id="context" class="case-section case-section--support">
             <div class="case-copy">
               <h2>Context</h2>
+              <p>Status at the beginning of the winter semester 2026/27.</p>
               <p>
                 Project Echo grew out of the 2025
                 <a
@@ -320,17 +322,17 @@
                   rel="noopener"
                   >RSA RoboArm competition</a
                 >. Wolf Lenssens founded the project with the goal of building
-                an open-source humanoid. It is currently the only project at TU
-                Delft pursuing this goal and is part of the
+                an open-source humanoid as part of the
                 <a
                   class="project-inline"
                   href="https://www.rsadelft.nl/"
                   target="_blank"
                   rel="noopener"
                   >Robotics Student Association (RSA)</a
-                >. The project is organised into Hand, Arm &amp; Torso, and
-                Embedded departments, with more than 15 members and growing
-                further. Its shared target is to take part in
+                >. At the beginning of the winter semester 2026/27, the project
+                had more than 15 members organised into Hand, Arm &amp; Torso,
+                and Embedded departments, with a skin team being developed. The
+                team’s planning target was to take part in
                 <a
                   class="project-inline"
                   href="https://rrl.robocup.org/"
@@ -338,7 +340,8 @@
                   rel="noopener"
                   >RoboCup Rescue</a
                 >
-                in April 2029, a competition testing robots in simulated
+                in April 2029. This is a team target, rather than a confirmed
+                competition date; the competition tests robots in simulated
                 disaster-response scenarios.
               </p>
             </div>
@@ -404,10 +407,11 @@
                 location, or also normal and shear forces? How much detail is
                 needed for safe contact with people, and should the outer
                 surface cover the mechanics or shape the robot? For rough
-                terrain, a robust cover, such as a leather jacket, and impedance
-                control might do the job. For interaction with people, a soft
-                surface and detailed, distributed touch sensing could matter
-                more.
+                terrain, a robust cover, such as a leather jacket, combined with
+                impedance control—a way of adjusting how the robot yields and
+                responds to external forces—might be enough for some needs. For
+                interaction with people, a soft surface and detailed,
+                distributed touch sensing could matter more.
               </p>
             </div>
           </section>
@@ -507,8 +511,7 @@
             </div>
             <div class="case-copy">
               <p>
-                Two additional approaches I find particularly interesting for
-                Echo's use case and resources are
+                Two approaches I am prioritising for investigation are
                 <a
                   class="project-inline"
                   href="https://e-flesh.com/"
@@ -523,40 +526,54 @@
                   target="_blank"
                   rel="noopener"
                   >conformal electrical impedance tomography (EIT) skin</a
-                >. eFlesh uses a soft, 3D-printed TPU structure with small
-                magnets embedded in it. When the surface is pressed, the
-                structure deforms and the magnets move. Magnetic sensors
-                underneath measure the resulting field changes; after
-                calibration, these readings can be used to estimate contact
-                position and force. EIT instead uses a flexible, electrically
-                conductive TPU sheet. When it is touched, conductive patches
-                make contact with the sheet and change the voltages measured
-                around its edge. Software then reconstructs where the contact
-                occurred. Both would let us start with small printed prototypes
-                and explore how their shape and softness could be adapted to
-                Echo.
+                >. Discussions with professors helped me identify them as
+                candidates we could explore with the resources and tools already
+                available to us, using comparatively approachable sensing
+                principles. Neither has been selected for Echo.
+              </p>
+              <p>
+                eFlesh uses a soft, 3D-printed structure made from TPU, a
+                flexible plastic, with small magnets embedded in it. Pressing
+                the surface deforms the structure and moves the magnets.
+                Magnetic sensors underneath measure the resulting field changes;
+                after calibration, these readings can be used to estimate
+                contact position and force. EIT instead uses an electrically
+                conductive TPU sheet. Contact from conductive patches changes
+                the voltages measured around its edge, allowing software to
+                reconstruct where contact occurred.
+              </p>
+              <p>
+                Both offer a way to begin with small printed prototypes and
+                explore shape and softness. The open questions differ: eFlesh
+                needs magnetic sensors and calibration, while EIT needs
+                electrical readout and contact-reconstruction software. We still
+                need to compare the build effort, reliability of contact
+                detection and behaviour on curved surfaces before choosing a
+                direction.
               </p>
             </div>
           </section>
           <section id="progress" class="case-section case-section--text">
             <div class="case-copy">
-              <h2>Current status and next steps</h2>
+              <h2>Status and plans for winter semester 2026/27</h2>
               <p>
-                The next phase focuses on obtaining physical samples and growing
-                the team. I plan to approach sensor suppliers and researchers
-                for samples or student kits, ideally with the readout hardware,
-                software and documentation needed to try them. Recruitment is
-                intended to bring in people with different expertise and ideas
-                around materials, design and electronics.
+                My plan for the winter semester 2026/27 focuses on obtaining
+                physical samples and growing the team. I plan to approach sensor
+                suppliers and researchers for samples or student kits, ideally
+                with the readout hardware, software and documentation needed to
+                try them. Recruitment is intended to bring in people with
+                different expertise and ideas around materials, design and
+                electronics.
               </p>
               <p>
-                The target for the first project evening on 3 December 2026 is
-                to have samples that I can show others to spark new ideas and to
-                show what skin could be useful for. Hopefully, by then, the skin
-                team will have grown so that we can start prototyping. If sample
-                outreach and recruitment do not lead to a workable path, the
-                fallback is a plan to build a prototype myself using one of the
-                two detection methods explained at the end of the last section.
+                For the first project evening, planned for 3 December 2026, my
+                target is to have samples that I can show others to spark new
+                ideas and to show what skin could be useful for. Hopefully, by
+                then, the skin team will have grown so that we can start
+                prototyping. If sample outreach and recruitment do not lead to a
+                workable path, the fallback is a plan to build a prototype
+                myself using one of the two detection methods explained at the
+                end of the last section.
               </p>
               <p>
                 That prototype would start with contact detection on a small

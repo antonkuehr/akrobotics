@@ -478,9 +478,10 @@
               </p>
               <p>
                 The camera approach used images to detect the balls and locate
-                their centres. We trained a YOLOv8n object detector on 2,445
-                self-collected images and ran it on the Raspberry Pi 5. Its
-                output included the detected class, confidence, image
+                their centres. We used PyTorch to train a YOLOv8n object
+                detector on 2,445 self-collected images and OpenCV for image
+                processing, then ran the camera pipeline on the Raspberry Pi 5.
+                Its output included the detected class, confidence, image
                 coordinates and colour.
               </p>
               <p>
@@ -540,9 +541,12 @@
               <p>
                 In the camera version, images reached the Raspberry Pi through a
                 ribbon cable. The Pi processed them and sent target information
-                over a serial connection to an Arduino Mega 2560. The Arduino
-                handled target heading and distance, together with the commands
-                for driving and grasping.
+                over a serial connection to an Arduino Mega 2560. The ball’s
+                horizontal position in the image guided steering corrections.
+                Its apparent image size at a known pickup distance defined when
+                the rover should stop, so the ball was within reach of the
+                gripper. The Arduino controlled the driving and grasping
+                sequence using that information.
               </p>
               <p>
                 Front-wheel encoders supplied motion feedback, and the Arduino

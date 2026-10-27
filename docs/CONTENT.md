@@ -36,6 +36,16 @@ Keep eFlesh’s magnetic lattice distinct from conductive-TPU EIT, capacitive mo
 - [TH Köln’s Deutschlandstipendium information](https://www.th-koeln.de/studium/fuer-studierende_6405.php) supports the funding amount, equal public/private financing, selection criteria and annual renewal review. The recipient’s funding period and sponsor follow the supplied certificate and portfolio information.
 - [Furhat Robotics](https://www.furhatrobotics.com/) supports the short company description. Employment dates and responsibilities follow the portfolio owner's supplied information.
 
+## Owner clarifications, 27 October 2026
+
+The portfolio owner clarified the following details for the explanatory copy:
+
+- Harvesting: PyTorch was used for the YOLOv8n training and OpenCV for image processing. The ball’s horizontal image position guided steering; its apparent size at a known pickup distance defined the drive-stop condition. This is not a claim of camera-based metric range measurement.
+- Cobot: software development and execution took place in a Docker environment. Annotation correction remains the main detector-development insight; uncertainty about the reported mAP evaluation belongs in optional technical detail.
+- Audio: Furhat used only one microphone for speech analysis, so development and evaluation focused on that side. Fabrication proceeded from FDM trials to silicone moulding, then resin printing and its initial difficulties, followed by usable resin-printed parts. March 2026 was the thesis submission; April covered the defence and project wrap-up. The original assembly’s error rates did not simply increase with added noise, and the tests did not establish the cause.
+- Echo: changing team facts and plans refer to the beginning of the winter semester 2026/27. April 2029 is the team’s participation target, not a confirmed competition date. Discussions with professors informed the prioritisation of eFlesh and EIT as candidates using available resources and tools; neither is a selected or validated Echo solution.
+- Education: the owner’s BSc focus included Human–Machine Interaction, Service and Industry Robotics, robotic projects in Product Engineering I and II, and the audio thesis. Programme descriptions should provide short context alongside this personal focus, without treating all offered modules as completed study.
+
 ## Evidence needed before stronger claims
 
 - Explicit responsibility allocation for shared projects and an updated record of Project Echo achievements.

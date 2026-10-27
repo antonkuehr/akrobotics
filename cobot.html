@@ -489,7 +489,9 @@
                 Kinect camera and microphones to retrieve or put away a
                 screwdriver and hammer. Because an ordinary hammer was too heavy
                 for the arm, the physical tests used a lightweight wooden
-                substitute.
+                substitute. All software development and execution took place in
+                a Docker environment, which packaged the services and their
+                dependencies together.
               </p>
             </div>
           </section>
@@ -501,9 +503,10 @@
               <h2>Connecting speech, vision and movement</h2>
               <p>
                 We organised the system into Speech, Vision and Arm services
-                coordinated by a ROS 2 manager. This gave each part a defined
-                responsibility while allowing the manager to route a request
-                through the required steps.
+                coordinated by a manager using ROS 2, a software framework that
+                lets robot components communicate. Each service had a defined
+                responsibility, while the manager routed requests through the
+                required steps.
               </p>
               <p>
                 A button press started recording. Whisper transcribed the
@@ -2761,6 +2764,16 @@
           <section id="perception" class="case-section case-section--text">
             <div class="case-copy">
               <h2>Finding the tools in the camera image</h2>
+
+              <p>
+                Correcting the training annotations helped our detector more
+                than adding images. Across seven iterations, adding datasets
+                during the first five did not improve detection performance;
+                removing incorrect annotations and correcting labels produced
+                the largest improvement. The final dataset contained 3,372
+                annotated hammer and screwdriver images assembled from public
+                Roboflow datasets and manually corrected.
+              </p>
               <p>
                 For the put-away task, we used a YOLO11m-obb detector to locate
                 the requested tool in the image. The depth measured at the
@@ -2769,21 +2782,29 @@
                 X simplified the coordinate conversion.
               </p>
               <p>
-                The detector dataset contained 3,372 annotated hammer and
-                screwdriver images assembled from public Roboflow datasets and
-                manually corrected. Across seven iterations, adding datasets
-                during the first five did not improve the metric. Removing
-                incorrect annotations and correcting labels produced the largest
-                improvement.
+                The detector achieved a reported mean average precision (mAP) of
+                81.4%, a score that summarises how well it found and labelled
+                objects. This evaluated the detector separately; it was not the
+                success rate of the complete tool-handling task.
               </p>
-              <p>
-                The reported detector result was 81.4% mean average precision, a
-                measure of object-detection performance. The report does not
-                specify the overlap-threshold aggregation or whether this value
-                came from the validation or test split, so it should be read
-                with those limits. It does not represent the success rate of the
-                complete tool-handling task.
-              </p>
+              <details class="technical-notes">
+                <summary>
+                  Detector evaluation details<span
+                    class="chevron"
+                    aria-hidden="true"
+                  ></span>
+                </summary>
+                <div class="technical-content">
+                  <p>
+                    Mean average precision depends on how closely a predicted
+                    box must overlap the annotated object to count as a match.
+                    The recorded 81.4% result did not identify which overlap
+                    thresholds were combined, or whether it came from the
+                    validation or test images. This limits comparisons with
+                    scores from other detector evaluations.
+                  </p>
+                </div>
+              </details>
             </div>
           </section>
           <section id="arm-control" class="case-section case-section--figure">
@@ -2867,8 +2888,9 @@
                     >
                   </div>
                   <p>
-                    These equations match the arm-service implementation. All
-                    inverse-trigonometric results are converted to degrees.
+                    The arm service used these equations to convert a target
+                    position into joint angles. All inverse-trigonometric
+                    results are converted to degrees.
                   </p>
                   <div class="ik-equation-panels">
                     <section>

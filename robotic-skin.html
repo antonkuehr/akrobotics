@@ -423,19 +423,21 @@
                 forming an 8 × 8 matrix with 64 sensing locations. Elastic
                 separators keep the tracks apart until pressure compresses the
                 material enough for them to touch through openings in the
-                separator. An Arduino activates the sender tracks one at a time
-                and checks which receiver tracks are connected. The combination
-                of an active sender and receiver identifies the contact
-                location.
+                separator.
               </p>
               <p>
-                We used one sender layer and two receiver layers, separated by
-                materials with different triggering thresholds. This provided
-                two discrete contact levels in addition to the untouched state.
-                It could distinguish between those levels, but did not
-                continuously measure force. The diagram below shows the
-                arrangement of conductive layers, separators and protective
-                covers.
+                A sender layer sits between two receiver layers, with a
+                separator on each side. Under light contact, the separator with
+                the lower triggering threshold compresses enough for the sender
+                to touch one receiver layer. Stronger contact also compresses
+                the other separator enough to connect the sender to the second
+                receiver layer. Together with the untouched state, these
+                connections distinguish two contact levels; they do not provide
+                a continuous force measurement. An Arduino activates the sender
+                tracks one at a time and checks which receiver tracks are
+                connected, locating contact from the active sender–receiver
+                combination. The diagram below shows the conductive layers,
+                separators and protective covers.
               </p>
             </div>
             <div class="case-media-grid">
@@ -527,8 +529,9 @@
               <p>
                 Each track was 5 mm wide, with 8 mm between track centres. We
                 used laser-perforated EVA foam between the sensing layers.
-                Changing its thickness and fill density changed how much
-                pressure was needed to bring the conductors into contact.
+                Changing its thickness and fill density—the proportion of solid
+                foam left after perforation—changed how much pressure was needed
+                to bring the conductors into contact.
               </p>
             </div>
             <div class="case-media-grid">

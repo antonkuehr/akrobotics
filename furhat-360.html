@@ -435,11 +435,11 @@
                 the neck alone.
               </p>
               <p>
-                I worked with Furhat’s Prototyping &amp; Concepting team on a
-                demonstrator, with the documented design, prototyping and
-                assembly taking two weeks in May 2025. We used the robot’s
-                existing visual tracking and onboard computer, adding a
-                mechanical drive and a separate controller for body rotation.
+                Over two weeks in May 2025, I worked with Furhat’s Prototyping
+                &amp; Concepting team to design, prototype and assemble a
+                body-rotation demonstrator. We used the robot’s existing visual
+                tracking and onboard computer, adding a mechanical drive and a
+                separate controller for body rotation.
               </p>
             </div>
           </section>
@@ -644,9 +644,11 @@
               <p>
                 Furhat’s existing visual-tracking system, CamCore, supplied the
                 detected user’s three-dimensional position. Our body controller
-                converted that position into a horizontal turning angle. A PID
-                controller then used the angular error to request a motor
-                velocity, allowing the body to turn towards the user. The
+                converted that position into a horizontal turning angle. A
+                proportional–integral–derivative (PID) controller adjusted motor
+                velocity using the difference between the current and target
+                angles, its accumulated history and how quickly it changed. This
+                feedback allowed the body to turn towards the user. The
                 demonstrator followed only the first detected user, identified
                 as User0. Position data arrived over ZeroMQ, while an additional
                 motor controller connected to the computer through USB and

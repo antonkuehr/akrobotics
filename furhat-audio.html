@@ -429,8 +429,9 @@
                 unchanged. Within those constraints, I carried out the research,
                 developed the mount, built the prototype and evaluated its
                 performance. The formal thesis lasted nine weeks, with
-                submission in March 2026. The project period shown above also
-                includes preparation before the thesis.
+                submission in March 2026. The January–April project period also
+                includes preparation before the formal thesis, followed by the
+                defence and project wrap-up in April.
               </p>
             </div>
             <div class="document-links">
@@ -601,28 +602,26 @@
               <h2>Turning the design into a prototype</h2>
               <p>
                 Turning the concept into a working prototype meant reproducing
-                the small acoustic channel with the available resources while
-                staying within the design limitations of the existing system.
-                Fabrication trials exposed several design difficulties: the
-                available filament printer struggled with the small features,
-                thin resin-printed walls could break or fail to print, and
-                printing at an angle distorted the channel’s cross-section.
-                Silicone casting also proved difficult because the thin walls
-                were hard to produce and the parts were difficult to remove from
-                the mould. I also discovered that I only had to develop one
-                microphone side because the robot’s internal recording interface
-                is mono.
+                the small acoustic channel within the space available inside
+                Furhat. I first tried fused deposition modelling (FDM), which
+                builds parts from melted plastic filament, but the available
+                printer struggled with the small features. I then tried silicone
+                moulding; the thin walls were difficult to produce, and removing
+                the parts from the mould was challenging. Switching to more
+                precise resin printing brought its own initial problems: thin
+                walls could break or fail to print, while printing at an angle
+                distorted the channel’s cross-section.
               </p>
               <p>
-                Based on these initial findings, I switched to more precise
-                resin printing, and then iteratively optimised the geometry and
-                channel dimensions and print settings. The final channel
-                measured 1.6 mm in diameter and 3.1 mm in length and fitted
-                neatly into the Furhat. The assembly consisted of Mount A, which
-                formed the acoustic channel and attached to the shell with a
-                thin silicone seal around the entrance, and Mount B, which held
-                the circuit board in compressed closed-cell foam. A plug closed
-                the enclosure and supported the cable routing. Rigid connections
+                By iterating on the geometry, channel dimensions and print
+                settings, I eventually produced resin-printed parts accurate and
+                robust enough to assemble and test. The final channel measured
+                1.6 mm in diameter and 3.1 mm in length and fitted inside
+                Furhat. The assembly consisted of Mount A, which formed the
+                acoustic channel and attached to the shell with a thin silicone
+                seal around the entrance, and Mount B, which held the circuit
+                board in compressed closed-cell foam. A plug closed the
+                enclosure and supported the cable routing. Rigid connections
                 remained, so the assembly did not fully isolate the microphone
                 from the surrounding structure. The photographs below show how
                 these parts came together, from the shell attachment and foam
@@ -671,8 +670,10 @@
             <div class="case-copy">
               <h2>Testing speech recognition</h2>
               <p>
-                To find out whether the redesign helped, I compared the original
-                and modified assemblies under the same test setup:
+                Furhat used only one microphone for speech analysis, so I
+                developed and evaluated the mount on that side. To find out
+                whether the redesign helped, I compared the original and
+                modified assemblies under the same test setup:
               </p>
               <ul>
                 <li>
@@ -807,16 +808,19 @@
                 </table>
               </div>
               <p>
-                The result supported the redesigned assembly under these test
-                conditions.
+                The redesigned assembly had a lower mean error rate in each
+                tested condition. However, errors did not simply increase as the
+                background noise increased: the original assembly had its
+                highest mean error rate in the 20 dB condition, with no added
+                noise. These tests did not establish why that happened.
               </p>
               <p>
                 I also tested an external ReSpeaker microphone as a reference.
-                It achieved 9.5% mean word error rate at 5 dB, which is almost
-                twice as good as my redesign. On the other hand, its position
-                approximately 30 cm closer to the sound source and different
-                signal chain prevented a direct comparison of microphone
-                mounting alone.
+                At 5 dB, it achieved a mean word error rate of 9.5%, compared
+                with 17.8% for the redesigned assembly. The ReSpeaker was
+                approximately 30 cm closer to the sound source and used a
+                different signal chain, so the comparison does not isolate the
+                effect of the microphone mount.
               </p>
               <p>
                 Alongside the built and evaluated prototype, I handed over
