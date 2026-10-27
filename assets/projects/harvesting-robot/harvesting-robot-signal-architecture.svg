@@ -3,12 +3,12 @@
   <desc id="desc">Camera images reach a Raspberry Pi 5, which sends object data to the Arduino Mega 2560. The Arduino commands the Sabertooth motor controller, servo shield and fans, and receives front-wheel encoder feedback. The motor controller drives four wheels; the servo shield drives the six-servo Grab-it arm.</desc>
   <style>text { fill: #071c17; font: 18px Aptos, "Segoe UI", Arial, sans-serif; text-anchor: middle; }
 .small { font-size: 16px; fill: #284d3c; }
-.group { font-size: 16px; font-weight: 600; fill: #284d3c; letter-spacing: 0.06em; paint-order: stroke; stroke: #b8cbbd; stroke-width: 5px; }
+.group { font-size: 16px; font-weight: 600; fill: #284d3c; letter-spacing: 0.06em; paint-order: stroke; stroke: #a6bcad; stroke-width: 5px; }
 .node { fill: #c9d9cc; stroke: #527363; stroke-width: 1; }
 .edge { fill: none; stroke: #173c30; stroke-width: 1.8; stroke-linejoin: round; marker-end: url(#arrow); }
 .optical, .p12 { stroke: #8d3f23; marker-end: url(#arrow-warm); }
 .p5 { stroke: #255f49; marker-end: url(#arrow-green); }
-.label { font-size: 16px; fill: #284d3c; paint-order: stroke; stroke: #b8cbbd; stroke-width: 5px; stroke-linejoin: round; }</style>
+.label { font-size: 16px; fill: #284d3c; paint-order: stroke; stroke: #a6bcad; stroke-width: 5px; stroke-linejoin: round; }</style>
   <defs>
     <marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
       <path d="M0 0 8 4 0 8Z" fill="#173c30" />
@@ -20,7 +20,7 @@
       <path d="M0 0 8 4 0 8Z" fill="#255f49" />
     </marker>
   </defs>
-  <rect width="1100" height="680" fill="#b8cbbd" />
+  <rect width="1100" height="680" fill="#a6bcad" />
   <g class="connections">
     <path class="edge" d="M145 148 V265" />
     <path class="edge" d="M260 299 H360" />

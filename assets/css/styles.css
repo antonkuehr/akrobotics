@@ -14,7 +14,7 @@
 
   --bg-rgb: 7, 28, 23;
 
-  --portfolio-image-bg: #b8cbbd;
+  --portfolio-image-bg: #a6bcad;
 
   /* Corner sizes: controls, images, and larger cards. */
   --radius-sm: 8px;
@@ -1288,6 +1288,7 @@ html:not(.js) .cv-close {
 }
 
 .project-overview > .case-media-grid,
+.project-overview > .case-figure,
 .project-overview > .case-video {
   margin-top: 24px;
 }
@@ -1358,10 +1359,11 @@ html:not(.js) .cv-close {
 
 .figure-media {
   position: relative;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 440px;
-  padding: 12px;
+  padding: 24px;
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   background: var(--portfolio-image-bg);
@@ -1370,10 +1372,32 @@ html:not(.js) .cv-close {
 
 .figure-media img {
   display: block;
+  flex: 0 1 auto;
   width: 100%;
   height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  min-width: 0;
   min-height: 0;
   object-fit: contain;
+  object-position: center;
+}
+
+/* Optical corrections for transparent subject placement on project pages. */
+.figure-media--rotation-overview img {
+  transform: translateY(8px);
+}
+.figure-media--built-drive img {
+  transform: translate(5%, 3%);
+}
+.figure-media--supplier-exterior img {
+  transform: translate(2%, -4%);
+}
+.figure-media--supplier-open img {
+  transform: translateX(-2%);
+}
+.figure-media--echo-main img {
+  transform: translateY(-3%);
 }
 
 .figure-media.figure-media--mount-concept,
@@ -1402,6 +1426,7 @@ html:not(.js) .cv-close {
 }
 .figure-media--drive img {
   width: min(100%, 440px);
+  transform: translate(-1%, 2%);
 }
 .register-steps {
   display: grid;
@@ -1446,15 +1471,15 @@ html:not(.js) .cv-close {
 }
 .skin-pressure-plot {
   max-width: 660px;
-  margin-inline: auto;
+  margin: 24px auto 0;
 }
-.results-table--skin {
+.results-table--stacked {
   table-layout: fixed;
 }
-.results-table--skin th:first-child {
+.results-table--stacked th:first-child {
   width: 20%;
 }
-.results-table--skin th:nth-child(2) {
+.results-table--stacked th:nth-child(2) {
   width: 32%;
 }
 @media (max-width: 700px) {
@@ -1464,17 +1489,17 @@ html:not(.js) .cv-close {
   .register-bits {
     max-width: 300px;
   }
-  .results-table--skin,
-  .results-table--skin tbody,
-  .results-table--skin tr,
-  .results-table--skin td {
+  .results-table--stacked,
+  .results-table--stacked tbody,
+  .results-table--stacked tr,
+  .results-table--stacked td {
     display: block;
     width: 100%;
   }
-  .results-table--skin caption {
+  .results-table--stacked caption {
     display: block;
   }
-  .results-table--skin thead {
+  .results-table--stacked thead {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -1482,15 +1507,15 @@ html:not(.js) .cv-close {
     overflow: hidden;
     clip-path: inset(50%);
   }
-  .results-table--skin tbody tr {
+  .results-table--stacked tbody tr {
     padding-block: 12px;
     border-bottom: 1px solid var(--line);
   }
-  .results-table--skin td {
+  .results-table--stacked td {
     padding: 8px 0;
     border: 0;
   }
-  .results-table--skin td::before {
+  .results-table--stacked td::before {
     content: attr(data-label);
     display: block;
     color: var(--fg);
@@ -1616,9 +1641,9 @@ html:not(.js) .cv-close {
 }
 
 .results-table--harvesting caption {
-  caption-side: bottom;
-  margin: 0;
-  padding-top: 12px;
+  caption-side: top;
+  margin: 0 0 12px;
+  padding-top: 0;
 }
 
 .results-table th,
@@ -2436,7 +2461,7 @@ html:not(.js) .cv-close {
   }
   .figure-media {
     height: 340px;
-    padding: 8px;
+    padding: 16px;
   }
 }
 
@@ -2599,11 +2624,12 @@ html:not(.js) .cv-close {
 }
 .harvesting-unit .figure-media {
   height: auto;
-  padding: 0;
-  border: 0;
+  padding: 24px;
+  border: 1px solid var(--line);
 }
 .harvesting-unit .figure-media img {
   height: auto;
+  transform: translate(1%, -4%);
 }
 .prototype-intro {
   margin-bottom: 24px;
@@ -2623,7 +2649,7 @@ html:not(.js) .cv-close {
   align-items: center;
   justify-content: center;
   gap: 18px;
-  padding: 20px;
+  padding: 24px;
 }
 .audio-overview-media > img {
   width: 51%;
@@ -2642,7 +2668,7 @@ html:not(.js) .cv-close {
 @media (max-width: 580px) {
   .audio-overview-media {
     height: 200px;
-    padding: 12px;
+    padding: 16px;
     gap: 12px;
   }
 }
@@ -3027,4 +3053,126 @@ html:not(.js) .cv-close {
 }
 .skin-project-date {
   text-transform: none;
+}
+
+/* Shared figure treatment for tables and native project graphics. */
+.project-page
+  :is(
+    .results-table-wrap,
+    .heatmap-panel,
+    .technical-graphic,
+    .ros-flow,
+    .register-steps,
+    .case-workflow:not(.control-flow)
+  ) {
+  min-width: 0;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--portfolio-image-bg);
+  color: var(--bg);
+}
+.project-page .results-table-wrap .results-table,
+.project-page .results-table-wrap .results-table :is(th, caption),
+.project-page .results-table-wrap .results-table tbody tr:last-child td,
+.project-page .results-table--stacked td::before {
+  color: var(--bg);
+}
+.project-page .results-table-wrap .results-table :is(th, td) {
+  border-bottom-color: var(--line);
+}
+.project-page .heatmap-panel .heatmap-table,
+.project-page
+  .heatmap-panel
+  .heatmap-table
+  :is(caption, thead th, tfoot th, tfoot td) {
+  color: var(--bg);
+}
+.project-page .heatmap-panel .heatmap-table :is(th, td) {
+  border-bottom-color: var(--line);
+}
+.project-page .register-steps :is(h4, p, .register-serial),
+.project-page .case-workflow:not(.control-flow) :is(h3, figcaption) {
+  color: var(--bg);
+}
+.project-page .register-bits .is-active {
+  background: var(--line);
+  color: var(--fg);
+}
+.project-page .register-steps li {
+  border-top-color: var(--line);
+}
+@media (max-width: 700px) {
+  .project-page
+    :is(
+      .results-table-wrap,
+      .heatmap-panel,
+      .technical-graphic,
+      .ros-flow,
+      .register-steps,
+      .case-workflow:not(.control-flow)
+    ) {
+    padding: 16px;
+  }
+}
+
+/* Dark strokes retain contrast on the light-green diagram backgrounds. */
+.project-page
+  .ros-flow
+  :is(.ros-connector, .ros-end, .ros-decision, .ros-merge) {
+  stroke: var(--line);
+}
+.project-page .ros-flow marker path {
+  fill: var(--line);
+}
+
+/* The shared table grid uses dark separators inside the green panels. */
+.project-page :is(.results-table, .heatmap-table) :is(th, td) + :is(th, td) {
+  border-inline-start: 1px solid var(--line);
+}
+.project-page .results-table :is(th, td) + :is(th, td) {
+  padding-inline-start: 12px;
+}
+.figure-media--skin-layers img {
+  width: 88%;
+  height: 88%;
+}
+
+/* Distinguish the two command paths and their shared entry/error steps. */
+.case-workflow:not(.control-flow) .workflow-branches {
+  border-block: 1px solid var(--line);
+  padding-block: 20px;
+}
+.case-workflow:not(.control-flow) .workflow-branches > div + div {
+  border-inline-start: 1px solid var(--line);
+  padding-inline-start: 24px;
+}
+@media (max-width: 700px) {
+  .case-workflow:not(.control-flow) .workflow-branches {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .case-workflow:not(.control-flow) .workflow-branches > div + div {
+    border-inline-start: 0;
+    border-top: 1px solid var(--line);
+    padding-inline-start: 0;
+    padding-top: 20px;
+  }
+  .project-page .results-table :is(th, td) + :is(th, td) {
+    padding-inline-start: 8px;
+  }
+  .project-page .results-table--stacked td + td {
+    border-inline-start: 0;
+    padding-inline-start: 0;
+  }
+}
+
+/* Return from the last project with the end of the overview still visible. */
+#portfolio-end {
+  scroll-margin-top: calc(100vh - 109px);
+  scroll-margin-top: calc(100svh - 109px);
+}
+
+/* Arrival highlighting stays quiet; normal keyboard focus returns on interaction. */
+.project-card.is-overview-return:focus-visible {
+  outline: none;
 }

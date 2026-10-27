@@ -464,3 +464,46 @@ for (const details of document.querySelectorAll("details:not(.project-menu)")) {
     .querySelector(".cv-close")
     ?.addEventListener("click", () => toggle(false, true));
 }
+
+// Return to the current project in the overview without a fragment-focus outline.
+let overviewReturnCancelled = false;
+let overviewReturnFrame;
+function centerOverviewReturn() {
+  if (overviewReturnCancelled) return;
+  const id = window.location.hash.slice(1);
+  const card = document.getElementById(id);
+  if (!card?.matches(".project-card")) return;
+  card.classList.add("is-overview-return");
+  if (document.activeElement === card) card.blur();
+  card.scrollIntoView({
+    block: "center",
+    inline: "nearest",
+    behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      ? "instant"
+      : "smooth",
+  });
+}
+function scheduleOverviewReturn() {
+  cancelAnimationFrame(overviewReturnFrame);
+  overviewReturnFrame = requestAnimationFrame(centerOverviewReturn);
+}
+function beginOverviewReturn() {
+  overviewReturnCancelled = false;
+  scheduleOverviewReturn();
+}
+window.addEventListener("pageshow", beginOverviewReturn);
+window.addEventListener("hashchange", beginOverviewReturn);
+document.fonts?.ready.then(scheduleOverviewReturn);
+for (const eventName of ["pointerdown", "keydown", "wheel", "touchstart"]) {
+  document.addEventListener(
+    eventName,
+    () => {
+      overviewReturnCancelled = true;
+      cancelAnimationFrame(overviewReturnFrame);
+      for (const card of document.querySelectorAll(".is-overview-return")) {
+        card.classList.remove("is-overview-return");
+      }
+    },
+    { passive: true },
+  );
+}

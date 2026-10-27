@@ -16,3 +16,5 @@ node_modules/
 
 # Retain the original video locally; publish the compressed MP4.
 /assets/projects/robotic-skin/Videovorstellung.MOV
+/assets/projects/voice-cobot/*.mov
+/assets/projects/harvesting-robot/*.mov
