@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 900" width="400" height="900" role="img" aria-labelledby="title desc">
   <title id="title">ToF scanning and camera-based object detection</title>
-  <desc id="desc">Camera and ToF sensing are shown as alternative branches. Each has a separate target-information input on the Arduino. Reflected light and servo-sweep commands enter the ToF sensor at different ports. Drive commands and encoder feedback also use distinct ports.</desc>
+  <desc id="desc">The Raspberry Pi produces object boxes, classes and confidence scores internally, then calculates centres and colour. Its serial payload to the Arduino contains image width, image height, centre X, centre Y and colour. The Arduino estimates target heading and approach distance and controls driving and grasping. Classes and confidence are not transmitted. The alternative ToF branch supplies range measurements from the servo-swept sensor.</desc>
   <style>text { fill: #071c17; font: 18px Aptos, "Segoe UI", Arial, sans-serif; text-anchor: middle; }
 .small { font-size: 16px; fill: #284d3c; }
 .group { font-size: 16px; font-weight: 600; fill: #284d3c; letter-spacing: 0.06em; paint-order: stroke; stroke: #a6bcad; stroke-width: 5px; }
@@ -62,8 +62,8 @@
     <text x="65" y="120" class="label">Image</text>
     <text x="333" y="120" class="label">Light</text>
     <text x="147" y="305" class="label">Images</text>
-    <text x="153" y="470" class="label">Target data</text>
-    <text x="143" y="493" class="label">serial</text>
+    <text x="153" y="470" class="label">Serial: image W/H</text>
+    <text x="153" y="493" class="label">centre X/Y · colour</text>
     <text x="327" y="470" class="label">Range</text>
     <text x="356" y="394" class="label">Sweep</text>
     <text x="110" y="688" class="label">Drive +</text>

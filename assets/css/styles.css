@@ -1352,6 +1352,7 @@ html:not(.js) .cv-close {
 .case-section--figure > .case-media-grid,
 .case-section--figure > .case-workflow,
 .case-section--results > .case-figure,
+.case-section--results > .case-video,
 .case-section--video > .case-video {
   margin-top: 24px;
 }

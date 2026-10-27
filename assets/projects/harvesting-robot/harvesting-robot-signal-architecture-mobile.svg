@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 1010" width="400" height="1010" role="img" aria-labelledby="title desc">
   <title id="title">Camera detection and harvesting control</title>
-  <desc id="desc">The camera-to-controller path runs down the centre. Drive and arm control branch to separate actuators. Front-wheel encoders return digital feedback at the left controller port; fan commands leave through a separate right port. No arrowheads share a destination port.</desc>
+  <desc id="desc">The Raspberry Pi produces object boxes, classes and confidence scores internally, then calculates centres and colour. Its serial payload to the Arduino contains image width, image height, centre X, centre Y and colour. The Arduino estimates target heading and approach distance and controls driving and grasping. Classes and confidence are not transmitted.</desc>
   <style>text { fill: #071c17; font: 18px Aptos, "Segoe UI", Arial, sans-serif; text-anchor: middle; }
 .small { font-size: 16px; fill: #284d3c; }
 .group { font-size: 16px; font-weight: 600; fill: #284d3c; letter-spacing: 0.06em; paint-order: stroke; stroke: #a6bcad; stroke-width: 5px; }
@@ -66,7 +66,7 @@
   </g>
   <g class="annotations">
     <text x="247" y="147" class="label">Images</text>
-    <text x="200" y="304" class="label">Object data · serial</text>
+    <text x="200" y="292" class="label"><tspan x="200">Serial: image width/height</tspan><tspan x="200" dy="24">centre X/Y · colour</tspan></text>
     <text x="118" y="488" class="label">Serial</text>
     <text x="282" y="488" class="label">Servo control</text>
     <text x="142" y="690" class="label">PWM</text>

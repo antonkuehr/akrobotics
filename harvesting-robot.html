@@ -50,7 +50,7 @@
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/styles.css?v=199" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=200" />
     <link rel="stylesheet" href="assets/css/wordmark-motion.css?v=2" />
     <script src="assets/js/site.js?v=36" defer></script>
     <script src="assets/js/wordmark-shapes.js?v=1" defer></script>
@@ -298,8 +298,8 @@
             <div>
               <dt>My contribution</dt>
               <dd>
-                Software and hardware architecture; computer-vision performance
-                optimisation
+                Software and hardware architecture; camera processing,
+                optimisation and integration
               </dd>
             </div>
             <div class="project-collaborators">
@@ -383,8 +383,8 @@
 
           <div class="project-overview">
             <p class="project-result">
-              <strong>Retrieval time: 50.9 → 2.8 s/m</strong> in the indoor
-              comparison across 18 target positions.
+              <strong>Target-approach time: 50.9 → 2.8 s/m</strong> in the
+              indoor comparison across 18 target positions.
             </p>
             <figure class="case-figure harvesting-unit">
               <a
@@ -443,7 +443,7 @@
                 explored that sequence on an indoor rover, using plastic balls
                 as stand-ins for apples. Combining a mobile base, robotic arm
                 and gripper allowed us to compare how two sensing approaches
-                affected the complete retrieval task.
+                affected target approach and collection.
               </p>
               <p>
                 During the second and third semesters of my bachelor’s degree,
@@ -455,11 +455,13 @@
               <p>
                 The later comparison, from April to September 2024, built on
                 that work. Denis Tolkovets and I compared the existing scanning
-                approach with camera-based object detection. My responsibilities
-                covered software and hardware architecture and computer-vision
-                performance optimisation, including development and deployment
-                of the camera pipeline on a Raspberry Pi 5. The platform and
-                comparison were joint work.
+                approach with camera-based object detection. Denis was primarily
+                responsible for preparing and training the custom detection
+                model. My work covered software and hardware architecture and
+                the camera-processing pipeline: capturing and processing images,
+                optimising performance and integrating the output with the
+                rover’s control system. The original platform, sensing-system
+                comparison and experimental evaluation were collaborative work.
               </p>
             </div>
           </section>
@@ -474,22 +476,36 @@
                 estimates distance from the travel time of emitted light. A
                 servo swept the VL53L1X sensor across the scene, allowing the
                 rover to search for targets through a sequence of range
-                measurements.
+                measurements. Slow sweeps helped reduce measurement errors but
+                delayed target updates. Reflections from the floor and the
+                ball’s surface also made detection close to the ground
+                difficult.
               </p>
               <p>
-                The camera approach used images to detect the balls and locate
-                their centres. We used PyTorch to train a YOLOv8n object
-                detector on 2,445 self-collected images and OpenCV for image
-                processing, then ran the camera pipeline on the Raspberry Pi 5.
-                Its output included the detected class, confidence, image
-                coordinates and colour.
+                To locate balls in the test environment, a Raspberry Pi Camera
+                Module 3 Wide captured images for a Python pipeline running on a
+                Raspberry Pi 5. Cropping removed irrelevant background, and
+                resizing reduced the amount of image data to process. The
+                pipeline used OpenCV for image processing and
+                Ultralytics/PyTorch for object detection. Denis led the
+                adaptation of a pre-trained YOLOv8n detector using 2,445
+                self-collected images with AI-assisted annotation.
               </p>
               <p>
-                The diagram below follows both sensing paths. They supplied
-                different types of target information, but both connected to the
-                rover’s approach and collection process. This allowed us to
-                compare how the complete retrieval task performed with each
-                sensing method.
+                The detector returned bounding boxes, object classes and
+                confidence scores. My processing code calculated each box’s
+                centre and used OpenCV to identify the dominant object colour
+                through HSV (hue, saturation and value) colour thresholds. The
+                serial message sent to the Arduino Mega 2560 contained image
+                width and height, centre X and Y coordinates, and colour;
+                classes and confidence scores remained within the
+                camera-processing software.
+              </p>
+              <p>
+                The diagram below follows both sensing paths: successive range
+                measurements in the ToF branch and processed camera images in
+                the vision branch. Both supplied target information to the
+                Arduino, which controlled the approach and collection sequence.
               </p>
             </div>
             <figure class="technical-figure">
@@ -499,13 +515,13 @@
                   ><source
                     media="(max-width: 700px)"
                     srcset="
-                      assets/projects/harvesting-robot/harvesting-robot-sensing-system-comparison-mobile.svg?v=196
+                      assets/projects/harvesting-robot/harvesting-robot-sensing-system-comparison-mobile.svg?v=7d7f22a37880
                     "
                     width="400"
                     height="900" />
                   <img
-                    src="assets/projects/harvesting-robot/harvesting-robot-sensing-system-comparison.svg?v=196"
-                    alt="Camera images pass through YOLOv8n on a Raspberry Pi; a servo-swept ToF sensor supplies range measurements. Both paths guide target collection through the Arduino controller."
+                    src="assets/projects/harvesting-robot/harvesting-robot-sensing-system-comparison.svg?v=65612c804850"
+                    alt="The camera branch sends image dimensions, centre coordinates and colour to the Arduino; the ToF branch supplies range measurements. The Arduino controls approach and collection."
                     width="1040"
                     height="750"
                     loading="lazy"
@@ -519,7 +535,7 @@
               <p class="figure-download">
                 <a
                   class="figure-full"
-                  href="assets/projects/harvesting-robot/harvesting-robot-sensing-system-comparison.svg?v=196"
+                  href="assets/projects/harvesting-robot/harvesting-robot-sensing-system-comparison.svg?v=65612c804850"
                   target="_blank"
                   rel="noopener"
                   >Full
@@ -539,20 +555,19 @@
             <div class="case-copy">
               <h2>Connecting perception to the rover</h2>
               <p>
-                In the camera version, images reached the Raspberry Pi through a
-                ribbon cable. The Pi processed them and sent target information
-                over a serial connection to an Arduino Mega 2560. The ball’s
-                horizontal position in the image guided steering corrections.
-                Its apparent image size at a known pickup distance defined when
-                the rover should stop, so the ball was within reach of the
-                gripper. The Arduino controlled the driving and grasping
-                sequence using that information.
+                The Arduino interpreted the ball’s position within the image to
+                estimate its direction and approach distance in the fixed camera
+                setup. It used the horizontal coordinate for steering and the
+                vertical coordinate to judge the approach distance, adjusting
+                the rover’s movement towards the ball before coordinating the
+                grasp sequence.
               </p>
               <p>
                 Front-wheel encoders supplied motion feedback, and the Arduino
-                also controlled the cooling fans. The signal diagram shows how
-                information passed from the camera through processing and
-                control to the wheel motors and arm.
+                also controlled the cooling fans. The signal diagram below
+                separates the camera-processing output from the Arduino’s motor
+                and arm commands: only image dimensions, centre coordinates and
+                colour crossed the camera-to-controller serial link.
               </p>
             </div>
             <figure class="technical-figure">
@@ -564,13 +579,13 @@
                   ><source
                     media="(max-width: 700px)"
                     srcset="
-                      assets/projects/harvesting-robot/harvesting-robot-signal-architecture-mobile.svg?v=196
+                      assets/projects/harvesting-robot/harvesting-robot-signal-architecture-mobile.svg?v=9450eeb5370a
                     "
                     width="400"
                     height="1010" />
                   <img
-                    src="assets/projects/harvesting-robot/harvesting-robot-signal-architecture.svg?v=196"
-                    alt="Camera images reach the Raspberry Pi, which sends object data to the Arduino. The Arduino commands wheel motors, arm and fans, and receives wheel-encoder feedback."
+                    src="assets/projects/harvesting-robot/harvesting-robot-signal-architecture.svg?v=edbeeaff7b52"
+                    alt="The Raspberry Pi processes camera images and sends image width, height, centre X/Y and colour to the Arduino. The Arduino commands wheel motors, arm and fans and receives encoder feedback."
                     width="1100"
                     height="680"
                     loading="lazy"
@@ -578,12 +593,13 @@
                 /></picture>
               </div>
               <figcaption>
-                Perception, control and actuation: image and serial data, motor
-                and servo PWM, fan control and encoder feedback.
+                Perception, control and actuation: image dimensions, centre
+                coordinates and colour over serial, motor and servo PWM, fan
+                control and encoder feedback.
               </figcaption>
               <p class="figure-download">
                 <a
-                  href="assets/projects/harvesting-robot/harvesting-robot-signal-architecture.svg?v=196"
+                  href="assets/projects/harvesting-robot/harvesting-robot-signal-architecture.svg?v=edbeeaff7b52"
                   target="_blank"
                   rel="noopener"
                   >Full
@@ -650,20 +666,23 @@
           </section>
           <section id="results" class="case-section case-section--results">
             <div class="case-copy">
-              <h2>Comparing retrieval performance</h2>
+              <h2>Comparing target-approach performance</h2>
               <p>
                 We compared the two implementations across 18 target positions
-                on the same indoor track. The measurement covered the complete
-                retrieval process: finding the target, approaching it and
-                collecting it. We expressed retrieval time per metre to relate
-                the result to the target’s distance from the rover.
+                on the same indoor track. Timing began at the start of the
+                driving sequence and ended when the grasp sequence began, so it
+                measured target approach and excluded grasping duration. We
+                expressed target-approach time per metre to relate it to the
+                target’s distance from the rover. Unsuccessful collection was
+                recorded separately as a task failure.
               </p>
               <p>
-                Mean retrieval time was 50.9 seconds per metre for ToF scanning
-                and 2.8 seconds per metre for camera detection. In this
-                comparison, the camera version completed retrieval in
-                approximately one eighteenth of the time per metre. The table
-                below summarises the timing and observed task failures.
+                Mean target-approach time was 50.9 seconds per metre for ToF
+                scanning and 2.8 seconds per metre for camera detection. In this
+                comparison, the camera version reached the start of the grasp
+                sequence in approximately one eighteenth of the time per metre.
+                The table below summarises the timing and observed task
+                failures.
               </p>
             </div>
             <div class="case-copy">
@@ -682,7 +701,7 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td>Mean retrieval time</td>
+                      <td>Mean target-approach time</td>
                       <td>50.9 s/m</td>
                       <td>2.8 s/m</td>
                     </tr>
@@ -703,27 +722,27 @@
               </p>
             </div>
             <div class="case-copy">
-              <h3>Retrieval times at all 18 target positions</h3>
+              <h3>Target-approach times at all 18 target positions</h3>
             </div>
             <div class="case-copy">
               <p>
-                The detailed heatmaps show how retrieval time varied with target
-                position. Rows indicate distance from the rover, while the three
-                coloured columns represent targets to the left, on the centre
-                line and to the right. The side positions are 0.5 m from the
-                centre line.
+                The detailed heatmaps show how target-approach time varied with
+                target position. Rows indicate distance from the rover, while
+                the three coloured columns represent targets to the left, on the
+                centre line and to the right. The side positions are 0.5 m from
+                the centre line.
               </p>
               <p>
-                Each coloured cell contains a retrieval time in seconds. Both
-                maps use the same colour scale, with darker green indicating a
-                longer time. The final column gives the mean time for each
-                distance divided by that distance, expressed in seconds per
-                metre.
+                Each coloured cell contains a target-approach time in seconds.
+                Both maps use the same colour scale, with darker green
+                indicating a longer time. The final column gives the mean time
+                for each distance divided by that distance, expressed in seconds
+                per metre.
               </p>
             </div>
             <figure class="technical-figure">
               <h3 class="figure-title">
-                Retrieval-time comparison at 18 target positions
+                Target-approach-time comparison at 18 target positions
               </h3>
 
               <p class="figure-key">
@@ -1060,7 +1079,7 @@
                 ><span>130 s</span>
               </div>
               <figcaption>
-                Mean retrieval time per metre: 50.9 → 2.8 s/m.
+                Mean target-approach time per metre: 50.9 → 2.8 s/m.
               </figcaption>
             </figure>
           </section>
@@ -1068,17 +1087,16 @@
             <div class="case-copy">
               <h2>What the comparison established</h2>
               <p>
-                The camera-based implementation completed the retrieval task
-                more quickly and had fewer observed failures in the tested
-                indoor setup. These results concern the complete sensing and
-                collection implementations, rather than the sensor hardware
-                alone.
-              </p>
-              <p>
-                The experiment used plastic balls on an indoor track. It did not
+                The camera-based implementation reached the start of the grasp
+                sequence more quickly and had fewer observed task failures in
+                the tested indoor setup. These results concern the two sensing
+                and control implementations we built, including their processing
+                and movement strategies. They do not establish a general
+                advantage of camera hardware over ToF sensors. Furthermore, the
+                experiment used plastic balls on an indoor track. It did not
                 establish performance with real fruit, plants or changing
-                outdoor conditions. The video below presents target detection
-                and collection in the demonstration environment.
+                outdoor conditions. The video below presents the system
+                differences in a entertaining manner.
               </p>
             </div>
             <figure class="case-video case-video--portrait">
