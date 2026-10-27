@@ -557,6 +557,7 @@ a:is(:hover, :focus-visible) .link-tail {
 }
 
 .about-copy .project-inline,
+.aside-copy .project-inline,
 .case-copy .project-inline {
   color: var(--accent);
   --link-hover-color: var(--fg);
