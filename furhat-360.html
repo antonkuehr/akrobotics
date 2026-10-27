@@ -50,7 +50,7 @@
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/styles.css?v=170" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=180" />
     <link rel="stylesheet" href="assets/css/wordmark-motion.css?v=2" />
     <script src="assets/js/site.js?v=36" defer></script>
     <script src="assets/js/wordmark-shapes.js?v=1" defer></script>
@@ -352,6 +352,28 @@
                 ></a>
               </dd>
             </div>
+            <div class="project-collaborators project-guidance">
+              <dt>Guidance by:</dt>
+              <dd>
+                <a
+                  href="https://www.linkedin.com/in/nicholas-pugin/"
+                  target="_blank"
+                  rel="noopener"
+                  >Nicholas
+                  <span class="link-tail"
+                    >Pugin<svg
+                      class="link-icon"
+                      viewBox="0 0 16 16"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path
+                        d="M2.5 8h11m-4-4 4 4-4 4"
+                        transform="rotate(-45 8 8)"
+                      /></svg></span
+                ></a>
+              </dd>
+            </div>
           </dl>
 
           <div class="project-overview">
@@ -440,8 +462,11 @@
                 concepts with additional weight in the robot base, then
                 continued with the belt drive while carrying over useful
                 motor-mount and baseplate ideas from the wheel prototype. The
-                sketches below show the two approaches. We did not make a
-                measured comparison of their torque, slip or efficiency.
+                belt allowed us to position the motor on the left side of the
+                robot. It drove against a pulley on the stationary central
+                support, turning the robot body around a bearing. A split motor
+                mount made assembly and belt tensioning easier. The sketches
+                below show the two approaches.
               </p>
             </div>
             <div class="case-media-grid">
@@ -515,48 +540,34 @@
                 </figcaption>
               </figure>
             </div>
-            <div class="case-copy">
-              <p>
-                The belt allowed us to position the motor on the left side of
-                the robot. It drove against a pulley on the stationary central
-                support, turning the robot body around a bearing. A split motor
-                mount made assembly and belt tensioning easier.
-              </p>
-            </div>
           </section>
           <section id="mechanism" class="case-section case-section--figure">
             <div class="case-copy">
               <h2>Building the central support</h2>
               <p>
-                The available height beneath the computer also constrained the
-                pulley and bearing arrangement. Standard pulleys and their
-                fasteners did not fit, so we printed a pulley that fitted the
-                D-shaped shaft within the available space. A printed central
-                axis and thin stationary baseplate supported the robot through a
-                repurposed neck bearing.
-              </p>
-              <p>
-                The prototype used a 160 mm-diameter, 5 mm-thick baseplate with
-                approximately 3 mm clearance underneath. A 200 mm-long, 6
-                mm-wide GT2 belt connected the motor to the central pulley
-                across an offset of roughly 80 mm. The bearing and pulley
-                occupied approximately 18 mm in height. The exploded view and
-                assembly photograph below show how these parts fitted together.
+                The available height beneath the computer constrained the pulley
+                and bearing arrangement. Standard pulleys and their fasteners
+                did not fit, so we printed a pulley that fitted both the
+                D-shaped shaft of the central axis, repurposed from the robot’s
+                neck, and the available vertical space. The bearing and pulley
+                occupied approximately 18 mm in height. The exploded CAD view
+                below separates the drive, bearing support and stationary
+                baseplate to show how they fitted around the existing hardware.
               </p>
             </div>
             <div class="case-media-grid">
               <figure class="case-figure">
                 <a
-                  class="figure-media"
-                  href="assets/projects/furhat-360/furhat-360-rotation-drive-exploded-cad.png"
+                  class="figure-media figure-media--diagram figure-media--drive"
+                  href="assets/projects/furhat-360/furhat-360-rotation-drive-exploded-cad-transparent.png"
                   target="_blank"
                   rel="noopener"
                   aria-label="Open full-size image: Exploded CAD view of the rotation drive"
                   ><img
-                    src="assets/projects/furhat-360/furhat-360-rotation-drive-exploded-cad.png"
+                    src="assets/projects/furhat-360/furhat-360-rotation-drive-exploded-cad-transparent.png"
                     alt="Exploded CAD view of the rotation drive"
-                    width="632"
-                    height="928"
+                    width="1035"
+                    height="1520"
                     loading="lazy"
                     decoding="async"
                 /></a>
@@ -564,7 +575,7 @@
                   Exploded CAD showing the drive, bearing support and baseplate.
                   <a
                     class="figure-full"
-                    href="assets/projects/furhat-360/furhat-360-rotation-drive-exploded-cad.png"
+                    href="assets/projects/furhat-360/furhat-360-rotation-drive-exploded-cad-transparent.png"
                     target="_blank"
                     rel="noopener"
                     >Full
@@ -579,6 +590,17 @@
                   ></a>
                 </figcaption>
               </figure>
+            </div>
+            <div class="case-copy">
+              <p>
+                The built prototype used a 160 mm-diameter, 5 mm-thick baseplate
+                with approximately 3 mm clearance underneath. A 200 mm-long, 6
+                mm-wide GT2 belt connected the motor to the central pulley
+                across an offset of roughly 80 mm. The assembly photograph below
+                shows the offset motor and belt installed inside the base.
+              </p>
+            </div>
+            <div class="case-media-grid">
               <figure class="case-figure">
                 <a
                   class="figure-media"
@@ -615,14 +637,6 @@
                 </figcaption>
               </figure>
             </div>
-            <div class="case-copy">
-              <p>
-                The reused bearing supported the prototype, but had internal
-                play and was not primarily designed to carry the robot’s weight
-                in this direction. A more suitable support arrangement remained
-                part of the further development work.
-              </p>
-            </div>
           </section>
           <section id="control" class="case-section case-section--figure">
             <div class="case-copy">
@@ -632,26 +646,20 @@
                 detected user’s three-dimensional position. Our body controller
                 converted that position into a horizontal turning angle. A PID
                 controller then used the angular error to request a motor
-                velocity, allowing the body to turn towards the user.
-              </p>
-              <p>
-                The demonstrator followed only the first detected user,
-                identified as User0. Position data arrived over ZeroMQ, while an
-                additional motor controller connected to the computer through
-                USB and shared the head-tilt system’s existing 12 V supply. Head
-                and body control ran as separate devices and scripts.
+                velocity, allowing the body to turn towards the user. The
+                demonstrator followed only the first detected user, identified
+                as User0. Position data arrived over ZeroMQ, while an additional
+                motor controller connected to the computer through USB and
+                shared the head-tilt system’s existing 12 V supply. Head and
+                body control ran as separate devices and scripts.
               </p>
               <p>
                 The control sequence below shows the path from receiving a
-                position to commanding the motor. It also includes a return to
-                the remembered starting position, although the trigger for that
-                return was not specified in the documentation. The accompanying
-                electronics diagram shows the separate USB connections and
-                shared power supply.
+                position to commanding the motor.
               </p>
             </div>
             <figure
-              class="case-workflow control-flow"
+              class="case-workflow case-workflow--unruled control-flow"
               aria-labelledby="control-flow-caption"
             >
               <figcaption id="control-flow-caption">
@@ -695,53 +703,52 @@
                 <path d="M 875 2 V 40 H 375 V 2 M 367 12 L 375 2 L 383 12" />
               </svg>
             </figure>
-            <details class="technical-notes">
-              <summary>
-                Electronics and power connections<span
-                  class="chevron"
-                  aria-hidden="true"
-                ></span>
-              </summary>
-              <div class="technical-content">
-                <div class="case-media-grid">
-                  <figure class="case-figure">
-                    <a
-                      class="figure-media"
-                      href="assets/projects/furhat-360/furhat-360-electronics.png"
-                      target="_blank"
-                      rel="noopener"
-                      aria-label="Open full-size image: Electronics diagram with two USB controllers, neck servos and the new rotation servo"
-                      ><img
-                        src="assets/projects/furhat-360/furhat-360-electronics.png"
-                        alt="Electronics diagram with two USB controllers, neck servos and the new rotation servo"
-                        width="1000"
-                        height="492"
-                        loading="lazy"
-                        decoding="async"
-                    /></a>
-                    <figcaption>
-                      Electronics layout: separate USB devices, with the new
-                      base motor sharing the 12 V supply.
-                      <a
-                        class="figure-full"
-                        href="assets/projects/furhat-360/furhat-360-electronics.png"
-                        target="_blank"
-                        rel="noopener"
-                        >Full
-                        <span class="link-tail"
-                          >size<svg
-                            class="link-icon"
-                            viewBox="0 0 16 16"
-                            aria-hidden="true"
-                            focusable="false"
-                          >
-                            <path d="M2.5 8h11m-4-4 4 4-4 4" /></svg></span
-                      ></a>
-                    </figcaption>
-                  </figure>
-                </div>
-              </div>
-            </details>
+            <div class="case-copy">
+              <h3>Electronics and power connections</h3>
+              <p>
+                The electronics diagram below shows the two USB connections and
+                the shared 12 V supply. Head and body remained separate control
+                devices, with the new body-rotation motor drawing power from the
+                head-tilt system’s existing supply.
+              </p>
+            </div>
+            <div class="case-media-grid">
+              <figure class="case-figure">
+                <a
+                  class="figure-media figure-media--diagram"
+                  href="assets/projects/furhat-360/furhat-360-electronics-transparent.png"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Open full-size image: Electronics diagram with two USB controllers, neck servos and the new rotation servo"
+                  ><img
+                    src="assets/projects/furhat-360/furhat-360-electronics-transparent.png"
+                    alt="Electronics diagram with two USB controllers, neck servos and the new rotation servo"
+                    width="1789"
+                    height="879"
+                    loading="lazy"
+                    decoding="async"
+                /></a>
+                <figcaption>
+                  Electronics layout: separate USB devices, with the new base
+                  motor sharing the 12 V supply.
+                  <a
+                    class="figure-full"
+                    href="assets/projects/furhat-360/furhat-360-electronics-transparent.png"
+                    target="_blank"
+                    rel="noopener"
+                    >Full
+                    <span class="link-tail"
+                      >size<svg
+                        class="link-icon"
+                        viewBox="0 0 16 16"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <path d="M2.5 8h11m-4-4 4 4-4 4" /></svg></span
+                  ></a>
+                </figcaption>
+              </figure>
+            </div>
           </section>
           <section id="results" class="case-section case-section--video">
             <div class="case-copy">
@@ -749,8 +756,7 @@
               <p>
                 The assembled prototype turned the robot body towards a detected
                 user, demonstrating the basic mechanical and control approach.
-                The video below shows the resulting movement. Coordinating that
-                movement with the head remained an integration task.
+                The video below shows the resulting movement.
               </p>
             </div>
             <figure class="case-video case-video--portrait">
@@ -785,29 +791,40 @@
                 ></a>
               </figcaption>
             </figure>
+          </section>
+          <section id="limitations" class="case-section case-section--text">
             <div class="case-copy">
-              <p>
-                Repeated turns also revealed a practical limitation: connected
-                power, Ethernet and peripheral cables could twist or wrap around
-                the base. We had not validated a safe rotation range or
-                cable-management procedure. The prototype therefore did not
-                establish unlimited continuous rotation or unrestricted
-                unattended operation, and it did not add vision in every
-                direction.
-              </p>
-              <p>
-                We observed wobble during larger head and body movements. Play
-                in the bearing and the fit of the printed axis were possible
-                contributors, but we did not isolate the cause. Head overshoot
-                and the simple body movement also showed the need for shared
-                motion planning.
-              </p>
-              <p>
-                Integration into Furhat’s ServoCore, multi-user attention,
-                cooling checks, belt-tension retention and long-term durability
-                remained unfinished. Tracking error and latency were not
-                measured.
-              </p>
+              <h2>Limitations and further work</h2>
+              <ul>
+                <li>
+                  Head and body motion still needed coordinated planning;
+                  integration into Furhat’s ServoCore remained unfinished.
+                </li>
+                <li>
+                  Power, Ethernet and peripheral cables could twist or wrap
+                  around the base during repeated turns. A safe rotation range
+                  and cable-management procedure had not been validated.
+                </li>
+                <li>
+                  Unlimited continuous rotation and unrestricted unattended
+                  operation were not established. The prototype did not add
+                  vision in every direction.
+                </li>
+                <li>
+                  Larger head and body movements caused wobble. Bearing play and
+                  the fit of the printed axis were possible contributors, but
+                  the cause was not isolated.
+                </li>
+                <li>
+                  Head overshoot and the simple body movement showed the need
+                  for shared motion planning.
+                </li>
+                <li>
+                  Multi-user attention, cooling checks, belt-tension retention
+                  and long-term durability remained unfinished. Tracking error
+                  and latency were not measured.
+                </li>
+              </ul>
             </div>
           </section>
           <nav class="project-pagination" aria-label="Other projects">

@@ -50,7 +50,7 @@
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/styles.css?v=170" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=178" />
     <link rel="stylesheet" href="assets/css/wordmark-motion.css?v=2" />
     <script src="assets/js/site.js?v=36" defer></script>
     <script src="assets/js/wordmark-shapes.js?v=1" defer></script>
@@ -259,6 +259,11 @@
               </li>
             </ul>
           </details>
+          <a
+            class="project-nav-next project-nav-overview"
+            href="index.html#portfolio"
+            >Back to overview</a
+          >
           <a href="index.html#contact">Contact</a>
         </nav>
       </div>
@@ -305,6 +310,61 @@
                   >Denis
                   <span class="link-tail"
                     >Tolkovets<svg
+                      class="link-icon"
+                      viewBox="0 0 16 16"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path
+                        d="M2.5 8h11m-4-4 4 4-4 4"
+                        transform="rotate(-45 8 8)"
+                      /></svg></span
+                ></a>
+              </dd>
+            </div>
+            <div class="project-collaborators project-guidance">
+              <dt>Guidance by:</dt>
+              <dd>
+                <a
+                  href="https://www.linkedin.com/in/stefan-benke-97bb7031b/"
+                  target="_blank"
+                  rel="noopener"
+                  >Stefan
+                  <span class="link-tail"
+                    >Benke<svg
+                      class="link-icon"
+                      viewBox="0 0 16 16"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path
+                        d="M2.5 8h11m-4-4 4 4-4 4"
+                        transform="rotate(-45 8 8)"
+                      /></svg></span
+                ></a>
+                <a
+                  href="https://www.linkedin.com/in/tom-tiltmann-16a193341/"
+                  target="_blank"
+                  rel="noopener"
+                  >Tom
+                  <span class="link-tail"
+                    >Tiltmann<svg
+                      class="link-icon"
+                      viewBox="0 0 16 16"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path
+                        d="M2.5 8h11m-4-4 4 4-4 4"
+                        transform="rotate(-45 8 8)"
+                      /></svg></span></a
+                ><a
+                  href="https://www.linkedin.com/in/orhan-timo-altan/"
+                  target="_blank"
+                  rel="noopener"
+                  >Orhan Timo
+                  <span class="link-tail"
+                    >Altan<svg
                       class="link-icon"
                       viewBox="0 0 16 16"
                       aria-hidden="true"
@@ -376,10 +436,12 @@
             <div class="case-copy">
               <h2>Finding and collecting a target</h2>
               <p>
-                A harvesting robot needs to find a target before it can approach
-                and collect it. We explored that sequence on an indoor rover
-                using plastic balls as stand-ins for apples. The platform
-                combined a mobile base, a robotic arm and a gripper.
+                Before a harvesting robot can collect anything, it has to find a
+                target and approach it in a position the gripper can reach. We
+                explored that sequence on an indoor rover, using plastic balls
+                as stand-ins for apples. Combining a mobile base, robotic arm
+                and gripper allowed us to compare how two sensing approaches
+                affected the complete retrieval task.
               </p>
               <p>
                 During the second and third semesters of my bachelor’s degree,
@@ -414,7 +476,7 @@
               </p>
               <p>
                 The camera approach used images to detect the balls and locate
-                their centres. I trained a YOLOv8n object detector on 2,445
+                their centres. We trained a YOLOv8n object detector on 2,445
                 self-collected images and ran it on the Raspberry Pi 5. Its
                 output included the detected class, confidence, image
                 coordinates and colour.
@@ -487,59 +549,49 @@
                 control to the wheel motors and arm.
               </p>
             </div>
-            <details class="technical-notes">
-              <summary>
-                Signal and control diagram<span
-                  class="chevron"
-                  aria-hidden="true"
-                ></span>
-              </summary>
-              <div class="technical-content">
-                <figure class="technical-figure">
-                  <h3 class="figure-title">
-                    Camera detection and harvesting control
-                  </h3>
-                  <div class="technical-graphic diagram-frame">
-                    <picture
-                      ><source
-                        media="(max-width: 700px)"
-                        srcset="
-                          assets/projects/harvesting-robot/harvesting-robot-signal-architecture-mobile.svg?v=49
-                        "
-                        width="400"
-                        height="1010" />
-                      <img
-                        src="assets/projects/harvesting-robot/harvesting-robot-signal-architecture.svg?v=49"
-                        alt="Camera images reach the Raspberry Pi, which sends object data to the Arduino. The Arduino commands wheel motors, arm and fans, and receives wheel-encoder feedback."
-                        width="1100"
-                        height="680"
-                        loading="lazy"
-                        decoding="async"
-                    /></picture>
-                  </div>
-                  <figcaption>
-                    Perception, control and actuation: image and serial data,
-                    motor and servo PWM, fan control and encoder feedback.
-                  </figcaption>
-                  <p class="figure-download">
-                    <a
-                      href="assets/projects/harvesting-robot/harvesting-robot-signal-architecture.svg?v=49"
-                      target="_blank"
-                      rel="noopener"
-                      >Full
-                      <span class="link-tail"
-                        >size<svg
-                          class="link-icon"
-                          viewBox="0 0 16 16"
-                          aria-hidden="true"
-                          focusable="false"
-                        >
-                          <path d="M2.5 8h11m-4-4 4 4-4 4" /></svg></span
-                    ></a>
-                  </p>
-                </figure>
+            <figure class="technical-figure">
+              <h3 class="figure-title">
+                Camera detection and harvesting control
+              </h3>
+              <div class="technical-graphic diagram-frame">
+                <picture
+                  ><source
+                    media="(max-width: 700px)"
+                    srcset="
+                      assets/projects/harvesting-robot/harvesting-robot-signal-architecture-mobile.svg?v=49
+                    "
+                    width="400"
+                    height="1010" />
+                  <img
+                    src="assets/projects/harvesting-robot/harvesting-robot-signal-architecture.svg?v=49"
+                    alt="Camera images reach the Raspberry Pi, which sends object data to the Arduino. The Arduino commands wheel motors, arm and fans, and receives wheel-encoder feedback."
+                    width="1100"
+                    height="680"
+                    loading="lazy"
+                    decoding="async"
+                /></picture>
               </div>
-            </details>
+              <figcaption>
+                Perception, control and actuation: image and serial data, motor
+                and servo PWM, fan control and encoder feedback.
+              </figcaption>
+              <p class="figure-download">
+                <a
+                  href="assets/projects/harvesting-robot/harvesting-robot-signal-architecture.svg?v=49"
+                  target="_blank"
+                  rel="noopener"
+                  >Full
+                  <span class="link-tail"
+                    >size<svg
+                      class="link-icon"
+                      viewBox="0 0 16 16"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path d="M2.5 8h11m-4-4 4 4-4 4" /></svg></span
+                ></a>
+              </p>
+            </figure>
             <div id="power" class="case-copy">
               <p>
                 The rover’s 4000 mAh battery supplied the 12 V motor path
@@ -549,57 +601,46 @@
                 shows these supply paths and their voltages.
               </p>
             </div>
-            <details class="technical-notes">
-              <summary>
-                Power distribution diagram<span
-                  class="chevron"
-                  aria-hidden="true"
-                ></span>
-              </summary>
-              <div class="technical-content">
-                <figure class="technical-figure">
-                  <h3 class="figure-title">Power distribution</h3>
-                  <div class="technical-graphic diagram-frame">
-                    <picture
-                      ><source
-                        media="(max-width: 700px)"
-                        srcset="
-                          assets/projects/harvesting-robot/harvesting-robot-power-distribution-mobile.svg?v=49
-                        "
-                        width="400"
-                        height="1010" />
-                      <img
-                        src="assets/projects/harvesting-robot/harvesting-robot-power-distribution.svg?v=49"
-                        alt="The battery supplies the motor controller at 12 V and a converter at 12 V. The converter supplies the camera, processing and control hardware through the labelled 5 V paths."
-                        width="1100"
-                        height="750"
-                        loading="lazy"
-                        decoding="async"
-                    /></picture>
-                  </div>
-                  <figcaption>
-                    Battery, voltage conversion and the supply paths to each
-                    load.
-                  </figcaption>
-                  <p class="figure-download">
-                    <a
-                      href="assets/projects/harvesting-robot/harvesting-robot-power-distribution.svg?v=49"
-                      target="_blank"
-                      rel="noopener"
-                      >Full
-                      <span class="link-tail"
-                        >size<svg
-                          class="link-icon"
-                          viewBox="0 0 16 16"
-                          aria-hidden="true"
-                          focusable="false"
-                        >
-                          <path d="M2.5 8h11m-4-4 4 4-4 4" /></svg></span
-                    ></a>
-                  </p>
-                </figure>
+            <figure class="technical-figure">
+              <h3 class="figure-title">Power distribution</h3>
+              <div class="technical-graphic diagram-frame">
+                <picture
+                  ><source
+                    media="(max-width: 700px)"
+                    srcset="
+                      assets/projects/harvesting-robot/harvesting-robot-power-distribution-mobile.svg?v=49
+                    "
+                    width="400"
+                    height="1010" />
+                  <img
+                    src="assets/projects/harvesting-robot/harvesting-robot-power-distribution.svg?v=49"
+                    alt="The battery supplies the motor controller at 12 V and a converter at 12 V. The converter supplies the camera, processing and control hardware through the labelled 5 V paths."
+                    width="1100"
+                    height="750"
+                    loading="lazy"
+                    decoding="async"
+                /></picture>
               </div>
-            </details>
+              <figcaption>
+                Battery, voltage conversion and the supply paths to each load.
+              </figcaption>
+              <p class="figure-download">
+                <a
+                  href="assets/projects/harvesting-robot/harvesting-robot-power-distribution.svg?v=49"
+                  target="_blank"
+                  rel="noopener"
+                  >Full
+                  <span class="link-tail"
+                    >size<svg
+                      class="link-icon"
+                      viewBox="0 0 16 16"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path d="M2.5 8h11m-4-4 4 4-4 4" /></svg></span
+                ></a>
+              </p>
+            </figure>
           </section>
           <section id="results" class="case-section case-section--results">
             <div class="case-copy">

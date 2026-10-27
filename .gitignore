@@ -13,3 +13,6 @@ node_modules/
 /tools/wordmark-motion-preview/SOURCES.txt
 /tools/wordmark-motion-preview/TEST-RESULTS.txt
 /tools/wordmark-motion-preview/wordmark-inline.html
+
+# Retain the original video locally; publish the compressed MP4.
+/assets/projects/robotic-skin/Videovorstellung.MOV

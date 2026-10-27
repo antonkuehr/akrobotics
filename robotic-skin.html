@@ -50,9 +50,9 @@
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/styles.css?v=170" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=189" />
     <link rel="stylesheet" href="assets/css/wordmark-motion.css?v=2" />
-    <script src="assets/js/site.js?v=36" defer></script>
+    <script src="assets/js/site.js?v=37" defer></script>
     <script src="assets/js/wordmark-shapes.js?v=1" defer></script>
     <script src="assets/js/wordmark-settings.js?v=15" defer></script>
     <script src="assets/js/wordmark-motion.js?v=12" defer></script>
@@ -75,7 +75,7 @@
     />
     <meta
       property="og:image"
-      content="https://antonkuehr.github.io/akrobotics/assets/projects/robotic-skin/robotic-skin-tactile-prototype-and-touch-display.png"
+      content="https://antonkuehr.github.io/akrobotics/assets/projects/robotic-skin/robotic-skin-tactile-prototype-cutout.png"
     />
     <meta
       property="og:image:alt"
@@ -90,7 +90,7 @@
     />
     <meta
       name="twitter:image"
-      content="https://antonkuehr.github.io/akrobotics/assets/projects/robotic-skin/robotic-skin-tactile-prototype-and-touch-display.png"
+      content="https://antonkuehr.github.io/akrobotics/assets/projects/robotic-skin/robotic-skin-tactile-prototype-cutout.png"
     />
     <meta
       name="twitter:image:alt"
@@ -107,7 +107,7 @@
             "name": "Robotic Tactile Skin — Anton Kühr",
             "description": "Completed BSc feasibility study by Anton Kühr and Fabio Jain: an experimentally evaluated 8 × 8 textile tactile sensor matrix, its construction, results and limitations.",
             "inLanguage": "en",
-            "image": "https://antonkuehr.github.io/akrobotics/assets/projects/robotic-skin/robotic-skin-tactile-prototype-and-touch-display.png",
+            "image": "https://antonkuehr.github.io/akrobotics/assets/projects/robotic-skin/robotic-skin-tactile-prototype-cutout.png",
             "author": {
               "@type": "Person",
               "@id": "https://antonkuehr.github.io/akrobotics/#anton-kuehr",
@@ -322,6 +322,28 @@
                 ></a>
               </dd>
             </div>
+            <div class="project-collaborators project-guidance">
+              <dt>Guidance by:</dt>
+              <dd>
+                <a
+                  href="https://www.linkedin.com/in/stefan-benke-97bb7031b/"
+                  target="_blank"
+                  rel="noopener"
+                  >Stefan
+                  <span class="link-tail"
+                    >Benke<svg
+                      class="link-icon"
+                      viewBox="0 0 16 16"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path
+                        d="M2.5 8h11m-4-4 4 4-4 4"
+                        transform="rotate(-45 8 8)"
+                      /></svg></span
+                ></a>
+              </dd>
+            </div>
           </dl>
 
           <div class="project-overview">
@@ -335,15 +357,16 @@
               <figure class="case-figure">
                 <a
                   class="figure-media"
-                  href="assets/projects/robotic-skin/robotic-skin-tactile-prototype-and-touch-display.png"
+                  href="assets/projects/robotic-skin/robotic-skin-tactile-prototype-cutout.png"
                   target="_blank"
                   rel="noopener"
                   aria-label="Open full-size image: BSc tactile-sensor prototype and touch display"
                   ><img
-                    src="assets/projects/robotic-skin/robotic-skin-tactile-prototype-and-touch-display.png"
+                    class="image-rounded-bottom"
+                    src="assets/projects/robotic-skin/robotic-skin-tactile-prototype-cutout.png"
                     alt="BSc tactile-sensor prototype and touch display"
-                    width="2502"
-                    height="1682"
+                    width="1516"
+                    height="1038"
                     fetchpriority="high"
                     decoding="async"
                 /></a>
@@ -351,7 +374,7 @@
                   The BSc prototype in touch-localisation testing.
                   <a
                     class="figure-full"
-                    href="assets/projects/robotic-skin/robotic-skin-tactile-prototype-and-touch-display.png"
+                    href="assets/projects/robotic-skin/robotic-skin-tactile-prototype-cutout.png"
                     target="_blank"
                     rel="noopener"
                     >Full
@@ -377,17 +400,14 @@
             <div class="case-copy">
               <h2>Giving a surface a sense of touch</h2>
               <p>
-                A tactile surface can help a robot detect where it is being
-                touched. For this project, we also wanted to distinguish lighter
-                from stronger contact, using materials and fabrication methods
-                available in a university workshop.
-              </p>
-              <p>
-                Fabio Jain and I developed the prototype for Product Engineering
-                II during my bachelor’s degree at TH Köln. We investigated a
-                flexible textile sensor that could be placed on a forearm, with
-                the aim of demonstrating the sensing principle and evaluating
-                its behaviour.
+                I believe tactile sensing is important if robots are to become
+                part of everyday life. Fabio Jain and I explored that idea
+                through a prototype for Product Engineering II during our
+                bachelor’s degree at TH Köln. The aim was to distinguish lighter
+                from stronger contact using materials and fabrication methods
+                available in a university workshop. We investigated a flexible
+                textile sensor that could be placed on a forearm, demonstrating
+                the sensing principle and evaluating its behaviour.
               </p>
             </div>
           </section>
@@ -403,12 +423,10 @@
                 forming an 8 × 8 matrix with 64 sensing locations. Elastic
                 separators keep the tracks apart until pressure compresses the
                 material enough for them to touch through openings in the
-                separator.
-              </p>
-              <p>
-                An Arduino activates the sender tracks one at a time and checks
-                which receiver tracks are connected. The combination of an
-                active sender and receiver identifies the contact location.
+                separator. An Arduino activates the sender tracks one at a time
+                and checks which receiver tracks are connected. The combination
+                of an active sender and receiver identifies the contact
+                location.
               </p>
               <p>
                 We used one sender layer and two receiver layers, separated by
@@ -512,6 +530,45 @@
                 Changing its thickness and fill density changed how much
                 pressure was needed to bring the conductors into contact.
               </p>
+            </div>
+            <div class="case-media-grid">
+              <figure class="case-figure">
+                <a
+                  class="figure-media"
+                  href="assets/projects/robotic-skin/robotic-skin-perforated-eva-foam-20-percent.png"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Open full-size image: Laser-perforated EVA foam separator labelled 20 percent"
+                  ><img
+                    src="assets/projects/robotic-skin/robotic-skin-perforated-eva-foam-20-percent.png"
+                    alt="Laser-perforated EVA foam separator labelled 20 percent"
+                    width="1450"
+                    height="1440"
+                    loading="lazy"
+                    decoding="async"
+                /></a>
+                <figcaption>
+                  Laser-perforated EVA foam separator, shown here with 20% fill
+                  density.
+                  <a
+                    class="figure-full"
+                    href="assets/projects/robotic-skin/robotic-skin-perforated-eva-foam-20-percent.png"
+                    target="_blank"
+                    rel="noopener"
+                    >Full
+                    <span class="link-tail"
+                      >size<svg
+                        class="link-icon"
+                        viewBox="0 0 16 16"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <path d="M2.5 8h11m-4-4 4 4-4 4" /></svg></span
+                  ></a>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="case-copy">
               <p>
                 The prototype’s material costs were below €10. This was a
                 material-cost figure for the prototype, excluding labour and the
@@ -526,17 +583,141 @@
                 Reading all of the tracks directly would require many
                 microcontroller connections. We used shift registers to activate
                 the sender tracks and read the receiver states through fewer
-                connections. SN74HC595 output registers selected the senders,
-                while SN74HC165 input registers collected the receiver states.
-                Pull-down resistors and protection diodes supported the circuit.
+                connections. The diagrams below show how the SN74HC595 output
+                registers selected senders and how the SN74HC165 input registers
+                collected receiver states.
               </p>
               <p>
-                The matrix was scanned sequentially. This reduced the
-                connections needed at the microcontroller, but scanning and
-                physical wiring still presented challenges for larger sensing
-                areas. We did not measure the frame rate or establish whether
-                multiple simultaneous contacts could always be read without
-                false detections.
+                For each scan step, one sender is active while the receiver
+                states are sampled. Pull-down resistors and protection diodes
+                supported the circuit.
+              </p>
+            </div>
+            <figure class="technical-figure register-figure">
+              <h3 class="figure-title">
+                Selecting sender tracks: serial in, parallel out
+              </h3>
+              <ol class="register-steps">
+                <li>
+                  <h4>Load the first bit</h4>
+                  <div
+                    class="register-bits"
+                    role="img"
+                    aria-label="Register state: one, zero, zero, zero, remaining zeros"
+                  >
+                    <span class="is-active">1</span><span>0</span><span>0</span
+                    ><span>0</span><span>…</span><span>0</span>
+                  </div>
+                  <p>
+                    A serial 1 enters the shift register; the remaining bits are
+                    0.
+                  </p>
+                </li>
+                <li>
+                  <h4>Activate one sender</h4>
+                  <div
+                    class="register-bits"
+                    role="img"
+                    aria-label="Sender zero active; all other senders inactive"
+                  >
+                    <span class="is-active">1</span><span>0</span><span>0</span
+                    ><span>0</span><span>…</span><span>0</span>
+                  </div>
+                  <p>
+                    The parallel outputs select sender 0 while the other sender
+                    tracks remain inactive.
+                  </p>
+                </li>
+                <li>
+                  <h4>Advance the scan</h4>
+                  <div
+                    class="register-bits"
+                    role="img"
+                    aria-label="Sender one active; all other senders inactive"
+                  >
+                    <span>0</span><span class="is-active">1</span><span>0</span
+                    ><span>0</span><span>…</span><span>0</span>
+                  </div>
+                  <p>
+                    Shifting in 0 moves the active bit to the next position,
+                    selecting sender 1. The scan repeats until the last sender
+                    is active.
+                  </p>
+                </li>
+              </ol>
+              <figcaption>
+                The SN74HC595 output registers select one sender track at a
+                time. Only the active bit advances; the diagrams show successive
+                logical states.
+              </figcaption>
+            </figure>
+            <figure class="technical-figure register-figure">
+              <h3 class="figure-title">
+                Reading receiver tracks: parallel in, serial out
+              </h3>
+              <ol class="register-steps">
+                <li>
+                  <h4>Sample the receivers</h4>
+                  <div
+                    class="register-bits"
+                    role="img"
+                    aria-label="Parallel receiver states a, b, c, d, through x"
+                  >
+                    <span>a</span><span>b</span><span>c</span><span>d</span
+                    ><span>…</span><span>x</span>
+                  </div>
+                  <p>
+                    Receiver states a, b, c, d, …, x are captured together. Each
+                    state is either 0 or 1.
+                  </p>
+                </li>
+                <li>
+                  <h4>Hold the captured states</h4>
+                  <div
+                    class="register-bits"
+                    role="img"
+                    aria-label="Snapshot of receiver states held in the input register"
+                  >
+                    <span>a</span><span>b</span><span>c</span><span>d</span
+                    ><span>…</span><span>x</span>
+                  </div>
+                  <p>
+                    The register stores a snapshot while the selected sender
+                    remains active.
+                  </p>
+                </li>
+                <li>
+                  <h4>Read the serial sequence</h4>
+                  <div
+                    class="register-serial"
+                    aria-label="Serial data: a then b then c then d through x"
+                  >
+                    a → b → c → d → … → x
+                  </div>
+                  <p>
+                    The captured bits pass to the Arduino through the serial
+                    connection.
+                  </p>
+                </li>
+              </ol>
+              <figcaption>
+                The SN74HC165 input registers collect the receiver states using
+                fewer microcontroller connections. The active sender and a
+                connected receiver identify a sensing location.
+              </figcaption>
+            </figure>
+            <div class="case-copy">
+              <p>
+                This sequential scan reduced the connections needed at the
+                microcontroller, but scanning and physical wiring still
+                presented challenges for larger sensing areas. We did not
+                measure the frame rate or establish whether multiple
+                simultaneous contacts could always be read without false
+                detections.
+              </p>
+              <p>
+                The communication protocol reserved a third active level for
+                possible future extension, but the prototype implemented two.
               </p>
             </div>
           </section>
@@ -544,50 +725,167 @@
             <div class="case-copy">
               <h2>Testing contact and flexibility</h2>
               <p>
-                The prototype detected contact across its 64 sensing cells, with
-                several cells responding when a larger area was pressed. To
-                investigate the triggering thresholds, we used a 16 mm test cube
-                with rounded edges and averaged five tests for each
-                configuration.
-              </p>
-              <p>
-                Increasing the separator’s fill density and increasing its
-                thickness from 2 to 3 mm raised the pressure needed for
-                activation. The investigated activation-pressure range was
-                approximately 10–100 Pa, with rounded threshold values
-                reflecting measurement uncertainty. The communication protocol
-                reserved a third active level for possible future extension, but
-                the prototype implemented two.
-              </p>
-              <p>
-                We also wrapped the sensor around a 100 mm-diameter cylinder. It
-                remained functional, with no measurable change in activation
-                behaviour in that test.
+                We tested where contact was detected, how the separator affected
+                the activation threshold, and whether the sensor still worked
+                when curved. The table below summarises the setup and
+                observation for each test.
               </p>
             </div>
+            <div class="results-table-wrap">
+              <table
+                class="results-table results-table--plain results-table--skin"
+                role="table"
+              >
+                <caption>
+                  Contact and flexibility tests on the textile-sensor prototype.
+                </caption>
+                <thead role="rowgroup">
+                  <tr role="row">
+                    <th scope="col" role="columnheader">Test</th>
+                    <th scope="col" role="columnheader">Setup</th>
+                    <th scope="col" role="columnheader">Observation</th>
+                  </tr>
+                </thead>
+                <tbody role="rowgroup">
+                  <tr role="row">
+                    <td role="cell" data-label="Test">Contact detection</td>
+                    <td role="cell" data-label="Setup">
+                      Pressed the sensing surface, including larger contact
+                      areas.
+                    </td>
+                    <td role="cell" data-label="Observation">
+                      Contact was detected across all 64 sensing cells, with
+                      several cells responding to a larger press.
+                    </td>
+                  </tr>
+                  <tr role="row">
+                    <td role="cell" data-label="Test">Activation thresholds</td>
+                    <td role="cell" data-label="Setup">
+                      A 16 mm test cube with rounded edges; five tests averaged
+                      for each configuration.
+                    </td>
+                    <td role="cell" data-label="Observation">
+                      Increasing separator fill density and thickness from 2 to
+                      3 mm raised the pressure needed for activation. The
+                      investigated range was approximately 10–100 Pa; threshold
+                      values were rounded to reflect measurement uncertainty.
+                    </td>
+                  </tr>
+                  <tr role="row">
+                    <td role="cell" data-label="Test">Flexibility</td>
+                    <td role="cell" data-label="Setup">
+                      Wrapped the sensor around a 100 mm-diameter cylinder.
+                    </td>
+                    <td role="cell" data-label="Observation">
+                      The sensor remained functional, with no measurable change
+                      in activation behaviour in that test.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <figure class="technical-figure">
+              <h3 class="figure-title">
+                How the separator changes the activation threshold
+              </h3>
+              <p>
+                The plot compares activation pressure at four fill densities for
+                2 mm and 3 mm separators. Higher fill density and greater
+                thickness required more pressure to activate the sensor. The 3
+                mm separator required more pressure than the 2 mm separator at
+                each tested fill density. Values were rounded to reflect
+                measurement uncertainty.
+              </p>
+              <div class="technical-graphic skin-pressure-plot">
+                <img
+                  src="assets/projects/robotic-skin/robotic-skin-activation-pressure.svg"
+                  alt="Activation pressure rises as fill density increases from 10 to 25 percent; the 3 mm separator requires more pressure than the 2 mm separator"
+                  width="660"
+                  height="590"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <figcaption>
+                Activation-pressure comparison for two separator thicknesses.
+                <a
+                  class="figure-full"
+                  href="assets/projects/robotic-skin/robotic-skin-activation-pressure.svg"
+                  target="_blank"
+                  rel="noopener"
+                  >Full size</a
+                >
+                ·
+                <a
+                  class="figure-full"
+                  href="assets/projects/robotic-skin/test%20results.png"
+                  target="_blank"
+                  rel="noopener"
+                  >Source plot</a
+                >
+              </figcaption>
+            </figure>
           </section>
-          <section id="results" class="case-section case-section--text">
+          <section id="results" class="case-section case-section--video">
             <div class="case-copy">
               <h2>What the prototype established</h2>
               <p>
                 The study demonstrated that sewn conductive tracks and elastic
                 separators could form a flexible sensor for locating contact and
-                distinguishing two activation levels. It also exposed
-                limitations that would matter when developing the concept
-                further.
+                distinguishing two activation levels. The video below presents
+                the prototype and its sensing principle.
               </p>
+            </div>
+            <figure class="case-video">
+              <div class="media-embed">
+                <video
+                  controls
+                  playsinline
+                  preload="none"
+                  poster="assets/projects/robotic-skin/robotic-skin-prototype-demonstration-poster.jpg"
+                  width="1280"
+                  height="720"
+                  aria-label="Presentation of the textile tactile-sensor prototype"
+                >
+                  <source
+                    src="assets/projects/robotic-skin/robotic-skin-prototype-demonstration.mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support embedded video.
+                  <a
+                    href="assets/projects/robotic-skin/robotic-skin-prototype-demonstration.mp4"
+                    >Watch the prototype presentation</a
+                  >.
+                </video>
+              </div>
+              <figcaption>
+                Presentation and demonstration of the textile tactile-sensor
+                prototype.
+              </figcaption>
+            </figure>
+            <div class="case-copy">
+              <h3>Remaining limitations</h3>
+              <ul>
+                <li>
+                  The 8 mm track spacing describes the layout; it is not a
+                  validated localisation accuracy.
+                </li>
+                <li>
+                  Precise triggering accuracy was not established, and material
+                  deformation produced measurement errors of up to 10%.
+                </li>
+                <li>
+                  The complete stack was more than 1 cm thick, and wiring became
+                  burdensome as the sensing area increased.
+                </li>
+                <li>
+                  Maximum bending, long-term durability and whole-body coverage
+                  remained untested.
+                </li>
+              </ul>
               <p>
-                The 8 mm track spacing describes the sensor layout; it is not a
-                validated localisation accuracy. Precise triggering accuracy was
-                not established, and material deformation produced measurement
-                errors of up to 10%. The complete stack was more than 1 cm
-                thick, and the wiring became burdensome as the sensing area
-                increased.
-              </p>
-              <p>
-                Maximum bending, long-term durability and whole-body coverage
-                remained untested. This was a completed feasibility study rather
-                than a fully developed robotic skin.
+                This was a completed feasibility study rather than a fully
+                developed robotic skin.
               </p>
             </div>
           </section>
@@ -595,9 +893,9 @@
             <div class="case-copy">
               <h2>Later work with Project Echo</h2>
               <p>
-                My later role as Skin Team Lead for RSA Project Echo is a
-                separate, ongoing investigation into tactile sensing and
-                protective skin for a humanoid robot.
+                My later role as Skin Team Lead for RSA Project Echo shows an
+                ongoing investigation into tactile sensing and protective skin
+                for a humanoid robot.
               </p>
             </div>
             <div class="case-copy">

@@ -1,6 +1,40 @@
 "use strict";
 document.documentElement.classList.add("js");
 
+// Round the visible image inside a contain-fit box without changing its size.
+function updateRoundedImage(image) {
+  if (!image.naturalWidth || !image.naturalHeight) return;
+  const width = image.clientWidth;
+  const height = image.clientHeight;
+  const scale = Math.min(
+    width / image.naturalWidth,
+    height / image.naturalHeight,
+  );
+  const horizontalGap = Math.max(0, (width - image.naturalWidth * scale) / 2);
+  const verticalGap = Math.max(0, (height - image.naturalHeight * scale) / 2);
+  image.style.setProperty("--rounded-image-x", `${horizontalGap}px`);
+  image.style.setProperty("--rounded-image-y", `${verticalGap}px`);
+}
+
+// Apply again when lazy images load or their layout changes.
+const roundedImages = document.querySelectorAll("img.image-rounded-bottom");
+const roundedImageObserver =
+  "ResizeObserver" in window
+    ? new ResizeObserver((entries) => {
+        for (const entry of entries) updateRoundedImage(entry.target);
+      })
+    : null;
+for (const image of roundedImages) {
+  image.addEventListener("load", () => updateRoundedImage(image));
+  roundedImageObserver?.observe(image);
+  updateRoundedImage(image);
+}
+if (!roundedImageObserver && roundedImages.length) {
+  window.addEventListener("resize", () => {
+    for (const image of roundedImages) updateRoundedImage(image);
+  });
+}
+
 // Inclusive calendar months, with ongoing periods refreshed on each visit.
 const durationToday = new Date();
 for (const label of document.querySelectorAll("[data-duration-start]")) {
