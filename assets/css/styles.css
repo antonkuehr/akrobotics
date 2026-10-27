@@ -802,6 +802,10 @@ details[open] > summary .chevron {
   color: var(--fg);
 }
 
+.cv-detail > :is(p, .document-links) + h4 {
+  margin-top: 24px;
+}
+
 details[open] > .cv-heading .cv-related-preview {
   display: none;
 }
