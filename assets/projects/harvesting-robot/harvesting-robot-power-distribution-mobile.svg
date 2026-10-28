@@ -3,7 +3,7 @@
   <desc id="desc">A 4000 mAh battery supplies the Sabertooth motor controller at 12 V and a 12 V to 5 V converter. The 5 V path supplies the Raspberry Pi and camera, and the Arduino with its servo shield, arm, wheel encoders and fans. Solid, voltage-labelled arrows show each supply path. The low-battery warning threshold is 11.4 V.</desc>
   <style>text { fill: #071c17; font: 18px Aptos, "Segoe UI", Arial, sans-serif; text-anchor: middle; }
 .small { font-size: 16px; fill: #284d3c; }
-.group { font-size: 16px; font-weight: 600; fill: #284d3c; letter-spacing: 0.06em; paint-order: stroke; stroke: #a6bcad; stroke-width: 5px; }
+.group { font-size: 16px; font-weight: 700; fill: #284d3c; letter-spacing: 0.06em; paint-order: stroke; stroke: #a6bcad; stroke-width: 5px; }
 .node { fill: #edf4ef; stroke: #527363; stroke-width: 1; }
 .edge { fill: none; stroke: #173c30; stroke-width: 1.8; stroke-linejoin: round; marker-end: url(#arrow); }
 .optical, .p12 { stroke: #8d3f23; marker-end: url(#arrow-warm); }

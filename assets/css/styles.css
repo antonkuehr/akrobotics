@@ -1676,7 +1676,7 @@ html:not(.js) .cv-close {
 
 .results-table th {
   color: var(--fg);
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .results-table th:last-child,
@@ -2031,13 +2031,16 @@ html:not(.js) .cv-close {
 
 .heatmap-table thead th {
   padding-top: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  hyphens: auto;
   color: var(--fg-2);
   line-height: 1.7;
   font-size: var(--text-label);
 }
 
 .heatmap-table .distance-column {
-  width: 19%;
+  width: 25%;
 }
 .heatmap-table .mean-column {
   width: 23%;
@@ -3141,6 +3144,18 @@ html:not(.js) .cv-close {
   fill: var(--line);
 }
 
+/* Bold row and column headers, including mobile table labels. */
+.project-page :is(.results-table, .heatmap-table) th,
+.project-page .heatmap-table td:last-child,
+.project-page .results-table--stacked td::before,
+.project-page .results-table td[data-label="Test"],
+.project-page
+  :is(.results-table--audio, .results-table--harvesting)
+  tbody
+  td:first-child {
+  font-weight: 700;
+}
+
 /* The shared table grid uses dark separators inside the green panels. */
 .project-page :is(.results-table, .heatmap-table) :is(th, td) + :is(th, td) {
   border-inline-start: 1px solid var(--line);
@@ -3223,19 +3238,17 @@ details.cv-row > .cv-heading {
 }
 @media (max-width: 580px) {
   details.cv-row > .cv-heading {
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr);
   }
   details.cv-row > .cv-heading > .cv-date {
     grid-column: 1;
   }
   .cv-heading > .disclosure-control {
-    grid-column: 2;
-    grid-row: 2;
-    width: 104px;
-    white-space: normal;
-  }
-  details.cv-row > .cv-heading > .cv-main h3 {
-    padding-right: 116px;
+    grid-column: 1;
+    grid-row: 3;
+    margin-top: 16px;
+    margin-left: 76px;
+    justify-self: start;
   }
   details.cv-row > .cv-heading > .cv-main {
     grid-column: 1 / -1;

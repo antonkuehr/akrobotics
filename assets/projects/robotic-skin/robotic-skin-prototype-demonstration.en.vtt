@@ -1,0 +1,152 @@
+WEBVTT
+
+00:00:07.700 --> 00:00:10.660
+Welcome to our Product Engineering 2
+presentation.
+
+00:00:11.700 --> 00:00:15.200
+I would like to introduce
+our smart robotic surface,
+
+00:00:15.460 --> 00:00:17.600
+which is designed to mimic human skin.
+
+00:00:18.420 --> 00:00:20.640
+First, let’s look at how the system is built.
+
+00:00:21.300 --> 00:00:24.700
+Here is the core of the system:
+five different layers,
+
+00:00:24.700 --> 00:00:27.060
+two red and three black.
+
+00:00:27.180 --> 00:00:29.460
+Let’s look at these in more detail.
+
+00:00:29.980 --> 00:00:32.020
+We’ll start with the middle black layer.
+
+00:00:32.240 --> 00:00:34.960
+Here we have a piece of black denim
+
+00:00:34.960 --> 00:00:39.740
+with eight conductive yarn tracks
+sewn onto it in a zigzag pattern.
+
+00:00:40.780 --> 00:00:43.640
+These are connected to our transmitter board.
+
+00:00:44.620 --> 00:00:49.020
+It sends a pulse along each
+of the individual wires in turn.
+
+00:00:50.220 --> 00:00:53.380
+These pulses are then picked up
+by the two receiver layers:
+
+00:00:53.620 --> 00:00:56.740
+the top and bottom layers.
+
+00:00:58.020 --> 00:01:01.880
+Like the middle layer,
+these also have eight sewn wire tracks,
+
+00:01:02.200 --> 00:01:04.120
+but at right angles to the middle ones.
+
+00:01:04.980 --> 00:01:10.440
+When pressure on the skin
+compresses the intermediate layer—
+
+00:01:10.480 --> 00:01:12.260
+the compression layer—
+
+00:01:12.560 --> 00:01:14.780
+the two wires touch at one point.
+
+00:01:15.500 --> 00:01:20.540
+This gives us an 8 × 8 grid:
+64 possible pressure points.
+
+00:01:20.700 --> 00:01:24.940
+The receiver layers pick up the signal
+here at the receiver board.
+
+00:01:24.940 --> 00:01:27.780
+We then read it using an Arduino Uno.
+
+00:01:28.380 --> 00:01:31.960
+Let’s see what happens
+when we swap the intermediate layers.
+
+00:01:31.960 --> 00:01:38.140
+We can simply swap the lower layer
+using our smart press-stud system.
+
+00:01:38.380 --> 00:01:41.840
+We undo the layer and remove it.
+
+00:01:41.840 --> 00:01:46.320
+This time, we use a 25% layer
+instead of a 15% one.
+
+00:01:46.380 --> 00:01:48.560
+This has a much denser mesh.
+
+00:01:49.760 --> 00:01:53.080
+Now we can fit it back in
+using the press studs.
+
+00:02:00.270 --> 00:02:02.000
+The same on the other side.
+
+00:02:10.170 --> 00:02:14.150
+When we press it now,
+the upper contact stays the same.
+
+00:02:14.150 --> 00:02:17.890
+But we have to press much harder
+to activate the lower contact.
+
+00:02:18.590 --> 00:02:21.390
+This would let us measure
+different pressure levels.
+
+00:02:21.950 --> 00:02:24.510
+We could extend this
+with any number of layers
+
+00:02:24.510 --> 00:02:26.990
+to measure different pressure levels.
+
+00:02:27.150 --> 00:02:31.070
+Of course, this is only a prototype
+and a feasibility study.
+
+00:02:31.130 --> 00:02:34.770
+But to show what this could look like
+on a robot in the future:
+
+00:02:34.930 --> 00:02:39.610
+if the skin were made more flexible,
+more reliable and larger,
+
+00:02:39.610 --> 00:02:46.030
+we could dress the robotic arm
+in a kind of jeans—a skin.
+
+00:02:46.670 --> 00:02:50.490
+The product also works when bent,
+as we can see here.
+
+00:02:50.570 --> 00:02:53.850
+When I press on my arm,
+the contact is detected,
+
+00:02:53.850 --> 00:02:55.700
+including firm contact.
+
+00:02:57.200 --> 00:02:59.600
+Thank you for watching.
+See you next time!
