@@ -1740,7 +1740,7 @@ html:not(.js) .cv-close {
 }
 
 .technical-notes {
-  margin: 0 0 48px;
+  margin: 24px 0 0;
   border-block: 1px solid var(--line);
 }
 
@@ -1750,7 +1750,7 @@ html:not(.js) .cv-close {
   align-items: center;
   gap: 24px;
   min-height: 44px;
-  padding: 16px 0;
+  padding: 24px 0;
   color: var(--accent);
   list-style: none;
 }
@@ -2469,8 +2469,7 @@ html:not(.js) .cv-close {
   .project-body {
     padding-top: 32px;
   }
-  .case-section,
-  .technical-notes {
+  .case-section {
     margin-bottom: 32px;
   }
   .case-media-grid,
@@ -2764,9 +2763,6 @@ html:not(.js) .cv-close {
 }
 
 /* Equation disclosure follows the project’s existing technical-notes rhythm. */
-.ik-equations-content {
-  padding: 8px 0 24px;
-}
 .ik-equations .ik-mapping {
   display: grid;
   grid-template-columns: 210px minmax(0, 1fr);
@@ -3216,6 +3212,21 @@ html:not(.js) .cv-close {
 .technical-notes > summary .disclosure-control {
   margin-top: 0;
 }
+@media (max-width: 580px) {
+  .technical-notes > summary {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    padding-block: 16px;
+  }
+  .technical-notes > summary .disclosure-control {
+    margin-left: 0;
+  }
+  .technical-content,
+  .ik-equations .ik-equations-content {
+    padding-bottom: 16px;
+  }
+}
 
 /* Give CV entries more vertical breathing room. */
 :is(#education, #jobs, #volunteering) .cv-heading {
@@ -3270,7 +3281,7 @@ details.cv-row > .cv-heading {
 .ik-equations-content {
   display: grid;
   gap: 28px;
-  padding: 12px 0 28px;
+  padding: 0 0 24px;
 }
 .ik-equations .ik-equations-content > * {
   margin: 0;
