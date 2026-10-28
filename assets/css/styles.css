@@ -743,7 +743,7 @@ details.cv-row > summary:is(:hover, :focus-visible) h3 {
   color: var(--accent);
 }
 
-details.cv-row > summary:is(:hover, :focus-visible) .cv-toggle {
+details.cv-row > summary:is(:hover, :focus-visible) .disclosure-control {
   color: var(--fg);
 }
 
@@ -760,12 +760,25 @@ details.cv-row > summary:is(:hover, :focus-visible) .cv-toggle {
   display: none;
 }
 
-.cv-toggle {
-  display: grid;
-  place-items: center;
+.disclosure-control {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: fit-content;
   min-height: 44px;
+  margin-top: 16px;
+  margin-left: auto;
   color: var(--accent);
-  margin-top: -8px;
+  font-weight: 500;
+}
+
+.disclosure-hide,
+details[open] > summary .disclosure-show {
+  display: none;
+}
+
+details[open] > summary .disclosure-hide {
+  display: inline;
 }
 
 .chevron {
@@ -952,7 +965,7 @@ html:not(.js) .cv-close {
 .project-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 42px 48px;
+  gap: 56px 48px;
 }
 
 .project-card h3 {
@@ -2279,7 +2292,7 @@ html:not(.js) .cv-close {
     justify-self: start;
   }
   .project-grid {
-    gap: 32px 32px;
+    gap: 46px 32px;
   }
   .contact-details {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2382,7 +2395,7 @@ html:not(.js) .cv-close {
   }
   .project-grid {
     grid-template-columns: 1fr;
-    gap: 34px;
+    gap: 48px;
   }
   .project-image.audio {
     gap: 12px;
@@ -2432,10 +2445,6 @@ html:not(.js) .cv-close {
   :is(#education, #jobs, #volunteering) .cv-context,
   :is(#education, #jobs, #volunteering) .cv-main > .document-links {
     margin-right: -56px;
-  }
-  .cv-toggle {
-    grid-column: 2;
-    grid-row: 2;
   }
   .cv-detail {
     margin: 0 0 24px;
@@ -3181,4 +3190,115 @@ html:not(.js) .cv-close {
 /* Arrival highlighting stays quiet; normal keyboard focus returns on interaction. */
 .project-card.is-overview-return:focus-visible {
   outline: none;
+}
+
+/* Align technical fold controls with their summary text, at the right edge. */
+.technical-notes > summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+.technical-notes > summary .disclosure-control {
+  margin-top: 0;
+}
+
+/* Give CV entries more vertical breathing room. */
+:is(#education, #jobs, #volunteering) .cv-heading {
+  padding-block: 28px;
+}
+
+/* Homepage disclosure controls occupy the top-right corner of each entry. */
+details.cv-row > .cv-heading {
+  grid-template-columns: 156px minmax(0, 1fr) auto;
+}
+.cv-heading > .disclosure-control {
+  margin-top: 0;
+  padding-right: 2px;
+  align-items: flex-start;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+.cv-heading > .disclosure-control .chevron {
+  margin-top: 6px;
+}
+@media (max-width: 580px) {
+  details.cv-row > .cv-heading {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  details.cv-row > .cv-heading > .cv-date {
+    grid-column: 1;
+  }
+  .cv-heading > .disclosure-control {
+    grid-column: 2;
+    grid-row: 2;
+    width: 104px;
+    white-space: normal;
+  }
+  details.cv-row > .cv-heading > .cv-main h3 {
+    padding-right: 116px;
+  }
+  details.cv-row > .cv-heading > .cv-main {
+    grid-column: 1 / -1;
+  }
+  :is(#education, #jobs, #volunteering) details.cv-row .cv-context,
+  :is(#education, #jobs, #volunteering)
+    details.cv-row
+    .cv-main
+    > .document-links {
+    margin-right: 0;
+  }
+}
+
+/* A consistent reading rhythm for the arm equations and their closing rule. */
+.ik-equations {
+  font-family: var(--sans);
+  font-size: var(--text-body);
+}
+.ik-equations-content {
+  display: grid;
+  gap: 28px;
+  padding: 12px 0 28px;
+}
+.ik-equations .ik-equations-content > * {
+  margin: 0;
+}
+.ik-equations :is(.ik-mapping-label, .equation dt, .ik-variable-key) {
+  font-size: var(--text-body);
+}
+.ik-equations .ik-equation-panels h4 {
+  font-family: var(--sans);
+  font-size: var(--text-body);
+  margin-bottom: 20px;
+}
+.ik-equations math {
+  font-family: "STIX Two Math", "Cambria Math", math;
+  justify-self: start;
+}
+.ik-equations math mi {
+  font-family: inherit;
+}
+.ik-equations :is(.ik-mapping, .equation dd) {
+  font-size: 1.125rem;
+}
+.ik-equations .equation dd {
+  row-gap: 12px;
+}
+#arm-control > .technical-figure + .case-copy {
+  margin-top: 28px;
+}
+
+.ik-equations .ik-equation-panels > section {
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--portfolio-image-bg);
+  color: var(--bg);
+}
+.ik-equations .ik-equation-panels :is(h4, dt, dd, .ik-variable-key) {
+  color: inherit;
+}
+@media (max-width: 700px) {
+  .ik-equations .ik-equation-panels > section {
+    padding: 16px;
+  }
 }

@@ -50,7 +50,7 @@
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/styles.css?v=201" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=211" />
     <link rel="stylesheet" href="assets/css/wordmark-motion.css?v=2" />
     <script src="assets/js/site.js?v=36" defer></script>
     <script src="assets/js/wordmark-shapes.js?v=1" defer></script>
@@ -559,9 +559,10 @@
             </figure>
             <details class="technical-notes" id="ros2-service-diagrams">
               <summary>
-                ROS 2 service diagrams<span
-                  class="chevron"
-                  aria-hidden="true"
+                ROS 2 service diagrams<span class="disclosure-control"
+                  ><span class="disclosure-show">Show details</span
+                  ><span class="disclosure-hide">Hide details</span
+                  ><span class="chevron" aria-hidden="true"></span
                 ></span>
               </summary>
               <div class="technical-content">
@@ -2783,28 +2784,11 @@
               </p>
               <p>
                 The detector achieved a reported mean average precision (mAP) of
-                81.4%, a score that summarises how well it found and labelled
-                objects. This evaluated the detector separately; it was not the
-                success rate of the complete tool-handling task.
+                81.4%; this measured detection accuracy, not complete task
+                success. Unspecified overlap thresholds and an unidentified
+                evaluation dataset (validation or test) limit comparisons with
+                other evaluations.
               </p>
-              <details class="technical-notes">
-                <summary>
-                  Detector evaluation details<span
-                    class="chevron"
-                    aria-hidden="true"
-                  ></span>
-                </summary>
-                <div class="technical-content">
-                  <p>
-                    Mean average precision depends on how closely a predicted
-                    box must overlap the annotated object to count as a match.
-                    The recorded 81.4% result did not identify which overlap
-                    thresholds were combined, or whether it came from the
-                    validation or test images. This limits comparisons with
-                    scores from other detector evaluations.
-                  </p>
-                </div>
-              </details>
             </div>
           </section>
           <section id="arm-control" class="case-section case-section--figure">
@@ -2871,13 +2855,19 @@
               <details class="technical-notes ik-equations">
                 <summary>
                   <span>Equations and servo mapping</span
-                  ><span class="chevron" aria-hidden="true"></span>
+                  ><span class="disclosure-control"
+                    ><span class="disclosure-show">Show details</span
+                    ><span class="disclosure-hide">Hide details</span
+                    ><span class="chevron" aria-hidden="true"></span
+                  ></span>
                 </summary>
                 <div class="ik-equations-content">
                   <div class="ik-mapping">
                     <span class="ik-mapping-label"
                       >Coordinate-to-angle mapping</span
-                    ><math xmlns="http://www.w3.org/1998/Math/MathML"
+                    ><math
+                      displaystyle="true"
+                      xmlns="http://www.w3.org/1998/Math/MathML"
                       ><mrow
                         ><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>c</mi
                         ><mo>,</mo
@@ -2899,7 +2889,9 @@
                         <div class="equation">
                           <dt>Horizontal target distance</dt>
                           <dd>
-                            <math xmlns="http://www.w3.org/1998/Math/MathML"
+                            <math
+                              displaystyle="true"
+                              xmlns="http://www.w3.org/1998/Math/MathML"
                               ><mrow
                                 ><mi>a</mi><mo>=</mo
                                 ><msqrt
@@ -2916,7 +2908,9 @@
                         <div class="equation">
                           <dt>Base–gripper distance</dt>
                           <dd>
-                            <math xmlns="http://www.w3.org/1998/Math/MathML"
+                            <math
+                              displaystyle="true"
+                              xmlns="http://www.w3.org/1998/Math/MathML"
                               ><mrow
                                 ><mi>b</mi><mo>=</mo
                                 ><msqrt
@@ -2932,7 +2926,9 @@
                         </div>
                       </dl>
                       <p class="ik-variable-key">
-                        <math xmlns="http://www.w3.org/1998/Math/MathML"
+                        <math
+                          displaystyle="true"
+                          xmlns="http://www.w3.org/1998/Math/MathML"
                           ><mrow
                             ><msub
                               ><mi>ℓ</mi><mi mathvariant="normal">AG</mi></msub
@@ -2940,7 +2936,9 @@
                           ></math
                         >
                         arm-link length &nbsp; · &nbsp;
-                        <math xmlns="http://www.w3.org/1998/Math/MathML"
+                        <math
+                          displaystyle="true"
+                          xmlns="http://www.w3.org/1998/Math/MathML"
                           ><mrow><mi>c</mi></mrow></math
                         >
                         height above the target
@@ -2952,7 +2950,9 @@
                         <div class="equation">
                           <dt>Base rotation · Servo 1</dt>
                           <dd>
-                            <math xmlns="http://www.w3.org/1998/Math/MathML"
+                            <math
+                              displaystyle="true"
+                              xmlns="http://www.w3.org/1998/Math/MathML"
                               ><mrow
                                 ><mi>δ</mi><mo>=</mo
                                 ><mi mathvariant="normal">atan2</mi><mo>(</mo
@@ -2964,18 +2964,24 @@
                         <div class="equation">
                           <dt>Shoulder · Servo 2</dt>
                           <dd>
-                            <math xmlns="http://www.w3.org/1998/Math/MathML"
+                            <math
+                              displaystyle="true"
+                              xmlns="http://www.w3.org/1998/Math/MathML"
                               ><mrow
                                 ><mi>α</mi><mo>=</mo><mo>−</mo><mn>90</mn
                                 ><mo>°</mo></mrow
                               ></math
-                            ><math xmlns="http://www.w3.org/1998/Math/MathML"
+                            ><math
+                              displaystyle="true"
+                              xmlns="http://www.w3.org/1998/Math/MathML"
                               ><mrow
                                 ><mo>+</mo><mi mathvariant="normal">atan2</mi
                                 ><mo>(</mo><mi>c</mi><mo>,</mo><mi>a</mi
                                 ><mo>)</mo></mrow
                               ></math
-                            ><math xmlns="http://www.w3.org/1998/Math/MathML"
+                            ><math
+                              displaystyle="true"
+                              xmlns="http://www.w3.org/1998/Math/MathML"
                               ><mrow
                                 ><mo>+</mo><mi mathvariant="normal">acos</mi
                                 ><mo>(</mo
@@ -2996,12 +3002,16 @@
                         <div class="equation">
                           <dt>Elbow · Servo 3</dt>
                           <dd>
-                            <math xmlns="http://www.w3.org/1998/Math/MathML"
+                            <math
+                              displaystyle="true"
+                              xmlns="http://www.w3.org/1998/Math/MathML"
                               ><mrow
                                 ><mi>β</mi><mo>=</mo><mo>−</mo><mn>90</mn
                                 ><mo>°</mo></mrow
                               ></math
-                            ><math xmlns="http://www.w3.org/1998/Math/MathML"
+                            ><math
+                              displaystyle="true"
+                              xmlns="http://www.w3.org/1998/Math/MathML"
                               ><mrow
                                 ><mo>+</mo><mn>2</mn
                                 ><mi mathvariant="normal">asin</mi><mo>(</mo
@@ -3022,12 +3032,16 @@
                         <div class="equation">
                           <dt>Wrist · Servo 4</dt>
                           <dd>
-                            <math xmlns="http://www.w3.org/1998/Math/MathML"
+                            <math
+                              displaystyle="true"
+                              xmlns="http://www.w3.org/1998/Math/MathML"
                               ><mrow
                                 ><mi>γ</mi><mo>=</mo><mo>−</mo><mn>180</mn
                                 ><mo>°</mo></mrow
                               ></math
-                            ><math xmlns="http://www.w3.org/1998/Math/MathML"
+                            ><math
+                              displaystyle="true"
+                              xmlns="http://www.w3.org/1998/Math/MathML"
                               ><mrow
                                 ><mo>+</mo><mi mathvariant="normal">acos</mi
                                 ><mo>(</mo
@@ -3042,7 +3056,9 @@
                                   ></mfrac
                                 ><mo>)</mo></mrow
                               ></math
-                            ><math xmlns="http://www.w3.org/1998/Math/MathML"
+                            ><math
+                              displaystyle="true"
+                              xmlns="http://www.w3.org/1998/Math/MathML"
                               ><mrow
                                 ><mo>+</mo><mi mathvariant="normal">atan2</mi
                                 ><mo>(</mo><mi>a</mi><mo>,</mo><mi>c</mi

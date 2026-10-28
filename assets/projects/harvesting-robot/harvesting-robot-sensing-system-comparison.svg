@@ -4,7 +4,7 @@
   <style>text { fill: #071c17; font: 18px Aptos, "Segoe UI", Arial, sans-serif; text-anchor: middle; }
 .small { font-size: 16px; fill: #284d3c; }
 .group { font-size: 16px; font-weight: 600; fill: #284d3c; letter-spacing: 0.06em; paint-order: stroke; stroke: #a6bcad; stroke-width: 5px; }
-.node { fill: #c9d9cc; stroke: #527363; stroke-width: 1; }
+.node { fill: #edf4ef; stroke: #527363; stroke-width: 1; }
 .edge { fill: none; stroke: #173c30; stroke-width: 1.8; stroke-linejoin: round; marker-end: url(#arrow); }
 .optical, .p12 { stroke: #8d3f23; marker-end: url(#arrow-warm); }
 .p5 { stroke: #255f49; marker-end: url(#arrow-green); }
